@@ -3315,7 +3315,7 @@
   "partido_tse": "PL"
  },
  {
-  "file": "assets/images/president/augusto-cury.webp",
+  "file": "assets/images/president/augusto-cury.jpg",
   "source": "TSE — Portal de Dados Abertos, conjunto \"Candidatos - 2026\"",
   "resource": "BR - Fotos de candidatos",
   "resource_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_BR_div.zip",
@@ -3325,10 +3325,11 @@
   "cargo": "PRESIDENTE",
   "uf": "BR",
   "numero": "70",
-  "partido_tse": "AVANTE"
+  "partido_tse": "AVANTE",
+  "note": "Arquivo JPEG original do TSE, sem recompressão."
  },
  {
-  "file": "assets/images/president/flavio-bolsonaro.webp",
+  "file": "assets/images/president/flavio-bolsonaro.jpg",
   "source": "TSE — Portal de Dados Abertos, conjunto \"Candidatos - 2026\"",
   "resource": "BR - Fotos de candidatos",
   "resource_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_BR_div.zip",
@@ -3338,10 +3339,11 @@
   "cargo": "PRESIDENTE",
   "uf": "BR",
   "numero": "22",
-  "partido_tse": "PL"
+  "partido_tse": "PL",
+  "note": "Arquivo JPEG original do TSE, sem recompressão."
  },
  {
-  "file": "assets/images/president/lula.webp",
+  "file": "assets/images/president/lula.jpg",
   "source": "TSE — Portal de Dados Abertos, conjunto \"Candidatos - 2026\"",
   "resource": "BR - Fotos de candidatos",
   "resource_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_BR_div.zip",
@@ -3351,10 +3353,11 @@
   "cargo": "PRESIDENTE",
   "uf": "BR",
   "numero": "13",
-  "partido_tse": "PT"
+  "partido_tse": "PT",
+  "note": "Arquivo JPEG original do TSE, sem recompressão."
  },
  {
-  "file": "assets/images/president/renan-santos.webp",
+  "file": "assets/images/president/renan-santos.jpg",
   "source": "TSE — Portal de Dados Abertos, conjunto \"Candidatos - 2026\"",
   "resource": "BR - Fotos de candidatos",
   "resource_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_BR_div.zip",
@@ -3364,10 +3367,11 @@
   "cargo": "PRESIDENTE",
   "uf": "BR",
   "numero": "14",
-  "partido_tse": "MISSÃO"
+  "partido_tse": "MISSÃO",
+  "note": "Arquivo JPEG original do TSE, sem recompressão."
  },
  {
-  "file": "assets/images/president/romeu-zema.webp",
+  "file": "assets/images/president/romeu-zema.jpg",
   "source": "TSE — Portal de Dados Abertos, conjunto \"Candidatos - 2026\"",
   "resource": "BR - Fotos de candidatos",
   "resource_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_BR_div.zip",
@@ -3377,10 +3381,11 @@
   "cargo": "PRESIDENTE",
   "uf": "BR",
   "numero": "30",
-  "partido_tse": "NOVO"
+  "partido_tse": "NOVO",
+  "note": "Arquivo JPEG original do TSE, sem recompressão."
  },
  {
-  "file": "assets/images/president/ronaldo-caiado.webp",
+  "file": "assets/images/president/ronaldo-caiado.jpg",
   "source": "TSE — Portal de Dados Abertos, conjunto \"Candidatos - 2026\"",
   "resource": "BR - Fotos de candidatos",
   "resource_url": "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_BR_div.zip",
@@ -3390,7 +3395,8 @@
   "cargo": "PRESIDENTE",
   "uf": "BR",
   "numero": "55",
-  "partido_tse": "PSD"
+  "partido_tse": "PSD",
+  "note": "Arquivo JPEG original do TSE, sem recompressão."
  },
  {
   "file": "assets/images/states/es/gilvan-o-federal-da-direita-2222.webp",

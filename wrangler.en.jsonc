@@ -1,0 +1,11 @@
+{
+  // Brazil Beyond the Ballot (versão inglesa) — Cloudflare Workers Static Assets.
+  // O comando de deploy monta ./dist-en a partir de en/index.html + assets/ (ver LEIA-ME).
+  "name": "brazilbeyondtheballot",
+  "compatibility_date": "2026-09-30",
+  "assets": {
+    "directory": "./dist-en",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}
