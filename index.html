@@ -842,7 +842,8 @@ strong { font-weight: 600; }
 .pf-item { display: grid; gap: 6px; }
 .pf-item .tag { justify-self: start; }
 .pf-item p { margin: 0; }
-@media (min-width: 900px) { .pf-item { grid-template-columns: 150px 1fr; gap: 16px; } .pf-item .tag { margin-top: 3px; } }
+/* V3.1: coluna de rótulo dimensionada para o rótulo mais longo (“Proposta de campanha” ≈ 179px; em inglês ≈ 164px) */
+@media (min-width: 900px) { .pf-item { grid-template-columns: 11.5rem minmax(0, 1fr); gap: 14px; } .pf-item .tag { margin-top: 3px; max-width: 100%; } }
 .pf-row .src-list a { word-break: break-word; }
 .hdr-r { display: flex; align-items: center; gap: 10px; flex: none; }
 .lang { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--line-d); border-radius: 99px; }
@@ -941,7 +942,7 @@ EB.site = {
   concept: "Eleições Brasil 2026",
   subtitle: "Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar.",
   author: "Rafael Magalhães",
-  version: "V3",
+  version: "V3.1",
   content_package: "site-content-eleicoes-2026",
   last_updated: "2026-09-30",
   election_date: "2026-10-04"
@@ -1333,6 +1334,43 @@ EB.chapters = [
       { p: "A PGR questionou partes da resolução no STF, alegando risco à liberdade de expressão e excesso de poder.", l: "alg" },
       { p: "O STF manteve a norma.", l: "jud" }
     ]},
+    { h: "Vaza Toga: o fluxo entre STF e TSE revelado em 2024", b: [
+      { p: "Atenção à cronologia: as reportagens são de agosto de 2024, mas tratam de mensagens trocadas entre agosto de 2022 e maio de 2023 — campanha, segundo turno, transição e início do novo governo. Nesse período, Alexandre de Moraes acumulava a relatoria dos inquéritos das fake news (Inq. 4.781) e das milícias digitais (Inq. 4.874) no STF com a presidência do TSE, assumida em 16 de agosto de 2022.", l: "ctx" },
+      { p: "Em 13 e 14 de agosto de 2024, a Folha de S.Paulo publicou reportagens de Fabio Serapião e Glenn Greenwald baseadas em mais de 6 GB de mensagens de WhatsApp e arquivos trocados por auxiliares de Moraes. Os principais interlocutores eram **Airton Vieira**, juiz instrutor do gabinete de Moraes no STF, e **Eduardo Tagliaferro**, perito criminal que chefiava a Assessoria Especial de Enfrentamento à Desinformação (AEED) do TSE. **Marco Antônio Vargas**, juiz instrutor do gabinete de Moraes no TSE, também aparece nas conversas.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes usou TSE fora do rito para investigar bolsonaristas no Supremo, revelam mensagens", p: "13/08/2024", n: "Link para republicação integral do texto da Folha (Folhapress).", url: "https://www.politicalivre.com.br/2024/08/moraes-usou-tse-fora-do-rito-para-investigar-bolsonaristas-no-supremo-revelam-mensagens" } },
+      { p: "“Vaza Toga” é o apelido pelo qual o vazamento ficou conhecido no debate público. Não é nome de investigação ou procedimento oficial.", l: "ctx" },
+      { p: "A AEED fazia parte formalmente da estrutura do TSE: a Resolução 23.683, de 22 de fevereiro de 2022, assinada pelo então presidente Edson Fachin, transformou uma assessoria já existente da Secretaria-Geral da Presidência em Assessoria Especial de Enfrentamento à Desinformação.", l: "fato", src: { o: "TSE", r: "Resolução nº 23.683, de 22 de fevereiro de 2022 (art. 2º, I)", p: "22/02/2022", url: "https://www.tse.jus.br/legislacao/compilada/res/2022/resolucao-no-23-683-de-22-de-fevereiro-de-2022" } },
+      { p: "Pedidos de relatórios. Segundo as mensagens publicadas, o gabinete de Moraes no STF pedia à AEED, por WhatsApp, relatórios sobre pessoas e publicações ligadas aos inquéritos em curso no Supremo. Em 22 de dezembro de 2022, por exemplo, foi pedida uma análise das postagens do comentarista Rodrigo Constantino para avaliar bloqueio de perfis e multa; no mesmo ciclo aparece o comentarista Paulo Figueiredo.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes usou TSE fora do rito para investigar bolsonaristas no Supremo, revelam mensagens", p: "13/08/2024", n: "Link para republicação integral do texto da Folha (Folhapress).", url: "https://www.politicalivre.com.br/2024/08/moraes-usou-tse-fora-do-rito-para-investigar-bolsonaristas-no-supremo-revelam-mensagens" } },
+      { p: "Em outro caso de dezembro de 2022, Airton Vieira pediu material que sustentasse a desmonetização da Revista Oeste. Quando Tagliaferro respondeu ter encontrado sobretudo publicações jornalísticas, a orientação recebida, segundo as mensagens, foi usar a “criatividade” e procurar opiniões críticas.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes escolhia alvos e pedia ajustes em relatórios contra bolsonaristas, mostram mensagens", p: "14/08/2024", n: "Link para republicação integral do texto da Folha.", url: "https://jornaldebrasilia.com.br/noticias/politica-e-poder/moraes-escolhia-alvos-e-pedia-ajustes-em-relatorios-contra-bolsonaristas-mostram-mensagens/" } },
+      { p: "Ajustes. As mensagens também registram pedidos de complementação e reformulação: no caso Constantino, o gabinete indicou insatisfação com a primeira versão e pediu a inclusão de outras postagens (28/12/2022); em outro episódio, pediu que o texto de um relatório não se concentrasse em ataques ao próprio ministro.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes escolhia alvos e pedia ajustes em relatórios contra bolsonaristas, mostram mensagens", p: "14/08/2024", n: "Link para republicação integral do texto da Folha.", url: "https://jornaldebrasilia.com.br/noticias/politica-e-poder/moraes-escolhia-alvos-e-pedia-ajustes-em-relatorios-contra-bolsonaristas-mostram-mensagens/" } },
+      { p: "Segundo a Folha, os relatórios eram formalizados como se tivessem origem no monitoramento do próprio TSE ou em denúncias recebidas, sem registrar que o pedido partira do gabinete no STF. É isso que o jornal chamou de uso do TSE “fora do rito”.", l: "alg", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes usou TSE fora do rito para investigar bolsonaristas no Supremo, revelam mensagens", p: "13/08/2024", n: "Link para republicação integral do texto da Folha (Folhapress).", url: "https://www.politicalivre.com.br/2024/08/moraes-usou-tse-fora-do-rito-para-investigar-bolsonaristas-no-supremo-revelam-mensagens" } },
+      { p: "Uso nos inquéritos. Nos dias 3 a 5 de janeiro de 2023, decisões de Moraes nos inquéritos 4.781 e 4.874 suspenderam perfis de Constantino e Figueiredo em redes sociais, bloquearam contas bancárias e cancelaram passaportes. A reportagem relaciona relatórios da AEED à fundamentação dessas medidas; o gabinete confirma que relatórios foram juntados às investigações.", l: "fato", src: { o: "Gazeta do Povo", r: "Constantino tem contas bancárias bloqueadas e passaporte cancelado", p: "05/01/2023", url: "https://www.gazetadopovo.com.br/vida-e-cidadania/breves/constantino-tem-contas-bancarias-bloqueadas-e-passaporte-cancelado/" } },
+      { p: "Como os inquéritos tramitam sob sigilo, o site não reconstituiu, peça por peça, a sequência processual de cada caso e não atribui a um relatório específico a causa de uma medida específica.", l: "met" },
+      { p: "A defesa do gabinete. Em nota de 13 de agosto de 2024, o gabinete de Moraes afirmou que pedidos a diversos órgãos, inclusive o TSE, faziam parte das investigações; que o TSE, no exercício do poder de polícia eleitoral, tinha competência para produzir relatórios sobre desinformação, discurso de ódio eleitoral e tentativa de golpe; que os documentos apenas descreviam objetivamente postagens; que foram juntados aos autos e enviados à Polícia Federal; e que todos os procedimentos foram oficiais, regulares e documentados, com participação da PGR.", l: "alg", src: { o: "STF — gabinete do ministro Alexandre de Moraes", r: "Nota do gabinete do Ministro Alexandre de Moraes", p: "13/08/2024", url: "https://noticias.stf.jus.br/postsnoticias/nota-do-gabinete-do-ministro-alexandre-de-moraes-6/" } },
+      { p: "Em 14 de agosto de 2024, no plenário do STF, Moraes reafirmou a legalidade dos atos (“não há nada a esconder”). O presidente do tribunal, Luís Roberto Barroso, falou em “tempestade fictícia”, disse que se tratava de postagens públicas e explicou a informalidade dizendo que “ninguém oficia para si próprio” — as informações seriam formalizadas quando chegavam. Gilmar Mendes também defendeu Moraes.", l: "alg", src: { o: "Agência Brasil", r: "Alexandre de Moraes reafirma legalidade de atos no TSE", p: "14/08/2024", url: "https://agenciabrasil.ebc.com.br/justica/noticia/2024-08/alexandre-de-moraes-reafirma-legalidade-de-atos-no-tse" } },
+      { p: "Essas são as posições institucionais do gabinete e de ministros do STF. O site as registra como defesa, não como conclusão própria.", l: "met", src: { o: "STF", r: "Ministros esclarecem que pedidos do STF ao TSE cumpriram todos os ritos legais", p: "14/08/2024", url: "https://noticias.stf.jus.br/postsnoticias/ministros-esclarecem-que-pedidos-do-stf-ao-tse-cumpriram-todos-os-ritos-legais/" } },
+      { ul: [
+        "A questão não é se a AEED existia legalmente: ela fazia parte da estrutura formal do TSE.",
+        "O debate é sobre **como** essa estrutura foi usada: pedidos informais por WhatsApp, escolha prévia de alvos e orientação sobre o conteúdo dos relatórios.",
+        "Também sobre a circulação entre um órgão da Justiça Eleitoral e inquéritos conduzidos no STF pelo mesmo ministro que presidia o TSE.",
+        "E sobre devido processo, separação entre investigar, produzir informação e julgar, e a extensão do poder de polícia eleitoral.",
+        "“Fora do rito” é a caracterização da Folha e de críticos. Até a data desta versão, o site não identificou decisão judicial que tenha declarado esses procedimentos ilegais."
+      ], l: "ctx", title: "Onde está a controvérsia" },
+      { p: "Desdobramento. Em agosto de 2025, a PGR denunciou Tagliaferro por violação de sigilo funcional, coação no curso do processo, obstrução de investigação e tentativa de abolição violenta do Estado Democrático de Direito, acusando-o de vazar as mensagens. Em novembro de 2025, a Primeira Turma do STF recebeu a denúncia por unanimidade, com Moraes como relator. Em maio de 2026, recursos da defesa estavam em análise.", l: "jud", src: { o: "GPS Brasília", r: "STF aceita denúncia e torna Tagliaferro réu por vazamento", p: "13/11/2025", url: "https://gpsbrasilia.com.br/stf-aceita-denuncia-e-torna-tagliaferro-reu/" } },
+      { status: ["denuncia", "reu"] },
+      { p: "Tagliaferro nega ser a fonte do vazamento e diz ser perseguido político. Ele vive na Itália.", l: "alg", src: { o: "Diário do Poder", r: "STF julga Tagliaferro por mensagens que expuseram o gabinete de Moraes", p: "22/05/2026", url: "https://diariodopoder.com.br/brasil-e-regioes/stf-julga-tagliaferro-por-mensagens-que-expuseram-o-gabinete-de-moraes" } },
+      { box: { l: "ctx", title: "O que não está provado", ul: [
+        "As mensagens não demonstram fraude nas urnas.",
+        "Não demonstram adulteração da contagem de votos.",
+        "Não demonstram, por si só, coordenação entre Lula ou o PT e Moraes para produzir o resultado eleitoral.",
+        "Não demonstram que o resultado presidencial de 2022 tenha sido alterado."] } },
+      { ul: [
+        "Um tribunal eleitoral deveria produzir, dessa forma, material usado em investigações criminais conduzidas no STF?",
+        "Pedidos informais por mensagem são compatíveis com a transparência e o controle exigidos pelo devido processo?",
+        "Escolher alvos antes e pedir complementações depois cria risco de confirmar uma hipótese já formada?",
+        "A concentração de funções em torno do mesmo ministro — relator dos inquéritos, presidente do TSE e, depois, relator da ação contra o suposto autor do vazamento — gera problemas institucionais?"
+      ], l: "ana", title: "Perguntas que o episódio levanta" },
+      { p: "Para este projeto, o episódio reforça a tese do capítulo: o problema não é a apuração dos votos, mas a forma como instrumentos criados para combater desinformação foram operados — com informalidade, concentração de papéis e pouca visibilidade para quem era alvo. Isso merece escrutínio institucional independentemente de quem venceu a eleição.", l: "ed" }
+    ]},
     { h: "Carter Center", b: [
       { p: "A missão do Carter Center reconheceu o problema real da desinformação, mas também registrou preocupação de que o poder exercido pelo TSE pudesse extrapolar e atingir a liberdade de expressão.", l: "fato", src: { o: "Carter Center", r: "Relatório de observação das eleições de 2022", p: "2022" } },
       { p: "Esse é um ponto importante porque a crítica não ficou restrita à campanha derrotada ou a atores de direita.", l: "ana" }
@@ -1358,7 +1396,11 @@ EB.chapters = [
     "STF — decisões de 2019 e 2021 sobre Lula.",
     "TSE — decisões eleitorais, Resolução 23.714 e resultados oficiais.",
     "OAB — acesso da defesa.",
-    "Carter Center — relatório de observação das eleições de 2022."
+    "Carter Center — relatório de observação das eleições de 2022.",
+    "Folha de S.Paulo — série de Fabio Serapião e Glenn Greenwald sobre mensagens entre os gabinetes de Moraes no STF e no TSE (13 e 14/08/2024).",
+    "STF — Nota do gabinete do Ministro Alexandre de Moraes (13/08/2024) e “Ministros esclarecem que pedidos do STF ao TSE cumpriram todos os ritos legais” (14/08/2024).",
+    "TSE — Resolução 23.683/2022 (criação da AEED).",
+    "Agência Brasil — sessão do STF de 14/08/2024; Gazeta do Povo — medidas de janeiro de 2023; Poder360, GPS Brasília e Diário do Poder — ação contra Eduardo Tagliaferro (2025–2026)."
   ]
 },
 

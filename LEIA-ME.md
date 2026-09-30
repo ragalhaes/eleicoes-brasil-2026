@@ -1,4 +1,4 @@
-# Além da Urna / Brazil Beyond the Ballot — V3
+# Além da Urna / Brazil Beyond the Ballot — V3.1
 
 Site 100% estático: português em alemdaurna.com e inglês em brazilbeyondtheballot.com. Sem React/Next, sem backend, sem banco, sem CMS, sem build. Publicação: GitHub + Cloudflare Workers Static Assets.
 
