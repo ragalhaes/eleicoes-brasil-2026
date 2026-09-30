@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Além da Urna — Eleições Brasil 2026</title>
 <meta name="description" content="Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar — com fatos, decisões judiciais, alegações e opinião editorial claramente identificados.">
+<meta name="author" content="Ragalhaes">
 <link rel="canonical" href="https://alemdaurna.com/">
 <link rel="alternate" hreflang="pt-BR" href="https://alemdaurna.com/">
 <link rel="alternate" hreflang="en-US" href="https://brazilbeyondtheballot.com/">
@@ -863,6 +864,75 @@ html[lang="en-US"] .hero h1 { font-size: clamp(40px, 8.4vw, 92px); }
 @media (max-width: 479px) { html[lang="en-US"] .brand b { font-size: 16px; } }
 @media (max-width: 379px) { html[lang="en-US"] .site-header .hdr-r > .lang { display: none; } }
 
+/* V3.1.1: autoria no rodapé */
+.footer-bottom .footer-author { max-width: 64ch; line-height: 1.6; }
+
+/* ---------- V3.2: colinha eleitoral (tela + impressão) ---------- */
+.colinha-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 14px 20px; border-top: 1px solid var(--line-l); font-size: 13.5px; color: var(--t-dark-2); }
+.colinha-cta .btn { color: var(--t-dark); }
+.colinha { display: none; }
+.colinha-open .colinha { display: block; position: fixed; inset: 0; z-index: 90; background: rgba(5,6,8,.72); overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 24px 12px 0; }
+.colinha-open body { overflow: hidden; }
+.colinha-box { position: relative; max-width: 1040px; margin: 0 auto 32px; background: var(--paper); color: var(--t-dark); border-radius: var(--radius); padding: 22px 16px 20px; --line: var(--line-l); }
+@media (min-width: 720px) { .colinha-box { padding: 30px 32px 26px; } }
+.colinha-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.colinha-head h2 { font-family: var(--f-display); font-size: clamp(28px, 5vw, 40px); line-height: 1; letter-spacing: -.02em; }
+.colinha-meta { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--t-dark-2); margin-top: 8px; }
+.colinha-x { flex: none; width: 40px; height: 40px; border-radius: 99px; border: 1px solid var(--line-l); background: none; font-size: 22px; line-height: 1; color: var(--t-dark); }
+.colinha-note { font-size: 13.5px; color: var(--t-dark-2); margin: 14px 0 18px; max-width: 70ch; }
+.colinha-grid { display: grid; gap: 22px; }
+.colinha-grid > * { min-width: 0; }
+@media (min-width: 1000px) { .colinha-grid { grid-template-columns: 1.15fr 1fr; align-items: start; } .colinha-preview { position: sticky; top: 0; } }
+.colinha-form { display: grid; gap: 10px; }
+.colinha-row { border: 1px solid var(--line-l); border-radius: var(--radius); padding: 12px 14px 12px; background: var(--white); min-width: 0; }
+.colinha-row legend { font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; padding: 0 4px; }
+.colinha-row legend b { color: var(--t-dark); margin-right: 4px; }
+.colinha-row legend small { color: var(--t-dark-2); letter-spacing: .04em; text-transform: none; margin-left: 4px; }
+.colinha-pick { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 10px; font-size: 12.5px; color: var(--t-dark-2); }
+.colinha-pick > span { flex-basis: 100%; }
+.colinha-pick .chip { font-size: 12.5px; padding: 5px 10px; background: var(--paper); cursor: pointer; }
+.colinha-pick .chip:hover { border-color: var(--t-dark); }
+.colinha-fields { display: grid; grid-template-columns: minmax(0, 1fr) 96px auto; gap: 8px; align-items: end; }
+.colinha-fields label { display: grid; gap: 4px; min-width: 0; }
+.colinha-fields label > span { font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--t-dark-2); }
+.colinha-fields input { width: 100%; min-width: 0; height: 42px; padding: 8px 10px; border: 1px solid var(--line-l); border-radius: 3px; background: #fff; color: var(--t-dark); font: 500 16px var(--f-sans); }
+.colinha-fields .num input { font: 600 20px var(--f-mono); letter-spacing: .12em; text-align: center; }
+.colinha-fields input:focus { outline: 2px solid var(--t-dark); outline-offset: 1px; }
+.colinha-fields .linkish { font-size: 12.5px; color: var(--t-dark-2); height: 42px; }
+.colinha-row.is-bad .num input { border-color: #b45309; background: #fff7ed; }
+.colinha-hint { margin-top: 6px; font-size: 12.5px; color: #b45309; }
+.colinha-warn { margin-top: 14px; padding: 10px 14px; border-left: 3px solid #b45309; background: #fff7ed; font-size: 13.5px; color: #7c2d12; }
+.colinha-actions { position: sticky; bottom: 0; box-shadow: 0 -1px 0 var(--line-l); display: flex; flex-wrap: wrap; gap: 10px; padding: 12px 0 14px; margin-top: 12px; background: var(--paper); border-top: 1px solid var(--line-l); z-index: 1; }
+.colinha-actions .btn--ghost { color: var(--t-dark); }
+.colinha-legal { font-size: 12px; color: var(--t-dark-2); margin-top: 10px; max-width: 80ch; }
+.colinha-legal a { color: inherit; }
+@media (max-width: 479px) { .colinha-fields { grid-template-columns: minmax(0, 1fr) 84px; } .colinha-fields .linkish { grid-column: 1 / -1; height: auto; justify-self: start; } .colinha-actions .btn { flex: 1 1 auto; } }
+
+/* Folha da colinha (prévia e impressão): preto no branco, número em destaque */
+.colinha-sheet { background: #fff; color: #000; border: 1px dashed #777; padding: 14px 16px 10px; max-width: 420px; font-family: var(--f-sans); }
+.cs-head { display: flex; flex-direction: column; gap: 2px; padding-bottom: 8px; border-bottom: 2px solid #000; }
+.cs-head b { font-family: var(--f-mono); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; }
+.cs-head span { font-size: 12px; }
+.cs-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 7px 0; border-bottom: 1px solid #bbb; }
+.cs-l { min-width: 0; display: grid; gap: 1px; }
+.cs-l small { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; }
+.cs-l span { font-size: 13px; line-height: 1.25; overflow-wrap: anywhere; }
+.cs-l i { font-style: normal; font-size: 11px; }
+.cs-n { flex: none; font: 700 26px/1 var(--f-mono); letter-spacing: .08em; }
+.cs-box { display: inline-flex; gap: 3px; }
+.cs-box i { width: 16px; height: 24px; border: 1px solid #000; display: inline-block; }
+.cs-foot { font-size: 9.5px; line-height: 1.4; padding-top: 7px; color: #222; }
+
+@media print {
+  html.colinha-open body > *:not(#colinha) { display: none !important; }
+  html.colinha-open, html.colinha-open body { background: #fff !important; overflow: visible !important; }
+  html.colinha-open .colinha { position: static !important; display: block !important; background: none !important; padding: 0 !important; overflow: visible !important; }
+  html.colinha-open .colinha-box { max-width: none; padding: 0; background: #fff; border: 0; }
+  html.colinha-open .colinha-box > :not(.colinha-grid), html.colinha-open .colinha-grid > :not(.colinha-preview), html.colinha-open .colinha-preview > .eyebrow { display: none !important; }
+  html.colinha-open .colinha-grid { display: block; }
+  html.colinha-open .colinha-sheet { width: 110mm; max-width: none; margin: 0 auto; border: 1px dashed #000; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
 </style>
 </head>
 <body>
@@ -919,8 +989,8 @@ html[lang="en-US"] .hero h1 { font-size: clamp(40px, 8.4vw, 92px); }
       </div>
     </div>
     <div class="footer-bottom">
-      <span>Além da Urna · projeto editorial independente · Rafael Magalhães · alemdaurna.com</span>
-      <span id="footer-upd"></span>
+      <span class="footer-author">Além da Urna é um projeto editorial independente criado e editado por Ragalhaes, em San Diego, Califórnia, Estados Unidos.</span>
+      <span>© 2026 Ragalhaes · <span id="footer-upd"></span></span>
     </div>
   </div>
 </footer>
@@ -942,7 +1012,7 @@ EB.site = {
   concept: "Eleições Brasil 2026",
   subtitle: "Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar.",
   author: "Rafael Magalhães",
-  version: "V3.1",
+  version: "V3.2",
   content_package: "site-content-eleicoes-2026",
   last_updated: "2026-09-30",
   election_date: "2026-10-04"
@@ -1339,7 +1409,7 @@ EB.chapters = [
       { p: "Em 13 e 14 de agosto de 2024, a Folha de S.Paulo publicou reportagens de Fabio Serapião e Glenn Greenwald baseadas em mais de 6 GB de mensagens de WhatsApp e arquivos trocados por auxiliares de Moraes. Os principais interlocutores eram **Airton Vieira**, juiz instrutor do gabinete de Moraes no STF, e **Eduardo Tagliaferro**, perito criminal que chefiava a Assessoria Especial de Enfrentamento à Desinformação (AEED) do TSE. **Marco Antônio Vargas**, juiz instrutor do gabinete de Moraes no TSE, também aparece nas conversas.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes usou TSE fora do rito para investigar bolsonaristas no Supremo, revelam mensagens", p: "13/08/2024", n: "Link para republicação integral do texto da Folha (Folhapress).", url: "https://www.politicalivre.com.br/2024/08/moraes-usou-tse-fora-do-rito-para-investigar-bolsonaristas-no-supremo-revelam-mensagens" } },
       { p: "“Vaza Toga” é o apelido pelo qual o vazamento ficou conhecido no debate público. Não é nome de investigação ou procedimento oficial.", l: "ctx" },
       { p: "A AEED fazia parte formalmente da estrutura do TSE: a Resolução 23.683, de 22 de fevereiro de 2022, assinada pelo então presidente Edson Fachin, transformou uma assessoria já existente da Secretaria-Geral da Presidência em Assessoria Especial de Enfrentamento à Desinformação.", l: "fato", src: { o: "TSE", r: "Resolução nº 23.683, de 22 de fevereiro de 2022 (art. 2º, I)", p: "22/02/2022", url: "https://www.tse.jus.br/legislacao/compilada/res/2022/resolucao-no-23-683-de-22-de-fevereiro-de-2022" } },
-      { p: "Pedidos de relatórios. Segundo as mensagens publicadas, o gabinete de Moraes no STF pedia à AEED, por WhatsApp, relatórios sobre pessoas e publicações ligadas aos inquéritos em curso no Supremo. Em 22 de dezembro de 2022, por exemplo, foi pedida uma análise das postagens do comentarista Rodrigo Constantino para avaliar bloqueio de perfis e multa; no mesmo ciclo aparece o comentarista Paulo Figueiredo.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes usou TSE fora do rito para investigar bolsonaristas no Supremo, revelam mensagens", p: "13/08/2024", n: "Link para republicação integral do texto da Folha (Folhapress).", url: "https://www.politicalivre.com.br/2024/08/moraes-usou-tse-fora-do-rito-para-investigar-bolsonaristas-no-supremo-revelam-mensagens" } },
+      { p: "Pedidos de relatórios. Segundo as mensagens publicadas, o gabinete de Moraes no STF pedia à AEED, por WhatsApp, relatórios sobre pessoas e publicações ligadas aos inquéritos em curso no Supremo. Em 22 de novembro de 2022, por exemplo, foi pedida uma análise das postagens do comentarista Rodrigo Constantino para avaliar bloqueio de perfis e multa; no mesmo ciclo aparece o comentarista Paulo Figueiredo.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes usou TSE fora do rito para investigar bolsonaristas no Supremo, revelam mensagens", p: "13/08/2024", n: "Link para republicação integral do texto da Folha (Folhapress).", url: "https://www.politicalivre.com.br/2024/08/moraes-usou-tse-fora-do-rito-para-investigar-bolsonaristas-no-supremo-revelam-mensagens" } },
       { p: "Em outro caso de dezembro de 2022, Airton Vieira pediu material que sustentasse a desmonetização da Revista Oeste. Quando Tagliaferro respondeu ter encontrado sobretudo publicações jornalísticas, a orientação recebida, segundo as mensagens, foi usar a “criatividade” e procurar opiniões críticas.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes escolhia alvos e pedia ajustes em relatórios contra bolsonaristas, mostram mensagens", p: "14/08/2024", n: "Link para republicação integral do texto da Folha.", url: "https://jornaldebrasilia.com.br/noticias/politica-e-poder/moraes-escolhia-alvos-e-pedia-ajustes-em-relatorios-contra-bolsonaristas-mostram-mensagens/" } },
       { p: "Ajustes. As mensagens também registram pedidos de complementação e reformulação: no caso Constantino, o gabinete indicou insatisfação com a primeira versão e pediu a inclusão de outras postagens (28/12/2022); em outro episódio, pediu que o texto de um relatório não se concentrasse em ataques ao próprio ministro.", l: "fato", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes escolhia alvos e pedia ajustes em relatórios contra bolsonaristas, mostram mensagens", p: "14/08/2024", n: "Link para republicação integral do texto da Folha.", url: "https://jornaldebrasilia.com.br/noticias/politica-e-poder/moraes-escolhia-alvos-e-pedia-ajustes-em-relatorios-contra-bolsonaristas-mostram-mensagens/" } },
       { p: "Segundo a Folha, os relatórios eram formalizados como se tivessem origem no monitoramento do próprio TSE ou em denúncias recebidas, sem registrar que o pedido partira do gabinete no STF. É isso que o jornal chamou de uso do TSE “fora do rito”.", l: "alg", src: { o: "Folha de S.Paulo (Fabio Serapião e Glenn Greenwald)", r: "Moraes usou TSE fora do rito para investigar bolsonaristas no Supremo, revelam mensagens", p: "13/08/2024", n: "Link para republicação integral do texto da Folha (Folhapress).", url: "https://www.politicalivre.com.br/2024/08/moraes-usou-tse-fora-do-rito-para-investigar-bolsonaristas-no-supremo-revelam-mensagens" } },
@@ -3484,8 +3554,132 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
         if (list.length > o.slots) for (var j = o.slots; j < list.length; j++) slots += '<div class="slot has-p">' + person(list[j]) + "</div>";
         return '<div class="office"><h4>' + esc(o.name) + (o.note ? "<small>" + esc(o.note) + "</small>" : "") + '</h4><div class="slots">' + slots + "</div></div>"; }).join("") + "</div>" +
       (rec.notes ? '<div class="office" style="border-right:0">' + tag("ed") + "<p>" + esc(rec.notes) + "</p></div>" : "") +
+      colinhaCta(U) +
       '<div class="state-foot"><span>Fonte: <a href="' + esc(R.source_url) + '" target="_blank" rel="noopener noreferrer">' + esc(R.source_name) + "</a> · " + (rec.last_updated ? "atualizado em " + dmy(rec.last_updated) : "indicações em atualização") + (R.photo_credit ? " · " + esc(R.photo_credit) : "") + '</span><span class="tag e">Indicação pessoal</span></div>';
   }
+
+  /* ---------------------------------------------------------- COLINHA ELEITORAL (impressão) */
+  /* Ordem oficial de votação — Eleições 2026 (TSE, Res. 23.751/2026, art. 142).
+     Tudo acontece no navegador: nada é salvo nem enviado. */
+  var CL = LANG === "en" ? {
+    btn: "Print my voting reference", cta: "Your picks, in the order of Brazil's electronic voting machine, ready to print.",
+    title: "My voting reference", sub: "Brazilian Elections 2026", state: "State",
+    fed: "Federal Deputy", st: "State Deputy", dist: "District Deputy", s1: "Senator — First Seat", s2: "Senator — Second Seat", gov: "Governor", pres: "President",
+    digits: " digits", name: "Name", number: "Number", clear: "Clear", check: "Check this number",
+    pick: "This page lists {n} recommendations for this office. Tap one to fill in, or type another name:",
+    prefill: "Initial entries are based on the recommendations shown on this page (source of the recommendations: peterapoia.com). Edit, delete or leave any line blank — this card is yours. Nothing is sent or saved: everything stays in your browser.",
+    senate: "Check your Senate votes: in 2026 there are two separate choices.",
+    preview: "Print preview", print: "Print", close: "Back",
+    review: "Review names and numbers before printing, and check the information shown on the voting machine before confirming each vote.",
+    order: "Voting order per Brazil's Superior Electoral Court (TSE) — 2026 Elections.",
+    orderSrc: "Order set by TSE Resolution 23.751/2026, art. 142. The TSE allows voters to bring a printed or handwritten note; phones cannot be used in the voting booth.",
+    foot: "Initial entries: recommendations shown on brazilbeyondtheballot.com (source: peterapoia.com).",
+    dialog: "My voting reference", blank: "blank"
+  } : {
+    btn: "Montar minha colinha", cta: "Seus votos na ordem da urna, prontos para imprimir.",
+    title: "Minha colinha", sub: "Eleições 2026", state: "Estado",
+    fed: "Deputado federal", st: "Deputado estadual", dist: "Deputado distrital", s1: "Senador — 1ª vaga", s2: "Senador — 2ª vaga", gov: "Governador", pres: "Presidente",
+    digits: " dígitos", name: "Nome", number: "Número", clear: "Apagar", check: "Confira este número",
+    pick: "Esta página traz {n} indicações para este cargo. Toque em uma para preencher ou digite outro nome:",
+    prefill: "Preenchimento inicial baseado nas indicações exibidas nesta página (fonte das indicações: peterapoia.com). Edite, apague ou deixe qualquer linha em branco — a colinha é sua. Nada é enviado nem salvo: tudo fica no seu navegador.",
+    senate: "Confira os votos para o Senado: em 2026 são duas escolhas distintas.",
+    preview: "Prévia da impressão", print: "Imprimir", close: "Voltar",
+    review: "Revise nomes e números antes de imprimir e confira as informações exibidas na urna antes de confirmar o voto.",
+    order: "Ordem de votação conforme o TSE — Eleições 2026.",
+    orderSrc: "Ordem definida pela Resolução TSE nº 23.751/2026, art. 142. O TSE permite levar anotação impressa ou escrita à mão; o celular não pode ser usado na cabine.",
+    foot: "Preenchimento inicial: indicações exibidas em alemdaurna.com (fonte: peterapoia.com).",
+    dialog: "Minha colinha", blank: "em branco"
+  };
+  var COL_ROWS = [["federal_deputy", 4], ["state_deputy", 5], ["senate1", 3], ["senate2", 3], ["governor", 2], ["president", 2]];
+  var col = null, colOpener = null;
+  function colLabel(id, uf) { return { federal_deputy: CL.fed, state_deputy: uf === "DF" ? CL.dist : CL.st, senate1: CL.s1, senate2: CL.s2, governor: CL.gov, president: CL.pres }[id]; }
+  function colPerson(p) { return p && p.name ? { name: p.name, number: String(p.number || ""), party: p.party || "" } : { name: "", number: "", party: "" }; }
+  function colOptions(id, rec) { return id === "federal_deputy" ? (rec.federal_deputy || []) : id === "state_deputy" ? (rec.state_deputy || []) : []; }
+  function colinhaCta(U) {
+    return '<div class="colinha-cta"><button type="button" class="btn btn--ghost btn--sm" data-colinha="' + U.uf + '">🖨 ' + esc(CL.btn) + '</button><span>' + esc(CL.cta) + "</span></div>";
+  }
+  function openColinha(uf) {
+    var U = EB.ufs.filter(function (x) { return x.uf === uf; })[0]; if (!U) return;
+    var rec = EB.recs[uf] || {}, sen = rec.senate || [];
+    var rows = {};
+    rows.federal_deputy = colPerson((rec.federal_deputy || []).length === 1 ? rec.federal_deputy[0] : null);
+    rows.state_deputy = colPerson((rec.state_deputy || []).length === 1 ? rec.state_deputy[0] : null);
+    rows.senate1 = colPerson(sen[0]); rows.senate2 = colPerson(sen[1]);
+    rows.governor = colPerson(rec.governor); rows.president = colPerson(EB.recsPresident);
+    col = { uf: uf, U: U, rec: rec, rows: rows };
+    var el = document.getElementById("colinha");
+    if (!el) { el = document.createElement("div"); el.id = "colinha"; el.className = "colinha"; el.setAttribute("role", "dialog"); el.setAttribute("aria-modal", "true"); el.setAttribute("aria-labelledby", "colinha-title"); document.body.appendChild(el); }
+    el.innerHTML = '<div class="colinha-box paper">' +
+      '<div class="colinha-head"><div><h2 id="colinha-title">' + esc(CL.title) + '</h2><p class="colinha-meta">' + esc(CL.sub) + " · " + esc(CL.state) + ": " + esc(U.name) + " (" + U.uf + ')</p></div><button type="button" class="colinha-x" data-colinha-close aria-label="' + esc(CL.close) + '">×</button></div>' +
+      '<p class="colinha-note">' + esc(CL.prefill) + "</p>" +
+      '<div class="colinha-grid"><div class="colinha-form">' + COL_ROWS.map(function (r, i) {
+        var id = r[0], d = r[1], v = rows[id], opts = colOptions(id, rec);
+        return '<fieldset class="colinha-row" data-row="' + id + '"><legend><b>' + (i + 1) + "</b> " + esc(colLabel(id, uf)) + " <small>" + d + esc(CL.digits) + "</small></legend>" +
+          (opts.length > 1 ? '<div class="colinha-pick"><span>' + esc(CL.pick.replace("{n}", opts.length)) + "</span>" + opts.map(function (p, k) { return '<button type="button" class="chip" data-colpick="' + id + '" data-k="' + k + '">' + esc(p.name) + " · " + esc(p.number) + "</button>"; }).join("") + "</div>" : "") +
+          '<div class="colinha-fields"><label><span>' + esc(CL.name) + '</span><input type="text" autocomplete="off" data-f="name" value="' + esc(v.name) + '"></label>' +
+          '<label class="num"><span>' + esc(CL.number) + '</span><input type="text" inputmode="numeric" autocomplete="off" maxlength="' + (d + 1) + '" data-f="number" data-d="' + d + '" value="' + esc(v.number) + '"></label>' +
+          '<button type="button" class="linkish" data-colclear="' + id + '">' + esc(CL.clear) + '</button></div><p class="colinha-hint" hidden>' + esc(CL.check) + "</p></fieldset>";
+      }).join("") + '</div><div class="colinha-preview"><div class="eyebrow">' + esc(CL.preview) + '</div><div class="colinha-sheet" id="colinha-sheet"></div></div></div>' +
+      '<p class="colinha-warn" id="colinha-senate" hidden>' + esc(CL.senate) + "</p>" +
+      '<div class="colinha-actions"><button type="button" class="btn btn--solid" data-colinha-print>🖨 ' + esc(CL.print) + '</button><button type="button" class="btn btn--ghost" data-colinha-close>' + esc(CL.close) + "</button></div>" +
+      '<p class="colinha-legal">' + esc(CL.review) + " " + esc(CL.orderSrc) + ' <a href="https://www.tse.jus.br/comunicacao/noticias/2026/Marco/eleicoes-2026-conheca-a-ordem-de-votacao-na-urna-eletronica" target="_blank" rel="noopener noreferrer">TSE ↗</a></p>' +
+      "</div>";
+    colOpener = document.activeElement;
+    document.documentElement.classList.add("colinha-open");
+    colUpdate();
+    var ttl = document.getElementById("colinha-title"); ttl.setAttribute("tabindex", "-1"); try { ttl.focus({ preventScroll: true }); } catch (e) { ttl.focus(); }
+    el.scrollTop = 0;
+  }
+  function closeColinha() {
+    var el = document.getElementById("colinha"); if (!el || !document.documentElement.classList.contains("colinha-open")) return;
+    document.documentElement.classList.remove("colinha-open"); el.innerHTML = ""; col = null;
+    if (colOpener && document.body.contains(colOpener)) try { colOpener.focus({ preventScroll: true }); } catch (e) {}
+  }
+  function colUpdate() {
+    if (!col) return;
+    var dup = false;
+    [].forEach.call(document.querySelectorAll("#colinha .colinha-row"), function (fs) {
+      var id = fs.getAttribute("data-row"), inp = fs.querySelector("[data-f=number]"), d = +inp.getAttribute("data-d"), n = inp.value;
+      var bad = n !== "" && n.length !== d; fs.querySelector(".colinha-hint").hidden = !bad; fs.classList.toggle("is-bad", bad);
+    });
+    var r = col.rows;
+    dup = r.senate1.number !== "" && r.senate1.number === r.senate2.number;
+    document.getElementById("colinha-senate").hidden = !dup;
+    document.getElementById("colinha-sheet").innerHTML =
+      '<div class="cs-head"><b>' + esc(CL.title) + "</b><span>" + esc(CL.sub) + " · " + esc(col.U.name) + " (" + col.uf + ")</span></div>" +
+      COL_ROWS.map(function (row, i) {
+        var id = row[0], d = row[1], v = r[id];
+        return '<div class="cs-row"><div class="cs-l"><small>' + (i + 1) + " · " + esc(colLabel(id, col.uf)) + "</small><span>" + (v.name ? esc(v.name) + (v.party ? ' <i>' + esc(v.party) + "</i>" : "") : "&nbsp;") + '</span></div><div class="cs-n">' +
+          (v.number ? esc(v.number) : '<span class="cs-box" aria-label="' + esc(CL.blank) + '">' + new Array(d + 1).join("<i></i>") + "</span>") + "</div></div>";
+      }).join("") +
+      '<div class="cs-foot">' + esc(CL.order) + " " + esc(CL.review) + "<br>" + esc(CL.foot) + "</div>";
+  }
+  document.addEventListener("input", function (e) {
+    var t = e.target; if (!col || !t.closest || !t.closest("#colinha")) return;
+    var fs = t.closest(".colinha-row"); if (!fs) return;
+    var id = fs.getAttribute("data-row"), f = t.getAttribute("data-f");
+    if (f === "number") { var clean = t.value.replace(/\D/g, ""); if (clean !== t.value) t.value = clean; }
+    col.rows[id][f] = t.value; col.rows[id].party = "";
+    colUpdate();
+  });
+  function colSet(id, p) {
+    col.rows[id] = colPerson(p);
+    var fs = document.querySelector('#colinha .colinha-row[data-row="' + id + '"]');
+    fs.querySelector("[data-f=name]").value = col.rows[id].name; fs.querySelector("[data-f=number]").value = col.rows[id].number;
+    colUpdate();
+  }
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target : null; if (!t) return; var el;
+    if ((el = t.closest("[data-colinha]"))) { openColinha(el.getAttribute("data-colinha")); return; }
+    if (!col) return;
+    if (t.closest("[data-colinha-close]")) { closeColinha(); return; }
+    if (t.closest("[data-colinha-print]")) { colUpdate(); window.print(); return; }
+    if ((el = t.closest("[data-colpick]"))) { var id = el.getAttribute("data-colpick"); colSet(id, colOptions(id, col.rec)[+el.getAttribute("data-k")]); return; }
+    if ((el = t.closest("[data-colclear]"))) { colSet(el.getAttribute("data-colclear"), null); return; }
+    if (t.id === "colinha") closeColinha();
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && col) closeColinha(); });
+  window.addEventListener("hashchange", closeColinha);
 
   /* ---------------------------------------------------------- FONTES */
   function renderSources() {

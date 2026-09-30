@@ -1,4 +1,4 @@
-# Além da Urna / Brazil Beyond the Ballot — V3.1
+# Além da Urna / Brazil Beyond the Ballot — V3.2
 
 Site 100% estático: português em alemdaurna.com e inglês em brazilbeyondtheballot.com. Sem React/Next, sem backend, sem banco, sem CMS, sem build. Publicação: GitHub + Cloudflare Workers Static Assets.
 
@@ -51,6 +51,10 @@ Observações:
   `https://alemdaurna.com/#/estados/SP` ↔ `https://brazilbeyondtheballot.com/#/states/SP`.
   Em teste local (arquivo aberto direto ou localhost) usa caminhos relativos (`en/` ↔ `../`).
 - Os endereços ficam em `EB.site.urls` (bloco de configuração antes do script da interface) e nas tags do `<head>` das duas páginas.
+
+## Colinha eleitoral (V3.2)
+
+Na página de cada estado, o botão "Montar minha colinha" (EN: "Print my voting reference") abre uma prévia editável na ordem oficial da urna (Res. TSE 23.751/2026, art. 142) e imprime só a colinha via `window.print()`. Tudo roda no navegador; nada é salvo nem enviado.
 
 ## Procedência
 
