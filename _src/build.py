@@ -8,6 +8,7 @@ SRC = os.path.dirname(os.path.abspath(__file__)) + '/'
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/'
 
 # ---- Endereços públicos: troque aqui quando houver domínio próprio para o inglês ----
+CONTACT = 'ragalhaes@icloud.com'
 URLS = {'pt': 'https://alemdaurna.com/', 'en': 'https://brazilbeyondtheballot.com/'}
 
 FLAG_BR = '<svg viewBox="0 0 20 14" aria-hidden="true" focusable="false"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.6 18.2 7 10 12.4 1.8 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="3.3" fill="#002776"/><path d="M6.9 6.2c2.1-.5 4.4-.2 6.1.9" stroke="#fff" stroke-width=".6" fill="none"/></svg>'
@@ -29,7 +30,7 @@ L = {
   foot_nav=[('historia', 'História'), ('em-jogo', 'O que está em jogo'), ('candidatos', 'Candidatos'), ('comparar', 'Comparar'), ('pesquisas', 'Pesquisas'), ('mercados', 'Mercados'), ('iris', 'Modelo ÍRIS'), ('estados', 'Estados')],
   foot_tr=[('fontes', 'Fontes e metodologia'), ('fontes#rotulos', 'Como ler os rótulos'), ('fontes#atualizacao', 'Atualização dos dados')],
   foot_line='Além da Urna é um projeto editorial independente criado e editado por Ragalhaes, em San Diego, Califórnia, Estados Unidos.',
-  to_top='Voltar ao topo', asset='', datadir='data'),
+  to_top='Voltar ao topo', contact_lbl='Contato', asset='', datadir='data'),
  'en': dict(
   html_lang='en-US', og_locale='en_US', og_alt='pt_BR',
   title='Brazil Beyond the Ballot — Brazil Elections 2026', brand='Brazil Beyond the Ballot', footer_big_name='Brazil Beyond<br>the Ballot',
@@ -41,7 +42,7 @@ L = {
   foot_nav=[('history', 'History'), ('at-stake', 'What is at stake'), ('candidates', 'Candidates'), ('compare', 'Compare'), ('polls', 'Polls'), ('markets', 'Markets'), ('iris', 'ÍRIS model'), ('states', 'States')],
   foot_tr=[('sources', 'Sources and methodology'), ('sources#rotulos', 'How to read the labels'), ('sources#atualizacao', 'Data updates')],
   foot_line='Brazil Beyond the Ballot is an independent editorial project created and edited by Ragalhaes in San Diego, California, United States.',
-  to_top='Back to top', asset='../', datadir='data_en'),
+  to_top='Back to top', contact_lbl='Contact', asset='../', datadir='data_en'),
 }
 NAVKEY = {'history': 'historia', 'at-stake': 'em-jogo', 'candidates': 'candidatos', 'compare': 'comparar', 'polls': 'pesquisas', 'states': 'estados', 'sources': 'fontes'}
 EN_SLUGS = {'historia': 'history', 'em-jogo': 'at-stake', 'candidatos': 'candidates', 'comparar': 'compare', 'pesquisas': 'polls', 'mercados': 'markets', 'estados': 'states', 'fontes': 'sources'}
@@ -143,7 +144,7 @@ def shell(lang):
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-author">{c['foot_line']}</span>
+      <span class="footer-author">{c['foot_line']} {c['contact_lbl']}: <a href="mailto:{CONTACT}">{CONTACT}</a></span>
       <span>© 2026 Ragalhaes · <span id="footer-upd"></span></span>
     </div>
   </div>

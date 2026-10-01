@@ -905,3 +905,5 @@ html[lang="en-US"] .hero h1 { font-size: clamp(40px, 8.4vw, 92px); }
   html.colinha-open .colinha-grid { display: block; }
   html.colinha-open .colinha-sheet { width: 110mm; max-width: none; margin: 0 auto; border: 1px dashed #000; break-inside: avoid; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+.footer-bottom .footer-author a { color: var(--t-light); text-underline-offset: 3px; }
+.footer-bottom .footer-author a:hover { color: var(--accent); }
