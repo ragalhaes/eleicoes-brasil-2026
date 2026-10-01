@@ -2210,8 +2210,8 @@ EB.pollsMeta = {
   candidates_1t: ["lula", "flavio-bolsonaro", "augusto-cury", "ronaldo-caiado", "renan-santos", "romeu-zema"],
   short: { "lula": "Lula", "flavio-bolsonaro": "Flávio", "augusto-cury": "Cury", "ronaldo-caiado": "Caiado", "renan-santos": "Renan", "romeu-zema": "Zema" },
   legend_avg: "Simple average of the most recent poll from each polling firm. It is not an election forecast.",
-  history_note: "CNT/MDA and Meio/Ideia remain in the history when the round used an already outdated candidate lineup. Earlier rounds from each polling firm will be added to the time series.",
-  history_excluded: ["CNT/MDA", "Meio/Ideia"],
+  history_note: "CNT/MDA stays in the history: its Sept. 9–13, 2026 round used a different candidate list from the one in the most recent rounds (it included Pablo Marçal for the PRTB, which is now represented by Leonardo Avalanche). Meio/Ideia joined the snapshot with its Sept. 25–28, 2026 round. Earlier rounds from each polling firm will be added to the time series.",
+  history_excluded: ["CNT/MDA"],
   rules: [
     "A new poll from the same firm replaces the previous one in the snapshot; the old one stays in the history.",
     "Do not weight by publication frequency.",
@@ -2236,6 +2236,15 @@ function P(o) {
 }
 
 EB.polls = [
+  P({ poll_id: "meio-ideia-2026-09-28", instituto: "Meio/Ideia", contratante: "Canal Meio", registro_tse: "BR-08706/2026", data_publicacao: "2026-09-30",
+      campo_inicio: "2026-09-25", campo_fim: "2026-09-28", amostra: 2000, metodo: "phone", margem_erro: 2.2, nivel_confianca: "95%", cenario: "Prompted, first round",
+      r1: { "lula": 39.4, "flavio-bolsonaro": 38.4, "augusto-cury": 6.7, "ronaldo-caiado": 4.4, "renan-santos": 4.5, "romeu-zema": 3.5 },
+      outros: "Samara Martins (UP) 0.4%; Clariana Barão (DC) 0.3%; Hertz Dias (PSTU) 0.3%; Wilson Grassi (Democrata), Leonardo Avalanche (PRTB), Rui Costa Pimenta (PCO) and Edmilson Costa (PCB) 0.1% each",
+      branco_nulo: "0.7%", indeciso: "1.5%",
+      r2: { a: "lula", b: "flavio-bolsonaro", a_pct: 48.5, b_pct: 48 },
+      rej: null,
+      source_primary: "Ideia / Canal Meio — release of Sept. 30, 2026 (TSE registration BR-08706/2026)",
+      source_secondary: "Gazeta do Povo; Bahia Econômica; Agora RN (Sept. 30, 2026)" }),
   P({ poll_id: "gerp-2026-09-28", instituto: "Gerp", campo_inicio: "2026-09-24", campo_fim: "2026-09-28", amostra: 2400, metodo: "phone", margem_erro: 2.0,
       r1: { "lula": 40, "flavio-bolsonaro": 42, "augusto-cury": 5, "ronaldo-caiado": 3, "renan-santos": 3, "romeu-zema": 1 },
       r2: { a: "lula", b: "flavio-bolsonaro", a_pct: 43, b_pct: 50 },
@@ -2286,10 +2295,10 @@ EB.polls = [
       rej: null })
 ];
 
-/* Values published in file 10 — the site recalculates and checks them. */
+/* Reference average updated Sept. 30, 2026 (13 pollsters) — the site recalculates and checks it. */
 EB.pollsPublishedAvg = {
-  r1: { "lula": 40.82, "flavio-bolsonaro": 38.03, "augusto-cury": 4.40, "renan-santos": 3.94, "ronaldo-caiado": 3.44, "romeu-zema": 1.05 },
-  r2: { "lula": 44.50, "flavio-bolsonaro": 45.61 }
+  r1: { "lula": 40.71, "flavio-bolsonaro": 38.06, "augusto-cury": 4.58, "renan-santos": 3.98, "ronaldo-caiado": 3.52, "romeu-zema": 1.24 },
+  r2: { "lula": 44.81, "flavio-bolsonaro": 45.79 }
 };
 </script>
 <script>
@@ -3413,6 +3422,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   }
   function pollFicha(p) {
     var f = [["Sponsor", p.contratante], ["TSE registration", p.registro_tse], ["Published", dmy(p.data_publicacao)], ["Fieldwork", dmy(p.campo_inicio) + " to " + dmy(p.campo_fim)], ["Sample", thousands(p.amostra)], ["Method", p.metodo], ["Margin of error", "±" + num(p.margem_erro) + " pts"], ["Confidence level", p.nivel_confianca], ["Scenario", p.cenario], ["Exact question", p.pergunta_exata], ["Blank / spoiled", p.branco_nulo], ["Undecided", p.indeciso], ["Primary source", p.source_primary], ["Updated", dmy(p.last_updated)]];
+    if (p.outros) f.splice(10, 0, [LANG === "en" ? "Other candidates" : "Outros candidatos", p.outros]);
     return '<dl style="display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:8px 0;font-size:13px">' + f.filter(function (x) { return x[1] != null && x[1] !== "" && String(x[1]).indexOf("null") < 0; }).map(function (x) { return '<dt class="mono" style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6">' + x[0] + "</dt><dd style=\"margin:0\">" + (x[1] != null && x[1] !== "" ? esc(x[1]) : pend()) + "</dd>"; }).join("") + "</dl>";
   }
   function duelBar(name, sub, a, b, strong) {
