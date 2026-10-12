@@ -11,11 +11,37 @@ EB.site = {
   concept: "Brazil Elections 2026",
   subtitle: "The economy, institutions, the STF (Brazil's Supreme Federal Court), the Senate and the Presidency. Understand how Brazil got to 2026 and what this election could change.",
   author: "Rafael Magalhães",
-  version: "V3.2",
+  version: "V4.0",
   content_package: "site-content-eleicoes-2026",
-  last_updated: "2026-09-30",
-  election_date: "2026-10-04"
+  last_updated: "2026-10-12",
+  first_round_date: "2026-10-04",
+  election_date: "2026-10-25",
+  round: 2
 };
+
+/* Runoff texts (V4.0). The interface reads from here — same keys in PT and EN. */
+EB.ui2t = {
+  hero_date: "Runoff · October 25, 2026",
+  day: "day", days: "days", countdown: "to the runoff",
+  home_h: "Where the race stands now", home_res_h: "Official result · First round", home_res_upd: "TSE · Oct. 4, 2026 · valid votes",
+  home_avg_h: "Descriptive average · Runoff", home_avg_upd: "{n} pollsters · valid votes · {d}",
+  home_more: "Runoff polls →", home_res_more: "Full result →",
+  tabs: [["segundo", "Runoff"], ["resultado", "First-round result"], ["media", "First round · final average"], ["individuais", "First round · polls"], ["rejeicao", "Rejection"], ["evolucao", "Trend"], ["metodologia", "Methodology"]],
+  closed_note: "Snapshot closed on Sept. 30, 2026, before the first round. It stays as a record and for comparison with the official result. The runoff simulations on this tab were conducted before Oct. 4.",
+  r2_h: "Lula × Flávio · Runoff", r2_upd: "{n} pollsters · fieldwork after Oct. 4 · {d}",
+  r2_avg: "Descriptive average", r2_avg_sub: "valid votes",
+  r2_note: "Bar = valid votes published by each firm. Descriptive gap in the average: {x} points.",
+  r2_table_h: "Runoff polls", r2_cols: ["Pollster", "Fieldwork", "Sample", "Method", "Margin", "Lula (valid)", "Flávio (valid)", "Lula (total)", "Flávio (total)"],
+  r2_check: "Automatic check of the recalculated average:", ok: "✓ matches", bad: "⚠ mismatch — review",
+  res_h: "Official first-round result · President", res_cols: ["Candidate", "Party", "Votes", "% valid"],
+  res_runoff: "advances to the runoff", res_others: "Other voting data",
+  rej2_h: "Rejection · Runoff", rej1_h: "Rejection · First round (before Oct. 4)",
+  meth2_h: "Runoff rules",
+  cand_r1: "First round: {p}% of valid votes", cand_in: "In the Oct. 25 runoff", cand_out: "Did not advance to the runoff",
+  colinha_closed: "The voting reference built for the first round has been closed. In the runoff (Oct. 25) you vote for president and, in states with a runoff, for governor.",
+  pending: "Being updated"
+};
+
 
 /* Labels. fam = visual family (CSS class). */
 EB.labels = {

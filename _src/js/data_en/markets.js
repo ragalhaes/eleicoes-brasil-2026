@@ -8,8 +8,8 @@
 window.EB = window.EB || {};
 
 EB.marketsMeta = {
-  captured_at: "2026-09-30",
-  captured_time: null,   // time of capture — record it at the next update
+  captured_at: "2026-10-12",
+  captured_time: "8:20 a.m. (New York time), as reported by The Rio Times",
   legend: "Market price, not a voting-intention poll.",
   resolution_note: "Markets on the Brazilian election use the official result from the TSE (Brazil's Superior Electoral Court) in their resolution rules.",
   platforms: {
@@ -21,26 +21,23 @@ EB.marketsMeta = {
 EB.markets = [
   {
     id: "vencedor", title: "Overall winner", q: "Who wins the 2026 presidential election?",
-    note: null,
+    note: "Post-first-round prices as reported by The Rio Times on Oct. 12, 2026, 8:20 a.m. (New York time). Direct capture from the platforms: being updated.",
     platforms: [
-      { platform: "polymarket", market_name: null, market_id: null, volume: "~US$157.4 million", resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
+      { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-10-12",
         outcomes: [
-          { outcome: "Flávio Bolsonaro", display: "~59.5–60%", value: 59.75 },
-          { outcome: "Lula", display: "~41%", value: 41 },
-          { outcome: "Renan Santos", display: "<1%", value: null },
-          { outcome: "All others", display: "<1% each", value: null }
+          { outcome: "Flávio Bolsonaro", display: "~86.9%", value: 86.9 },
+          { outcome: "Lula", display: "~12.5%", value: 12.5 }
         ] },
-      { platform: "kalshi", market_name: null, market_id: null, volume: "~US$6.05 million", resolution_rule: null, source_url: "https://kalshi.com/", timestamp: "2026-09-30",
+      { platform: "kalshi", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://kalshi.com/", timestamp: "2026-10-12",
         outcomes: [
-          { outcome: "Flávio Bolsonaro", display: "~61%", value: 61 },
-          { outcome: "Lula", display: "~40%", value: 40 },
-          { outcome: "Renan Santos", display: "~0.9%", value: 0.9 }
+          { outcome: "Flávio Bolsonaro", display: "~87%", value: 87 },
+          { outcome: "Lula", display: "~13%", value: 13 }
         ] }
     ]
   },
   {
     id: "primeiro-lugar", title: "First place in the first round", q: "Who finishes first in the first round?",
-    note: "This does not contradict the overall-winner market. The contracts answer different questions.",
+    note: "Resolved: Flávio Bolsonaro finished first in the first round (47.03% of valid votes). The prices below are from Sept. 30, before the vote — kept as a record.",
     platforms: [
       { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
         outcomes: [ { outcome: "Lula", display: "~75%", value: 75 }, { outcome: "Flávio Bolsonaro", display: "~26%", value: 26 } ] },
@@ -50,7 +47,7 @@ EB.markets = [
   },
   {
     id: "vitoria-1t", title: "Outright win in the first round", q: "Is the election decided in the first round?",
-    note: "Do not average across platforms.",
+    note: "Resolved: no one won in the first round; the election goes to a runoff on Oct. 25. The prices below are from Sept. 30, before the vote — kept as a record.",
     platforms: [
       { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
         outcomes: [ { outcome: "Yes", display: "~6%", value: 6 } ] },

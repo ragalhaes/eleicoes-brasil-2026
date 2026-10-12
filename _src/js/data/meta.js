@@ -11,11 +11,37 @@ EB.site = {
   concept: "Eleições Brasil 2026",
   subtitle: "Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar.",
   author: "Rafael Magalhães",
-  version: "V3.2",
+  version: "V4.0",
   content_package: "site-content-eleicoes-2026",
-  last_updated: "2026-09-30",
-  election_date: "2026-10-04"
+  last_updated: "2026-10-12",
+  first_round_date: "2026-10-04",
+  election_date: "2026-10-25",
+  round: 2
 };
+
+/* Textos do 2º turno (V4.0). A interface lê daqui — mesma chave em PT e EN. */
+EB.ui2t = {
+  hero_date: "2º turno · 25 de outubro de 2026",
+  day: "dia", days: "dias", countdown: "para o 2º turno",
+  home_h: "Como a disputa está agora", home_res_h: "Resultado oficial · 1º turno", home_res_upd: "TSE · 4/10/2026 · votos válidos",
+  home_avg_h: "Média descritiva · 2º turno", home_avg_upd: "{n} institutos · votos válidos · {d}",
+  home_more: "Pesquisas do 2º turno →", home_res_more: "Resultado completo →",
+  tabs: [["segundo", "2º turno"], ["resultado", "Resultado do 1º turno"], ["media", "1º turno · média final"], ["individuais", "1º turno · pesquisas"], ["rejeicao", "Rejeição"], ["evolucao", "Evolução"], ["metodologia", "Metodologia"]],
+  closed_note: "Snapshot encerrado em 30/09/2026, antes do 1º turno. Fica como registro e para comparar com o resultado oficial. As simulações de 2º turno desta aba foram feitas antes de 4/10.",
+  r2_h: "Lula × Flávio · 2º turno", r2_upd: "{n} institutos · campo depois de 4/10 · {d}",
+  r2_avg: "Média descritiva", r2_avg_sub: "votos válidos",
+  r2_note: "Barra = votos válidos publicados por cada instituto. Diferença descritiva da média: {x} pontos.",
+  r2_table_h: "Pesquisas do 2º turno", r2_cols: ["Instituto", "Campo", "Amostra", "Método", "Margem", "Lula (válidos)", "Flávio (válidos)", "Lula (totais)", "Flávio (totais)"],
+  r2_check: "Conferência automática da média recalculada:", ok: "✓ confere", bad: "⚠ divergência — revisar",
+  res_h: "Resultado oficial do 1º turno · Presidente", res_cols: ["Candidato", "Partido", "Votos", "% válidos"],
+  res_runoff: "vai ao 2º turno", res_others: "Demais dados da votação",
+  rej2_h: "Rejeição · 2º turno", rej1_h: "Rejeição · 1º turno (antes de 4/10)",
+  meth2_h: "Regras do 2º turno",
+  cand_r1: "1º turno: {p}% dos votos válidos", cand_in: "Disputa o 2º turno em 25/10", cand_out: "Não foi ao 2º turno",
+  colinha_closed: "A colinha montada para o 1º turno foi encerrada. No 2º turno (25/10) você vota para presidente e, nos estados com 2º turno, para governador.",
+  pending: "Em atualização"
+};
+
 
 /* Rótulos. fam = família visual (classe CSS). */
 EB.labels = {

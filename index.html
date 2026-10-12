@@ -1014,11 +1014,37 @@ EB.site = {
   concept: "Eleições Brasil 2026",
   subtitle: "Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar.",
   author: "Rafael Magalhães",
-  version: "V3.2",
+  version: "V4.0",
   content_package: "site-content-eleicoes-2026",
-  last_updated: "2026-09-30",
-  election_date: "2026-10-04"
+  last_updated: "2026-10-12",
+  first_round_date: "2026-10-04",
+  election_date: "2026-10-25",
+  round: 2
 };
+
+/* Textos do 2º turno (V4.0). A interface lê daqui — mesma chave em PT e EN. */
+EB.ui2t = {
+  hero_date: "2º turno · 25 de outubro de 2026",
+  day: "dia", days: "dias", countdown: "para o 2º turno",
+  home_h: "Como a disputa está agora", home_res_h: "Resultado oficial · 1º turno", home_res_upd: "TSE · 4/10/2026 · votos válidos",
+  home_avg_h: "Média descritiva · 2º turno", home_avg_upd: "{n} institutos · votos válidos · {d}",
+  home_more: "Pesquisas do 2º turno →", home_res_more: "Resultado completo →",
+  tabs: [["segundo", "2º turno"], ["resultado", "Resultado do 1º turno"], ["media", "1º turno · média final"], ["individuais", "1º turno · pesquisas"], ["rejeicao", "Rejeição"], ["evolucao", "Evolução"], ["metodologia", "Metodologia"]],
+  closed_note: "Snapshot encerrado em 30/09/2026, antes do 1º turno. Fica como registro e para comparar com o resultado oficial. As simulações de 2º turno desta aba foram feitas antes de 4/10.",
+  r2_h: "Lula × Flávio · 2º turno", r2_upd: "{n} institutos · campo depois de 4/10 · {d}",
+  r2_avg: "Média descritiva", r2_avg_sub: "votos válidos",
+  r2_note: "Barra = votos válidos publicados por cada instituto. Diferença descritiva da média: {x} pontos.",
+  r2_table_h: "Pesquisas do 2º turno", r2_cols: ["Instituto", "Campo", "Amostra", "Método", "Margem", "Lula (válidos)", "Flávio (válidos)", "Lula (totais)", "Flávio (totais)"],
+  r2_check: "Conferência automática da média recalculada:", ok: "✓ confere", bad: "⚠ divergência — revisar",
+  res_h: "Resultado oficial do 1º turno · Presidente", res_cols: ["Candidato", "Partido", "Votos", "% válidos"],
+  res_runoff: "vai ao 2º turno", res_others: "Demais dados da votação",
+  rej2_h: "Rejeição · 2º turno", rej1_h: "Rejeição · 1º turno (antes de 4/10)",
+  meth2_h: "Regras do 2º turno",
+  cand_r1: "1º turno: {p}% dos votos válidos", cand_in: "Disputa o 2º turno em 25/10", cand_out: "Não foi ao 2º turno",
+  colinha_closed: "A colinha montada para o 1º turno foi encerrada. No 2º turno (25/10) você vota para presidente e, nos estados com 2º turno, para governador.",
+  pending: "Em atualização"
+};
+
 
 /* Rótulos. fam = família visual (classe CSS). */
 EB.labels = {
@@ -2302,6 +2328,88 @@ EB.pollsPublishedAvg = {
   r1: { "lula": 40.71, "flavio-bolsonaro": 38.06, "augusto-cury": 4.58, "renan-santos": 3.98, "ronaldo-caiado": 3.52, "romeu-zema": 1.24 },
   r2: { "lula": 44.81, "flavio-bolsonaro": 45.79 }
 };
+
+/* =========================================================
+   2º TURNO (25/10/2026) — adicionado em 12/10/2026
+   Resultado oficial do 1º turno + pesquisas nacionais de 2º turno
+   feitas DEPOIS de 4/10. Média = votos válidos (único número que
+   todos os institutos divulgaram); votos totais ficam na ficha.
+   ========================================================= */
+EB.result1t = {
+  date: "2026-10-04",
+  status: "100% das seções totalizadas",
+  source: "TSE — totalização com 100% das seções, conforme divulgado por DGABC/Folha de Pernambuco e CartaCapital (05/10/2026).",
+  runoff: ["flavio-bolsonaro", "lula"],
+  rows: [
+    { id: "flavio-bolsonaro", name: "Flávio Bolsonaro", party: "PL", votes: 56104503, pct: 47.03 },
+    { id: "lula", name: "Lula", party: "PT", votes: 53879538, pct: 45.16 },
+    { id: "augusto-cury", name: "Augusto Cury", party: "Avante", votes: 3448569, pct: 2.89 },
+    { id: "renan-santos", name: "Renan Santos", party: "Missão", votes: 2675887, pct: 2.24 },
+    { id: "ronaldo-caiado", name: "Ronaldo Caiado", party: "PSD", votes: 2605148, pct: 2.18 },
+    { id: "romeu-zema", name: "Romeu Zema", party: "Novo", votes: 326488, pct: 0.27 },
+    { id: null, name: "Samara Martins", party: "UP", votes: 122911, pct: 0.10 },
+    { id: null, name: "Hertz Dias", party: "PSTU", votes: 43103, pct: 0.04 },
+    { id: null, name: "Clariana Barão", party: "DC", votes: 40043, pct: 0.03 },
+    { id: null, name: "Edmilson Costa", party: "PCB", votes: 22693, pct: 0.02 },
+    { id: null, name: "Wilson Grassi", party: "Democrata", votes: 16881, pct: 0.01 },
+    { id: null, name: "Rui Costa Pimenta", party: "PCO", votes: 15024, pct: 0.01 }
+  ],
+  totals: [
+    ["Votos válidos", "119.300.788"],
+    ["Brancos", "2.300.798 (1,84% dos que compareceram)"],
+    ["Nulos", "3.674.249 (2,93% dos que compareceram)"],
+    ["Comparecimento", "125.275.835 de 158.745.502 eleitores aptos"],
+    ["Abstenção", "33.469.244 (21,08%) — a maior desde 1998, segundo a apuração divulgada"]
+  ]
+};
+
+EB.polls2tMeta = {
+  last_updated: "2026-10-12",
+  runoff_date: "2026-10-25",
+  a: "lula", b: "flavio-bolsonaro",
+  legend_avg: "Média simples, em votos válidos, da pesquisa nacional mais recente de cada instituto feita depois do 1º turno. Não é previsão nem probabilidade de vitória.",
+  rules: [
+    "Só pesquisas nacionais de 2º turno com registro no TSE e campo iniciado depois do 1º turno (4/10/2026).",
+    "A média usa votos válidos (sem brancos, nulos e indecisos), porque é o único número que todos os institutos divulgaram. Votos totais aparecem na ficha quando publicados.",
+    "Simulações de 2º turno feitas antes de 4/10 ficam no snapshot do 1º turno, como registro.",
+    "Nova rodada do mesmo instituto substitui a anterior na média; a antiga fica no histórico.",
+    "Sem classificação própria de “empate técnico”: compare os percentuais com a margem de cada instituto."
+  ]
+};
+
+/* va/vb = votos válidos (Lula / Flávio). ta/tb = votos totais, quando divulgados. */
+EB.polls2t = [
+  P({ poll_id: "datatrends-2026-10-09", instituto: "DataTrends", registro_tse: "BR-03576/2026", data_publicacao: "2026-10-11",
+      campo_inicio: "2026-10-07", campo_fim: "2026-10-09", amostra: 2000, metodo: "telefone", margem_erro: 2.19, nivel_confianca: "95%", cenario: "Estimulado, 2º turno",
+      va: 46.9, vb: 53.1, ta: 44, tb: 50, branco_nulo: "5%", indeciso: "1%", rej: null,
+      source_primary: "DataTrends (recursos próprios), registro BR-03576/2026", source_secondary: "Poder360; Revista Oeste (11/10/2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "ipespe-2026-10-08", instituto: "Ipespe", contratante: "o próprio instituto", registro_tse: "BR-00933/2026", data_publicacao: "2026-10-10",
+      campo_inicio: "2026-10-06", campo_fim: "2026-10-08", amostra: 1500, metodo: "recrutamento digital aleatório", margem_erro: 2.6, nivel_confianca: "95,45%", cenario: "Estimulado, 2º turno",
+      va: 47.3, vb: 52.7, ta: null, tb: null, rej: null,
+      source_primary: "Ipespe, registro BR-00933/2026", source_secondary: "CNN Brasil (10/10/2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "atlasintel-2026-10-08", instituto: "AtlasIntel / Bloomberg", registro_tse: "BR-03663/2026", data_publicacao: "2026-10-09",
+      campo_inicio: "2026-10-03", campo_fim: "2026-10-08", amostra: 5026, metodo: "digital", margem_erro: 1.0, nivel_confianca: "95%", cenario: "Estimulado, 2º turno",
+      va: 47.2, vb: 52.8, ta: 45.7, tb: 51.1, branco_nulo: "3,2% (branco, nulo e não sabe)", rej: null,
+      source_primary: "AtlasIntel, registro BR-03663/2026", source_secondary: "Gazeta do Povo; Forbes Brasil (09/10/2026)",
+      data_quality_flag: "Campo começou em 3/10, um dia antes do 1º turno, e terminou em 8/10.", last_updated: "2026-10-12" }),
+  P({ poll_id: "vox-2026-10-07", instituto: "Vox Brasil", registro_tse: "BR-09623/2026", data_publicacao: "2026-10-09",
+      campo_inicio: "2026-10-05", campo_fim: "2026-10-07", amostra: 2100, metodo: "presencial", margem_erro: 2.15, nivel_confianca: "95%", cenario: "Estimulado, 2º turno",
+      va: 50.86, vb: 49.14, ta: 44.2, tb: 42.7, branco_nulo: "3,4%", indeciso: "9,7%", rej: null,
+      source_primary: "Vox Brasil, registro BR-09623/2026", source_secondary: "CartaCapital; Metrópoles (09/10/2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "datafolha-2026-10-08", instituto: "Datafolha", contratante: "Folha de S.Paulo e Grupo Globo", registro_tse: "BR-02949/2026", data_publicacao: "2026-10-08",
+      campo_inicio: "2026-10-06", campo_fim: "2026-10-08", amostra: 2520, metodo: "presencial", margem_erro: 2.0, nivel_confianca: "95%", cenario: "Estimulado, 2º turno",
+      va: 48, vb: 52, ta: 45, tb: 49, branco_nulo: "5%", indeciso: "1%", rej: { "lula": 46, "flavio-bolsonaro": 43 },
+      rejeicao_pergunta: "Em quem não votaria de jeito nenhum",
+      source_primary: "Datafolha, registro BR-02949/2026", source_secondary: "Gazeta do Povo; Brasil de Fato (08/10/2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "poderdata-2026-10-07", instituto: "PoderData / Aya", contratante: "o próprio instituto", registro_tse: "BR-08134/2026", data_publicacao: "2026-10-08",
+      campo_inicio: "2026-10-05", campo_fim: "2026-10-07", amostra: 3000, metodo: "telefone (URA)", margem_erro: 1.8, nivel_confianca: "95%", cenario: "Estimulado, 2º turno",
+      va: 47, vb: 53, ta: null, tb: null, rej: { "lula": 46, "flavio-bolsonaro": 43 },
+      rejeicao_pergunta: "Em quem não votaria de jeito nenhum",
+      source_primary: "PoderData/Aya, registro BR-08134/2026", source_secondary: "Poder360; Gazeta do Povo (08/10/2026)", last_updated: "2026-10-12" })
+];
+
+/* Média de referência (votos válidos) em 12/10/2026 — 6 institutos. O site recalcula e confere. */
+EB.polls2tPublishedAvg = { "lula": 47.88, "flavio-bolsonaro": 52.12 };
 </script>
 <script>
 /* =========================================================
@@ -2314,8 +2422,8 @@ EB.pollsPublishedAvg = {
 window.EB = window.EB || {};
 
 EB.marketsMeta = {
-  captured_at: "2026-09-30",
-  captured_time: null,   // hora da captura — registrar na próxima atualização
+  captured_at: "2026-10-12",
+  captured_time: "8h20 (horário de Nova York), conforme The Rio Times",
   legend: "Preço de mercado, não pesquisa de intenção de voto.",
   resolution_note: "Mercados da eleição brasileira usam o resultado oficial do TSE em suas regras de resolução.",
   platforms: {
@@ -2327,26 +2435,23 @@ EB.marketsMeta = {
 EB.markets = [
   {
     id: "vencedor", title: "Vencedor final", q: "Quem vence a eleição presidencial de 2026?",
-    note: null,
+    note: "Valores depois do 1º turno, relatados pelo The Rio Times em 12/10/2026, 8h20 (horário de Nova York). Captura direta nas plataformas: em atualização.",
     platforms: [
-      { platform: "polymarket", market_name: null, market_id: null, volume: "~US$ 157,4 milhões", resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
+      { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-10-12",
         outcomes: [
-          { outcome: "Flávio Bolsonaro", display: "~59,5–60%", value: 59.75 },
-          { outcome: "Lula", display: "~41%", value: 41 },
-          { outcome: "Renan Santos", display: "<1%", value: null },
-          { outcome: "Demais nomes", display: "<1% cada", value: null }
+          { outcome: "Flávio Bolsonaro", display: "~86,9%", value: 86.9 },
+          { outcome: "Lula", display: "~12,5%", value: 12.5 }
         ] },
-      { platform: "kalshi", market_name: null, market_id: null, volume: "~US$ 6,05 milhões", resolution_rule: null, source_url: "https://kalshi.com/", timestamp: "2026-09-30",
+      { platform: "kalshi", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://kalshi.com/", timestamp: "2026-10-12",
         outcomes: [
-          { outcome: "Flávio Bolsonaro", display: "~61%", value: 61 },
-          { outcome: "Lula", display: "~40%", value: 40 },
-          { outcome: "Renan Santos", display: "~0,9%", value: 0.9 }
+          { outcome: "Flávio Bolsonaro", display: "~87%", value: 87 },
+          { outcome: "Lula", display: "~13%", value: 13 }
         ] }
     ]
   },
   {
     id: "primeiro-lugar", title: "Primeiro colocado no 1º turno", q: "Quem termina o 1º turno em primeiro lugar?",
-    note: "Isso não é contraditório com o mercado de vencedor final. Os contratos respondem perguntas diferentes.",
+    note: "Resolvido: Flávio Bolsonaro terminou o 1º turno em primeiro (47,03% dos votos válidos). Preços abaixo são de 30/09, antes da votação — ficam como registro.",
     platforms: [
       { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
         outcomes: [ { outcome: "Lula", display: "~75%", value: 75 }, { outcome: "Flávio Bolsonaro", display: "~26%", value: 26 } ] },
@@ -2356,7 +2461,7 @@ EB.markets = [
   },
   {
     id: "vitoria-1t", title: "Vitória já no 1º turno", q: "A eleição é decidida no 1º turno?",
-    note: "Não tirar média entre as plataformas.",
+    note: "Resolvido: não houve vitória no 1º turno; a eleição vai ao 2º turno em 25/10. Preços abaixo são de 30/09, antes da votação — ficam como registro.",
     platforms: [
       { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
         outcomes: [ { outcome: "Sim", display: "~6%", value: 6 } ] },
@@ -2434,7 +2539,7 @@ EB.recsMeta = {
   last_updated: "2026-09-30",
   photo_credit: "Fotos: TSE — Portal de Dados Abertos (Candidatos 2026)",
   status: "Indicações em atualização",
-  disclaimer: "Estas escolhas são indicações pessoais do autor/parceiro. Não são recomendações produzidas por inteligência artificial e não são conclusão do comparador factual.",
+  disclaimer: "Estas escolhas são indicações pessoais do autor/parceiro. Não são recomendações produzidas por inteligência artificial e não são conclusão do comparador factual. Indicações feitas para o 1º turno (4/10/2026).",
   offices: [
     { id: "governor", name: "Governador", slots: 1 },
     { id: "senate", name: "Senado", slots: 2, note: "2 vagas em 2026" },
@@ -3143,12 +3248,21 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     return list.length ? sum / list.length : null;
   }
   function avg1(cid) { return avg(cid, function (p) { return p.r1 ? p.r1[cid] : null; }); }
+  /* 2º turno (V4.0): média simples dos votos válidos da rodada mais recente de cada instituto. */
+  function latest2() { return (EB.polls2t || []).filter(function (p) { return p.latest; }); }
+  function avg2(k) { var L = latest2().filter(function (p) { return p[k] != null; }), s = 0; L.forEach(function (p) { s += p[k]; }); return L.length ? s / L.length : null; }
+  function tf(str, o) { return String(str).replace(/\{(\w+)\}/g, function (m, k) { return o[k] != null ? o[k] : m; }); }
+  function duelHead() { return '<div class="duel-legend"><span><i style="background:#d7d4cc"></i>Lula</span><span>Flávio Bolsonaro<i style="background:#5c6470;margin:0 0 0 6px"></i></span></div>'; }
+  function resRows(n) {
+    var R = EB.result1t.rows.slice(0, n), mx = R[0].pct;
+    return R.map(function (r) { return '<div class="avg-row"><span class="nm">' + esc(r.name) + ' <small class="mono">' + esc(r.party) + '</small></span><span class="pc">' + fix(r.pct, 2) + '%</span><span class="track"><i style="--w:' + (r.pct / mx * 100) + '%"></i></span></div>'; }).join("");
+  }
 
   function renderHome() {
     var chs = EB.chapters.filter(function (c) { return !c.isStakes; });
     var stakes = byId(EB.chapters, "por-que-2026-importa");
     var d = daysTo(EB.site.election_date);
-    var M = EB.pollsMeta;
+    var M = EB.pollsMeta, U2 = EB.ui2t;
     var avgRows = M.candidates_1t.map(function (c) { return { c: c, v: avg1(c) }; }).sort(function (a, b) { return b.v - a.v; });
     var maxA = avgRows[0].v;
     var mk = EB.markets[0];
@@ -3156,10 +3270,10 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var h = "";
     /* 1. Hero */
     h += '<section class="hero"><div class="wrap">' +
-      '<div class="hero-meta"><span><b>●</b> Reportagem especial</span><span>Muito além das eleições</span><span>Atualizado em ' + dmy(EB.site.last_updated) + "</span><span>Eleição · 4 de outubro de 2026</span></div>" +
+      '<div class="hero-meta"><span><b>●</b> Reportagem especial</span><span>Muito além das eleições</span><span>Atualizado em ' + dmy(EB.site.last_updated) + "</span><span>" + esc(EB.ui2t.hero_date) + "</span></div>" +
       '<div class="hero-grid"><div><h1>Além da<br><span class="y">Urna</span></h1>' +
       '<p class="hero-sub">' + esc(EB.site.subtitle) + "</p>" +
-      (d > 0 ? '<div class="hero-date"><b>' + d + "</b> " + (d === 1 ? "dia" : "dias") + " para o 1º turno</div>" : "") +
+      (d > 0 ? '<div class="hero-date"><b>' + d + "</b> " + (d === 1 ? EB.ui2t.day : EB.ui2t.days) + " " + esc(EB.ui2t.countdown) + "</div>" : "") +
       '<div class="hero-cta"><a href="#h-' + chs[0].id + '" class="btn btn--solid" data-scroll>Como o Brasil chegou aqui <span class="arr">↓</span></a>' +
       '<a href="#/candidatos" class="btn btn--ghost">Candidatos</a><a href="#/pesquisas" class="btn btn--ghost">Pesquisas</a><a href="#/estados" class="btn btn--ghost">Estados</a></div></div>' +
       '<nav class="hero-index" aria-label="Índice da Home">' +
@@ -3190,9 +3304,11 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     /* 10–11. Pesquisas, mercados, ÍRIS */
     h += '<section class="sec sec--dark2" id="h-pesquisas"><div class="wrap"><div class="sec-head reveal"><div class="eyebrow">09 · Pesquisas, mercados e modelo</div><h2 class="h-sec">Como a disputa está agora</h2>' +
       '<p class="dek">Três grandezas diferentes, que nunca se fundem numa única porcentagem.</p>' + layersNav("") + "</div>" +
-      '<div class="split"><div class="panel reveal grow"><div class="panel-top"><h3>Média descritiva · 1º turno</h3><span class="upd">' + EB.polls.filter(function (p) { return p.latest; }).length + " institutos · " + dmy(M.last_updated) + "</span></div>" +
-      avgRows.map(function (r) { return '<div class="avg-row"><span class="nm">' + esc(cand(r.c).name) + '</span><span class="pc">' + fix(r.v, 2) + '%</span><span class="track"><i style="--w:' + (r.v / maxA * 100) + '%"></i></span></div>'; }).join("") +
-      '<div class="mandatory">' + esc(M.legend_avg) + '</div><a class="btn btn--ghost btn--sm" href="#/pesquisas">Todas as pesquisas →</a></div>' +
+      '<div class="split"><div class="reveal grow"><div class="panel"><div class="panel-top"><h3>' + esc(U2.home_avg_h) + '</h3><span class="upd">' + esc(tf(U2.home_avg_upd, { n: latest2().length, d: dmy(EB.polls2tMeta.last_updated) })) + "</span></div>" +
+      duelHead() + '<div class="duel">' + duelBar(U2.r2_avg, U2.r2_avg_sub, avg2("va"), avg2("vb"), true) + "</div>" +
+      '<div class="mandatory">' + esc(EB.polls2tMeta.legend_avg) + '</div><a class="btn btn--ghost btn--sm" href="#/pesquisas?v=segundo">' + esc(U2.home_more) + "</a></div>" +
+      '<div class="panel" style="margin-top:16px"><div class="panel-top"><h3>' + esc(U2.home_res_h) + '</h3><span class="upd">' + esc(U2.home_res_upd) + "</span></div>" + resRows(6) +
+      '<a class="btn btn--ghost btn--sm" href="#/pesquisas?v=resultado">' + esc(U2.home_res_more) + "</a></div></div>" +
       '<div class="reveal"><div class="mkt" style="margin-bottom:16px"><div class="mkt-flag">Mercado de previsão · ' + dmy(EB.marketsMeta.captured_at) + "</div><h3>" + esc(mk.title) + "</h3>" +
       '<p class="q">' + esc(EB.marketsMeta.legend) + "</p>" + mk.platforms.map(platBlock).join("") + '<a class="btn btn--ghost btn--sm" href="#/mercados" style="margin-top:12px;color:var(--t-light)">Mercados →</a></div>' +
       '<div class="iris-card"><div class="iris-head"><b>' + esc(EB.iris.name) + '</b><span class="upd">' + (EB.iris.model_updated_at ? "Atualizado em " + dmy(EB.iris.model_updated_at) : "Em atualização") + '</span></div><div style="padding:16px 20px"><p class="small" style="color:var(--t-light-2)">' + esc(EB.iris.legend) + '</p><a class="btn btn--ghost btn--sm" href="#/iris" style="margin-top:12px;color:var(--t-light)">Modelo ÍRIS →</a></div></div></div></div></div></section>';
@@ -3246,12 +3362,17 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
 
   /* ---------------------------------------------------------- CANDIDATOS */
   var selected = [];
+  function candR1(c) {
+    var R = EB.result1t, r = R && R.rows.filter(function (x) { return x.id === c.id; })[0]; if (!r) return "";
+    var go = R.runoff.indexOf(c.id) > -1, U2 = EB.ui2t;
+    return '<p class="mono small" style="margin:10px 0 0;opacity:.85">' + esc(tf(U2.cand_r1, { p: fix(r.pct, 2) })) + " · " + esc(go ? U2.cand_in : U2.cand_out) + "</p>";
+  }
   function renderCandidates() {
     var h = pageHero({ crumbs: [["Candidatos"]], kicker: "Presidência · 2026", title: "Candidatos",
       dek: "Cards resumidos e perfil completo, com a mesma régua para todos. Controvérsia não é condenação: cada caso mostra a situação atual com o mesmo destaque da acusação original." });
     h += '<section class="sec sec--dark sec--tight"><div class="wrap"><div class="cands">' + EB.candidates.map(function (c) {
       var on = selected.indexOf(c.id) > -1;
-      return '<article class="cand reveal"><div class="cand-top">' + avatar(c) + "<div><h3>" + esc(c.name) + '</h3><div class="party">' + esc(c.party) + '</div></div><div class="num">' + esc(c.number) + "</div></div>" +
+      return '<article class="cand reveal"><div class="cand-top">' + avatar(c) + "<div><h3>" + esc(c.name) + '</h3><div class="party">' + esc(c.party) + "</div>" + candR1(c) + '</div><div class="num">' + esc(c.number) + "</div></div>" +
         '<div class="cand-body"><span class="k">' + (c.trajetoria ? "Trajetória" : "Propostas") + "</span>" + md(c.trajetoria || c.summary) + "</div>" +
         '<div class="cand-actions"><a class="btn btn--ghost" href="#/candidatos/' + c.id + '">Perfil</a><button class="btn btn--ghost' + (on ? " on" : "") + '" data-toggle-cmp="' + c.id + '" aria-pressed="' + on + '">' + (on ? "✓ No comparador" : "+ Comparar") + "</button></div></article>"; }).join("") + "</div>" +
       '<p class="meta-note">' + esc(EB.candidatesMeta.order_note) + "<br>" + esc(EB.candidatesMeta.source_note) + " Última atualização: " + dmy(EB.candidatesMeta.last_updated) + ".<br>" + esc(EB.candidatesMeta.editorial_note) + "<br>" + esc(EB.candidatesMeta.photo_note) + "</p>" +
@@ -3284,7 +3405,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var h = pageHero({ crumbs: [["Candidatos", "#/candidatos"], [c.name]], title: "",
       below: "" });
     h = h.replace('<h1 class="page-title"></h1>', "");
-    h = h.replace('<div class="page-hero-grid"><div></div></div>', '<div class="profile-hero">' + avatar(c) + '<div><div class="page-kicker">' + esc(c.party) + " · " + esc(c.number) + '</div><h1 class="page-title">' + esc(c.name) + '</h1></div><div class="ballot" aria-hidden="true">' + esc(c.number) + "</div></div>");
+    h = h.replace('<div class="page-hero-grid"><div></div></div>', '<div class="profile-hero">' + avatar(c) + '<div><div class="page-kicker">' + esc(c.party) + " · " + esc(c.number) + '</div><h1 class="page-title">' + esc(c.name) + "</h1>" + candR1(c) + '</div><div class="ballot" aria-hidden="true">' + esc(c.number) + "</div></div>");
     var controv = c.controversias.length ? c.controversias.map(function (x) {
       return '<div class="case">' + tag(x.l) + "<h4>" + esc(x.t) + "</h4><p>" + md(x.d) + "</p>" + statusRow(x.status) + (x.note ? '<p class="note">' + esc(x.note) + "</p>" : "") + src(x.src) + (x.chapter ? '<a class="more" href="#/historia/' + x.chapter + '">Contexto no capítulo →</a>' : "") + "</div>"; }).join("")
       : '<p class="empty">Em atualização</p>';
@@ -3357,21 +3478,32 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   }
 
   /* ---------------------------------------------------------- PESQUISAS */
-  var pollTab = "media";
+  var pollTab = "segundo";
   var PALETTE = ["#e6e2d6", "#e0b25a", "#b48cff", "#5fbf8f", "#2fb3c6", "#ff8a65"];
   function renderPolls(q) {
     if (q.v) pollTab = q.v;
     var M = EB.pollsMeta;
     var h = pageHero({ crumbs: [["Pesquisas"]], kicker: "Camada 1 · Pesquisas de intenção de voto", title: "Pesquisas",
       dek: "Última pesquisa nacional válida de cada instituto. Pesquisas anteriores permanecem no histórico. Pesquisa não é previsão.", below: layersNav("pesquisas") });
-    var tabs = [["media", "Média descritiva"], ["individuais", "Pesquisas individuais"], ["segundo", "2º turno"], ["rejeicao", "Rejeição"], ["evolucao", "Evolução"], ["metodologia", "Metodologia"]];
+    var tabs = EB.ui2t.tabs;
     h += '<section class="sec sec--dark2 sec--tight"><div class="wrap"><div class="tabs" role="tablist" aria-label="Seções de pesquisas">' + tabs.map(function (t) { return '<button class="tab" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === pollTab) + '">' + t[1] + "</button>"; }).join("") + '</div><div id="poll-out"></div></div></section>';
     app.innerHTML = h; drawPolls();
   }
   function latest() { return EB.polls.filter(function (p) { return p.latest; }); }
   function drawPolls() {
     var out = document.getElementById("poll-out"); if (!out) return;
-    var M = EB.pollsMeta, L = latest(), S = M.short, h = "";
+    var M = EB.pollsMeta, L = latest(), S = M.short, h = "", U2 = EB.ui2t, M2 = EB.polls2tMeta, L2 = latest2();
+    if (pollTab === "media" || pollTab === "individuais" || pollTab === "evolucao") h += '<div class="mandatory" style="margin-bottom:22px">' + esc(U2.closed_note) + "</div>";
+    if (pollTab === "resultado") {
+      var R1 = EB.result1t;
+      h += '<div class="panel"><div class="panel-top"><h3>' + esc(U2.res_h) + '</h3><span class="upd">' + dmy(R1.date) + " · " + esc(R1.status) + "</span></div>" +
+        '<table class="ptable"><thead><tr>' + U2.res_cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        R1.rows.map(function (r) { var go = R1.runoff.indexOf(r.id) > -1; return "<tr><td>" + (r.id ? '<a href="#/candidatos/' + r.id + '">' + esc(r.name) + "</a>" : esc(r.name)) + (go ? ' <small class="mono">· ' + esc(U2.res_runoff) + "</small>" : "") + '</td><td class="meta">' + esc(r.party) + '</td><td class="num">' + thousands(r.votes) + '</td><td class="num">' + fix(r.pct, 2) + "</td></tr>"; }).join("") +
+        "</tbody></table>" +
+        '<h3 class="h-sub" style="margin:26px 0 12px">' + esc(U2.res_others) + '</h3><dl style="display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:8px 0;font-size:14px">' +
+        R1.totals.map(function (x) { return '<dt class="mono" style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6">' + esc(x[0]) + '</dt><dd style="margin:0">' + esc(x[1]) + "</dd>"; }).join("") + "</dl>" +
+        '<div class="blk f" style="margin-top:18px">' + tag("dado") + "<p>" + esc(R1.source) + "</p></div></div>";
+    }
     if (pollTab === "media") {
       var rows = M.candidates_1t.map(function (c) { var vals = L.map(function (p) { return p.r1[c]; }); return { c: c, v: avg1(c), min: Math.min.apply(null, vals), max: Math.max.apply(null, vals) }; }).sort(function (a, b) { return b.v - a.v; });
       var mx = rows[0].v, ok = true;
@@ -3398,15 +3530,23 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
         '<div class="mandatory" style="margin-top:22px">Percentuais de intenção de voto bruta, como publicados. Sem classificação própria de “empate técnico”: compare percentuais e margem de cada instituto.</div>';
     }
     if (pollTab === "segundo") {
-      var a2b = avg(null, function (p) { return p.r2 ? p.r2.a_pct : null; }), b2b = avg(null, function (p) { return p.r2 ? p.r2.b_pct : null; });
-      h += '<div class="panel"><div class="panel-top"><h3>Lula × Flávio · 2º turno</h3><span class="upd">' + L.length + " institutos · " + dmy(M.last_updated) + "</span></div>" +
-        '<div class="duel-legend"><span><i style="background:#d7d4cc"></i>Lula</span><span>Flávio Bolsonaro<i style="background:#5c6470;margin:0 0 0 6px"></i></span></div><div class="duel">' +
-        duelBar("Média descritiva", "média simples", a2b, b2b, true) +
-        L.map(function (p) { return duelBar(p.instituto, field(p.campo_inicio, p.campo_fim) + " · ±" + num(p.margem_erro), p.r2.a_pct, p.r2.b_pct); }).join("") + "</div>" +
-        '<p class="avg-note">Barra = percentuais publicados. O espaço restante corresponde a brancos, nulos e indecisos (não detalhados aqui). Diferença descritiva da média: ' + fix(Math.abs(b2b - a2b), 2) + ' ponto.</p><div class="mandatory">' + esc(M.legend_avg) + " A média de 2º turno não é probabilidade de vitória.</div></div>";
+      var va = avg2("va"), vb = avg2("vb"), ok2 = Math.abs(fix(va, 2).replace(",", ".") - EB.polls2tPublishedAvg[M2.a]) <= 0.005 && Math.abs(fix(vb, 2).replace(",", ".") - EB.polls2tPublishedAvg[M2.b]) <= 0.005;
+      var C = U2.r2_cols, tot = function (v) { return v == null ? '<span class="pend">—</span>' : num(v); };
+      h += '<div class="panel"><div class="panel-top"><h3>' + esc(U2.r2_h) + '</h3><span class="upd">' + esc(tf(U2.r2_upd, { n: L2.length, d: dmy(M2.last_updated) })) + "</span></div>" +
+        duelHead() + '<div class="duel">' + duelBar(U2.r2_avg, U2.r2_avg_sub, va, vb, true) +
+        L2.map(function (p) { return duelBar(p.instituto, field(p.campo_inicio, p.campo_fim) + " · ±" + num(p.margem_erro), p.va, p.vb); }).join("") + "</div>" +
+        '<p class="avg-note">' + esc(tf(U2.r2_note, { x: fix(Math.abs(vb - va), 2) })) + '</p><div class="mandatory">' + esc(M2.legend_avg) + "</div>" +
+        '<div class="check">' + esc(U2.r2_check) + ' <b class="' + (ok2 ? "" : "bad") + '">' + esc(ok2 ? U2.ok : U2.bad) + "</b></div></div>" +
+        '<div class="panel-top" style="margin-top:28px"><h3 style="font-family:var(--f-display);font-size:28px">' + esc(U2.r2_table_h) + "</h3></div>" +
+        '<table class="ptable"><thead><tr>' + C.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        L2.map(function (p, i) { return '<tr><td><button data-pdetail="2-' + i + '">' + esc(p.instituto) + '</button></td><td class="meta">' + field(p.campo_inicio, p.campo_fim) + '</td><td class="num">' + thousands(p.amostra) + '</td><td class="meta">' + (p.metodo ? esc(p.metodo) : "—") + '</td><td class="num">±' + num(p.margem_erro) + '</td><td class="num">' + num(p.va) + '</td><td class="num">' + num(p.vb) + '</td><td class="num">' + tot(p.ta) + '</td><td class="num">' + tot(p.tb) + '</td></tr><tr class="pdetail" id="pd-2-' + i + '" hidden><td colspan="9">' + pollFicha(p) + (p.data_quality_flag ? '<p class="small">' + esc(p.data_quality_flag) + "</p>" : "") + "</td></tr>"; }).join("") +
+        "</tbody></table>" +
+        '<div class="pcards">' + L2.map(function (p) { return '<div class="pcard"><h4>' + esc(p.instituto) + '</h4><div class="meta">' + field(p.campo_inicio, p.campo_fim) + " · " + thousands(p.amostra) + " · " + (p.metodo ? esc(p.metodo) : "—") + " · ±" + num(p.margem_erro) + '</div><div class="res"><div><small>' + esc(C[5]) + "</small><b>" + num(p.va) + "</b></div><div><small>" + esc(C[6]) + "</small><b>" + num(p.vb) + '</b></div></div><details class="src"><summary>' + esc(C[0]) + "</summary>" + pollFicha(p) + (p.data_quality_flag ? '<p class="small">' + esc(p.data_quality_flag) + "</p>" : "") + "</details></div>"; }).join("") + "</div>";
     }
     if (pollTab === "rejeicao") {
-      var withR = L.filter(function (p) { return p.rej; }), without = L.filter(function (p) { return !p.rej; });
+      var withR = L.filter(function (p) { return p.rej; }), without = L.filter(function (p) { return !p.rej; }), withR2 = L2.filter(function (p) { return p.rej; });
+      var rejCard = function (p) { return '<div class="rej-card"><h4>' + esc(p.instituto) + "</h4>" + (p.rejeicao_pergunta ? '<div class="q">“' + esc(p.rejeicao_pergunta) + "”</div>" : "") + '<div class="grow">' + ["lula", "flavio-bolsonaro"].map(function (c) { return '<div class="bar-row"><span class="n">' + esc(S[c]) + '</span><span class="track"><i style="--w:' + p.rej[c] + '%"></i></span><span class="v">' + num(p.rej[c]) + "</span></div>"; }).join("") + "</div></div>"; };
+      h += '<h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.rej2_h) + '</h3><div class="rej" style="margin-bottom:30px">' + withR2.map(rejCard).join("") + '</div><h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.rej1_h) + "</h3>";
       h += '<div class="mandatory">Rejeição fica por instituto, sem média global: as perguntas variam entre institutos.</div><div class="rej">' +
         withR.map(function (p) { return '<div class="rej-card"><h4>' + esc(p.instituto) + '</h4>' + (p.rejeicao_pergunta ? '<div class="q">Pergunta exata: “' + esc(p.rejeicao_pergunta) + "”</div>" : "") +
           '<div class="grow">' + ["lula", "flavio-bolsonaro"].map(function (c) { return '<div class="bar-row"><span class="n">' + esc(S[c]) + '</span><span class="track"><i style="--w:' + p.rej[c] + '%"></i></span><span class="v">' + num(p.rej[c]) + "</span></div>"; }).join("") + "</div></div>"; }).join("") + "</div>" +
@@ -3414,6 +3554,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     }
     if (pollTab === "evolucao") h += evolution();
     if (pollTab === "metodologia") {
+      h += '<div style="margin-bottom:30px"><h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.meth2_h) + '</h3><ol class="hier">' + M2.rules.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ol></div>";
       h += '<div class="split"><div><h3 class="h-sub" style="margin-bottom:14px">Regras do consolidado</h3><ol class="hier">' + M.rules.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ol></div>" +
         '<div><h3 class="h-sub" style="margin-bottom:14px">Institutos no snapshot</h3><div class="chips">' + L.map(function (p) { return '<span class="chip">' + esc(p.instituto) + "</span>"; }).join("") + "</div>" +
         '<div class="blk m" style="margin-top:20px">' + tag("met") + "<p>" + esc(M.history_note) + "</p></div>" +
@@ -3466,12 +3607,12 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
       '<div class="mkts">' + EB.markets.map(function (m) { return '<div class="mkt"><div class="mkt-flag">Preço de mercado</div><h3>' + esc(m.title) + '</h3><p class="q">' + esc(m.q) + "</p>" + m.platforms.map(platBlock).join("") + (m.note ? '<p class="mkt-note">' + esc(m.note) + "</p>" : "") + "</div>"; }).join("") + "</div>" +
       '<p class="avg-note">Valores exatamente como capturados (≈ aproximações, &lt; menor que). Não tiramos média entre plataformas. ' + esc(MM.resolution_note) + "</p></div></section>";
     var a1 = avg1("lula"), f1 = avg1("flavio-bolsonaro");
-    var a2 = avg(null, function (p) { return p.r2 ? p.r2.a_pct : null; }), b2 = avg(null, function (p) { return p.r2 ? p.r2.b_pct : null; });
+    var a2 = avg2("va"), b2 = avg2("vb");
     h += '<section class="sec sec--dark sec--tight"><div class="wrap"><div class="split"><div>' +
       EB.marketsExplainer.map(function (e) { return '<h3 class="h-sub" style="margin:0 0 12px">' + esc(e.t) + "</h3>" + e.p.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + '<div style="height:24px"></div>'; }).join("") + "</div>" +
       '<div><div class="panel"><div class="panel-top"><h3>Grandezas diferentes</h3></div><p class="small" style="color:var(--t-light-2);margin-bottom:16px">A mesma data, duas perguntas distintas. Os números abaixo não são comparáveis diretamente.</p><div class="cmp-poll">' +
       '<div class="rej-card"><h4>Média de pesquisas</h4><div class="q">Intenção de voto declarada</div><p class="mono small">1º turno: Lula ' + fix(a1, 2) + "% · Flávio " + fix(f1, 2) + "%</p><p class=\"mono small\">2º turno: Lula " + fix(a2, 2) + "% · Flávio " + fix(b2, 2) + '%</p><a class="mono small" href="#/pesquisas">Pesquisas →</a></div>' +
-      '<div class="mkt" style="padding:16px"><h4 style="font-family:var(--f-display);font-size:19px">Mercado · vencedor final</h4><div class="q">Preço de contrato</div><p class="mono small">Polymarket: Flávio ~59,5–60% · Lula ~41%</p><p class="mono small">Kalshi: Flávio ~61% · Lula ~40%</p></div></div>' +
+      '<div class="mkt" style="padding:16px"><h4 style="font-family:var(--f-display);font-size:19px">Mercado · vencedor final</h4><div class="q">Preço de contrato</div>' + EB.markets[0].platforms.map(function (pl) { return '<p class="mono small">' + esc(EB.marketsMeta.platforms[pl.platform].name) + ": " + pl.outcomes.map(function (o) { return esc(o.outcome.split(" ")[0]) + " " + esc(o.display); }).join(" · ") + "</p>"; }).join("") + '</div></div>' +
       '<p class="avg-note">Uma pessoa pode declarar voto em Lula e, simultaneamente, acreditar que Flávio terminará eleito — e vice-versa.</p></div>' +
       '<div class="panel" style="margin-top:16px"><div class="panel-top"><h3>O que registramos em cada captura</h3></div><div class="chips">' + ["título exato do mercado", "plataforma", "preço", "volume", "data/hora da captura", "regra de resolução", "fonte oficial de resolução"].map(function (x) { return '<span class="chip" style="border-color:var(--line-d)">' + x + "</span>"; }).join("") + '</div></div></div></div></div></section>';
     app.innerHTML = h;
@@ -3608,6 +3749,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   function colPerson(p) { return p && p.name ? { name: p.name, number: String(p.number || ""), party: p.party || "" } : { name: "", number: "", party: "" }; }
   function colOptions(id, rec) { return id === "federal_deputy" ? (rec.federal_deputy || []) : id === "state_deputy" ? (rec.state_deputy || []) : []; }
   function colinhaCta(U) {
+    if (EB.site.round === 2) return '<div class="colinha-cta"><span>' + esc(EB.ui2t.colinha_closed) + "</span></div>";
     return '<div class="colinha-cta"><button type="button" class="btn btn--ghost btn--sm" data-colinha="' + U.uf + '">🖨 ' + esc(CL.btn) + '</button><span>' + esc(CL.cta) + "</span></div>";
   }
   function openColinha(uf) {

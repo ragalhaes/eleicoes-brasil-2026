@@ -1014,11 +1014,37 @@ EB.site = {
   concept: "Brazil Elections 2026",
   subtitle: "The economy, institutions, the STF (Brazil's Supreme Federal Court), the Senate and the Presidency. Understand how Brazil got to 2026 and what this election could change.",
   author: "Rafael Magalhães",
-  version: "V3.2",
+  version: "V4.0",
   content_package: "site-content-eleicoes-2026",
-  last_updated: "2026-09-30",
-  election_date: "2026-10-04"
+  last_updated: "2026-10-12",
+  first_round_date: "2026-10-04",
+  election_date: "2026-10-25",
+  round: 2
 };
+
+/* Runoff texts (V4.0). The interface reads from here — same keys in PT and EN. */
+EB.ui2t = {
+  hero_date: "Runoff · October 25, 2026",
+  day: "day", days: "days", countdown: "to the runoff",
+  home_h: "Where the race stands now", home_res_h: "Official result · First round", home_res_upd: "TSE · Oct. 4, 2026 · valid votes",
+  home_avg_h: "Descriptive average · Runoff", home_avg_upd: "{n} pollsters · valid votes · {d}",
+  home_more: "Runoff polls →", home_res_more: "Full result →",
+  tabs: [["segundo", "Runoff"], ["resultado", "First-round result"], ["media", "First round · final average"], ["individuais", "First round · polls"], ["rejeicao", "Rejection"], ["evolucao", "Trend"], ["metodologia", "Methodology"]],
+  closed_note: "Snapshot closed on Sept. 30, 2026, before the first round. It stays as a record and for comparison with the official result. The runoff simulations on this tab were conducted before Oct. 4.",
+  r2_h: "Lula × Flávio · Runoff", r2_upd: "{n} pollsters · fieldwork after Oct. 4 · {d}",
+  r2_avg: "Descriptive average", r2_avg_sub: "valid votes",
+  r2_note: "Bar = valid votes published by each firm. Descriptive gap in the average: {x} points.",
+  r2_table_h: "Runoff polls", r2_cols: ["Pollster", "Fieldwork", "Sample", "Method", "Margin", "Lula (valid)", "Flávio (valid)", "Lula (total)", "Flávio (total)"],
+  r2_check: "Automatic check of the recalculated average:", ok: "✓ matches", bad: "⚠ mismatch — review",
+  res_h: "Official first-round result · President", res_cols: ["Candidate", "Party", "Votes", "% valid"],
+  res_runoff: "advances to the runoff", res_others: "Other voting data",
+  rej2_h: "Rejection · Runoff", rej1_h: "Rejection · First round (before Oct. 4)",
+  meth2_h: "Runoff rules",
+  cand_r1: "First round: {p}% of valid votes", cand_in: "In the Oct. 25 runoff", cand_out: "Did not advance to the runoff",
+  colinha_closed: "The voting reference built for the first round has been closed. In the runoff (Oct. 25) you vote for president and, in states with a runoff, for governor.",
+  pending: "Being updated"
+};
+
 
 /* Labels. fam = visual family (CSS class). */
 EB.labels = {
@@ -2302,6 +2328,88 @@ EB.pollsPublishedAvg = {
   r1: { "lula": 40.71, "flavio-bolsonaro": 38.06, "augusto-cury": 4.58, "renan-santos": 3.98, "ronaldo-caiado": 3.52, "romeu-zema": 1.24 },
   r2: { "lula": 44.81, "flavio-bolsonaro": 45.79 }
 };
+
+/* =========================================================
+   RUNOFF (Oct. 25, 2026) — added Oct. 12, 2026
+   Official first-round result + national runoff polls conducted
+   AFTER Oct. 4. Average = valid votes (the only figure every firm
+   released); total votes are shown in each poll's details.
+   ========================================================= */
+EB.result1t = {
+  date: "2026-10-04",
+  status: "100% of polling stations counted",
+  source: "TSE (Superior Electoral Court) — count with 100% of polling stations, as reported by DGABC/Folha de Pernambuco and CartaCapital (Oct. 5, 2026).",
+  runoff: ["flavio-bolsonaro", "lula"],
+  rows: [
+    { id: "flavio-bolsonaro", name: "Flávio Bolsonaro", party: "PL", votes: 56104503, pct: 47.03 },
+    { id: "lula", name: "Lula", party: "PT", votes: 53879538, pct: 45.16 },
+    { id: "augusto-cury", name: "Augusto Cury", party: "Avante", votes: 3448569, pct: 2.89 },
+    { id: "renan-santos", name: "Renan Santos", party: "Missão", votes: 2675887, pct: 2.24 },
+    { id: "ronaldo-caiado", name: "Ronaldo Caiado", party: "PSD", votes: 2605148, pct: 2.18 },
+    { id: "romeu-zema", name: "Romeu Zema", party: "Novo", votes: 326488, pct: 0.27 },
+    { id: null, name: "Samara Martins", party: "UP", votes: 122911, pct: 0.10 },
+    { id: null, name: "Hertz Dias", party: "PSTU", votes: 43103, pct: 0.04 },
+    { id: null, name: "Clariana Barão", party: "DC", votes: 40043, pct: 0.03 },
+    { id: null, name: "Edmilson Costa", party: "PCB", votes: 22693, pct: 0.02 },
+    { id: null, name: "Wilson Grassi", party: "Democrata", votes: 16881, pct: 0.01 },
+    { id: null, name: "Rui Costa Pimenta", party: "PCO", votes: 15024, pct: 0.01 }
+  ],
+  totals: [
+    ["Valid votes", "119,300,788"],
+    ["Blank", "2,300,798 (1.84% of those who voted)"],
+    ["Null", "3,674,249 (2.93% of those who voted)"],
+    ["Turnout", "125,275,835 of 158,745,502 eligible voters"],
+    ["Abstention", "33,469,244 (21.08%) — the highest since 1998, according to the reported count"]
+  ]
+};
+
+EB.polls2tMeta = {
+  last_updated: "2026-10-12",
+  runoff_date: "2026-10-25",
+  a: "lula", b: "flavio-bolsonaro",
+  legend_avg: "Simple average, in valid votes, of the most recent national poll from each firm conducted after the first round. It is not a forecast or a probability of winning.",
+  rules: [
+    "Only national runoff polls registered with the TSE whose fieldwork started after the first round (Oct. 4, 2026).",
+    "The average uses valid votes (excluding blank, null and undecided), because it is the only figure every firm released. Total votes appear in each poll's details when published.",
+    "Runoff simulations conducted before Oct. 4 stay in the first-round snapshot, as a record.",
+    "A new round from the same firm replaces the previous one in the average; the old one stays in the history.",
+    "No “statistical tie” label of our own: compare the percentages with each firm's margin."
+  ]
+};
+
+/* va/vb = valid votes (Lula / Flávio). ta/tb = total votes, when released. */
+EB.polls2t = [
+  P({ poll_id: "datatrends-2026-10-09", instituto: "DataTrends", registro_tse: "BR-03576/2026", data_publicacao: "2026-10-11",
+      campo_inicio: "2026-10-07", campo_fim: "2026-10-09", amostra: 2000, metodo: "phone", margem_erro: 2.19, nivel_confianca: "95%", cenario: "Prompted, runoff",
+      va: 46.9, vb: 53.1, ta: 44, tb: 50, branco_nulo: "5%", indeciso: "1%", rej: null,
+      source_primary: "DataTrends (self-funded), registration BR-03576/2026", source_secondary: "Poder360; Revista Oeste (Oct. 11, 2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "ipespe-2026-10-08", instituto: "Ipespe", contratante: "the firm itself", registro_tse: "BR-00933/2026", data_publicacao: "2026-10-10",
+      campo_inicio: "2026-10-06", campo_fim: "2026-10-08", amostra: 1500, metodo: "random digital recruitment", margem_erro: 2.6, nivel_confianca: "95.45%", cenario: "Prompted, runoff",
+      va: 47.3, vb: 52.7, ta: null, tb: null, rej: null,
+      source_primary: "Ipespe, registration BR-00933/2026", source_secondary: "CNN Brasil (Oct. 10, 2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "atlasintel-2026-10-08", instituto: "AtlasIntel / Bloomberg", registro_tse: "BR-03663/2026", data_publicacao: "2026-10-09",
+      campo_inicio: "2026-10-03", campo_fim: "2026-10-08", amostra: 5026, metodo: "online", margem_erro: 1.0, nivel_confianca: "95%", cenario: "Prompted, runoff",
+      va: 47.2, vb: 52.8, ta: 45.7, tb: 51.1, branco_nulo: "3.2% (blank, null and don't know)", rej: null,
+      source_primary: "AtlasIntel, registration BR-03663/2026", source_secondary: "Gazeta do Povo; Forbes Brasil (Oct. 9, 2026)",
+      data_quality_flag: "Fieldwork began Oct. 3, one day before the first round, and ended Oct. 8.", last_updated: "2026-10-12" }),
+  P({ poll_id: "vox-2026-10-07", instituto: "Vox Brasil", registro_tse: "BR-09623/2026", data_publicacao: "2026-10-09",
+      campo_inicio: "2026-10-05", campo_fim: "2026-10-07", amostra: 2100, metodo: "in person", margem_erro: 2.15, nivel_confianca: "95%", cenario: "Prompted, runoff",
+      va: 50.86, vb: 49.14, ta: 44.2, tb: 42.7, branco_nulo: "3.4%", indeciso: "9.7%", rej: null,
+      source_primary: "Vox Brasil, registration BR-09623/2026", source_secondary: "CartaCapital; Metrópoles (Oct. 9, 2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "datafolha-2026-10-08", instituto: "Datafolha", contratante: "Folha de S.Paulo and Grupo Globo", registro_tse: "BR-02949/2026", data_publicacao: "2026-10-08",
+      campo_inicio: "2026-10-06", campo_fim: "2026-10-08", amostra: 2520, metodo: "in person", margem_erro: 2.0, nivel_confianca: "95%", cenario: "Prompted, runoff",
+      va: 48, vb: 52, ta: 45, tb: 49, branco_nulo: "5%", indeciso: "1%", rej: { "lula": 46, "flavio-bolsonaro": 43 },
+      rejeicao_pergunta: "Would not vote for under any circumstances",
+      source_primary: "Datafolha, registration BR-02949/2026", source_secondary: "Gazeta do Povo; Brasil de Fato (Oct. 8, 2026)", last_updated: "2026-10-12" }),
+  P({ poll_id: "poderdata-2026-10-07", instituto: "PoderData / Aya", contratante: "the firm itself", registro_tse: "BR-08134/2026", data_publicacao: "2026-10-08",
+      campo_inicio: "2026-10-05", campo_fim: "2026-10-07", amostra: 3000, metodo: "phone (IVR)", margem_erro: 1.8, nivel_confianca: "95%", cenario: "Prompted, runoff",
+      va: 47, vb: 53, ta: null, tb: null, rej: { "lula": 46, "flavio-bolsonaro": 43 },
+      rejeicao_pergunta: "Would not vote for under any circumstances",
+      source_primary: "PoderData/Aya, registration BR-08134/2026", source_secondary: "Poder360; Gazeta do Povo (Oct. 8, 2026)", last_updated: "2026-10-12" })
+];
+
+/* Reference average (valid votes) on Oct. 12, 2026 — 6 firms. The site recalculates and checks it. */
+EB.polls2tPublishedAvg = { "lula": 47.88, "flavio-bolsonaro": 52.12 };
 </script>
 <script>
 /* =========================================================
@@ -2314,8 +2422,8 @@ EB.pollsPublishedAvg = {
 window.EB = window.EB || {};
 
 EB.marketsMeta = {
-  captured_at: "2026-09-30",
-  captured_time: null,   // time of capture — record it at the next update
+  captured_at: "2026-10-12",
+  captured_time: "8:20 a.m. (New York time), as reported by The Rio Times",
   legend: "Market price, not a voting-intention poll.",
   resolution_note: "Markets on the Brazilian election use the official result from the TSE (Brazil's Superior Electoral Court) in their resolution rules.",
   platforms: {
@@ -2327,26 +2435,23 @@ EB.marketsMeta = {
 EB.markets = [
   {
     id: "vencedor", title: "Overall winner", q: "Who wins the 2026 presidential election?",
-    note: null,
+    note: "Post-first-round prices as reported by The Rio Times on Oct. 12, 2026, 8:20 a.m. (New York time). Direct capture from the platforms: being updated.",
     platforms: [
-      { platform: "polymarket", market_name: null, market_id: null, volume: "~US$157.4 million", resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
+      { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-10-12",
         outcomes: [
-          { outcome: "Flávio Bolsonaro", display: "~59.5–60%", value: 59.75 },
-          { outcome: "Lula", display: "~41%", value: 41 },
-          { outcome: "Renan Santos", display: "<1%", value: null },
-          { outcome: "All others", display: "<1% each", value: null }
+          { outcome: "Flávio Bolsonaro", display: "~86.9%", value: 86.9 },
+          { outcome: "Lula", display: "~12.5%", value: 12.5 }
         ] },
-      { platform: "kalshi", market_name: null, market_id: null, volume: "~US$6.05 million", resolution_rule: null, source_url: "https://kalshi.com/", timestamp: "2026-09-30",
+      { platform: "kalshi", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://kalshi.com/", timestamp: "2026-10-12",
         outcomes: [
-          { outcome: "Flávio Bolsonaro", display: "~61%", value: 61 },
-          { outcome: "Lula", display: "~40%", value: 40 },
-          { outcome: "Renan Santos", display: "~0.9%", value: 0.9 }
+          { outcome: "Flávio Bolsonaro", display: "~87%", value: 87 },
+          { outcome: "Lula", display: "~13%", value: 13 }
         ] }
     ]
   },
   {
     id: "primeiro-lugar", title: "First place in the first round", q: "Who finishes first in the first round?",
-    note: "This does not contradict the overall-winner market. The contracts answer different questions.",
+    note: "Resolved: Flávio Bolsonaro finished first in the first round (47.03% of valid votes). The prices below are from Sept. 30, before the vote — kept as a record.",
     platforms: [
       { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
         outcomes: [ { outcome: "Lula", display: "~75%", value: 75 }, { outcome: "Flávio Bolsonaro", display: "~26%", value: 26 } ] },
@@ -2356,7 +2461,7 @@ EB.markets = [
   },
   {
     id: "vitoria-1t", title: "Outright win in the first round", q: "Is the election decided in the first round?",
-    note: "Do not average across platforms.",
+    note: "Resolved: no one won in the first round; the election goes to a runoff on Oct. 25. The prices below are from Sept. 30, before the vote — kept as a record.",
     platforms: [
       { platform: "polymarket", market_name: null, market_id: null, volume: null, resolution_rule: null, source_url: "https://polymarket.com/", timestamp: "2026-09-30",
         outcomes: [ { outcome: "Yes", display: "~6%", value: 6 } ] },
@@ -2434,7 +2539,7 @@ EB.recsMeta = {
   last_updated: "2026-09-30",
   photo_credit: "Photos: TSE — Open Data Portal (Candidates 2026)",
   status: "Recommendations being updated",
-  disclaimer: "These picks are personal recommendations from the author/partner. They are not recommendations produced by artificial intelligence and are not a conclusion of the factual comparison tool.",
+  disclaimer: "These picks are personal recommendations from the author/partner. They are not recommendations produced by artificial intelligence and are not a conclusion of the factual comparison tool. Picks made for the first round (Oct. 4, 2026).",
   offices: [
     { id: "governor", name: "Governor", slots: 1 },
     { id: "senate", name: "Senate", slots: 2, note: "2 seats up in 2026" },
@@ -3143,12 +3248,21 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     return list.length ? sum / list.length : null;
   }
   function avg1(cid) { return avg(cid, function (p) { return p.r1 ? p.r1[cid] : null; }); }
+  /* 2º turno (V4.0): média simples dos votos válidos da rodada mais recente de cada instituto. */
+  function latest2() { return (EB.polls2t || []).filter(function (p) { return p.latest; }); }
+  function avg2(k) { var L = latest2().filter(function (p) { return p[k] != null; }), s = 0; L.forEach(function (p) { s += p[k]; }); return L.length ? s / L.length : null; }
+  function tf(str, o) { return String(str).replace(/\{(\w+)\}/g, function (m, k) { return o[k] != null ? o[k] : m; }); }
+  function duelHead() { return '<div class="duel-legend"><span><i style="background:#d7d4cc"></i>Lula</span><span>Flávio Bolsonaro<i style="background:#5c6470;margin:0 0 0 6px"></i></span></div>'; }
+  function resRows(n) {
+    var R = EB.result1t.rows.slice(0, n), mx = R[0].pct;
+    return R.map(function (r) { return '<div class="avg-row"><span class="nm">' + esc(r.name) + ' <small class="mono">' + esc(r.party) + '</small></span><span class="pc">' + fix(r.pct, 2) + '%</span><span class="track"><i style="--w:' + (r.pct / mx * 100) + '%"></i></span></div>'; }).join("");
+  }
 
   function renderHome() {
     var chs = EB.chapters.filter(function (c) { return !c.isStakes; });
     var stakes = byId(EB.chapters, "por-que-2026-importa");
     var d = daysTo(EB.site.election_date);
-    var M = EB.pollsMeta;
+    var M = EB.pollsMeta, U2 = EB.ui2t;
     var avgRows = M.candidates_1t.map(function (c) { return { c: c, v: avg1(c) }; }).sort(function (a, b) { return b.v - a.v; });
     var maxA = avgRows[0].v;
     var mk = EB.markets[0];
@@ -3156,10 +3270,10 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var h = "";
     /* 1. Hero */
     h += '<section class="hero"><div class="wrap">' +
-      '<div class="hero-meta"><span><b>●</b> Special report</span><span>Far beyond the election</span><span>Updated ' + dmy(EB.site.last_updated) + "</span><span>Election · October 4, 2026</span></div>" +
+      '<div class="hero-meta"><span><b>●</b> Special report</span><span>Far beyond the election</span><span>Updated ' + dmy(EB.site.last_updated) + "</span><span>" + esc(EB.ui2t.hero_date) + "</span></div>" +
       '<div class="hero-grid"><div><h1>Brazil Beyond<br><span class="y">the Ballot</span></h1>' +
       '<p class="hero-sub">' + esc(EB.site.subtitle) + "</p>" +
-      (d > 0 ? '<div class="hero-date"><b>' + d + "</b> " + (d === 1 ? "day" : "days") + " to the first round</div>" : "") +
+      (d > 0 ? '<div class="hero-date"><b>' + d + "</b> " + (d === 1 ? EB.ui2t.day : EB.ui2t.days) + " " + esc(EB.ui2t.countdown) + "</div>" : "") +
       '<div class="hero-cta"><a href="#h-' + chs[0].id + '" class="btn btn--solid" data-scroll>How Brazil got here <span class="arr">↓</span></a>' +
       '<a href="#/candidates" class="btn btn--ghost">Candidates</a><a href="#/polls" class="btn btn--ghost">Polls</a><a href="#/states" class="btn btn--ghost">States</a></div></div>' +
       '<nav class="hero-index" aria-label="Home index">' +
@@ -3190,9 +3304,11 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     /* 10–11. Pesquisas, mercados, ÍRIS */
     h += '<section class="sec sec--dark2" id="h-pesquisas"><div class="wrap"><div class="sec-head reveal"><div class="eyebrow">09 · Polls, markets and model</div><h2 class="h-sec">Where the race stands now</h2>' +
       '<p class="dek">Three different measures that are never merged into a single percentage.</p>' + layersNav("") + "</div>" +
-      '<div class="split"><div class="panel reveal grow"><div class="panel-top"><h3>Descriptive average · First round</h3><span class="upd">' + EB.polls.filter(function (p) { return p.latest; }).length + " pollsters · " + dmy(M.last_updated) + "</span></div>" +
-      avgRows.map(function (r) { return '<div class="avg-row"><span class="nm">' + esc(cand(r.c).name) + '</span><span class="pc">' + fix(r.v, 2) + '%</span><span class="track"><i style="--w:' + (r.v / maxA * 100) + '%"></i></span></div>'; }).join("") +
-      '<div class="mandatory">' + esc(M.legend_avg) + '</div><a class="btn btn--ghost btn--sm" href="#/polls">All polls →</a></div>' +
+      '<div class="split"><div class="reveal grow"><div class="panel"><div class="panel-top"><h3>' + esc(U2.home_avg_h) + '</h3><span class="upd">' + esc(tf(U2.home_avg_upd, { n: latest2().length, d: dmy(EB.polls2tMeta.last_updated) })) + "</span></div>" +
+      duelHead() + '<div class="duel">' + duelBar(U2.r2_avg, U2.r2_avg_sub, avg2("va"), avg2("vb"), true) + "</div>" +
+      '<div class="mandatory">' + esc(EB.polls2tMeta.legend_avg) + '</div><a class="btn btn--ghost btn--sm" href="#/polls?v=segundo">' + esc(U2.home_more) + "</a></div>" +
+      '<div class="panel" style="margin-top:16px"><div class="panel-top"><h3>' + esc(U2.home_res_h) + '</h3><span class="upd">' + esc(U2.home_res_upd) + "</span></div>" + resRows(6) +
+      '<a class="btn btn--ghost btn--sm" href="#/polls?v=resultado">' + esc(U2.home_res_more) + "</a></div></div>" +
       '<div class="reveal"><div class="mkt" style="margin-bottom:16px"><div class="mkt-flag">Prediction market · ' + dmy(EB.marketsMeta.captured_at) + "</div><h3>" + esc(mk.title) + "</h3>" +
       '<p class="q">' + esc(EB.marketsMeta.legend) + "</p>" + mk.platforms.map(platBlock).join("") + '<a class="btn btn--ghost btn--sm" href="#/markets" style="margin-top:12px;color:var(--t-light)">Markets →</a></div>' +
       '<div class="iris-card"><div class="iris-head"><b>' + esc(EB.iris.name) + '</b><span class="upd">' + (EB.iris.model_updated_at ? "Updated " + dmy(EB.iris.model_updated_at) : "Being updated") + '</span></div><div style="padding:16px 20px"><p class="small" style="color:var(--t-light-2)">' + esc(EB.iris.legend) + '</p><a class="btn btn--ghost btn--sm" href="#/iris" style="margin-top:12px;color:var(--t-light)">ÍRIS model →</a></div></div></div></div></div></section>';
@@ -3246,12 +3362,17 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
 
   /* ---------------------------------------------------------- CANDIDATOS */
   var selected = [];
+  function candR1(c) {
+    var R = EB.result1t, r = R && R.rows.filter(function (x) { return x.id === c.id; })[0]; if (!r) return "";
+    var go = R.runoff.indexOf(c.id) > -1, U2 = EB.ui2t;
+    return '<p class="mono small" style="margin:10px 0 0;opacity:.85">' + esc(tf(U2.cand_r1, { p: fix(r.pct, 2) })) + " · " + esc(go ? U2.cand_in : U2.cand_out) + "</p>";
+  }
   function renderCandidates() {
     var h = pageHero({ crumbs: [["Candidates"]], kicker: "Presidency · 2026", title: "Candidates",
       dek: "Summary cards and full profiles, with the same yardstick for everyone. A controversy is not a conviction: each case shows its current status with the same prominence as the original allegation." });
     h += '<section class="sec sec--dark sec--tight"><div class="wrap"><div class="cands">' + EB.candidates.map(function (c) {
       var on = selected.indexOf(c.id) > -1;
-      return '<article class="cand reveal"><div class="cand-top">' + avatar(c) + "<div><h3>" + esc(c.name) + '</h3><div class="party">' + esc(c.party) + '</div></div><div class="num">' + esc(c.number) + "</div></div>" +
+      return '<article class="cand reveal"><div class="cand-top">' + avatar(c) + "<div><h3>" + esc(c.name) + '</h3><div class="party">' + esc(c.party) + "</div>" + candR1(c) + '</div><div class="num">' + esc(c.number) + "</div></div>" +
         '<div class="cand-body"><span class="k">' + (c.trajetoria ? "Background" : "Proposals") + "</span>" + md(c.trajetoria || c.summary) + "</div>" +
         '<div class="cand-actions"><a class="btn btn--ghost" href="#/candidates/' + c.id + '">Profile</a><button class="btn btn--ghost' + (on ? " on" : "") + '" data-toggle-cmp="' + c.id + '" aria-pressed="' + on + '">' + (on ? "✓ In comparison" : "+ Compare") + "</button></div></article>"; }).join("") + "</div>" +
       '<p class="meta-note">' + esc(EB.candidatesMeta.order_note) + "<br>" + esc(EB.candidatesMeta.source_note) + " Last updated: " + dmy(EB.candidatesMeta.last_updated) + ".<br>" + esc(EB.candidatesMeta.editorial_note) + "<br>" + esc(EB.candidatesMeta.photo_note) + "</p>" +
@@ -3284,7 +3405,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var h = pageHero({ crumbs: [["Candidates", "#/candidates"], [c.name]], title: "",
       below: "" });
     h = h.replace('<h1 class="page-title"></h1>', "");
-    h = h.replace('<div class="page-hero-grid"><div></div></div>', '<div class="profile-hero">' + avatar(c) + '<div><div class="page-kicker">' + esc(c.party) + " · " + esc(c.number) + '</div><h1 class="page-title">' + esc(c.name) + '</h1></div><div class="ballot" aria-hidden="true">' + esc(c.number) + "</div></div>");
+    h = h.replace('<div class="page-hero-grid"><div></div></div>', '<div class="profile-hero">' + avatar(c) + '<div><div class="page-kicker">' + esc(c.party) + " · " + esc(c.number) + '</div><h1 class="page-title">' + esc(c.name) + "</h1>" + candR1(c) + '</div><div class="ballot" aria-hidden="true">' + esc(c.number) + "</div></div>");
     var controv = c.controversias.length ? c.controversias.map(function (x) {
       return '<div class="case">' + tag(x.l) + "<h4>" + esc(x.t) + "</h4><p>" + md(x.d) + "</p>" + statusRow(x.status) + (x.note ? '<p class="note">' + esc(x.note) + "</p>" : "") + src(x.src) + (x.chapter ? '<a class="more" href="#/history/' + x.chapter + '">Context in the chapter →</a>' : "") + "</div>"; }).join("")
       : '<p class="empty">Being updated</p>';
@@ -3357,21 +3478,32 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   }
 
   /* ---------------------------------------------------------- PESQUISAS */
-  var pollTab = "media";
+  var pollTab = "segundo";
   var PALETTE = ["#e6e2d6", "#e0b25a", "#b48cff", "#5fbf8f", "#2fb3c6", "#ff8a65"];
   function renderPolls(q) {
     if (q.v) pollTab = q.v;
     var M = EB.pollsMeta;
     var h = pageHero({ crumbs: [["Polls"]], kicker: "Layer 1 · Voting-intention polls", title: "Polls",
       dek: "The latest valid national poll from each pollster. Earlier polls remain in the history. A poll is not a forecast.", below: layersNav("pesquisas") });
-    var tabs = [["media", "Descriptive average"], ["individuais", "Individual polls"], ["segundo", "Runoff"], ["rejeicao", "Rejection"], ["evolucao", "Trend"], ["metodologia", "Methodology"]];
+    var tabs = EB.ui2t.tabs;
     h += '<section class="sec sec--dark2 sec--tight"><div class="wrap"><div class="tabs" role="tablist" aria-label="Poll sections">' + tabs.map(function (t) { return '<button class="tab" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === pollTab) + '">' + t[1] + "</button>"; }).join("") + '</div><div id="poll-out"></div></div></section>';
     app.innerHTML = h; drawPolls();
   }
   function latest() { return EB.polls.filter(function (p) { return p.latest; }); }
   function drawPolls() {
     var out = document.getElementById("poll-out"); if (!out) return;
-    var M = EB.pollsMeta, L = latest(), S = M.short, h = "";
+    var M = EB.pollsMeta, L = latest(), S = M.short, h = "", U2 = EB.ui2t, M2 = EB.polls2tMeta, L2 = latest2();
+    if (pollTab === "media" || pollTab === "individuais" || pollTab === "evolucao") h += '<div class="mandatory" style="margin-bottom:22px">' + esc(U2.closed_note) + "</div>";
+    if (pollTab === "resultado") {
+      var R1 = EB.result1t;
+      h += '<div class="panel"><div class="panel-top"><h3>' + esc(U2.res_h) + '</h3><span class="upd">' + dmy(R1.date) + " · " + esc(R1.status) + "</span></div>" +
+        '<table class="ptable"><thead><tr>' + U2.res_cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        R1.rows.map(function (r) { var go = R1.runoff.indexOf(r.id) > -1; return "<tr><td>" + (r.id ? '<a href="#/candidates/' + r.id + '">' + esc(r.name) + "</a>" : esc(r.name)) + (go ? ' <small class="mono">· ' + esc(U2.res_runoff) + "</small>" : "") + '</td><td class="meta">' + esc(r.party) + '</td><td class="num">' + thousands(r.votes) + '</td><td class="num">' + fix(r.pct, 2) + "</td></tr>"; }).join("") +
+        "</tbody></table>" +
+        '<h3 class="h-sub" style="margin:26px 0 12px">' + esc(U2.res_others) + '</h3><dl style="display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:8px 0;font-size:14px">' +
+        R1.totals.map(function (x) { return '<dt class="mono" style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6">' + esc(x[0]) + '</dt><dd style="margin:0">' + esc(x[1]) + "</dd>"; }).join("") + "</dl>" +
+        '<div class="blk f" style="margin-top:18px">' + tag("dado") + "<p>" + esc(R1.source) + "</p></div></div>";
+    }
     if (pollTab === "media") {
       var rows = M.candidates_1t.map(function (c) { var vals = L.map(function (p) { return p.r1[c]; }); return { c: c, v: avg1(c), min: Math.min.apply(null, vals), max: Math.max.apply(null, vals) }; }).sort(function (a, b) { return b.v - a.v; });
       var mx = rows[0].v, ok = true;
@@ -3398,15 +3530,23 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
         '<div class="mandatory" style="margin-top:22px">Raw voting-intention percentages, as published. We do not label anything a “statistical tie”: compare each pollster\'s percentages and margin.</div>';
     }
     if (pollTab === "segundo") {
-      var a2b = avg(null, function (p) { return p.r2 ? p.r2.a_pct : null; }), b2b = avg(null, function (p) { return p.r2 ? p.r2.b_pct : null; });
-      h += '<div class="panel"><div class="panel-top"><h3>Lula × Flávio · Runoff</h3><span class="upd">' + L.length + " pollsters · " + dmy(M.last_updated) + "</span></div>" +
-        '<div class="duel-legend"><span><i style="background:#d7d4cc"></i>Lula</span><span>Flávio Bolsonaro<i style="background:#5c6470;margin:0 0 0 6px"></i></span></div><div class="duel">' +
-        duelBar("Descriptive average", "simple average", a2b, b2b, true) +
-        L.map(function (p) { return duelBar(p.instituto, field(p.campo_inicio, p.campo_fim) + " · ±" + num(p.margem_erro), p.r2.a_pct, p.r2.b_pct); }).join("") + "</div>" +
-        '<p class="avg-note">Bar = published percentages. The remaining space corresponds to blank, spoiled and undecided (not broken down here). Descriptive difference of the average: ' + fix(Math.abs(b2b - a2b), 2) + ' point.</p><div class="mandatory">' + esc(M.legend_avg) + " The runoff average is not a probability of winning.</div></div>";
+      var va = avg2("va"), vb = avg2("vb"), ok2 = Math.abs(fix(va, 2).replace(",", ".") - EB.polls2tPublishedAvg[M2.a]) <= 0.005 && Math.abs(fix(vb, 2).replace(",", ".") - EB.polls2tPublishedAvg[M2.b]) <= 0.005;
+      var C = U2.r2_cols, tot = function (v) { return v == null ? '<span class="pend">—</span>' : num(v); };
+      h += '<div class="panel"><div class="panel-top"><h3>' + esc(U2.r2_h) + '</h3><span class="upd">' + esc(tf(U2.r2_upd, { n: L2.length, d: dmy(M2.last_updated) })) + "</span></div>" +
+        duelHead() + '<div class="duel">' + duelBar(U2.r2_avg, U2.r2_avg_sub, va, vb, true) +
+        L2.map(function (p) { return duelBar(p.instituto, field(p.campo_inicio, p.campo_fim) + " · ±" + num(p.margem_erro), p.va, p.vb); }).join("") + "</div>" +
+        '<p class="avg-note">' + esc(tf(U2.r2_note, { x: fix(Math.abs(vb - va), 2) })) + '</p><div class="mandatory">' + esc(M2.legend_avg) + "</div>" +
+        '<div class="check">' + esc(U2.r2_check) + ' <b class="' + (ok2 ? "" : "bad") + '">' + esc(ok2 ? U2.ok : U2.bad) + "</b></div></div>" +
+        '<div class="panel-top" style="margin-top:28px"><h3 style="font-family:var(--f-display);font-size:28px">' + esc(U2.r2_table_h) + "</h3></div>" +
+        '<table class="ptable"><thead><tr>' + C.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        L2.map(function (p, i) { return '<tr><td><button data-pdetail="2-' + i + '">' + esc(p.instituto) + '</button></td><td class="meta">' + field(p.campo_inicio, p.campo_fim) + '</td><td class="num">' + thousands(p.amostra) + '</td><td class="meta">' + (p.metodo ? esc(p.metodo) : "—") + '</td><td class="num">±' + num(p.margem_erro) + '</td><td class="num">' + num(p.va) + '</td><td class="num">' + num(p.vb) + '</td><td class="num">' + tot(p.ta) + '</td><td class="num">' + tot(p.tb) + '</td></tr><tr class="pdetail" id="pd-2-' + i + '" hidden><td colspan="9">' + pollFicha(p) + (p.data_quality_flag ? '<p class="small">' + esc(p.data_quality_flag) + "</p>" : "") + "</td></tr>"; }).join("") +
+        "</tbody></table>" +
+        '<div class="pcards">' + L2.map(function (p) { return '<div class="pcard"><h4>' + esc(p.instituto) + '</h4><div class="meta">' + field(p.campo_inicio, p.campo_fim) + " · " + thousands(p.amostra) + " · " + (p.metodo ? esc(p.metodo) : "—") + " · ±" + num(p.margem_erro) + '</div><div class="res"><div><small>' + esc(C[5]) + "</small><b>" + num(p.va) + "</b></div><div><small>" + esc(C[6]) + "</small><b>" + num(p.vb) + '</b></div></div><details class="src"><summary>' + esc(C[0]) + "</summary>" + pollFicha(p) + (p.data_quality_flag ? '<p class="small">' + esc(p.data_quality_flag) + "</p>" : "") + "</details></div>"; }).join("") + "</div>";
     }
     if (pollTab === "rejeicao") {
-      var withR = L.filter(function (p) { return p.rej; }), without = L.filter(function (p) { return !p.rej; });
+      var withR = L.filter(function (p) { return p.rej; }), without = L.filter(function (p) { return !p.rej; }), withR2 = L2.filter(function (p) { return p.rej; });
+      var rejCard = function (p) { return '<div class="rej-card"><h4>' + esc(p.instituto) + "</h4>" + (p.rejeicao_pergunta ? '<div class="q">“' + esc(p.rejeicao_pergunta) + "”</div>" : "") + '<div class="grow">' + ["lula", "flavio-bolsonaro"].map(function (c) { return '<div class="bar-row"><span class="n">' + esc(S[c]) + '</span><span class="track"><i style="--w:' + p.rej[c] + '%"></i></span><span class="v">' + num(p.rej[c]) + "</span></div>"; }).join("") + "</div></div>"; };
+      h += '<h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.rej2_h) + '</h3><div class="rej" style="margin-bottom:30px">' + withR2.map(rejCard).join("") + '</div><h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.rej1_h) + "</h3>";
       h += '<div class="mandatory">Rejection is shown by pollster, with no overall average: the questions vary between pollsters.</div><div class="rej">' +
         withR.map(function (p) { return '<div class="rej-card"><h4>' + esc(p.instituto) + '</h4>' + (p.rejeicao_pergunta ? '<div class="q">Exact question: “' + esc(p.rejeicao_pergunta) + "”</div>" : "") +
           '<div class="grow">' + ["lula", "flavio-bolsonaro"].map(function (c) { return '<div class="bar-row"><span class="n">' + esc(S[c]) + '</span><span class="track"><i style="--w:' + p.rej[c] + '%"></i></span><span class="v">' + num(p.rej[c]) + "</span></div>"; }).join("") + "</div></div>"; }).join("") + "</div>" +
@@ -3414,6 +3554,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     }
     if (pollTab === "evolucao") h += evolution();
     if (pollTab === "metodologia") {
+      h += '<div style="margin-bottom:30px"><h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.meth2_h) + '</h3><ol class="hier">' + M2.rules.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ol></div>";
       h += '<div class="split"><div><h3 class="h-sub" style="margin-bottom:14px">Aggregation rules</h3><ol class="hier">' + M.rules.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ol></div>" +
         '<div><h3 class="h-sub" style="margin-bottom:14px">Pollsters in the snapshot</h3><div class="chips">' + L.map(function (p) { return '<span class="chip">' + esc(p.instituto) + "</span>"; }).join("") + "</div>" +
         '<div class="blk m" style="margin-top:20px">' + tag("met") + "<p>" + esc(M.history_note) + "</p></div>" +
@@ -3466,12 +3607,12 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
       '<div class="mkts">' + EB.markets.map(function (m) { return '<div class="mkt"><div class="mkt-flag">Market price</div><h3>' + esc(m.title) + '</h3><p class="q">' + esc(m.q) + "</p>" + m.platforms.map(platBlock).join("") + (m.note ? '<p class="mkt-note">' + esc(m.note) + "</p>" : "") + "</div>"; }).join("") + "</div>" +
       '<p class="avg-note">Values exactly as captured (≈ approximations, &lt; less than). We do not average across platforms. ' + esc(MM.resolution_note) + "</p></div></section>";
     var a1 = avg1("lula"), f1 = avg1("flavio-bolsonaro");
-    var a2 = avg(null, function (p) { return p.r2 ? p.r2.a_pct : null; }), b2 = avg(null, function (p) { return p.r2 ? p.r2.b_pct : null; });
+    var a2 = avg2("va"), b2 = avg2("vb");
     h += '<section class="sec sec--dark sec--tight"><div class="wrap"><div class="split"><div>' +
       EB.marketsExplainer.map(function (e) { return '<h3 class="h-sub" style="margin:0 0 12px">' + esc(e.t) + "</h3>" + e.p.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + '<div style="height:24px"></div>'; }).join("") + "</div>" +
       '<div><div class="panel"><div class="panel-top"><h3>Different measures</h3></div><p class="small" style="color:var(--t-light-2);margin-bottom:16px">Same date, two distinct questions. The numbers below are not directly comparable.</p><div class="cmp-poll">' +
       '<div class="rej-card"><h4>Polling average</h4><div class="q">Stated voting intention</div><p class="mono small">First round: Lula ' + fix(a1, 2) + "% · Flávio " + fix(f1, 2) + "%</p><p class=\"mono small\">Runoff: Lula " + fix(a2, 2) + "% · Flávio " + fix(b2, 2) + '%</p><a class="mono small" href="#/polls">Polls →</a></div>' +
-      '<div class="mkt" style="padding:16px"><h4 style="font-family:var(--f-display);font-size:19px">Market · eventual winner</h4><div class="q">Contract price</div><p class="mono small">Polymarket: Flávio ~59.5–60% · Lula ~41%</p><p class="mono small">Kalshi: Flávio ~61% · Lula ~40%</p></div></div>' +
+      '<div class="mkt" style="padding:16px"><h4 style="font-family:var(--f-display);font-size:19px">Market · eventual winner</h4><div class="q">Contract price</div>' + EB.markets[0].platforms.map(function (pl) { return '<p class="mono small">' + esc(EB.marketsMeta.platforms[pl.platform].name) + ": " + pl.outcomes.map(function (o) { return esc(o.outcome.split(" ")[0]) + " " + esc(o.display); }).join(" · ") + "</p>"; }).join("") + '</div></div>' +
       '<p class="avg-note">A person can say they will vote for Lula and, at the same time, believe Flávio will end up elected — and vice versa.</p></div>' +
       '<div class="panel" style="margin-top:16px"><div class="panel-top"><h3>What we record at each capture</h3></div><div class="chips">' + ["exact market title", "platform", "price", "volume", "capture date/time", "resolution rule", "official resolution source"].map(function (x) { return '<span class="chip" style="border-color:var(--line-d)">' + x + "</span>"; }).join("") + '</div></div></div></div></div></section>';
     app.innerHTML = h;
@@ -3608,6 +3749,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   function colPerson(p) { return p && p.name ? { name: p.name, number: String(p.number || ""), party: p.party || "" } : { name: "", number: "", party: "" }; }
   function colOptions(id, rec) { return id === "federal_deputy" ? (rec.federal_deputy || []) : id === "state_deputy" ? (rec.state_deputy || []) : []; }
   function colinhaCta(U) {
+    if (EB.site.round === 2) return '<div class="colinha-cta"><span>' + esc(EB.ui2t.colinha_closed) + "</span></div>";
     return '<div class="colinha-cta"><button type="button" class="btn btn--ghost btn--sm" data-colinha="' + U.uf + '">🖨 ' + esc(CL.btn) + '</button><span>' + esc(CL.cta) + "</span></div>";
   }
   function openColinha(uf) {

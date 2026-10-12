@@ -21,3 +21,11 @@
 5. Não inventar: campo sem fonte = null. Nunca usar mercado de previsão como pesquisa.
 6. Depois de alterar, recalcular a média simples (latest:true) e atualizar `EB.pollsPublishedAvg` (2 casas) nos DOIS arquivos;
    atualizar `pollsMeta.last_updated` e o comentário da média. O site confere a média sozinho ("✓ confere").
+
+## 2º turno (desde V4.0, 12/10/2026)
+- Dados em `EB.polls2t` (fim de `polls.js`, PT e EN). Campos extras: `va`/`vb` = votos válidos de Lula/Flávio; `ta`/`tb` = votos totais (null se o instituto não divulgou); `rej` = rejeição ou null.
+- Só pesquisas NACIONAIS de 2º turno, com registro no TSE e campo iniciado depois de 4/10/2026.
+- A média usa votos válidos (único número que todos divulgam). Nova rodada do mesmo instituto: a anterior recebe `latest: false`.
+- Depois de alterar: recalcular a média simples de `va`/`vb` (latest:true), atualizar `EB.polls2tPublishedAvg` (2 casas) e `EB.polls2tMeta.last_updated` nos DOIS arquivos. O site confere sozinho ("✓ confere").
+- Resultado oficial do 1º turno: `EB.result1t`. Textos da interface do 2º turno: `EB.ui2t` em `meta.js`.
+- O snapshot do 1º turno (`EB.polls`) está encerrado em 30/09 e fica como registro.

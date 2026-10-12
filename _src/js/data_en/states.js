@@ -11,7 +11,7 @@ EB.recsMeta = {
   last_updated: "2026-09-30",
   photo_credit: "Photos: TSE — Open Data Portal (Candidates 2026)",
   status: "Recommendations being updated",
-  disclaimer: "These picks are personal recommendations from the author/partner. They are not recommendations produced by artificial intelligence and are not a conclusion of the factual comparison tool.",
+  disclaimer: "These picks are personal recommendations from the author/partner. They are not recommendations produced by artificial intelligence and are not a conclusion of the factual comparison tool. Picks made for the first round (Oct. 4, 2026).",
   offices: [
     { id: "governor", name: "Governor", slots: 1 },
     { id: "senate", name: "Senate", slots: 2, note: "2 seats up in 2026" },

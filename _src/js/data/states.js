@@ -11,7 +11,7 @@ EB.recsMeta = {
   last_updated: "2026-09-30",
   photo_credit: "Fotos: TSE — Portal de Dados Abertos (Candidatos 2026)",
   status: "Indicações em atualização",
-  disclaimer: "Estas escolhas são indicações pessoais do autor/parceiro. Não são recomendações produzidas por inteligência artificial e não são conclusão do comparador factual.",
+  disclaimer: "Estas escolhas são indicações pessoais do autor/parceiro. Não são recomendações produzidas por inteligência artificial e não são conclusão do comparador factual. Indicações feitas para o 1º turno (4/10/2026).",
   offices: [
     { id: "governor", name: "Governador", slots: 1 },
     { id: "senate", name: "Senado", slots: 2, note: "2 vagas em 2026" },

@@ -151,12 +151,21 @@
     return list.length ? sum / list.length : null;
   }
   function avg1(cid) { return avg(cid, function (p) { return p.r1 ? p.r1[cid] : null; }); }
+  /* 2º turno (V4.0): média simples dos votos válidos da rodada mais recente de cada instituto. */
+  function latest2() { return (EB.polls2t || []).filter(function (p) { return p.latest; }); }
+  function avg2(k) { var L = latest2().filter(function (p) { return p[k] != null; }), s = 0; L.forEach(function (p) { s += p[k]; }); return L.length ? s / L.length : null; }
+  function tf(str, o) { return String(str).replace(/\{(\w+)\}/g, function (m, k) { return o[k] != null ? o[k] : m; }); }
+  function duelHead() { return '<div class="duel-legend"><span><i style="background:#d7d4cc"></i>Lula</span><span>Flávio Bolsonaro<i style="background:#5c6470;margin:0 0 0 6px"></i></span></div>'; }
+  function resRows(n) {
+    var R = EB.result1t.rows.slice(0, n), mx = R[0].pct;
+    return R.map(function (r) { return '<div class="avg-row"><span class="nm">' + esc(r.name) + ' <small class="mono">' + esc(r.party) + '</small></span><span class="pc">' + fix(r.pct, 2) + '%</span><span class="track"><i style="--w:' + (r.pct / mx * 100) + '%"></i></span></div>'; }).join("");
+  }
 
   function renderHome() {
     var chs = EB.chapters.filter(function (c) { return !c.isStakes; });
     var stakes = byId(EB.chapters, "por-que-2026-importa");
     var d = daysTo(EB.site.election_date);
-    var M = EB.pollsMeta;
+    var M = EB.pollsMeta, U2 = EB.ui2t;
     var avgRows = M.candidates_1t.map(function (c) { return { c: c, v: avg1(c) }; }).sort(function (a, b) { return b.v - a.v; });
     var maxA = avgRows[0].v;
     var mk = EB.markets[0];
@@ -164,10 +173,10 @@
     var h = "";
     /* 1. Hero */
     h += '<section class="hero"><div class="wrap">' +
-      '<div class="hero-meta"><span><b>●</b> Reportagem especial</span><span>Muito além das eleições</span><span>Atualizado em ' + dmy(EB.site.last_updated) + "</span><span>Eleição · 4 de outubro de 2026</span></div>" +
+      '<div class="hero-meta"><span><b>●</b> Reportagem especial</span><span>Muito além das eleições</span><span>Atualizado em ' + dmy(EB.site.last_updated) + "</span><span>" + esc(EB.ui2t.hero_date) + "</span></div>" +
       '<div class="hero-grid"><div><h1>Além da<br><span class="y">Urna</span></h1>' +
       '<p class="hero-sub">' + esc(EB.site.subtitle) + "</p>" +
-      (d > 0 ? '<div class="hero-date"><b>' + d + "</b> " + (d === 1 ? "dia" : "dias") + " para o 1º turno</div>" : "") +
+      (d > 0 ? '<div class="hero-date"><b>' + d + "</b> " + (d === 1 ? EB.ui2t.day : EB.ui2t.days) + " " + esc(EB.ui2t.countdown) + "</div>" : "") +
       '<div class="hero-cta"><a href="#h-' + chs[0].id + '" class="btn btn--solid" data-scroll>Como o Brasil chegou aqui <span class="arr">↓</span></a>' +
       '<a href="#/candidatos" class="btn btn--ghost">Candidatos</a><a href="#/pesquisas" class="btn btn--ghost">Pesquisas</a><a href="#/estados" class="btn btn--ghost">Estados</a></div></div>' +
       '<nav class="hero-index" aria-label="Índice da Home">' +
@@ -198,9 +207,11 @@
     /* 10–11. Pesquisas, mercados, ÍRIS */
     h += '<section class="sec sec--dark2" id="h-pesquisas"><div class="wrap"><div class="sec-head reveal"><div class="eyebrow">09 · Pesquisas, mercados e modelo</div><h2 class="h-sec">Como a disputa está agora</h2>' +
       '<p class="dek">Três grandezas diferentes, que nunca se fundem numa única porcentagem.</p>' + layersNav("") + "</div>" +
-      '<div class="split"><div class="panel reveal grow"><div class="panel-top"><h3>Média descritiva · 1º turno</h3><span class="upd">' + EB.polls.filter(function (p) { return p.latest; }).length + " institutos · " + dmy(M.last_updated) + "</span></div>" +
-      avgRows.map(function (r) { return '<div class="avg-row"><span class="nm">' + esc(cand(r.c).name) + '</span><span class="pc">' + fix(r.v, 2) + '%</span><span class="track"><i style="--w:' + (r.v / maxA * 100) + '%"></i></span></div>'; }).join("") +
-      '<div class="mandatory">' + esc(M.legend_avg) + '</div><a class="btn btn--ghost btn--sm" href="#/pesquisas">Todas as pesquisas →</a></div>' +
+      '<div class="split"><div class="reveal grow"><div class="panel"><div class="panel-top"><h3>' + esc(U2.home_avg_h) + '</h3><span class="upd">' + esc(tf(U2.home_avg_upd, { n: latest2().length, d: dmy(EB.polls2tMeta.last_updated) })) + "</span></div>" +
+      duelHead() + '<div class="duel">' + duelBar(U2.r2_avg, U2.r2_avg_sub, avg2("va"), avg2("vb"), true) + "</div>" +
+      '<div class="mandatory">' + esc(EB.polls2tMeta.legend_avg) + '</div><a class="btn btn--ghost btn--sm" href="#/pesquisas?v=segundo">' + esc(U2.home_more) + "</a></div>" +
+      '<div class="panel" style="margin-top:16px"><div class="panel-top"><h3>' + esc(U2.home_res_h) + '</h3><span class="upd">' + esc(U2.home_res_upd) + "</span></div>" + resRows(6) +
+      '<a class="btn btn--ghost btn--sm" href="#/pesquisas?v=resultado">' + esc(U2.home_res_more) + "</a></div></div>" +
       '<div class="reveal"><div class="mkt" style="margin-bottom:16px"><div class="mkt-flag">Mercado de previsão · ' + dmy(EB.marketsMeta.captured_at) + "</div><h3>" + esc(mk.title) + "</h3>" +
       '<p class="q">' + esc(EB.marketsMeta.legend) + "</p>" + mk.platforms.map(platBlock).join("") + '<a class="btn btn--ghost btn--sm" href="#/mercados" style="margin-top:12px;color:var(--t-light)">Mercados →</a></div>' +
       '<div class="iris-card"><div class="iris-head"><b>' + esc(EB.iris.name) + '</b><span class="upd">' + (EB.iris.model_updated_at ? "Atualizado em " + dmy(EB.iris.model_updated_at) : "Em atualização") + '</span></div><div style="padding:16px 20px"><p class="small" style="color:var(--t-light-2)">' + esc(EB.iris.legend) + '</p><a class="btn btn--ghost btn--sm" href="#/iris" style="margin-top:12px;color:var(--t-light)">Modelo ÍRIS →</a></div></div></div></div></div></section>';
@@ -254,12 +265,17 @@
 
   /* ---------------------------------------------------------- CANDIDATOS */
   var selected = [];
+  function candR1(c) {
+    var R = EB.result1t, r = R && R.rows.filter(function (x) { return x.id === c.id; })[0]; if (!r) return "";
+    var go = R.runoff.indexOf(c.id) > -1, U2 = EB.ui2t;
+    return '<p class="mono small" style="margin:10px 0 0;opacity:.85">' + esc(tf(U2.cand_r1, { p: fix(r.pct, 2) })) + " · " + esc(go ? U2.cand_in : U2.cand_out) + "</p>";
+  }
   function renderCandidates() {
     var h = pageHero({ crumbs: [["Candidatos"]], kicker: "Presidência · 2026", title: "Candidatos",
       dek: "Cards resumidos e perfil completo, com a mesma régua para todos. Controvérsia não é condenação: cada caso mostra a situação atual com o mesmo destaque da acusação original." });
     h += '<section class="sec sec--dark sec--tight"><div class="wrap"><div class="cands">' + EB.candidates.map(function (c) {
       var on = selected.indexOf(c.id) > -1;
-      return '<article class="cand reveal"><div class="cand-top">' + avatar(c) + "<div><h3>" + esc(c.name) + '</h3><div class="party">' + esc(c.party) + '</div></div><div class="num">' + esc(c.number) + "</div></div>" +
+      return '<article class="cand reveal"><div class="cand-top">' + avatar(c) + "<div><h3>" + esc(c.name) + '</h3><div class="party">' + esc(c.party) + "</div>" + candR1(c) + '</div><div class="num">' + esc(c.number) + "</div></div>" +
         '<div class="cand-body"><span class="k">' + (c.trajetoria ? "Trajetória" : "Propostas") + "</span>" + md(c.trajetoria || c.summary) + "</div>" +
         '<div class="cand-actions"><a class="btn btn--ghost" href="#/candidatos/' + c.id + '">Perfil</a><button class="btn btn--ghost' + (on ? " on" : "") + '" data-toggle-cmp="' + c.id + '" aria-pressed="' + on + '">' + (on ? "✓ No comparador" : "+ Comparar") + "</button></div></article>"; }).join("") + "</div>" +
       '<p class="meta-note">' + esc(EB.candidatesMeta.order_note) + "<br>" + esc(EB.candidatesMeta.source_note) + " Última atualização: " + dmy(EB.candidatesMeta.last_updated) + ".<br>" + esc(EB.candidatesMeta.editorial_note) + "<br>" + esc(EB.candidatesMeta.photo_note) + "</p>" +
@@ -292,7 +308,7 @@
     var h = pageHero({ crumbs: [["Candidatos", "#/candidatos"], [c.name]], title: "",
       below: "" });
     h = h.replace('<h1 class="page-title"></h1>', "");
-    h = h.replace('<div class="page-hero-grid"><div></div></div>', '<div class="profile-hero">' + avatar(c) + '<div><div class="page-kicker">' + esc(c.party) + " · " + esc(c.number) + '</div><h1 class="page-title">' + esc(c.name) + '</h1></div><div class="ballot" aria-hidden="true">' + esc(c.number) + "</div></div>");
+    h = h.replace('<div class="page-hero-grid"><div></div></div>', '<div class="profile-hero">' + avatar(c) + '<div><div class="page-kicker">' + esc(c.party) + " · " + esc(c.number) + '</div><h1 class="page-title">' + esc(c.name) + "</h1>" + candR1(c) + '</div><div class="ballot" aria-hidden="true">' + esc(c.number) + "</div></div>");
     var controv = c.controversias.length ? c.controversias.map(function (x) {
       return '<div class="case">' + tag(x.l) + "<h4>" + esc(x.t) + "</h4><p>" + md(x.d) + "</p>" + statusRow(x.status) + (x.note ? '<p class="note">' + esc(x.note) + "</p>" : "") + src(x.src) + (x.chapter ? '<a class="more" href="#/historia/' + x.chapter + '">Contexto no capítulo →</a>' : "") + "</div>"; }).join("")
       : '<p class="empty">Em atualização</p>';
@@ -365,21 +381,32 @@
   }
 
   /* ---------------------------------------------------------- PESQUISAS */
-  var pollTab = "media";
+  var pollTab = "segundo";
   var PALETTE = ["#e6e2d6", "#e0b25a", "#b48cff", "#5fbf8f", "#2fb3c6", "#ff8a65"];
   function renderPolls(q) {
     if (q.v) pollTab = q.v;
     var M = EB.pollsMeta;
     var h = pageHero({ crumbs: [["Pesquisas"]], kicker: "Camada 1 · Pesquisas de intenção de voto", title: "Pesquisas",
       dek: "Última pesquisa nacional válida de cada instituto. Pesquisas anteriores permanecem no histórico. Pesquisa não é previsão.", below: layersNav("pesquisas") });
-    var tabs = [["media", "Média descritiva"], ["individuais", "Pesquisas individuais"], ["segundo", "2º turno"], ["rejeicao", "Rejeição"], ["evolucao", "Evolução"], ["metodologia", "Metodologia"]];
+    var tabs = EB.ui2t.tabs;
     h += '<section class="sec sec--dark2 sec--tight"><div class="wrap"><div class="tabs" role="tablist" aria-label="Seções de pesquisas">' + tabs.map(function (t) { return '<button class="tab" role="tab" data-ptab="' + t[0] + '" aria-selected="' + (t[0] === pollTab) + '">' + t[1] + "</button>"; }).join("") + '</div><div id="poll-out"></div></div></section>';
     app.innerHTML = h; drawPolls();
   }
   function latest() { return EB.polls.filter(function (p) { return p.latest; }); }
   function drawPolls() {
     var out = document.getElementById("poll-out"); if (!out) return;
-    var M = EB.pollsMeta, L = latest(), S = M.short, h = "";
+    var M = EB.pollsMeta, L = latest(), S = M.short, h = "", U2 = EB.ui2t, M2 = EB.polls2tMeta, L2 = latest2();
+    if (pollTab === "media" || pollTab === "individuais" || pollTab === "evolucao") h += '<div class="mandatory" style="margin-bottom:22px">' + esc(U2.closed_note) + "</div>";
+    if (pollTab === "resultado") {
+      var R1 = EB.result1t;
+      h += '<div class="panel"><div class="panel-top"><h3>' + esc(U2.res_h) + '</h3><span class="upd">' + dmy(R1.date) + " · " + esc(R1.status) + "</span></div>" +
+        '<table class="ptable"><thead><tr>' + U2.res_cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        R1.rows.map(function (r) { var go = R1.runoff.indexOf(r.id) > -1; return "<tr><td>" + (r.id ? '<a href="#/candidatos/' + r.id + '">' + esc(r.name) + "</a>" : esc(r.name)) + (go ? ' <small class="mono">· ' + esc(U2.res_runoff) + "</small>" : "") + '</td><td class="meta">' + esc(r.party) + '</td><td class="num">' + thousands(r.votes) + '</td><td class="num">' + fix(r.pct, 2) + "</td></tr>"; }).join("") +
+        "</tbody></table>" +
+        '<h3 class="h-sub" style="margin:26px 0 12px">' + esc(U2.res_others) + '</h3><dl style="display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:8px 0;font-size:14px">' +
+        R1.totals.map(function (x) { return '<dt class="mono" style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6">' + esc(x[0]) + '</dt><dd style="margin:0">' + esc(x[1]) + "</dd>"; }).join("") + "</dl>" +
+        '<div class="blk f" style="margin-top:18px">' + tag("dado") + "<p>" + esc(R1.source) + "</p></div></div>";
+    }
     if (pollTab === "media") {
       var rows = M.candidates_1t.map(function (c) { var vals = L.map(function (p) { return p.r1[c]; }); return { c: c, v: avg1(c), min: Math.min.apply(null, vals), max: Math.max.apply(null, vals) }; }).sort(function (a, b) { return b.v - a.v; });
       var mx = rows[0].v, ok = true;
@@ -406,15 +433,23 @@
         '<div class="mandatory" style="margin-top:22px">Percentuais de intenção de voto bruta, como publicados. Sem classificação própria de “empate técnico”: compare percentuais e margem de cada instituto.</div>';
     }
     if (pollTab === "segundo") {
-      var a2b = avg(null, function (p) { return p.r2 ? p.r2.a_pct : null; }), b2b = avg(null, function (p) { return p.r2 ? p.r2.b_pct : null; });
-      h += '<div class="panel"><div class="panel-top"><h3>Lula × Flávio · 2º turno</h3><span class="upd">' + L.length + " institutos · " + dmy(M.last_updated) + "</span></div>" +
-        '<div class="duel-legend"><span><i style="background:#d7d4cc"></i>Lula</span><span>Flávio Bolsonaro<i style="background:#5c6470;margin:0 0 0 6px"></i></span></div><div class="duel">' +
-        duelBar("Média descritiva", "média simples", a2b, b2b, true) +
-        L.map(function (p) { return duelBar(p.instituto, field(p.campo_inicio, p.campo_fim) + " · ±" + num(p.margem_erro), p.r2.a_pct, p.r2.b_pct); }).join("") + "</div>" +
-        '<p class="avg-note">Barra = percentuais publicados. O espaço restante corresponde a brancos, nulos e indecisos (não detalhados aqui). Diferença descritiva da média: ' + fix(Math.abs(b2b - a2b), 2) + ' ponto.</p><div class="mandatory">' + esc(M.legend_avg) + " A média de 2º turno não é probabilidade de vitória.</div></div>";
+      var va = avg2("va"), vb = avg2("vb"), ok2 = Math.abs(fix(va, 2).replace(",", ".") - EB.polls2tPublishedAvg[M2.a]) <= 0.005 && Math.abs(fix(vb, 2).replace(",", ".") - EB.polls2tPublishedAvg[M2.b]) <= 0.005;
+      var C = U2.r2_cols, tot = function (v) { return v == null ? '<span class="pend">—</span>' : num(v); };
+      h += '<div class="panel"><div class="panel-top"><h3>' + esc(U2.r2_h) + '</h3><span class="upd">' + esc(tf(U2.r2_upd, { n: L2.length, d: dmy(M2.last_updated) })) + "</span></div>" +
+        duelHead() + '<div class="duel">' + duelBar(U2.r2_avg, U2.r2_avg_sub, va, vb, true) +
+        L2.map(function (p) { return duelBar(p.instituto, field(p.campo_inicio, p.campo_fim) + " · ±" + num(p.margem_erro), p.va, p.vb); }).join("") + "</div>" +
+        '<p class="avg-note">' + esc(tf(U2.r2_note, { x: fix(Math.abs(vb - va), 2) })) + '</p><div class="mandatory">' + esc(M2.legend_avg) + "</div>" +
+        '<div class="check">' + esc(U2.r2_check) + ' <b class="' + (ok2 ? "" : "bad") + '">' + esc(ok2 ? U2.ok : U2.bad) + "</b></div></div>" +
+        '<div class="panel-top" style="margin-top:28px"><h3 style="font-family:var(--f-display);font-size:28px">' + esc(U2.r2_table_h) + "</h3></div>" +
+        '<table class="ptable"><thead><tr>' + C.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        L2.map(function (p, i) { return '<tr><td><button data-pdetail="2-' + i + '">' + esc(p.instituto) + '</button></td><td class="meta">' + field(p.campo_inicio, p.campo_fim) + '</td><td class="num">' + thousands(p.amostra) + '</td><td class="meta">' + (p.metodo ? esc(p.metodo) : "—") + '</td><td class="num">±' + num(p.margem_erro) + '</td><td class="num">' + num(p.va) + '</td><td class="num">' + num(p.vb) + '</td><td class="num">' + tot(p.ta) + '</td><td class="num">' + tot(p.tb) + '</td></tr><tr class="pdetail" id="pd-2-' + i + '" hidden><td colspan="9">' + pollFicha(p) + (p.data_quality_flag ? '<p class="small">' + esc(p.data_quality_flag) + "</p>" : "") + "</td></tr>"; }).join("") +
+        "</tbody></table>" +
+        '<div class="pcards">' + L2.map(function (p) { return '<div class="pcard"><h4>' + esc(p.instituto) + '</h4><div class="meta">' + field(p.campo_inicio, p.campo_fim) + " · " + thousands(p.amostra) + " · " + (p.metodo ? esc(p.metodo) : "—") + " · ±" + num(p.margem_erro) + '</div><div class="res"><div><small>' + esc(C[5]) + "</small><b>" + num(p.va) + "</b></div><div><small>" + esc(C[6]) + "</small><b>" + num(p.vb) + '</b></div></div><details class="src"><summary>' + esc(C[0]) + "</summary>" + pollFicha(p) + (p.data_quality_flag ? '<p class="small">' + esc(p.data_quality_flag) + "</p>" : "") + "</details></div>"; }).join("") + "</div>";
     }
     if (pollTab === "rejeicao") {
-      var withR = L.filter(function (p) { return p.rej; }), without = L.filter(function (p) { return !p.rej; });
+      var withR = L.filter(function (p) { return p.rej; }), without = L.filter(function (p) { return !p.rej; }), withR2 = L2.filter(function (p) { return p.rej; });
+      var rejCard = function (p) { return '<div class="rej-card"><h4>' + esc(p.instituto) + "</h4>" + (p.rejeicao_pergunta ? '<div class="q">“' + esc(p.rejeicao_pergunta) + "”</div>" : "") + '<div class="grow">' + ["lula", "flavio-bolsonaro"].map(function (c) { return '<div class="bar-row"><span class="n">' + esc(S[c]) + '</span><span class="track"><i style="--w:' + p.rej[c] + '%"></i></span><span class="v">' + num(p.rej[c]) + "</span></div>"; }).join("") + "</div></div>"; };
+      h += '<h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.rej2_h) + '</h3><div class="rej" style="margin-bottom:30px">' + withR2.map(rejCard).join("") + '</div><h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.rej1_h) + "</h3>";
       h += '<div class="mandatory">Rejeição fica por instituto, sem média global: as perguntas variam entre institutos.</div><div class="rej">' +
         withR.map(function (p) { return '<div class="rej-card"><h4>' + esc(p.instituto) + '</h4>' + (p.rejeicao_pergunta ? '<div class="q">Pergunta exata: “' + esc(p.rejeicao_pergunta) + "”</div>" : "") +
           '<div class="grow">' + ["lula", "flavio-bolsonaro"].map(function (c) { return '<div class="bar-row"><span class="n">' + esc(S[c]) + '</span><span class="track"><i style="--w:' + p.rej[c] + '%"></i></span><span class="v">' + num(p.rej[c]) + "</span></div>"; }).join("") + "</div></div>"; }).join("") + "</div>" +
@@ -422,6 +457,7 @@
     }
     if (pollTab === "evolucao") h += evolution();
     if (pollTab === "metodologia") {
+      h += '<div style="margin-bottom:30px"><h3 class="h-sub" style="margin-bottom:14px">' + esc(U2.meth2_h) + '</h3><ol class="hier">' + M2.rules.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ol></div>";
       h += '<div class="split"><div><h3 class="h-sub" style="margin-bottom:14px">Regras do consolidado</h3><ol class="hier">' + M.rules.map(function (r) { return "<li>" + esc(r) + "</li>"; }).join("") + "</ol></div>" +
         '<div><h3 class="h-sub" style="margin-bottom:14px">Institutos no snapshot</h3><div class="chips">' + L.map(function (p) { return '<span class="chip">' + esc(p.instituto) + "</span>"; }).join("") + "</div>" +
         '<div class="blk m" style="margin-top:20px">' + tag("met") + "<p>" + esc(M.history_note) + "</p></div>" +
@@ -474,12 +510,12 @@
       '<div class="mkts">' + EB.markets.map(function (m) { return '<div class="mkt"><div class="mkt-flag">Preço de mercado</div><h3>' + esc(m.title) + '</h3><p class="q">' + esc(m.q) + "</p>" + m.platforms.map(platBlock).join("") + (m.note ? '<p class="mkt-note">' + esc(m.note) + "</p>" : "") + "</div>"; }).join("") + "</div>" +
       '<p class="avg-note">Valores exatamente como capturados (≈ aproximações, &lt; menor que). Não tiramos média entre plataformas. ' + esc(MM.resolution_note) + "</p></div></section>";
     var a1 = avg1("lula"), f1 = avg1("flavio-bolsonaro");
-    var a2 = avg(null, function (p) { return p.r2 ? p.r2.a_pct : null; }), b2 = avg(null, function (p) { return p.r2 ? p.r2.b_pct : null; });
+    var a2 = avg2("va"), b2 = avg2("vb");
     h += '<section class="sec sec--dark sec--tight"><div class="wrap"><div class="split"><div>' +
       EB.marketsExplainer.map(function (e) { return '<h3 class="h-sub" style="margin:0 0 12px">' + esc(e.t) + "</h3>" + e.p.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + '<div style="height:24px"></div>'; }).join("") + "</div>" +
       '<div><div class="panel"><div class="panel-top"><h3>Grandezas diferentes</h3></div><p class="small" style="color:var(--t-light-2);margin-bottom:16px">A mesma data, duas perguntas distintas. Os números abaixo não são comparáveis diretamente.</p><div class="cmp-poll">' +
       '<div class="rej-card"><h4>Média de pesquisas</h4><div class="q">Intenção de voto declarada</div><p class="mono small">1º turno: Lula ' + fix(a1, 2) + "% · Flávio " + fix(f1, 2) + "%</p><p class=\"mono small\">2º turno: Lula " + fix(a2, 2) + "% · Flávio " + fix(b2, 2) + '%</p><a class="mono small" href="#/pesquisas">Pesquisas →</a></div>' +
-      '<div class="mkt" style="padding:16px"><h4 style="font-family:var(--f-display);font-size:19px">Mercado · vencedor final</h4><div class="q">Preço de contrato</div><p class="mono small">Polymarket: Flávio ~59,5–60% · Lula ~41%</p><p class="mono small">Kalshi: Flávio ~61% · Lula ~40%</p></div></div>' +
+      '<div class="mkt" style="padding:16px"><h4 style="font-family:var(--f-display);font-size:19px">Mercado · vencedor final</h4><div class="q">Preço de contrato</div>' + EB.markets[0].platforms.map(function (pl) { return '<p class="mono small">' + esc(EB.marketsMeta.platforms[pl.platform].name) + ": " + pl.outcomes.map(function (o) { return esc(o.outcome.split(" ")[0]) + " " + esc(o.display); }).join(" · ") + "</p>"; }).join("") + '</div></div>' +
       '<p class="avg-note">Uma pessoa pode declarar voto em Lula e, simultaneamente, acreditar que Flávio terminará eleito — e vice-versa.</p></div>' +
       '<div class="panel" style="margin-top:16px"><div class="panel-top"><h3>O que registramos em cada captura</h3></div><div class="chips">' + ["título exato do mercado", "plataforma", "preço", "volume", "data/hora da captura", "regra de resolução", "fonte oficial de resolução"].map(function (x) { return '<span class="chip" style="border-color:var(--line-d)">' + x + "</span>"; }).join("") + '</div></div></div></div></div></section>';
     app.innerHTML = h;
@@ -616,6 +652,7 @@
   function colPerson(p) { return p && p.name ? { name: p.name, number: String(p.number || ""), party: p.party || "" } : { name: "", number: "", party: "" }; }
   function colOptions(id, rec) { return id === "federal_deputy" ? (rec.federal_deputy || []) : id === "state_deputy" ? (rec.state_deputy || []) : []; }
   function colinhaCta(U) {
+    if (EB.site.round === 2) return '<div class="colinha-cta"><span>' + esc(EB.ui2t.colinha_closed) + "</span></div>";
     return '<div class="colinha-cta"><button type="button" class="btn btn--ghost btn--sm" data-colinha="' + U.uf + '">🖨 ' + esc(CL.btn) + '</button><span>' + esc(CL.cta) + "</span></div>";
   }
   function openColinha(uf) {
