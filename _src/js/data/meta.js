@@ -11,9 +11,9 @@ EB.site = {
   concept: "Eleições Brasil 2026",
   subtitle: "Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar.",
   author: "Rafael Magalhães",
-  version: "V4.0",
+  version: "V4.1",
   content_package: "site-content-eleicoes-2026",
-  last_updated: "2026-10-12",
+  last_updated: "2026-10-19",
   first_round_date: "2026-10-04",
   election_date: "2026-10-25",
   round: 2

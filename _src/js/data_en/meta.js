@@ -11,9 +11,9 @@ EB.site = {
   concept: "Brazil Elections 2026",
   subtitle: "The economy, institutions, the STF (Brazil's Supreme Federal Court), the Senate and the Presidency. Understand how Brazil got to 2026 and what this election could change.",
   author: "Rafael Magalhães",
-  version: "V4.0",
+  version: "V4.1",
   content_package: "site-content-eleicoes-2026",
-  last_updated: "2026-10-12",
+  last_updated: "2026-10-19",
   first_round_date: "2026-10-04",
   election_date: "2026-10-25",
   round: 2
