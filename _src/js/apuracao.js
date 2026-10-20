@@ -174,14 +174,15 @@
     app.innerHTML = '<div class="apu' + (testBar ? " is-test" : "") + '" id="apu" data-state="load">' +
       (testBar ? '<div class="apu-testbar" role="note">' + esc(testBar) + "</div>" : "") +
       '<header class="apu-top"><div class="apu-brand"><a href="#/">' + esc(TX.brand) + '</a><span>' + esc(TX.title) + '</span></div>' +
-      '<div class="apu-head"><h1>' + esc(mode === "sp2024" ? (LANG === "en" ? "Mayor of São Paulo · Runoff · 2024 (test)" : "Prefeito de São Paulo · 2º turno · 2024 (teste)") : TX.sub) + '</h1><p class="apu-status" id="apu-status"><i></i><span>' + esc(TX.st_load) + "</span></p></div>" +
+      '<div class="apu-head"><p class="apu-status" id="apu-status"><i></i><span>' + esc(TX.st_load) + '</span></p><h1>' + esc(mode === "sp2024" ? (LANG === "en" ? "Mayor of São Paulo · Runoff · 2024 (test)" : "Prefeito de São Paulo · 2º turno · 2024 (teste)") : TX.sub) + "</h1></div>" +
       '<div class="apu-clock"><small>' + esc(TX.now) + '</small><b id="apu-clock">--:--:--</b><button type="button" class="apu-fs" id="apu-fs">' + esc(TX.fullscreen) + "</button></div></header>" +
       '<p class="apu-wait" id="apu-wait" hidden>' + esc(TX.st_wait_d) + "</p>" +
-      '<section class="apu-cands" id="apu-cands"><div class="apu-empty">' + esc(TX.st_load) + "</div></section>" +
-      '<div class="apu-bar" id="apu-bar" aria-hidden="true"><i class="a"></i><i class="b"></i><span class="mid"></span></div>' +
-      '<section class="apu-mid"><div class="apu-diff" id="apu-diff"></div><div class="apu-sec" id="apu-sec"></div></section>' +
+      '<main class="apu-stage"><article class="apu-cand c0" id="apu-c0"></article>' +
+      '<section class="apu-center"><div class="apu-gauge" id="apu-gauge"></div><div class="apu-diff" id="apu-diff"></div></section>' +
+      '<article class="apu-cand c1" id="apu-c1"></article></main>' +
+      '<div class="apu-race" id="apu-race" aria-hidden="true"><div class="apu-bar"><i class="a"></i><i class="b"></i></div><span class="mid"><em>50%</em></span></div>' +
       '<section class="apu-stats" id="apu-stats"></section>' +
-      '<footer class="apu-foot"><span id="apu-upd"></span><span id="apu-conn"></span><span>' + esc(TX.source) + " · " + esc(TX.file) + ": " + esc(state.src.cfg.file || "") + '</span><span class="apu-rule">' + esc(TX.rule) + "</span></footer>" +
+      '<footer class="apu-foot"><span id="apu-upd"></span><span id="apu-conn"></span><span>' + esc(TX.source) + " · " + esc(TX.file) + ": " + esc(state.src.cfg.file || "") + '</span><span class="apu-rule">' + esc(TX.rule) + " " + esc(TX.diff_note) + "</span></footer>" +
       (testBar ? '<div class="apu-wm" aria-hidden="true">' + (LANG === "en" ? "TEST" : "TESTE") + "</div>" : "") + "</div>";
     root = document.getElementById("apu");
     paintStats(null);
@@ -206,39 +207,58 @@
     if (d.st === 0 && d.tv === 0) return "wait";
     return "live";
   }
+  /* contagem animada entre o valor anterior e o novo (desliga com prefers-reduced-motion) */
+  var RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function tween(el, from, to, fmtFn) {
+    if (!el) return;
+    if (RM || from === to || from == null) { el.textContent = fmtFn(to); return; }
+    var t0 = performance.now(), D = 900;
+    (function step(t) { var k = Math.min(1, (t - t0) / D), e = 1 - Math.pow(1 - k, 3); el.textContent = fmtFn(from + (to - from) * e); if (k < 1) requestAnimationFrame(step); })(t0);
+  }
+  function pctTxt(v) { return pf(v, 2); }
+  function intTxt(v) { return nf(Math.round(v)); }
+  function gauge(p) {
+    var r = 52, C = 2 * Math.PI * r, k = Math.max(0, Math.min(100, p)) / 100;
+    return '<svg viewBox="0 0 120 120" aria-hidden="true"><circle class="g-bg" cx="60" cy="60" r="' + r + '"/>' + (k > 0 ? '<circle class="g-fg" cx="60" cy="60" r="' + r + '" stroke-dasharray="' + (C * k).toFixed(2) + " " + C.toFixed(2) + '" transform="rotate(-90 60 60)"/>' : "") + "</svg>";
+  }
   function paint(prev) {
     var d = state.data; if (!d || !root) return;
     var stage = stageOf(d), total = 0;
     root.setAttribute("data-state", stage);
     d.cands.forEach(function (c) { total += c.vap; });
     var lead = d.cands.length === 2 && d.cands[0].vap !== d.cands[1].vap ? (d.cands[0].vap > d.cands[1].vap ? 0 : 1) : -1;
-    /* candidatos */
-    var box = document.getElementById("apu-cands");
-    box.innerHTML = d.cands.map(function (c, i) {
+    var pc = {}; if (prev) prev.cands.forEach(function (c) { pc[c.sq + c.n] = c; });
+    /* candidatos (dois lados, em espelho) */
+    d.cands.slice(0, 2).forEach(function (c, i) {
+      var el = document.getElementById("apu-c" + i); if (!el) return;
       var foto = state.src.cfg.fotos && c.sq && c.sq !== "0" ? state.src.cfg.fotos + c.sq + ".jpeg" : "";
-      var badge = isElected(c) ? '<span class="apu-badge win">' + esc(TX.elected) + "</span>" : isNotElected(c) && stage === "done" ? '<span class="apu-badge">' + esc(TX.not_elected) + "</span>" : "";
-      return '<article class="apu-cand c' + i + (lead === i && stage !== "wait" ? " is-lead" : "") + (isElected(c) ? " is-elected" : "") + '">' +
-        '<div class="apu-photo">' + (foto ? '<img src="' + esc(foto) + '" alt="" referrerpolicy="no-referrer" onerror="this.remove()">' : "") + "<span>" + esc(initials(c.nmu)) + "</span></div>" +
-        '<div class="apu-cinfo"><div class="apu-num">' + esc(c.n) + "</div><h2>" + esc(c.nmu) + '</h2><p class="apu-party">' + esc(c.party) + (c.vice ? " · " + esc(TX.vice) + ": " + esc(c.vice) + (c.viceParty ? " (" + esc(c.viceParty) + ")" : "") : "") + "</p>" + badge + "</div>" +
-        '<div class="apu-pct"><b data-num="' + c.pvapn + '">' + esc(LANG === "en" ? c.pvap.replace(",", ".") : c.pvap) + "<small>%</small></b><span>" + esc(TX.valid_pct) + "</span></div>" +
-        '<div class="apu-votes"><b>' + nf(c.vap) + "</b> " + esc(TX.votes) + "</div></article>";
-    }).join("");
-    /* barra de votos válidos */
-    var bar = document.getElementById("apu-bar");
+      var badge = isElected(c) ? '<span class="apu-badge win">✓ ' + esc(TX.elected) + "</span>" : isNotElected(c) && stage === "done" ? '<span class="apu-badge">' + esc(TX.not_elected) + "</span>" : "";
+      el.className = "apu-cand c" + i + (lead === i && stage !== "wait" ? " is-lead" : "") + (isElected(c) ? " is-elected" : "");
+      el.innerHTML = '<div class="apu-cand-h"><div class="apu-photo">' + (foto ? '<img src="' + esc(foto) + '" alt="" referrerpolicy="no-referrer" onerror="this.remove()">' : "") + "<span>" + esc(initials(c.nmu)) + '</span></div>' +
+        '<div class="apu-cinfo"><span class="apu-num">' + esc(c.n) + "</span><h2>" + esc(c.nmu) + '</h2><p class="apu-party"><b>' + esc(c.party) + "</b>" + (c.vice ? " · " + esc(TX.vice) + ": " + esc(c.vice) + (c.viceParty ? " (" + esc(c.viceParty) + ")" : "") : "") + "</p>" + badge + "</div></div>" +
+        '<div class="apu-pct"><b class="apu-pv"></b><small>%</small></div><p class="apu-pl">' + esc(TX.valid_pct) + '</p><p class="apu-votes"><b class="apu-vv"></b> ' + esc(TX.votes) + "</p>";
+      var old = pc[c.sq + c.n];
+      tween(el.querySelector(".apu-pv"), old ? old.pvapn : null, c.pvapn, pctTxt);
+      tween(el.querySelector(".apu-vv"), old ? old.vap : null, c.vap, intTxt);
+    });
+    /* barra da disputa */
+    var race = document.getElementById("apu-race");
     if (d.cands.length === 2) {
       var pa = total ? d.cands[0].vap / total * 100 : 50;
-      bar.querySelector(".a").style.width = pa + "%"; bar.querySelector(".b").style.width = (100 - pa) + "%";
-      bar.classList.toggle("is-zero", !total);
+      race.querySelector(".a").style.width = pa + "%"; race.querySelector(".b").style.width = (100 - pa) + "%";
+      race.classList.toggle("is-zero", !total);
     }
+    /* seções: anel */
+    var g = document.getElementById("apu-gauge");
+    g.innerHTML = gauge(d.pstn) + '<div class="apu-gauge-t"><b><span id="apu-gv"></span><small>%</small></b><span>' + esc(TX.sections) + '</span></div><p class="apu-gauge-n">' + nf(d.st) + " " + esc(TX.of) + " " + nf(d.ts) + "</p>";
+    tween(document.getElementById("apu-gv"), prev ? prev.pstn : null, d.pstn, pctTxt);
     /* diferença */
     var diff = document.getElementById("apu-diff");
     if (d.cands.length === 2 && stage !== "wait") {
       var dv = Math.abs(d.cands[0].vap - d.cands[1].vap), dp = Math.abs(d.cands[0].pvapn - d.cands[1].pvapn);
-      diff.innerHTML = "<small>" + esc(TX.diff) + "</small><b>" + nf(dv) + " <em>" + esc(TX.diff_votes) + "</em></b><b>" + pf(dp, 2) + " <em>" + esc(TX.diff_pp) + "</em></b><span>" +
-        (lead > -1 ? esc(d.cands[lead].nmu) + " " + esc(TX.ahead) : esc(TX.tie)) + " · " + esc(TX.diff_note) + "</span>";
-    } else diff.innerHTML = "<small>" + esc(TX.diff) + "</small><b>—</b>";
-    /* seções */
-    document.getElementById("apu-sec").innerHTML = "<small>" + esc(TX.sections) + '</small><b>' + esc(LANG === "en" ? d.pst.replace(",", ".") : d.pst) + '<em>%</em></b><div class="apu-prog"><i style="width:' + Math.min(100, d.pstn) + '%"></i></div><span>' + nf(d.st) + " " + esc(TX.of) + " " + nf(d.ts) + " " + esc(TX.sec_total) + "</span>";
+      diff.innerHTML = "<small>" + esc(TX.diff) + '</small><b class="dv">' + nf(dv) + " <em>" + esc(TX.diff_votes) + '</em></b><b class="dp">' + pf(dp, 2) + " <em>p.p.</em></b><span class=\"ah c" + lead + '">' +
+        (lead > -1 ? esc(d.cands[lead].nmu) + " " + esc(TX.ahead) : esc(TX.tie)) + "</span>";
+    } else diff.innerHTML = "<small>" + esc(TX.diff) + '</small><b class="dv">—</b>';
     paintStats(d);
     document.getElementById("apu-wait").hidden = stage !== "wait";
     fit(); setTimeout(fit, 700);
@@ -247,7 +267,7 @@
   }
   /* Encaixa tudo numa tela só (TV): se o conteúdo passar da altura, reduz a escala por igual. */
   function fit() {
-    if (!root || window.innerWidth <= 760) { if (root) root.style.zoom = ""; return; }
+    if (!root || window.innerWidth <= 900) { if (root) root.style.zoom = ""; return; }
     var have = window.innerHeight, z = 1;
     root.style.minHeight = ""; root.classList.add("is-measure");
     for (; z > 0.6; z -= 0.02) { root.style.zoom = z === 1 ? "" : z.toFixed(2); if (root.getBoundingClientRect().height <= have - 14) break; }
@@ -259,7 +279,7 @@
   function paintStats(d) {
     var el = document.getElementById("apu-stats"); if (!el) return;
     var rows = [[TX.valid, d && d.vv], [TX.blank, d && d.vb], [TX.null_, d && d.vn], [TX.total, d && d.tv], [TX.electorate, d && d.te]];
-    el.innerHTML = rows.map(function (r) { return "<div><small>" + esc(r[0]) + "</small><b>" + (d ? nf(r[1] || 0) : "—") + "</b></div>"; }).join("");
+    el.innerHTML = rows.map(function (r, i) { return '<div class="st' + i + '"><small>' + esc(r[0]) + "</small><b>" + (d ? nf(r[1] || 0) : "—") + "</b></div>"; }).join("");
   }
   function paintStatus() {
     var d = state.data, stage = stageOf(d);
