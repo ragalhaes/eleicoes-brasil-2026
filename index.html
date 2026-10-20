@@ -1022,6 +1022,17 @@ body.apu-nocursor, body.apu-nocursor * { cursor: none !important; }
 }
 @media (prefers-reduced-motion: reduce) { .apu-status.s-live i, .apu.flash * { animation: none !important; } }
 
+/* Faixa da apuração na página inicial */
+.apu-hb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px; padding: 14px max(16px, calc((100% - var(--maxw)) / 2 + var(--gutter))); background: var(--accent); color: var(--ink); text-decoration: none; border-bottom: 1px solid rgba(0,0,0,.15); }
+.apu-hb-k { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.apu-hb-k i { width: 9px; height: 9px; border-radius: 50%; background: #d8202b; box-shadow: 0 0 0 0 rgba(216,32,43,.5); animation: apu-pulse 1.6s infinite; }
+.apu-hb-t { display: grid; flex: 1 1 320px; min-width: 0; }
+.apu-hb-t b { font-family: var(--f-display); font-size: clamp(19px, 2.2vw, 26px); line-height: 1.1; }
+.apu-hb-t small { font-size: 13.5px; opacity: .8; }
+.apu-hb-cta { font-weight: 600; font-size: 14px; padding: 10px 16px; border-radius: 99px; background: var(--ink); color: var(--accent); white-space: nowrap; transition: transform .2s var(--ease); }
+.apu-hb:hover .apu-hb-cta { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) { .apu-hb-k i { animation: none; } }
+
 </style>
 </head>
 <body>
@@ -3271,7 +3282,8 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
       fullscreen: "Tela cheia", now: "Agora em Brasília",
       test_sim: "MODO TESTE · SIMULAÇÃO · candidatos e números fictícios · não são dados do TSE",
       test_sp: "MODO TESTE · arquivo oficial do TSE de OUTRA eleição (2º turno de São Paulo, 2024) · não é a eleição de 2026",
-      nodata: "Ainda sem resposta do TSE. Tentando de novo…", s: "s"
+      nodata: "Ainda sem resposta do TSE. Tentando de novo…", s: "s",
+      hb_k: "Ao vivo · 25 de outubro", hb_t: "Apuração do 2º turno para Presidente", hb_d: "Resultados oficiais do TSE em tempo real, atualizados a cada 15 segundos.", hb_cta: "Acompanhar a apuração", hb_href: "#/apuracao"
     },
     en: {
       title: "Live count", sub: "President of Brazil · Runoff · Oct. 25, 2026", brand: "Brazil Beyond the Ballot",
@@ -3288,7 +3300,8 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
       fullscreen: "Full screen", now: "Now in Brasília",
       test_sim: "TEST MODE · SIMULATION · fictitious candidates and numbers · not TSE data",
       test_sp: "TEST MODE · official TSE file from ANOTHER election (São Paulo mayoral runoff, 2024) · not the 2026 election",
-      nodata: "No response from the TSE yet. Retrying…", s: "s"
+      nodata: "No response from the TSE yet. Retrying…", s: "s",
+      hb_k: "Live · October 25", hb_t: "Presidential runoff count", hb_d: "Official TSE results in real time, updated every 15 seconds.", hb_cta: "Follow the count", hb_href: "#/results"
     }
   }[LANG];
 
@@ -3521,7 +3534,12 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     curT = setTimeout(function () { if (state.alive) document.body.classList.add("apu-nocursor"); }, 4000);
   });
 
-  window.APURACAO = { render: render, stop: stop, label: TX.title, _parse: parse };
+  /* Faixa de acesso na página inicial (até o fim do dia seguinte ao 2º turno, em Brasília). */
+  function homeBanner() {
+    if (Date.now() > Date.UTC(2026, 9, 27, 3, 0, 0)) return "";
+    return '<a class="apu-hb" href="' + TX.hb_href + '"><span class="apu-hb-k"><i></i>' + esc(TX.hb_k) + '</span><span class="apu-hb-t"><b>' + esc(TX.hb_t) + "</b><small>" + esc(TX.hb_d) + '</small></span><span class="apu-hb-cta">' + esc(TX.hb_cta) + " →</span></a>";
+  }
+  window.APURACAO = { render: render, stop: stop, label: TX.title, homeBanner: homeBanner, _parse: parse };
 })();
 </script>
 <!-- Interface (hash routing) -->
@@ -3698,7 +3716,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var maxA = avgRows[0].v;
     var mk = EB.markets[0];
 
-    var h = "";
+    var h = window.APURACAO ? window.APURACAO.homeBanner() : "";
     /* 1. Hero */
     h += '<section class="hero"><div class="wrap">' +
       '<div class="hero-meta"><span><b>●</b> Reportagem especial</span><span>Muito além das eleições</span><span>Atualizado em ' + dmy(EB.site.last_updated) + "</span><span>" + esc(EB.ui2t.hero_date) + "</span></div>" +

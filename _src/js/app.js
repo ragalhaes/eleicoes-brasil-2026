@@ -170,7 +170,7 @@
     var maxA = avgRows[0].v;
     var mk = EB.markets[0];
 
-    var h = "";
+    var h = window.APURACAO ? window.APURACAO.homeBanner() : "";
     /* 1. Hero */
     h += '<section class="hero"><div class="wrap">' +
       '<div class="hero-meta"><span><b>●</b> Reportagem especial</span><span>Muito além das eleições</span><span>Atualizado em ' + dmy(EB.site.last_updated) + "</span><span>" + esc(EB.ui2t.hero_date) + "</span></div>" +

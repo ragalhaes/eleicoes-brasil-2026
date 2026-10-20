@@ -39,7 +39,8 @@
       fullscreen: "Tela cheia", now: "Agora em Brasília",
       test_sim: "MODO TESTE · SIMULAÇÃO · candidatos e números fictícios · não são dados do TSE",
       test_sp: "MODO TESTE · arquivo oficial do TSE de OUTRA eleição (2º turno de São Paulo, 2024) · não é a eleição de 2026",
-      nodata: "Ainda sem resposta do TSE. Tentando de novo…", s: "s"
+      nodata: "Ainda sem resposta do TSE. Tentando de novo…", s: "s",
+      hb_k: "Ao vivo · 25 de outubro", hb_t: "Apuração do 2º turno para Presidente", hb_d: "Resultados oficiais do TSE em tempo real, atualizados a cada 15 segundos.", hb_cta: "Acompanhar a apuração", hb_href: "#/apuracao"
     },
     en: {
       title: "Live count", sub: "President of Brazil · Runoff · Oct. 25, 2026", brand: "Brazil Beyond the Ballot",
@@ -56,7 +57,8 @@
       fullscreen: "Full screen", now: "Now in Brasília",
       test_sim: "TEST MODE · SIMULATION · fictitious candidates and numbers · not TSE data",
       test_sp: "TEST MODE · official TSE file from ANOTHER election (São Paulo mayoral runoff, 2024) · not the 2026 election",
-      nodata: "No response from the TSE yet. Retrying…", s: "s"
+      nodata: "No response from the TSE yet. Retrying…", s: "s",
+      hb_k: "Live · October 25", hb_t: "Presidential runoff count", hb_d: "Official TSE results in real time, updated every 15 seconds.", hb_cta: "Follow the count", hb_href: "#/results"
     }
   }[LANG];
 
@@ -289,5 +291,10 @@
     curT = setTimeout(function () { if (state.alive) document.body.classList.add("apu-nocursor"); }, 4000);
   });
 
-  window.APURACAO = { render: render, stop: stop, label: TX.title, _parse: parse };
+  /* Faixa de acesso na página inicial (até o fim do dia seguinte ao 2º turno, em Brasília). */
+  function homeBanner() {
+    if (Date.now() > Date.UTC(2026, 9, 27, 3, 0, 0)) return "";
+    return '<a class="apu-hb" href="' + TX.hb_href + '"><span class="apu-hb-k"><i></i>' + esc(TX.hb_k) + '</span><span class="apu-hb-t"><b>' + esc(TX.hb_t) + "</b><small>" + esc(TX.hb_d) + '</small></span><span class="apu-hb-cta">' + esc(TX.hb_cta) + " →</span></a>";
+  }
+  window.APURACAO = { render: render, stop: stop, label: TX.title, homeBanner: homeBanner, _parse: parse };
 })();
