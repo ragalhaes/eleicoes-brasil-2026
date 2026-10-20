@@ -9,7 +9,7 @@ EB.oqfAll = {};
 
 EB.oqfAll.pt = {
   nav: "O que funciona?",
-  sub: { "": "Abertura", mapa: "Mapa", perfil: "Países", comparar: "Comparador", metodologia: "Metodologia" },
+  sub: { "": "Abertura", mapa: "Mapa", perfil: "Países", comparar: "Comparador", mandatos: "Mandatos", metodologia: "Metodologia" },
   title: "O que funciona?",
   subtitle: "Socialismo, capitalismo e os resultados de 80 anos de políticas econômicas.",
   question: "O que 80 anos de história revelam sobre Estado, mercado e prosperidade?",
@@ -21,7 +21,7 @@ EB.oqfAll.pt = {
   axes: [
     { k: "01", q: "Quem governou?", d: "Governos, mandatos e entidades de Estado, com as mudanças de fronteira e de regime.", a: "Auditoria 1", st: "ref" },
     { k: "02", q: "O que fizeram?", d: "Medidas econômicas classificadas por relevância (A–D) e por direção em dez dimensões, sem rótulo ideológico único.", a: "Auditoria 1", st: "prep" },
-    { k: "03", q: "O que aconteceu?", d: "Saúde, educação, renda, pobreza, mediana e desigualdade — e, depois, os indicadores macroeconômicos.", a: "Auditorias 2 e 3", st: "demo" }
+    { k: "03", q: "O que aconteceu?", d: "Saúde, educação, renda, pobreza, desigualdade (Auditoria 2) e PIB, inflação, desemprego, contas públicas, juros e setor externo (Auditoria 3).", a: "Auditorias 2 e 3", st: "res" }
   ],
   guard: [
     ["met", "Nada aqui é ranking de governos. Antes e depois não é causa e efeito."],
@@ -48,38 +48,41 @@ EB.oqfAll.pt = {
   cards: [
     ["mapa", "Mapa-múndi", "Escolha o ano e a camada (Política, Prosperidade, Economia). Cada país mostra que dado existe — e o que ainda não existe."],
     ["governantes", "Governantes", "Quem governou Brasil, Alemanha, Rússia e Ucrânia desde 1945, por regime e partido."],
-    ["perfil", "Países-piloto", "Brasil, Alemanha, Rússia e Ucrânia: entidades, fronteiras, linha do tempo, medidas e indicadores."],
-    ["comparar", "Comparador histórico", "Países, períodos e antes/depois de uma reforma, em gráfico e tabela, com unidade, fonte e limites."],
+    ["perfil", "Países-piloto", "Brasil, Alemanha, Rússia e Ucrânia: entidades, fronteiras, linha do tempo e os indicadores das Auditorias 2 e 3."],
+    ["comparar", "Comparador histórico", "Países, períodos e antes/depois de uma data, em gráfico e tabela, com unidade, fonte e limites. Só compara países quando a série permite."],
+    ["mandatos", "Mandatos", "O que os indicadores registraram durante a janela de cada governo, com as janelas alternativas e os avisos de sensibilidade."],
     ["metodologia", "Metodologia", "As três auditorias, confiabilidade A–D, comparabilidade C1–C4 e regras de publicação."]
   ],
   status_h: "Situação das auditorias",
 
   /* estados de dado (mapa, perfis, comparador) */
   states: {
-    ok: ["Disponível", "Publicável sem ressalva especial (Auditoria 2, §12)."],
-    res: ["Com ressalvas", "Publicável com ressalva: comparabilidade C2/C4, reconstrução documentada ou território atual reconstruído."],
-    exp: ["Exploratório", "Confiabilidade C, comparabilidade C3 ou valor sinalizado: não serve para conclusão."],
-    proj: ["Projeção", "Projeção (WPP 2024). Não é resultado observado e não conta como cobertura."],
+    ok: ["Publicável", "Categoria S da camada de publicação: nota A/B, comparabilidade C1, Estado da época e versão da fonte verificada."],
+    res: ["Com ressalva", "Categoria R: publicável, mas a ressalva acompanha o dado (comparabilidade C2/C4, definição nacional, quebra de série, mudança de território ou de instrumento)."],
+    exp: ["Exploratório", "Confiabilidade C, comparabilidade C3 ou valor sinalizado: não serve para conclusão e não aparece nos gráficos."],
+    proj: ["Só projeção", "No ano só há projeção da fonte. Projeção não é resultado observado e não aparece nos gráficos."],
     prelim: ["Preliminar", "Dado preliminar de fonte oficial. Nenhuma série preliminar foi identificada no piloto."],
     np: ["Não publicável", "Existe pesquisa, mas o critério de publicação ainda não foi atingido."],
     ref: ["Referência pública", "Lista pública conferida; a conferir com a Auditoria 1."],
     demo: ["Dados demonstrativos", "Séries sintéticas para testar a interface. Não são observações."],
-    prep: ["Dados em preparação", "País fora do piloto ou sem dado revisado."],
-    pend: ["Pesquisa pendente", "Auditoria 3 (Economia) ainda não começou."],
-    gap: ["Sem dado no ano", "Nenhuma fonte com dado para este ano dentro da vigência da entidade."]
+    prep: ["Dados em preparação", "Sem série publicável revisada para este país, entidade ou ano."],
+    pend: ["Pesquisa pendente", "Ainda não há dado auditado para esta camada."],
+    gap: ["Sem dado no ano", "Nenhuma série publicável tem valor neste ano dentro da vigência da entidade."],
+    auto: ["Expansão automática", "Há dado publicável na base mundial, gerado pelas mesmas regras do piloto, mas sem revisão manual por país."],
+    nat: ["Só no tempo", "Série sem comparabilidade internacional: serve para ver a evolução de um país, não para comparar países."],
+    sens: ["Sensível à janela", "O resultado muda de forma material com outra escolha de datas. Veja as janelas alternativas."]
   },
   types: { o: "medido", e: "estimado", p: "projeção", r: "reconstrução histórica", d: "calculado a partir da fonte" },
   cats: { P: "Publicável", R: "Com ressalva", X: "Exploratório", N: "Não publicável" },
   layers: { pol: "Política", pros: "Prosperidade", eco: "Economia" },
   layer_note: {
-    pol: "Classificação de governos (Auditoria 1). Nenhum perfil atingiu o critério de publicação: cobertura das reformas de nível A com mediana de 6% (faixa 0–45%), contra o gatilho de 80%.",
-    pros: "Indicadores de prosperidade (Auditoria 2). Só o piloto (Brasil, Alemanha, Rússia, Ucrânia) tem camada de publicação; a expansão mundial existe sem revisão manual e não é carregada aqui.",
-    eco: "Indicadores macroeconômicos (Auditoria 3). Pesquisa pendente: a interface está pronta, sem valores."
+    pol: "Classificação de governos (Auditoria 1, em validação). Nenhum perfil atingiu o critério de publicação: cobertura das reformas de nível A com mediana de 6% (faixa 0–45%), contra o gatilho de 80%.",
+    pros: "Indicadores de prosperidade (Auditoria 2 v0.2.1, só observações S e R). Países-piloto com revisão; os demais vêm da expansão automática, sem revisão manual por país.",
+    eco: "Indicadores macroeconômicos (Auditoria 3 v0.2, só observações S e R). Países-piloto com revisão; os demais vêm da expansão automática, sem revisão manual por país."
   },
   demo_banner: "Dados demonstrativos",
-  demo_text: "Os números e gráficos desta seção são séries sintéticas, geradas só para testar a interface. Não são observações históricas e não devem ser citados. Os valores reais virão dos arquivos da Auditoria 2 (v0.2).",
-  real_banner: "Dados da Auditoria 2",
-
+  demo_text: "Os números e gráficos desta seção são séries sintéticas, geradas só para testar a interface. Não são observações históricas e não devem ser citados.",
+  real_banner: "Dados reais das auditorias",
   map_h: "Mapa-múndi",
   map_dek: "Escolha o ano e a camada. As cores mostram **que tipo de dado existe**, não resultados: nenhum país é pintado por desempenho.",
   year: "Ano", layer: "Camada", play: "Reproduzir", pause: "Pausar",
@@ -92,8 +95,8 @@ EB.oqfAll.pt = {
   entity_then: "Entidade no ano",
   open_profile: "Abrir perfil",
   add_cmp: "+ Comparador", in_cmp: "✓ No comparador",
-  not_pilot: "Este país ainda não faz parte do piloto. Dados em preparação.",
-  y2026: "2026: só existem projeções (WPP 2024). Observado: nenhuma série. Preliminar: nenhuma série identificada.",
+  not_pilot: "País fora do universo das auditorias ou sem dado publicável. Dados em preparação.",
+  y2026: "2026 ainda não terminou: nenhuma série anual tem valor observado. Onde a fonte publica projeção, o mapa mostra “Só projeção”.",
   legend_h: "Legenda",
   sel_h: "Seleção para o comparador",
   sel_go: "Comparar seleção →",
@@ -108,13 +111,12 @@ EB.oqfAll.pt = {
   dim_cell: "sem dado publicável",
   ref_note: "Exemplo da metodologia da Auditoria 1 para ilustrar o nível A (reforma estrutural). Não é avaliação nem perfil de governo.",
   ref_more: "A lista de medidas por governo depende da revisão humana dos atos marcados como A pela triagem automática (precisão de 32% nessa classe).",
-  pros_note: "Pilares separados, nunca somados num índice. Cada gráfico mostra uma entidade por linha; entidades diferentes não se emendam.",
-  eco_pending: "Auditoria 3 pendente. Os indicadores macroeconômicos (incluindo inflação e juros, que a Auditoria 2 deixou de fora) aparecerão aqui.",
+  pros_note: "Pilares separados, nunca somados num índice. Uma série original por gráfico; entidades diferentes não se emendam; anos sem dado ficam em branco (nada é interpolado).",
+  eco_note: "Uma série original por indicador (série preferencial da Auditoria 3). Taxas de juros, desemprego e contas públicas usam definições nacionais: servem para ver a evolução no tempo, não para comparar países.",
   no_data: "Dados em preparação",
   last_obs: "Último dado",
   open_cmp: "Abrir no comparador →",
-  srcs_demo: "Modo demonstrativo: nenhuma fonte de dados está ligada. Fontes previstas para cada indicador (Auditoria 2, §4):",
-
+  srcs_demo: "Modo demonstrativo: nenhuma fonte de dados está ligada. Fontes previstas para cada indicador:",
   cmp_h: "Comparador histórico",
   cmp_dek: "Compare países, períodos e o antes e depois de uma data. O gráfico mostra **associação no tempo**, não causa: nenhum resultado é atribuído a um governante.",
   modes: { paises: "Países", reforma: "Antes e depois", governos: "Governos sucessivos" },
@@ -125,12 +127,12 @@ EB.oqfAll.pt = {
   c_unit: "Unidade", c_src: "Fonte", c_lim: "Limitações",
   c_lims: [
     "Linhas de entidades diferentes não se ligam: RFA, RDA e Alemanha unificada; URSS e Rússia; RSS da Ucrânia e Ucrânia.",
-    "Valores do território atual antes da condição de Estado (ex.: Ucrânia antes de 1992) são reconstrução, com nota rebaixada e comparabilidade C3.",
-    "Projeções (2024–2026) aparecem vazadas e não contam como resultado.",
-    "Não compare séries de fontes, vintages ou bases de PPC diferentes."
+    "Uma série original por linha. Séries de fontes, vintages, bases de preços ou PPC diferentes não são emendadas nem misturadas.",
+    "Anos sem dado ficam vazios: nada é interpolado. Projeções não aparecem.",
+    "Indicadores com definição nacional (desemprego, contas públicas, juros, pobreza e desigualdade por pesquisa) só aparecem para um país por vez."
   ],
   c_causal: "Antes e depois não é causa e efeito. Outras mudanças (preços internacionais, guerras, demografia, crises) acontecem ao mesmo tempo, e reformas têm efeitos defasados.",
-  c_gov_pending: "Governos sucessivos depende da Auditoria 1 (governo_ano e ponte 09_ponte_auditoria1). Em preparação. Quando entrar, o gráfico mostrará faixas de mandato sem atribuir resultados, e mandatos com menos de 1 ano não entram em comparação.",
+  c_gov_pending: "As faixas de governo vêm da lista de referência pública (a Auditoria 1 ainda está em validação). O gráfico não atribui resultados; mandatos com menos de 1 ano aparecem hachurados.",
   c_empty: "Nenhuma série com dado para esta escolha.",
   c_marker: "Marcador escolhido pelo leitor",
   c_year: "Ano",
@@ -144,12 +146,12 @@ EB.oqfAll.pt = {
   meth_h: "Metodologia",
   meth_dek: "Três auditorias independentes, com regras publicadas antes dos resultados. Esta página resume o que já está decidido e o que falta.",
   audits: [
-    { k: "Auditoria 1", h: "Governos e medidas econômicas", v: "Metodologia v0.3 · 19/10/2026 · corte 11/10/2026", st: "np", stl: "Em andamento · perfis não publicáveis",
-      pts: ["Lote 0: Brasil, Alemanha, URSS/Rússia e Ucrânia.", "94.572 atos triados automaticamente em quatro níveis de relevância (A reforma estrutural, B setorial relevante, C alcance limitado, D sem conexão econômica).", "Relevância não é direção: o nível sai do alcance da mudança, nunca de ela ampliar ou reduzir o Estado.", "Direção por efeito, em dez dimensões (A–J); efeitos opostos de uma lei ficam separados e não se compensam.", "No teste reservado, a triagem recupera 54% dos atos A; entre os que ela prevê como A, só 32% são A. Por isso ela prioriza a revisão humana e não classifica sozinha.", "Quantidade de leis nunca mede tamanho do Estado nem qualidade de governo.", "Pendências: dupla codificação (≥200 atos, kappa), revisão de todos os A, leitura do texto para a direção, revisão por especialista de cada país."] },
-    { k: "Auditoria 2", h: "Prosperidade das populações, 1945–2026", v: "Metodologia v0.2 · 20/10/2026 · corte 11/10/2026", st: "res", stl: "Base coletada · camada de publicação no piloto",
-      pts: ["210 entidades (193 membros da ONU, 2 observadores, Taiwan, Kosovo e 13 entidades históricas); núcleo de 195 para a cobertura.", "19 fontes baixadas (F01–F19), cada uma com URL, data, tamanho e SHA-256 no manifesto.", "Seis pilares separados, nunca somados: saúde, educação, renda per capita, pobreza, mediana real e desigualdade.", "Nada interpolado, extrapolado ou emendado. O IDH oficial e o AHDI não foram unidos.", "17 das 19 fontes têm versão comprovadamente anterior ao corte; WID (posterior) e OCDE (sem data) ficam fora da série publicável.", "Quase nenhuma série chega a 2026: o último dado não projetado é de 2023 a 2025."] },
-    { k: "Auditoria 3", h: "Economia", v: "—", st: "pend", stl: "Pesquisa pendente",
-      pts: ["Indicadores macroeconômicos, incluindo inflação e juros (fora da Auditoria 2).", "A interface do mapa, dos perfis e do comparador já tem a camada Economia, sem valores."] }
+    { k: "Auditoria 1", h: "Governos e medidas econômicas", v: "Metodologia v0.3 · 19/10/2026 · corte 11/10/2026", st: "np", stl: "Em validação · perfis não publicáveis",
+      pts: ["Lote 0: Brasil, Alemanha, URSS/Rússia e Ucrânia.", "94.572 atos triados automaticamente em quatro níveis de relevância (A reforma estrutural, B setorial relevante, C alcance limitado, D sem conexão econômica).", "Relevância não é direção: o nível sai do alcance da mudança, nunca de ela ampliar ou reduzir o Estado.", "Direção por efeito, em dez dimensões (A–J); efeitos opostos de uma lei ficam separados e não se compensam.", "No teste reservado, a triagem recupera 54% dos atos A; entre os que ela prevê como A, só 32% são A. Por isso ela prioriza a revisão humana e não classifica sozinha.", "As classificações políticas são provisórias e não aparecem como conclusão no site. As datas dos mandatos usadas no painel da Auditoria 3 vêm daqui."] },
+    { k: "Auditoria 2", h: "Prosperidade das populações, 1945–2026", v: "v0.2.1 · corte 11/10/2026 · candidata a publicação parcial", st: "res", stl: "Integrada · só S e R",
+      pts: ["516.933 observações mundiais; 204.898 publicáveis (S e R) — só essas entram no site.", "Saúde, educação, renda, pobreza, mediana e desigualdade, em pilares separados, nunca somados.", "Pobreza, mediana e desigualdade vêm de pesquisas de renda ou de consumo, que não se comparam entre si: o site mostra cada tipo como indicador separado.", "Nada interpolado, extrapolado ou emendado. 17 das 19 fontes têm versão comprovadamente anterior ao corte."] },
+    { k: "Auditoria 3", h: "Economia, 1945–2026", v: "v0.2 · corte 12/10/2026 · candidata a publicação parcial", st: "res", stl: "Integrada · só S e R",
+      pts: ["781.284 observações mundiais; 512.532 publicáveis (S e R) — só essas entram no site.", "PIB, inflação, desemprego, dívida, resultado primário, conta corrente, investimento, comércio e taxa básica.", "Painel por mandato: 417 comparações, das quais 250 publicáveis (S e R); 195 mudam com a escolha das datas e trazem aviso.", "RFA (exceto a taxa básica), RDA e URSS continuam sem séries publicáveis: “Dados em preparação”.", "Sem índice 0–100, sem nota e sem ranking de governantes."] }
   ],
   rel_h: "Confiabilidade (A–D)",
   rel: [["A", "Alta: medição direta oficial e harmonizada (registro civil, microdados completos)."], ["B", "Boa: estimativas oficiais harmonizadas ou pesquisas de padrão internacional, com incerteza conhecida."], ["C", "Limitada: muita imputação, reconstruções históricas ou compilações heterogêneas."], ["D", "Inadequada para comparação: imputação sem base primária, projeção ou registro de baixa qualidade."]],
@@ -162,12 +164,10 @@ EB.oqfAll.pt = {
   terr_h: "Fronteiras e entidades",
   terr: ["Nenhum valor é transferido entre entidades.", "Estados históricos recebem só os próprios valores, dentro da vigência.", "Rússia e Ucrânia contam como Estados a partir de 1992 (primeiro ano civil completo); antes disso, valores do território atual são reconstrução.", "Alemanha de 1949 a 1990: RFA e RDA juntas, nunca com atribuição única. Fontes que não declaram o território ficam marcadas “a verificar”.", "Mapa com fronteiras atuais e reconhecidas internacionalmente; a entidade de cada ano aparece no texto."],
   proto_h: "Como este protótipo usa os dados",
-  proto: ["O site lê apenas o manifesto e as séries de cada país-piloto, sob demanda (alguns KB por país). A base mundial não é carregada no navegador.", "O adaptador _src/oqf/prepare_data.py converte o arquivo 08_publicacao_piloto.csv da Auditoria 2 (e, opcionalmente, o governo_ano da Auditoria 1).", "Sem esses arquivos, ele gera dados demonstrativos sintéticos — e o site mostra a faixa “Dados demonstrativos” em todas as telas. Os dois modos nunca convivem."],
+  proto: ["O site lê só o manifesto e a série de cada país, sob demanda (dezenas de KB por país). As bases completas nunca são carregadas no navegador.", "O adaptador _src/oqf/prepare_data.py lê as camadas de publicação das Auditorias 2 e 3, mantém só as observações S e R, escolhe uma série original por indicador e preserva o id de cada observação.", "Para trocar por uma versão auditada mais nova: rodar o adaptador apontando para a nova pasta e gerar o site (_src/oqf/LEIA-ME.md). Os componentes visuais não mudam."],
   files_h: "Arquivos esperados",
-  files: [["Auditoria 2 v0.2", "dados/08_publicacao_piloto.csv · dados/09_ponte_auditoria1.csv"], ["Auditoria 1 Lote 0 v0.3", "governo_ano · crosswalk_entidades · relatorios/v03_perfis_governo.csv"], ["Auditoria 3", "a definir"]],
-  file_state: { demo: "Modo atual: demonstrativo (nenhum arquivo de auditoria carregado).", real: "Modo atual: dados da Auditoria 2." },
-
-  /* Países-piloto: fatos históricos estáveis. Datas ISO. */
+  files: [["Auditoria 2 v0.2.1", "dados/08_publicacao.csv.gz"], ["Auditoria 3 v0.2", "dados/10_publicacao.csv.gz · dados/11_painel_mandatos.csv · dados/entidades.csv · dados/12_dicionario_indicadores.csv"], ["Auditoria 1 (em validação)", "governantes: lista de referência pública; datas do painel: governos_mandatos (via Auditoria 3)"]],
+  file_state: { demo: "Modo atual: demonstrativo (nenhum arquivo de auditoria carregado).", real: "Modo atual: dados reais das Auditorias 2 e 3." },
   countries: {
     BRA: {
       name: "Brasil", entities: [["BRA", "República Federativa do Brasil", 1945, 2026, "Estado durante todo o período."]],
@@ -192,7 +192,7 @@ EB.oqfAll.pt = {
   },
   ent_names: { BRA: "Brasil", DEU: "Alemanha unificada", "DEU-OCUP": "Alemanha ocupada", FRG: "RFA", GDR: "RDA", SUN: "URSS", RUS: "Rússia", UKR: "Ucrânia", "UKR-SSR": "RSS da Ucrânia" },
   sub2: { governantes: "Governantes" },
-  kpis: [["4", "Países-piloto", "de 195 no núcleo da Auditoria 2"], ["10", "Entidades de Estado", "inclui RFA, RDA, URSS e RSS da Ucrânia"], ["19", "Fontes baixadas", "Auditoria 2 · F01–F19"]],
+  kpis: [["4", "Países-piloto", "com revisão; os demais por expansão automática"], ["24", "Indicadores no site", "12 de prosperidade · 12 de economia"], ["250", "Comparações por mandato", "publicáveis (S e R) no painel da Auditoria 3"]],
   kpi_year: "Ano no mapa",
   tt_click: "Clique para fixar",
   panel_none_h: "Escolha um país",
@@ -203,7 +203,7 @@ EB.oqfAll.pt = {
   ind_lbl: "Indicador",
   tbl_h: "Países no mapa",
   tbl_cols: ["País", "Entidade em {y}", "Governo em {y}", "Política", "Prosperidade", "Economia"],
-  tbl_rest: "Outros 191 países do núcleo",
+  tbl_rest: "Demais países (expansão automática)",
   gov_h: "Governantes",
   gov_dek: "Quem governou cada país-piloto desde 1945, por regime e por partido. Linha do tempo de referência: não avalia governos e não atribui resultados.",
   gov_conv: "Convenção: liderança efetiva. Presidente nos sistemas presidencialistas e semipresidencialistas; chanceler na RFA e na Alemanha unificada; dirigente do partido único na URSS e na RDA.",
@@ -221,5 +221,39 @@ EB.oqfAll.pt = {
   c_scatter_note: "Cada círculo é uma entidade num ano; o rastro mostra os anos anteriores. Pontos próximos indicam associação, não causa.",
   c_gov_note: "As faixas mostram quem governava. O gráfico não atribui resultado a nenhum governante. Mandatos com menos de 1 ano aparecem hachurados e não entram em comparação.",
   c_missing: "Sem dado nos dois eixos em {y}:",
-  pre_state: "território atual, antes da condição de Estado"
+  pre_state: "território atual, antes da condição de Estado",
+  not_pilot_auto: "País fora do piloto. Os valores mostrados vêm da expansão automática das auditorias (mesmas regras, sem revisão manual por país). Perfil completo, comparador e mandatos: só países-piloto.",
+  auto_note: "Expansão automática, sem revisão manual por país.",
+  no_obs_until: "Nenhum valor publicável até {y}.",
+  last_before: "último antes do ano escolhido",
+  rest_n: "{n} de {t} com dado",
+  terms_link: "Ver resultados registrados durante os mandatos",
+  caveats: "Ressalvas",
+  audit2: "Auditoria 2", audit3: "Auditoria 3", generated: "Gerado em",
+  only_br: "só Brasil", single_country: "só no tempo (um país)",
+  c_only: "“{ind}” existe só para o Brasil.",
+  c_national: "Este indicador não tem comparabilidade internacional. Mostrando só {c}: escolha um país por vez.",
+  c_intl_hint: "Indicadores marcados “só no tempo” não se comparam entre países; o gráfico mostra um país por vez.",
+  scale_note: "a fonte publica fração 0–1; o site só multiplica por 100 para exibir",
+  c_type: "Tipo de dado", c_cmpb: "Comparabilidade",
+  c_intl_yes: "comparável entre países (C1, mesma série para todos)",
+  c_intl_no: "só no tempo, dentro do mesmo país (definição nacional ou comparabilidade C2/C4)",
+  terms_h: "Resultados durante os mandatos",
+  terms_dek: "O que os indicadores registraram na janela histórica de cada governo. **Descrição do período, não avaliação**: nenhum resultado é atribuído ao governante.",
+  terms_rules: [
+    "Janela padrão: anos civis com pelo menos 183 dias do governante no cargo; a base é o ano anterior. Ano final limitado a 2025.",
+    "Só aparecem comparações publicáveis (S e R). As exploratórias ficam fora.",
+    "Quando outra escolha de datas muda o resultado de forma material, a linha traz o aviso “Sensível à janela” e as janelas alternativas.",
+    "Sem notas, sem ranking e sem ordenação por resultado: a ordem é cronológica.",
+    "As datas dos mandatos vêm da Auditoria 1, que ainda está em validação. As classificações políticas dela não aparecem aqui."
+  ],
+  terms_all: "Todos os indicadores",
+  terms_sum: "{n} comparações publicáveis em {g} governos · {s} sensíveis à escolha da janela",
+  terms_cols: ["Indicador", "Período (base)", "Registrado na janela", "Categoria", "Detalhes"],
+  terms_details: "Regra, limites e janelas alternativas",
+  t_rule: "Regra de cálculo", t_lim: "Limites", t_adeq: "Adequação", t_pre: "Tendência nos 5 anos anteriores", t_ctx: "Contexto (mundo e pares)", t_alt: "Janelas alternativas",
+  adeq: { adequada: "adequada", adequada_com_ressalva: "adequada com ressalva", exploratoria: "exploratória" },
+  win: { B: "B · calendário inclusivo", C: "C · governo em 31/12", E: "E · posse − 1 a saída − 1", M: "M · série mensal ou diária" },
+  t_py: "a.a.", t_acc: "acumulado", t_avg: "média do período", t_diff: "variação", t_base: "base",
+  terms_causal: "Os números descrevem o período e não medem o efeito das decisões do governo: preços internacionais, crises, guerras, demografia e decisões de governos anteriores atuam ao mesmo tempo."
 };

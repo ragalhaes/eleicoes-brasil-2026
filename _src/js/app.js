@@ -795,7 +795,7 @@
   var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources", apuracao: "results", "o-que-funciona": "what-works" };
   var SLUG_IN = {}; Object.keys(SLUGS).forEach(function (k) { SLUG_IN[SLUGS[k]] = k; });
   /* Subpáginas de "O que funciona?" (segundo segmento da rota). */
-  var SUB2 = { "o-que-funciona": { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", metodologia: "methodology" } };
+  var SUB2 = { "o-que-funciona": { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", mandatos: "terms", metodologia: "methodology" } };
   function sub2(key, seg, to) { var m = SUB2[key]; if (!m || !seg) return seg; var k = seg; Object.keys(m).forEach(function (x) { if (m[x] === seg) k = x; }); return to === "en" ? (m[k] || k) : k; }
 
   /* Seletor de idioma: mantém a página equivalente (#/candidatos/lula ↔ #/candidates/lula). */
