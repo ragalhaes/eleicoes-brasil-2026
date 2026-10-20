@@ -44,9 +44,9 @@ L = {
   foot_line='Brazil Beyond the Ballot is an independent editorial project created and edited by Ragalhaes in San Diego, California, United States.',
   to_top='Back to top', contact_lbl='Contact', asset='../', datadir='data_en'),
 }
-NAVKEY = {'history': 'historia', 'at-stake': 'em-jogo', 'candidates': 'candidatos', 'compare': 'comparar', 'polls': 'pesquisas', 'states': 'estados', 'sources': 'fontes'}
-EN_SLUGS = {'historia': 'history', 'em-jogo': 'at-stake', 'candidatos': 'candidates', 'comparar': 'compare', 'pesquisas': 'polls', 'mercados': 'markets', 'estados': 'states', 'fontes': 'sources'}
-ROUTE_RE = re.compile(r'#/(historia|em-jogo|candidatos|comparar|pesquisas|mercados|estados|fontes)(?=[/"\'?#\s\\]|$)')
+NAVKEY = {'history': 'historia', 'at-stake': 'em-jogo', 'candidates': 'candidatos', 'compare': 'comparar', 'polls': 'pesquisas', 'states': 'estados', 'sources': 'fontes', 'results': 'apuracao'}
+EN_SLUGS = {'historia': 'history', 'em-jogo': 'at-stake', 'candidatos': 'candidates', 'comparar': 'compare', 'pesquisas': 'polls', 'mercados': 'markets', 'estados': 'states', 'fontes': 'sources', 'apuracao': 'results'}
+ROUTE_RE = re.compile(r'#/(historia|em-jogo|candidatos|comparar|pesquisas|mercados|estados|fontes|apuracao)(?=[/"\'?#\s\\]|$)')
 
 
 def en_routes(s):
@@ -169,6 +169,7 @@ def build(lang):
     cfg = ('/* Configuração de idioma e endereços públicos (PT: alemdaurna.com · EN: brazilbeyondtheballot.com).\n'
            '   Os mesmos endereços aparecem no <head> (canonical, hreflang, og:url) das duas páginas. */\n'
            'EB.lang = "%s";\nEB.assetBase = "%s";\nEB.site.urls = { pt: "%s", en: "%s" };' % (lang, c['asset'], URLS['pt'], URLS['en']))
+    apu = open(SRC + 'js/apuracao.js').read()
     app = open(SRC + 'js/app.js').read()
     if lang == 'en':
         app = translate_app(app)
@@ -176,7 +177,7 @@ def build(lang):
     h += '\n<!-- Dados editoriais incorporados (EB.*), separados da interface -->\n'
     for p in parts:
         h += '<script>\n' + p.strip() + '\n</script>\n'
-    h += '<script>\n' + cfg + '\n</script>\n<!-- Interface (hash routing) -->\n<script>\n' + app.strip() + '\n</script>\n</body>\n</html>\n'
+    h += '<script>\n' + cfg + '\n</script>\n<!-- Apuração ao vivo (#/apuracao · #/results): lê o JSON oficial do TSE -->\n<script>\n' + apu.strip() + '\n</script>\n<!-- Interface (hash routing) -->\n<script>\n' + app.strip() + '\n</script>\n</body>\n</html>\n'
     return h
 
 

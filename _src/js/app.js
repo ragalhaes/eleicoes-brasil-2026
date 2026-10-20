@@ -792,7 +792,7 @@
   function currentPath() { return parse().parts ? parse().parts.join("/") : ""; }
   var lastKey = null, lastSec = null;
   /* Slugs de rota por idioma. Chaves internas = slugs em português. */
-  var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources" };
+  var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources", apuracao: "results" };
   var SLUG_IN = {}; Object.keys(SLUGS).forEach(function (k) { SLUG_IN[SLUGS[k]] = k; });
 
   /* Seletor de idioma: mantém a página equivalente (#/candidatos/lula ↔ #/candidates/lula). */
@@ -821,6 +821,7 @@
     if (r.anchorOnly) { var el = document.getElementById(r.anchorOnly); if (el) el.scrollIntoView(); return; }
     var p = r.parts; if (p[0] && SLUG_IN[p[0]]) p[0] = SLUG_IN[p[0]];
     var sec = p[0] || "", navKey = sec;
+    if (sec !== "apuracao" && window.APURACAO) window.APURACAO.stop();
     var key = p.join("/") + "?" + JSON.stringify(r.q);
     var same = key === lastKey, prevSec = lastSec; lastKey = key; lastSec = sec;
     if (!same && sec === "estados" && prevSec === "estados" && document.getElementById("state-panel")) {
@@ -839,6 +840,7 @@
       else if (sec === "iris") { renderIris(); navKey = "pesquisas"; }
       else if (sec === "estados") renderStates(p[1]);
       else if (sec === "fontes") renderSources();
+      else if (sec === "apuracao" && window.APURACAO) window.APURACAO.render(app, r.q);
       else render404();
       if (sec === "mercados" || sec === "iris") navKey = "pesquisas";
       setNav(navKey);
@@ -852,7 +854,7 @@
   }
 
   function setTitle(sec, p) {
-    var map = { "": "", historia: "História", "em-jogo": "O que está em jogo", candidatos: "Candidatos", comparar: "Comparar", pesquisas: "Pesquisas", mercados: "Mercados de previsão", iris: "Modelo ÍRIS / VOGA", estados: "Estados", fontes: "Fontes e metodologia" };
+    var map = { "": "", historia: "História", "em-jogo": "O que está em jogo", candidatos: "Candidatos", comparar: "Comparar", pesquisas: "Pesquisas", mercados: "Mercados de previsão", iris: "Modelo ÍRIS / VOGA", estados: "Estados", fontes: "Fontes e metodologia", apuracao: window.APURACAO ? window.APURACAO.label : "" };
     var t = map[sec] || "";
     if (sec === "historia" && p[1]) { var c = byId(EB.chapters, p[1]); if (c) t = c.kicker; }
     if (sec === "candidatos" && p[1]) { var k = cand(p[1]); if (k) t = k.name; }
