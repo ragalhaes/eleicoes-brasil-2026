@@ -1445,6 +1445,56 @@ body.apu-nocursor, body.apu-nocursor * { cursor: none !important; }
 .oqf-player--dark { align-items: center; }
 .oqf-mini .oqf-chart, .oqf-pchart .oqf-chart { overflow: hidden; }
 
+/* ---- Integração das Auditorias 2 e 3 (dados reais) ---- */
+.oqf-st.st-auto { color: #5b6b8c; border-style: dashed; } .oqf-st.st-nat { color: #555c66; } .oqf-st.st-sens { color: #a1600a; border-style: dashed; }
+.sec--dark .oqf-st.st-ok, .sec--dark2 .oqf-st.st-ok, .oqf-panel .oqf-st.st-ok { color: #2fb3c6; }
+.sec--dark .oqf-st.st-res, .sec--dark2 .oqf-st.st-res, .oqf-panel .oqf-st.st-res { color: #e0bf4e; }
+.sec--dark .oqf-st.st-auto, .sec--dark2 .oqf-st.st-auto { color: #8fa3c9; }
+.sec--dark .oqf-st.st-nat, .sec--dark2 .oqf-st.st-nat { color: var(--t-light-2); }
+.sec--dark .oqf-st.st-sens, .sec--dark2 .oqf-st.st-sens { color: #f0a33a; }
+.oqf-map path.st-auto { fill: #33405a; } .oqf-map path.st-proj { fill: #2b2442; }
+.sw.st-auto { background: #33405a; border-style: dashed !important; } .sw.st-nat, .sw.st-sens { background: #222836; }
+.oqf-chart .gr.zero { stroke: rgba(255,255,255,.35); stroke-dasharray: 3 3; }
+.oqf-pval { margin: 6px 0 0; line-height: 1.5; color: var(--t-light-2); } .oqf-pval b { color: var(--t-light); font-size: 14px; }
+.oqf-note-i { color: #e0bf4e; }
+.oqf-unit { margin: -4px 0 6px; color: var(--t-dark-2); }
+.oqf-src-l, .oqf-notes { margin: 4px 0; color: var(--t-dark-2); line-height: 1.45; }
+.oqf-notes { color: #8a6d12; }
+.oqf-vers { margin-top: 14px; color: var(--t-light-2); line-height: 1.6; word-break: break-word; }
+.sec--paper .oqf-vers, .sec--white .oqf-vers { color: var(--t-dark-2); }
+.oqf-notice { margin: 10px 0 14px; padding: 10px 12px; border: 1px dashed var(--line-d); border-radius: var(--radius); color: var(--t-light); font-size: 13.5px; }
+.oqf-f-hint { margin: 6px 0 0; color: var(--t-dark-2); max-width: 360px; }
+.oqf-cleg .oqf-cleg-miss { opacity: .7; font-style: italic; }
+/* Mandatos */
+.oqf-terms-guard { margin: 18px 0 8px; }
+.oqf-terms-f { max-width: 420px; margin-top: 14px; }
+.oqf-terms-sum { color: var(--t-light-2); margin: 0 0 18px; }
+.oqf-term { border: 1px solid var(--line-d); border-radius: var(--radius); background: var(--ink-2); padding: 16px 16px 6px; margin: 0 0 16px; }
+.oqf-term-h { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
+.oqf-term-h h3 { font-family: var(--f-display); font-size: 22px; margin: 0; color: var(--t-light); }
+.oqf-term-h span { color: var(--t-light-2); } .oqf-term-h code { color: var(--t-light-2); font-size: 11px; }
+.oqf-ttable { width: 100%; border-collapse: collapse; font-size: 13.5px; color: var(--t-light); }
+.oqf-ttable th { text-align: left; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--t-light-2); padding: 6px 10px 8px 0; border-bottom: 1px solid var(--line-d); }
+.oqf-ttable td { padding: 10px 10px 10px 0; border-bottom: 1px solid var(--line-d); vertical-align: top; }
+.oqf-ttable tr:last-child td { border-bottom: 0; }
+.oqf-ttable td:nth-child(2) { white-space: nowrap; color: var(--t-light-2); }
+.oqf-ttable td:nth-child(3) b { color: var(--accent); font-variant-numeric: tabular-nums; }
+.oqf-ttable td:nth-child(3) .small { color: var(--t-light-2); }
+.oqf-ttable td:nth-child(4) { white-space: nowrap; } .oqf-ttable td:nth-child(4) .oqf-st { margin: 0 4px 4px 0; }
+.oqf-term-d summary { cursor: pointer; color: var(--t-light-2); font-size: 12.5px; }
+.oqf-term-d summary:hover { color: var(--t-light); }
+.oqf-term-d dl { margin: 8px 0 4px; font-size: 12.5px; line-height: 1.5; min-width: 260px; }
+.oqf-term-d dt { font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--t-light-2); margin-top: 8px; }
+.oqf-term-d dd { margin: 2px 0 0; color: var(--t-light); }
+.oqf-alt { margin: 0; padding-left: 16px; }
+@media (max-width: 760px) {
+  .oqf-ttable thead { display: none; }
+  .oqf-ttable tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--line-d); }
+  .oqf-ttable td { display: block; border: 0; padding: 2px 0; white-space: normal !important; }
+  .oqf-ttable td:first-child { font-size: 14.5px; }
+}
+.oqf-chart.mini .ax-mini { font-size: 9px; fill: rgba(255,255,255,.45); }
+
 </style>
 </head>
 <body>
@@ -3658,7 +3708,7 @@ EB.oqfAll = {};
 
 EB.oqfAll.en = {
   nav: "What works?",
-  sub: { "": "Opening", mapa: "Map", perfil: "Countries", comparar: "Comparator", metodologia: "Methodology" },
+  sub: { "": "Opening", mapa: "Map", perfil: "Countries", comparar: "Comparator", mandatos: "Terms", metodologia: "Methodology" },
   title: "What works?",
   subtitle: "Socialism, capitalism and the results of 80 years of economic policy.",
   question: "What do 80 years of history reveal about the state, markets and prosperity?",
@@ -3670,7 +3720,7 @@ EB.oqfAll.en = {
   axes: [
     { k: "01", q: "Who governed?", d: "Governments, terms and state entities, with changes of borders and regime.", a: "Audit 1", st: "ref" },
     { k: "02", q: "What did they do?", d: "Economic measures classified by relevance (A–D) and by direction across ten dimensions, with no single ideological label.", a: "Audit 1", st: "prep" },
-    { k: "03", q: "What happened?", d: "Health, education, income, poverty, median and inequality — and later, macroeconomic indicators.", a: "Audits 2 and 3", st: "demo" }
+    { k: "03", q: "What happened?", d: "Health, education, income, poverty, inequality (Audit 2) and GDP, inflation, unemployment, public finances, interest rates and the external sector (Audit 3).", a: "Audits 2 and 3", st: "res" }
   ],
   guard: [
     ["met", "Nothing here ranks governments. Before and after is not cause and effect."],
@@ -3697,36 +3747,39 @@ EB.oqfAll.en = {
   cards: [
     ["mapa", "World map", "Pick the year and the layer (Politics, Prosperity, Economy). Each country shows what data exists — and what does not yet."],
     ["governantes", "Leaders", "Who governed Brazil, Germany, Russia and Ukraine since 1945, by regime and party."],
-    ["perfil", "Pilot countries", "Brazil, Germany, Russia and Ukraine: entities, borders, timeline, measures and indicators."],
-    ["comparar", "Historical comparator", "Countries, periods and before/after a reform, as chart and table, with unit, source and limits."],
+    ["perfil", "Pilot countries", "Brazil, Germany, Russia and Ukraine: entities, borders, timeline and the Audit 2 and 3 indicators."],
+    ["comparar", "Historical comparator", "Countries, periods and before/after a date, as chart and table, with unit, source and limits. Countries are compared only when the series allows it."],
+    ["mandatos", "Terms in office", "What the indicators recorded during each government's window, with alternative windows and sensitivity warnings."],
     ["metodologia", "Methodology", "The three audits, reliability A–D, comparability C1–C4 and publication rules."]
   ],
   status_h: "Audit status",
   states: {
-    ok: ["Available", "Publishable without special caveat (Audit 2, §12)."],
-    res: ["With caveats", "Publishable with caveat: comparability C2/C4, documented reconstruction or reconstructed current territory."],
-    exp: ["Exploratory", "Reliability C, comparability C3 or flagged value: not fit for conclusions."],
-    proj: ["Projection", "Projection (WPP 2024). Not an observed result and not counted as coverage."],
+    ok: ["Publishable", "Category S of the publication layer: grade A/B, comparability C1, state of the time and verified source version."],
+    res: ["With caveat", "Category R: publishable, but the caveat goes with the data (comparability C2/C4, national definition, series break, change of territory or instrument)."],
+    exp: ["Exploratory", "Reliability C, comparability C3 or flagged value: not fit for conclusions and not shown in charts."],
+    proj: ["Projection only", "Only a source projection exists for this year. A projection is not an observed result and is not shown in charts."],
     prelim: ["Preliminary", "Preliminary data from an official source. No preliminary series was identified in the pilot."],
     np: ["Not publishable", "Research exists, but the publication threshold has not been met."],
     ref: ["Public reference", "Public list checked; to be verified against Audit 1."],
     demo: ["Demonstration data", "Synthetic series to test the interface. Not observations."],
-    prep: ["Data in preparation", "Country outside the pilot or without reviewed data."],
-    pend: ["Research pending", "Audit 3 (Economy) has not started."],
-    gap: ["No data this year", "No source has data for this year within the entity's existence."]
+    prep: ["Data in preparation", "No reviewed publishable series for this country, entity or year."],
+    pend: ["Research pending", "No audited data for this layer yet."],
+    gap: ["No data this year", "No publishable series has a value for this year within the entity's existence."],
+    auto: ["Automatic expansion", "Publishable data exists in the worldwide base, generated by the same rules as the pilot, but without manual review by country."],
+    nat: ["Over time only", "Series without international comparability: shows a country's evolution, not a comparison between countries."],
+    sens: ["Window-sensitive", "The result changes materially with another choice of dates. See the alternative windows."]
   },
   types: { o: "measured", e: "estimated", p: "projection", r: "historical reconstruction", d: "calculated from source" },
   cats: { P: "Publishable", R: "With caveat", X: "Exploratory", N: "Not publishable" },
   layers: { pol: "Politics", pros: "Prosperity", eco: "Economy" },
   layer_note: {
-    pol: "Classification of governments (Audit 1). No profile has met the publication threshold: coverage of level-A reforms has a median of 6% (range 0–45%), against an 80% trigger.",
-    pros: "Prosperity indicators (Audit 2). Only the pilot (Brazil, Germany, Russia, Ukraine) has a publication layer; the worldwide expansion exists without manual review and is not loaded here.",
-    eco: "Macroeconomic indicators (Audit 3). Research pending: the interface is ready, with no values."
+    pol: "Classification of governments (Audit 1, under validation). No profile has met the publication threshold: coverage of level-A reforms has a median of 6% (range 0–45%), against an 80% trigger.",
+    pros: "Prosperity indicators (Audit 2 v0.2.1, S and R observations only). Pilot countries are reviewed; the others come from the automatic expansion, without manual review by country.",
+    eco: "Macroeconomic indicators (Audit 3 v0.2, S and R observations only). Pilot countries are reviewed; the others come from the automatic expansion, without manual review by country."
   },
   demo_banner: "Demonstration data",
-  demo_text: "The numbers and charts in this section are synthetic series generated only to test the interface. They are not historical observations and must not be cited. Real values will come from the Audit 2 (v0.2) files.",
-  real_banner: "Audit 2 data",
-
+  demo_text: "The numbers and charts in this section are synthetic series generated only to test the interface. They are not historical observations and must not be cited.",
+  real_banner: "Real audit data",
   map_h: "World map",
   map_dek: "Pick the year and the layer. Colors show **what kind of data exists**, not results: no country is shaded by performance.",
   year: "Year", layer: "Layer", play: "Play", pause: "Pause",
@@ -3739,8 +3792,8 @@ EB.oqfAll.en = {
   entity_then: "Entity that year",
   open_profile: "Open profile",
   add_cmp: "+ Comparator", in_cmp: "✓ In comparator",
-  not_pilot: "This country is not part of the pilot yet. Data in preparation.",
-  y2026: "2026: only projections exist (WPP 2024). Observed: no series. Preliminary: no series identified.",
+  not_pilot: "Country outside the audits' universe or without publishable data. Data in preparation.",
+  y2026: "2026 is not over: no annual series has an observed value. Where the source publishes a projection, the map shows “Projection only.”",
   legend_h: "Legend",
   sel_h: "Selection for the comparator",
   sel_go: "Compare selection →",
@@ -3755,13 +3808,12 @@ EB.oqfAll.en = {
   dim_cell: "no publishable data",
   ref_note: "Example from Audit 1's methodology illustrating level A (structural reform). Not an assessment or a government profile.",
   ref_more: "The list of measures per government depends on human review of acts flagged as A by automatic screening (32% precision in that class).",
-  pros_note: "Separate pillars, never added into an index. Each chart shows one entity per line; different entities are not spliced.",
-  eco_pending: "Audit 3 pending. Macroeconomic indicators (including inflation and interest rates, left out of Audit 2) will appear here.",
+  pros_note: "Separate pillars, never added into an index. One original series per chart; different entities are not spliced; years without data stay blank (nothing is interpolated).",
+  eco_note: "One original series per indicator (Audit 3 preferred series). Interest rates, unemployment and public finances use national definitions: they show change over time, not comparisons between countries.",
   no_data: "Data in preparation",
   last_obs: "Latest data",
   open_cmp: "Open in comparator →",
-  srcs_demo: "Demonstration mode: no data source is connected. Sources planned for each indicator (Audit 2, §4):",
-
+  srcs_demo: "Demonstration mode: no data source is connected. Planned sources for each indicator:",
   cmp_h: "Historical comparator",
   cmp_dek: "Compare countries, periods and before and after a date. The chart shows **association over time**, not cause: no result is attributed to a ruler.",
   modes: { paises: "Countries", reforma: "Before and after", governos: "Successive governments" },
@@ -3771,13 +3823,13 @@ EB.oqfAll.en = {
   c_table: "Table",
   c_unit: "Unit", c_src: "Source", c_lim: "Limitations",
   c_lims: [
-    "Lines from different entities are never joined: FRG, GDR and unified Germany; USSR and Russia; Ukrainian SSR and Ukraine.",
-    "Current-territory values before statehood (e.g., Ukraine before 1992) are reconstructions, with a lower grade and comparability C3.",
-    "Projections (2024–2026) appear hollow and do not count as results.",
-    "Do not compare series from different sources, vintages or PPP bases."
+    "Lines for different entities are never joined: FRG, GDR and unified Germany; USSR and Russia; Ukrainian SSR and Ukraine.",
+    "One original series per line. Series from different sources, vintages, price bases or PPPs are neither spliced nor mixed.",
+    "Years without data stay empty: nothing is interpolated. Projections are not shown.",
+    "Indicators with national definitions (unemployment, public finances, interest rates, survey-based poverty and inequality) are shown for one country at a time."
   ],
   c_causal: "Before and after is not cause and effect. Other changes (world prices, wars, demographics, crises) happen at the same time, and reforms have lagged effects.",
-  c_gov_pending: "Successive governments depends on Audit 1 (governo_ano and the 09_ponte_auditoria1 bridge). In preparation. Once added, the chart will show term bands without attributing results, and terms shorter than one year will not be compared.",
+  c_gov_pending: "The government bands come from the public reference list (Audit 1 is still under validation). The chart does not attribute results; terms shorter than 1 year are hatched.",
   c_empty: "No series with data for this choice.",
   c_marker: "Marker chosen by the reader",
   c_year: "Year",
@@ -3791,12 +3843,12 @@ EB.oqfAll.en = {
   meth_h: "Methodology",
   meth_dek: "Three independent audits, with rules published before the results. This page summarizes what is settled and what is missing.",
   audits: [
-    { k: "Audit 1", h: "Governments and economic measures", v: "Methodology v0.3 · Oct. 19, 2026 · cutoff Oct. 11, 2026", st: "np", stl: "In progress · profiles not publishable",
-      pts: ["Batch 0: Brazil, Germany, USSR/Russia and Ukraine.", "94,572 acts screened automatically into four relevance levels (A structural reform, B relevant sectoral policy, C limited scope, D no economic connection).", "Relevance is not direction: the level comes from the reach of the change, never from whether it expands or reduces the state.", "Direction per effect, across ten dimensions (A–J); opposite effects of one law are kept apart and do not offset.", "On the held-out test, screening recovers 54% of A acts; of those it predicts as A, only 32% are A. So it prioritizes human review and does not classify on its own.", "The number of laws never measures the size of the state or the quality of a government.", "Pending: double coding (≥200 acts, kappa), review of all A acts, reading the text for direction, expert review for each country."] },
-    { k: "Audit 2", h: "Prosperity of populations, 1945–2026", v: "Methodology v0.2 · Oct. 20, 2026 · cutoff Oct. 11, 2026", st: "res", stl: "Base collected · publication layer for the pilot",
-      pts: ["210 entities (193 UN members, 2 observers, Taiwan, Kosovo and 13 historical entities); a core of 195 for coverage.", "19 sources downloaded (F01–F19), each with URL, date, size and SHA-256 in the manifest.", "Six separate pillars, never added up: health, education, per-capita income, poverty, real median and inequality.", "Nothing interpolated, extrapolated or spliced. The official HDI and the AHDI were not merged.", "17 of 19 sources have a version proven to predate the cutoff; WID (later) and OECD (undated) are left out of the publishable series.", "Almost no series reaches 2026: the latest non-projected data is from 2023 to 2025."] },
-    { k: "Audit 3", h: "Economy", v: "—", st: "pend", stl: "Research pending",
-      pts: ["Macroeconomic indicators, including inflation and interest rates (outside Audit 2).", "The map, profiles and comparator already include the Economy layer, with no values."] }
+    { k: "Audit 1", h: "Governments and economic measures", v: "Methodology v0.3 · Oct. 19, 2026 · cut-off Oct. 11, 2026", st: "np", stl: "Under validation · profiles not publishable",
+      pts: ["Batch 0: Brazil, Germany, USSR/Russia and Ukraine.", "94,572 acts automatically screened into four relevance levels (A structural reform, B relevant sectoral, C limited scope, D no economic link).", "Relevance is not direction: the level comes from the scope of the change, never from whether it expands or shrinks the state.", "Direction by effect, across ten dimensions (A–J); opposite effects of one law are kept apart and do not offset each other.", "In the held-out test, screening recovers 54% of A acts; of those it predicts as A, only 32% are A. So it prioritizes human review and does not classify on its own.", "Political classifications are provisional and are not presented as conclusions on the site. The term dates used in the Audit 3 panel come from here."] },
+    { k: "Audit 2", h: "Prosperity of populations, 1945–2026", v: "v0.2.1 · cut-off Oct. 11, 2026 · candidate for partial publication", st: "res", stl: "Integrated · S and R only",
+      pts: ["516,933 observations worldwide; 204,898 publishable (S and R) — only these reach the site.", "Health, education, income, poverty, median and inequality, as separate pillars, never added up.", "Poverty, median and inequality come from income or consumption surveys, which are not comparable with each other: the site shows each kind as a separate indicator.", "Nothing interpolated, extrapolated or spliced. 17 of the 19 sources have a version proven to predate the cut-off."] },
+    { k: "Audit 3", h: "Economy, 1945–2026", v: "v0.2 · cut-off Oct. 12, 2026 · candidate for partial publication", st: "res", stl: "Integrated · S and R only",
+      pts: ["781,284 observations worldwide; 512,532 publishable (S and R) — only these reach the site.", "GDP, inflation, unemployment, debt, primary balance, current account, investment, trade and policy rate.", "Panel by term: 417 comparisons, 250 of them publishable (S and R); 195 change with the choice of dates and carry a warning.", "FRG (except the policy rate), GDR and USSR still have no publishable series: “Data in preparation.”", "No 0–100 index, no scores and no ranking of leaders."] }
   ],
   rel_h: "Reliability (A–D)",
   rel: [["A", "High: direct, official, harmonized measurement (civil registration, complete microdata)."], ["B", "Good: harmonized official estimates or international-standard surveys, with known uncertainty."], ["C", "Limited: heavy imputation, historical reconstructions or heterogeneous compilations."], ["D", "Unfit for comparison: imputation without a primary base, projection or low-quality record."]],
@@ -3809,11 +3861,10 @@ EB.oqfAll.en = {
   terr_h: "Borders and entities",
   terr: ["No value is transferred between entities.", "Historical states receive only their own values, within their lifespan.", "Russia and Ukraine count as states from 1992 (first full calendar year); before that, current-territory values are reconstructions.", "Germany 1949–1990: FRG and GDR together, never a single attribution. Sources that do not declare the territory are flagged “to be verified.”", "The map uses current, internationally recognized borders; each year's entity appears in the text."],
   proto_h: "How this prototype uses the data",
-  proto: ["The site reads only the manifest and each pilot country's series, on demand (a few KB per country). The worldwide base is never loaded in the browser.", "The _src/oqf/prepare_data.py adapter converts Audit 2's 08_publicacao_piloto.csv file (and, optionally, Audit 1's governo_ano).", "Without those files it generates synthetic demonstration data — and the site shows the “Demonstration data” band on every screen. The two modes never coexist."],
+  proto: ["The site reads only the manifest and each country's series, on demand (tens of KB per country). The full databases are never loaded in the browser.", "The _src/oqf/prepare_data.py adapter reads the Audit 2 and 3 publication layers, keeps only S and R observations, picks one original series per indicator and preserves each observation's id.", "To switch to a newer audited version: run the adapter on the new folder and build the site (_src/oqf/LEIA-ME.md). The visual components do not change."],
   files_h: "Expected files",
-  files: [["Audit 2 v0.2", "dados/08_publicacao_piloto.csv · dados/09_ponte_auditoria1.csv"], ["Audit 1 Batch 0 v0.3", "governo_ano · crosswalk_entidades · relatorios/v03_perfis_governo.csv"], ["Audit 3", "to be defined"]],
-  file_state: { demo: "Current mode: demonstration (no audit file loaded).", real: "Current mode: Audit 2 data." },
-
+  files: [["Audit 2 v0.2.1", "dados/08_publicacao.csv.gz"], ["Audit 3 v0.2", "dados/10_publicacao.csv.gz · dados/11_painel_mandatos.csv · dados/entidades.csv · dados/12_dicionario_indicadores.csv"], ["Audit 1 (under validation)", "leaders: public reference list; panel dates: governos_mandatos (via Audit 3)"]],
+  file_state: { demo: "Current mode: demonstration (no audit file loaded).", real: "Current mode: real data from Audits 2 and 3." },
   countries: {
     BRA: {
       name: "Brazil", entities: [["BRA", "Federative Republic of Brazil", 1945, 2026, "A state throughout the period."]],
@@ -3838,7 +3889,7 @@ EB.oqfAll.en = {
   },
   ent_names: { BRA: "Brazil", DEU: "Unified Germany", "DEU-OCUP": "Occupied Germany", FRG: "FRG", GDR: "GDR", SUN: "USSR", RUS: "Russia", UKR: "Ukraine", "UKR-SSR": "Ukrainian SSR" },
   sub2: { governantes: "Leaders" },
-  kpis: [["4", "Pilot countries", "of 195 in Audit 2's core"], ["10", "State entities", "includes FRG, GDR, USSR and Ukrainian SSR"], ["19", "Sources downloaded", "Audit 2 · F01–F19"]],
+  kpis: [["4", "Pilot countries", "reviewed; the others by automatic expansion"], ["24", "Indicators on the site", "12 prosperity · 12 economy"], ["250", "Comparisons by term", "publishable (S and R) in the Audit 3 panel"]],
   kpi_year: "Map year",
   tt_click: "Click to pin",
   panel_none_h: "Choose a country",
@@ -3849,7 +3900,7 @@ EB.oqfAll.en = {
   ind_lbl: "Indicator",
   tbl_h: "Countries on the map",
   tbl_cols: ["Country", "Entity in {y}", "Government in {y}", "Politics", "Prosperity", "Economy"],
-  tbl_rest: "Other 191 core countries",
+  tbl_rest: "Other countries (automatic expansion)",
   gov_h: "Leaders",
   gov_dek: "Who governed each pilot country since 1945, by regime and by party. A reference timeline: it does not assess governments or attribute results.",
   gov_conv: "Convention: effective leader. President in presidential and semi-presidential systems; chancellor in the FRG and unified Germany; single-party leader in the USSR and the GDR.",
@@ -3867,7 +3918,41 @@ EB.oqfAll.en = {
   c_scatter_note: "Each circle is one entity in one year; the trail shows earlier years. Nearby points show association, not cause.",
   c_gov_note: "Bands show who governed. The chart attributes no result to any leader. Terms shorter than one year are hatched and not compared.",
   c_missing: "No data on both axes in {y}:",
-  pre_state: "current territory, before statehood"
+  pre_state: "current territory, before statehood",
+  not_pilot_auto: "Country outside the pilot. The values shown come from the audits' automatic expansion (same rules, no manual review by country). Full profile, comparator and terms: pilot countries only.",
+  auto_note: "Automatic expansion, no manual review by country.",
+  no_obs_until: "No publishable value up to {y}.",
+  last_before: "latest before the chosen year",
+  rest_n: "{n} of {t} with data",
+  terms_link: "See results recorded during terms in office",
+  caveats: "Caveats",
+  audit2: "Audit 2", audit3: "Audit 3", generated: "Generated on",
+  only_br: "Brazil only", single_country: "over time only (one country)",
+  c_only: "“{ind}” exists for Brazil only.",
+  c_national: "This indicator is not internationally comparable. Showing {c} only: pick one country at a time.",
+  c_intl_hint: "Indicators marked “over time only” are not compared across countries; the chart shows one country at a time.",
+  scale_note: "the source publishes a 0–1 fraction; the site only multiplies by 100 for display",
+  c_type: "Data type", c_cmpb: "Comparability",
+  c_intl_yes: "comparable across countries (C1, same series for all)",
+  c_intl_no: "over time only, within the same country (national definition or comparability C2/C4)",
+  terms_h: "Results during terms in office",
+  terms_dek: "What the indicators recorded in the historical window of each government. **A description of the period, not an evaluation**: no result is attributed to the leader.",
+  terms_rules: [
+    "Default window: calendar years with at least 183 days of the leader in office; the base is the year before. Final year capped at 2025.",
+    "Only publishable comparisons (S and R) are shown. Exploratory ones are left out.",
+    "When another choice of dates changes the result materially, the row carries a “Window-sensitive” warning and the alternative windows.",
+    "No scores, no ranking and no sorting by result: the order is chronological.",
+    "Term dates come from Audit 1, which is still under validation. Its political classifications are not shown here."
+  ],
+  terms_all: "All indicators",
+  terms_sum: "{n} publishable comparisons across {g} governments · {s} sensitive to the choice of window",
+  terms_cols: ["Indicator", "Period (base)", "Recorded in the window", "Category", "Details"],
+  terms_details: "Rule, limits and alternative windows",
+  t_rule: "Calculation rule", t_lim: "Limits", t_adeq: "Adequacy", t_pre: "Trend in the previous 5 years", t_ctx: "Context (world and peers)", t_alt: "Alternative windows",
+  adeq: { adequada: "adequate", adequada_com_ressalva: "adequate with caveat", exploratoria: "exploratory" },
+  win: { B: "B · inclusive calendar", C: "C · in office on Dec. 31", E: "E · start − 1 to exit − 1", M: "M · monthly or daily series" },
+  t_py: "per year", t_acc: "cumulative", t_avg: "period average", t_diff: "change", t_base: "base",
+  terms_causal: "The figures describe the period and do not measure the effect of government decisions: international prices, crises, wars, demographics and decisions of earlier governments act at the same time."
 };
 </script>
 <script>
@@ -4214,7 +4299,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   var EB = window.EB, LANG = EB.lang || "pt", ASSET = EB.assetBase || "";
   var T = EB.oqfAll[LANG];
   var BASE = LANG === "en" ? "what-works" : "o-que-funciona";
-  var SUBS = { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", metodologia: "methodology" };
+  var SUBS = { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", mandatos: "terms", metodologia: "methodology" };
   var DATA = ASSET + "assets/data/oqf/";
   var PILOTS = ["BRA", "DEU", "RUS", "UKR"];
   /* Entidades que aparecem para cada país-piloto (nunca emendadas entre si). */
@@ -4252,11 +4337,13 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   function flag(iso, cls) { return FLAGS[iso] ? '<span class="oqf-flag ' + (cls || "") + '">' + FLAGS[iso] + "</span>" : ""; }
 
   /* ---------------------------------------------------------- carregamento sob demanda */
-  var M = null, SER = {}, loading = {}, WORLD = null, L = null;
+  var M = null, SER = {}, loading = {}, WORLD = null, L = null, WAV = null, TERMS = null;
   var OQF = window.OQF = {
     manifest: function (m) { M = m; },
-    register: function (id, obj) { SER[id] = obj; },
-    leaders: function (d) { L = d; }
+    register: function (id, obj) { if (typeof id === "object") { obj = id; id = obj.entity; } SER[id] = obj; },
+    leaders: function (d) { L = d; },
+    worldAvail: function (d) { WAV = d; },
+    terms: function (d) { TERMS = d; }
   };
   function load(file, cb) {
     var st = loading[file];
@@ -4280,11 +4367,21 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   }
   function withWorld(cb) { if (WORLD) return cb(true); load("world.js", function (ok) { WORLD = window.OQF_WORLD || null; cb(ok && !!WORLD); }); }
   function withLeaders(cb) { if (L) return cb(true); load("leaders.js", function (ok) { cb(ok && !!L); }); }
+  function withWorldAvail(cb) { withManifest(function (ok) { if (!ok || !M.world_file) return cb(false); if (WAV) return cb(true); load(M.world_file, function (k) { cb(k && !!WAV); }); }); }
+  function withTerms(cb) { withManifest(function (ok) { if (!ok || !M.terms_file) return cb(false); if (TERMS) return cb(true); load(M.terms_file, function (k) { cb(k && !!TERMS); }); }); }
+  /* séries resumidas de um país fora do piloto (expansão automática) */
+  function withWorldSeries(iso, cb) { withWorldAvail(function (ok) { var w = ok && WAV.c[iso]; if (!w || !w.f) return cb(false); if (SER[iso]) return cb(true); load(w.f, function (k) { cb(k && !!SER[iso]); }); }); }
   function allPilotEnts() { var a = []; PILOTS.forEach(function (p) { a = a.concat(ENTS[p]); }); return a; }
   function isDemo() { return !M || M.mode === "demo"; }
   function ind(id) { if (!M) return null; for (var i = 0; i < M.indicators.length; i++) if (M.indicators[i].id === id) return M.indicators[i]; return null; }
   function indName(x) { return x ? (LANG === "en" ? x.en : x.pt) : ""; }
   function indUnit(x) { return isDemo() ? (LANG === "en" ? M.unit_en : M.unit_pt) : x ? (LANG === "en" ? x.unit_en : x.unit_pt) : ""; }
+  function indsOf(layer) { return M ? M.indicators.filter(function (I) { return I.layer === layer; }) : []; }
+  /* escala SÓ de exibição (ex.: fração 0–1 → %), declarada no manifesto */
+  function dv(I, v) { return I && I.scale && I.scale !== 1 ? v * I.scale : v; }
+  function fmtI(I, v) { var d = I ? I.dec : 1; return v == null ? "—" : Number(v).toLocaleString(LANG === "en" ? "en-US" : "pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  function metaOf(ent, id) { return SER[ent] && SER[ent].meta ? SER[ent].meta[id] : null; }
+  function noteTxt(meta, k) { var n = meta && meta.notes[k]; return n ? (LANG === "en" ? n[1] : n[0]) : ""; }
   function errBox() { return '<div class="oqf-box"><b>' + esc(T.no_data) + "</b></div>"; }
 
   /* ---------------------------------------------------------- governantes */
@@ -4394,7 +4491,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     return '<div class="oqf-real" role="note"><b>' + esc(T.real_banner) + "</b><p>" + esc(LANG === "en" ? M.label_en : M.label_pt) + " · " + esc(M.generated) + "</p></div>";
   }
   function subnav(active) {
-    var keys = ["", "mapa", "governantes", "perfil", "comparar", "metodologia"];
+    var keys = ["", "mapa", "governantes", "perfil", "comparar", "mandatos", "metodologia"];
     return '<nav class="tabs oqf-subnav" aria-label="' + esc(T.title) + '">' + keys.map(function (k) {
       return '<a class="tab" href="' + link(k) + '"' + (k === active ? ' aria-current="page" aria-selected="true"' : "") + ">" + esc(SUBLBL(k)) + "</a>";
     }).join("") + "</nav>";
@@ -4423,20 +4520,29 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   }
   function stateOf(iso, year, layer) {
     var pilot = PILOTS.indexOf(iso) > -1;
-    if (layer === "eco") return "pend";
     if (layer === "pol") return pilot ? "np" : "prep";
-    if (!pilot || !M) return "prep";
-    var best = null, rank = { P: 0, R: 1, X: 2, p: 3 };
-    ENTS[iso].forEach(function (e) {
-      var E = M.entities[e]; if (!E) return;
-      var ch = E.avail.charAt(year - M.y0);
-      if (ch && ch !== "-" && (best === null || rank[ch] < rank[best])) best = ch;
-    });
+    if (!M) return "prep";
+    var rank = { P: 0, R: 1, X: 2, p: 3 }, best = null;
+    function take(ch) { if (ch && ch !== "-" && (best === null || rank[ch] < rank[best])) best = ch; }
+    if (pilot) {
+      ENTS[iso].forEach(function (e) {
+        var E = M.entities[e]; if (!E) return;
+        var av = typeof E.avail === "string" ? (layer === "pros" ? E.avail : "") : (E.avail[layer] || "");
+        take(av.charAt(year - M.y0));
+      });
+    } else {
+      /* expansão mundial: existe na base, mas sem revisão manual por país */
+      var w = WAV && WAV.c[iso]; if (!w) return "prep";
+      take((w[layer] || "").charAt(year - WAV.y0));
+      if (best === null) return "gap";
+      return best === "p" ? "proj" : "auto";
+    }
     if (best === null) return "gap";
     if (best === "p") return "proj";
     if (isDemo()) return "demo";
     return { P: "ok", R: "res", X: "exp" }[best];
   }
+
   function entitiesAt(iso, year) {
     var C = T.countries[iso]; if (!C) return [];
     return C.entities.filter(function (e) { return year >= e[2] && year <= e[3]; });
@@ -4474,7 +4580,9 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   }
 
   /* ---------------------------------------------------------- MAPA (painel) */
-  var mapState = null, playTimer = null, PANEL_IND = ["life_exp", "gdp_proxy", "gini"];
+  var mapState = null, playTimer = null, PANEL_IND = ["life_exp", "gdp_pc_ppp", "gdp_growth", "inflation"];
+  var SHORT = { life_exp: ["Saúde", "Health"], gdp_pc_ppp: ["Renda", "Income"], gdp_growth: ["PIB", "GDP"], inflation: ["Inflação", "Inflation"], gini: ["Desigualdade", "Inequality"], gdp_proxy: ["Renda", "Income"] };
+  function shortName(I) { var x = SHORT[I.id]; return x ? x[LANG === "en" ? 1 : 0] : indName(I); }
   function renderMap(app, q) {
     var y = clampY(q.y, 1990), layer = { pol: 1, pros: 1, eco: 1 }[q.l] ? q.l : "pros";
     var sel = (q.c || "").split(",").filter(function (x) { return PILOTS.indexOf(x) > -1; });
@@ -4496,7 +4604,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     app.innerHTML = h;
     withManifest(function () {
       var b = document.getElementById("oqf-banner"); if (b) b.innerHTML = banner();
-      loadAll(["world.js", "leaders.js"], function () {
+      loadAll(["world.js", "leaders.js"].concat(M && M.world_file ? [M.world_file] : []), function () {
         WORLD = window.OQF_WORLD || null;
         withSeries(allPilotEnts(), function () {
           var m = document.getElementById("oqf-map"); if (!m) return;
@@ -4526,7 +4634,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var r = document.getElementById("oqf-y"); if (r && +r.value !== S.y) r.value = S.y;
     var ln = document.getElementById("oqf-ln"); if (ln) ln.innerHTML = "<b>" + esc(T.layers[S.l]) + ".</b> " + esc(T.layer_note[S.l]);
     var y26 = document.getElementById("oqf-y26"); if (y26) y26.hidden = S.y < 2024 || S.l !== "pros";
-    var order = ["ok", "res", "exp", "demo", "proj", "prelim", "np", "pend", "prep", "gap"];
+    var order = ["ok", "res", "auto", "exp", "demo", "proj", "prelim", "np", "pend", "prep", "gap"];
     var lg = document.getElementById("oqf-legend");
     if (lg) lg.innerHTML = order.filter(function (k) { return used[k] || (k === "prelim" && S.l === "pros" && S.y >= 2024); }).map(function (k) {
       return '<span class="oqf-lg"><i class="sw st-' + k + '"></i>' + esc(T.states[k][0]) + (used[k] ? "" : " (0)") + "</span>";
@@ -4544,20 +4652,50 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     }
     var pilot = PILOTS.indexOf(S.s) > -1;
     var h = '<div class="oqf-panel-h">' + flag(S.s) + "<h3>" + esc(cname(S.s)) + '</h3><button type="button" class="oqf-x" data-oqf-close aria-label="' + esc(T.close) + '">×</button></div>';
-    if (!pilot) { el.innerHTML = h + '<p class="mono small">' + tf(T.in_year, { y: S.y }) + "</p>" + layersDl(S.s, S.y) + '<p class="oqf-panel-n">' + esc(T.not_pilot) + "</p>" + selBox(); return; }
+    if (!pilot) {
+      var w = WAV && WAV.c[S.s];
+      el.innerHTML = h + '<p class="mono small">' + tf(T.in_year, { y: S.y }) + "</p>" + layersDl(S.s, S.y) + '<div id="oqf-wchart" class="oqf-pchart">' + (w && w.f ? '<div class="oqf-loading"></div>' : '<p class="oqf-panel-n">' + chip("prep") + "</p>") + "</div>" +
+        '<p class="oqf-panel-n">' + esc(w ? T.not_pilot_auto : T.not_pilot) + "</p>" + selBox();
+      if (w && w.f) withWorldSeries(S.s, function (ok) { if (mapState && mapState.s === S.s) paintWorldChart(ok); });
+      return;
+    }
     var ents = entitiesAt(S.s, S.y), lds = leadersIn(S.s, S.y);
     h += '<div class="oqf-pk"><div><small>' + esc(tf(T.ent_in, { y: S.y })) + "</small>" + ents.map(function (e) { return "<b>" + esc(T.ent_names[e[0]] || e[1]) + "</b>"; }).join("") + "</div>" +
       "<div><small>" + esc(tf(T.gov_in, { y: S.y })) + "</small>" + (lds.length ? lds.map(function (l) { return leaderChip(l); }).join("") : "<b>—</b>") + "</div></div>";
-    var inds = PANEL_IND.filter(function (i) { return ind(i); }); if (!inds.length && M) inds = M.indicators.slice(0, 3).map(function (x) { return x.id; });
-    if (inds.indexOf(S.i) < 0) S.i = inds[0];
+    var inds = panelInds();
     var list = seriesFor(S.s, S.i, Y0, Y1), has = list.some(function (s) { return s.pts.length; });
-    h += '<div class="oqf-pchart"><div class="oqf-pchart-h"><b>' + esc(indName(ind(S.i))) + '</b><div class="oqf-seg" role="tablist" aria-label="' + esc(T.ind_lbl) + '">' + inds.map(function (i) { var I = ind(i); return '<button type="button" role="tab" data-oqf-pind="' + i + '" aria-selected="' + (i === S.i) + '" title="' + esc(indName(I)) + '">' + esc(I.pillar === "saude" ? (LANG === "en" ? "Health" : "Saúde") : I.pillar === "renda" ? (LANG === "en" ? "Income" : "Renda") : (LANG === "en" ? "Inequality" : "Desigualdade")) + "</button>"; }).join("") + "</div></div>" +
-      (has ? chart(list, { a: Y0, b: Y1, mini: true, mark: S.y, dark: true }) : '<p class="oqf-panel-n">' + chip("prep") + "</p>") + "</div>";
+    h += '<div class="oqf-pchart">' + panelSeg(inds) + (has ? chart(list, { a: Y0, b: Y1, mini: true, mark: S.y, dark: true, I: ind(S.i) }) + panelVal(list, ind(S.i), S.y) : '<p class="oqf-panel-n">' + chip("prep") + " " + esc(T.no_data) + "</p>") + "</div>";
     if (L) h += '<div class="oqf-pband"><small>' + esc(T.gov_h) + "</small>" + govBand(S.s, Y0, Y1, { w: 320, ml: 0, mark: S.y }) + "</div>";
     h += layersDl(S.s, S.y);
     var on = S.sel.indexOf(S.s) > -1;
     h += '<div class="oqf-panel-cta"><a class="btn btn--solid btn--sm" href="' + link("perfil", S.s, qs({ y: S.y })) + '">' + esc(T.open_profile) + ' <span class="arr">→</span></a><button type="button" class="btn btn--ghost btn--sm" data-oqf-add="' + S.s + '" aria-pressed="' + on + '">' + esc(on ? T.in_cmp : T.add_cmp) + "</button></div>";
     el.innerHTML = h + selBox();
+  }
+  function panelInds() {
+    var inds = PANEL_IND.filter(function (i) { return ind(i); }); if (!inds.length && M) inds = M.indicators.slice(0, 3).map(function (x) { return x.id; });
+    if (inds.indexOf(mapState.i) < 0) mapState.i = inds[0];
+    return inds;
+  }
+  function panelSeg(inds) {
+    var I = ind(mapState.i);
+    return '<div class="oqf-pchart-h"><b>' + esc(indName(I)) + '</b><div class="oqf-seg" role="tablist" aria-label="' + esc(T.ind_lbl) + '">' + inds.map(function (i) { var J = ind(i); return '<button type="button" role="tab" data-oqf-pind="' + i + '" aria-selected="' + (i === mapState.i) + '" title="' + esc(indName(J)) + '">' + esc(shortName(J)) + "</button>"; }).join("") + "</div></div>";
+  }
+  /* valor no ano escolhido (ou o último antes dele), com unidade, fonte e tipo */
+  function panelVal(list, I, y) {
+    var best = null;
+    list.forEach(function (s) { s.pts.forEach(function (p) { if (p[0] <= y && (!best || p[0] > best.p[0])) best = { p: p, s: s }; }); });
+    if (!best) return '<p class="mono small">' + esc(tf(T.no_obs_until, { y: y })) + "</p>";
+    var m = metaOf(best.s.ent, I.id);
+    return '<p class="mono small oqf-pval"><b>' + fmtI(I, dv(I, best.p[1])) + "</b> " + esc(indUnit(I)) + " · " + best.p[0] + (best.p[0] !== y ? " (" + esc(T.last_before) + ")" : "") + " · " + esc(T.types[best.p[2]]) + " · " + esc(T.cats[best.p[5]]) +
+      (m ? "<br>" + esc(m.f + " · " + m.v) : "") + (noteTxt(m, best.p[6]) ? '<br><span class="oqf-note-i">' + esc(noteTxt(m, best.p[6])) + "</span>" : "") + "</p>";
+  }
+  function paintWorldChart(ok) {
+    var S = mapState, box = document.getElementById("oqf-wchart"); if (!box) return;
+    if (!ok) { box.innerHTML = '<p class="oqf-panel-n">' + chip("prep") + "</p>"; return; }
+    var inds = panelInds(), I = ind(S.i);
+    var pts = (SER[S.s].ind[S.i] || []), list = [{ ent: S.s, iso: S.s, pts: pts }];
+    box.innerHTML = panelSeg(inds) + (pts.length ? chart(list, { a: Y0, b: Y1, mini: true, mark: S.y, dark: true, I: I }) + panelVal(list, I, S.y) : '<p class="oqf-panel-n">' + chip("prep") + " " + esc(T.no_data) + "</p>") +
+      '<p class="small">' + chip("auto") + " " + esc(T.auto_note) + "</p>";
   }
   function paintTable() {
     var S = mapState, t = document.getElementById("oqf-ctable"); if (!t) return;
@@ -4566,7 +4704,12 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
         var lds = leadersIn(k, S.y);
         return '<tr class="' + (k === S.s ? "is-sel" : "") + '" data-oqf-pick="' + k + '" tabindex="0"><td>' + flag(k) + " <b>" + esc(T.countries[k].name) + "</b></td><td>" + entitiesAt(k, S.y).map(function (e) { return esc(T.ent_names[e[0]] || e[1]); }).join(" + ") + "</td><td>" + (lds.map(function (l) { return esc(lname(l)); }).join(", ") || "—") + "</td>" +
           ["pol", "pros", "eco"].map(function (l) { return "<td>" + chip(stateOf(k, S.y, l)) + "</td>"; }).join("") + "</tr>";
-      }).join("") + '<tr class="is-rest"><td>' + esc(T.tbl_rest) + "</td><td>—</td><td>—</td><td>" + chip("prep") + "</td><td>" + chip("prep") + "</td><td>" + chip("pend") + "</td></tr></tbody>";
+      }).join("") + '<tr class="is-rest"><td>' + esc(T.tbl_rest) + "</td><td>—</td><td>—</td><td>" + chip("prep") + "</td><td>" + restCount("pros", S.y) + "</td><td>" + restCount("eco", S.y) + "</td></tr></tbody>";
+  }
+  function restCount(layer, y) {
+    if (!WAV) return chip("prep");
+    var n = 0, t = 0; Object.keys(WAV.c).forEach(function (k) { t++; var ch = (WAV.c[k][layer] || "").charAt(y - WAV.y0); if (ch === "P" || ch === "R") n++; });
+    return chip("auto") + ' <span class="mono small">' + esc(tf(T.rest_n, { n: n, t: t })) + "</span>";
   }
   function selBox() {
     var S = mapState; if (!S.sel.length) return "";
@@ -4641,7 +4784,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var pr = T.presets.filter(function (p) { return p[0] === iso; })[0];
     h += '<section class="oqf-sec" id="oqf-ref"><h2>' + esc(S.ref) + "</h2>" + (pr ? '<div class="oqf-ref"><span class="oqf-ref-y">' + pr[1] + "</span><div><b>" + esc(pr[2]) + '</b><p class="small">' + tagHtml("m", TAGTXT.m) + " " + esc(T.ref_note) + '</p><a class="small" href="' + link("comparar", "", qs({ c: iso, m: "reforma", r: pr[1], a: pr[1] - 15, b: Math.min(Y1, pr[1] + 15) })) + '">' + esc(T.open_cmp) + "</a></div></div>" : "") + '<p class="small">' + esc(T.ref_more) + "</p></section>";
     h += '<section class="oqf-sec" id="oqf-pros"><h2>' + esc(S.pros) + '</h2><p class="small">' + tagHtml("m", TAGTXT.m) + " " + esc(T.pros_note) + '</p><div id="oqf-pros-out" class="oqf-minis"><div class="oqf-loading"></div></div></section>';
-    h += '<section class="oqf-sec" id="oqf-eco"><h2>' + esc(S.eco) + "</h2>" + chip("pend") + "<p>" + esc(T.eco_pending) + "</p></section>";
+    h += '<section class="oqf-sec" id="oqf-eco"><h2>' + esc(S.eco) + '</h2><p class="small">' + tagHtml("m", TAGTXT.m) + " " + esc(T.eco_note) + '</p><div id="oqf-eco-out" class="oqf-minis"><div class="oqf-loading"></div></div><p class="small"><a href="' + link("mandatos", "", qs({ c: iso === "BRA" ? "" : iso })) + '">' + esc(T.terms_link) + " →</a></p></section>";
     h += '<section class="oqf-sec" id="oqf-src"><h2>' + esc(S.src) + '</h2><div id="oqf-src-out"></div></section>';
     h += "</div></div></section>";
     app.innerHTML = h;
@@ -4651,23 +4794,46 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     });
     withSeries(ENTS[iso], function (ok) {
       var b = document.getElementById("oqf-banner"); if (b) b.innerHTML = banner();
-      var out = document.getElementById("oqf-pros-out"); if (!out) return;
-      if (!ok || !M) { out.innerHTML = errBox(); return; }
-      out.innerHTML = M.indicators.map(function (I) {
-        var list = seriesFor(iso, I.id, Y0, Y1), has = list.some(function (s) { return s.pts.length; }), head = "<h3>" + esc(indName(I)) + "</h3>";
-        if (!has) return '<div class="oqf-mini is-empty">' + head + chip("prep") + "</div>";
-        var last = null; list.forEach(function (s) { s.pts.forEach(function (p) { if (p[2] !== "p" && (!last || p[0] > last.p[0])) last = { p: p, e: s.ent }; }); });
-        return '<div class="oqf-mini">' + head + chart(list, { a: Y0, b: Y1, mini: true }) +
-          (last ? '<p class="mono small">' + esc(T.last_obs) + ": " + last.p[0] + " · " + esc(T.ent_names[last.e]) + " · " + esc(T.types[last.p[2]]) + " · " + esc(T.cats[last.p[5]]) + "</p>" : "") +
-          '<a class="small" href="' + link("comparar", "", qs({ c: iso, i: I.id, a: 1950, b: Y1 })) + '">' + esc(T.open_cmp) + "</a></div>";
-      }).join("");
+      ["pros", "eco"].forEach(function (layer) {
+        var out = document.getElementById("oqf-" + layer + "-out"); if (!out) return;
+        if (!ok || !M) { out.innerHTML = errBox(); return; }
+        if (isDemo() && layer === "eco") { out.innerHTML = chip("pend"); return; }
+        var hasData = function (id) { return seriesFor(iso, id, Y0, Y1).some(function (s) { return s.pts.length; }); };
+        out.innerHTML = indsOf(layer).filter(function (I) {
+          if (I.only && I.only.indexOf(iso) < 0) return false;
+          /* renda × consumo: o país usa um tipo de pesquisa; o outro não se aplica e não é mostrado como lacuna */
+          var m = /^(.*)_(inc|cons)$/.exec(I.id); if (m && !hasData(I.id) && hasData(m[1] + (m[2] === "inc" ? "_cons" : "_inc"))) return false;
+          return true;
+        }).map(function (I) { return miniCard(iso, I); }).join("");
+      });
       var so = document.getElementById("oqf-src-out"); if (so) so.innerHTML = sourcesBlock();
     });
   }
+  function miniCard(iso, I) {
+    var list = seriesFor(iso, I.id, Y0, Y1), has = list.some(function (s) { return s.pts.length; }), head = "<h3>" + esc(indName(I)) + '</h3><p class="mono small oqf-unit">' + esc(indUnit(I)) + "</p>";
+    if (!has) return '<div class="oqf-mini is-empty">' + head + chip("prep") + ' <span class="small">' + esc(T.no_data) + "</span></div>";
+    var last = null, first = null; list.forEach(function (s) { s.pts.forEach(function (p) { if (!last || p[0] > last.p[0]) last = { p: p, e: s.ent }; if (!first || p[0] < first.p[0]) first = { p: p, e: s.ent }; }); });
+    var m = metaOf(last.e, I.id), notes = {};
+    list.forEach(function (s) { var mm = metaOf(s.ent, I.id); s.pts.forEach(function (p) { var t = noteTxt(mm, p[6]); if (t) t.split("; ").forEach(function (x) { notes[x] = 1; }); }); });
+    var cats = {}; list.forEach(function (s) { s.pts.forEach(function (p) { cats[p[5]] = 1; }); });
+    var withPts = list.filter(function (s) { return s.pts.length; });
+    var leg = withPts.length > 1 ? '<p class="mono small oqf-mini-leg">' + withPts.map(function (s) { return (DASH[s.ent] ? "╌ " : "— ") + esc(T.ent_names[s.ent] || s.ent); }).join(" · ") + "</p>" : "";
+    return '<div class="oqf-mini">' + head + chart(list, { a: Y0, b: Y1, mini: true, I: I }) + leg +
+      '<p class="mono small">' + esc(T.last_obs) + ": <b>" + fmtI(I, dv(I, last.p[1])) + "</b> · " + last.p[0] + " · " + esc(T.ent_names[last.e] || last.e) + " · " + esc(T.types[last.p[2]]) + "</p>" +
+      '<p class="mono small">' + esc(first.p[0] + "–" + last.p[0]) + " · " + Object.keys(cats).map(function (c) { return chip(c === "P" ? "ok" : "res"); }).join(" ") + (I.intl ? "" : " " + chip("nat")) + "</p>" +
+      (m ? '<p class="small oqf-src-l">' + esc(T.c_src) + ": " + esc(m.f + " · " + m.v + " · " + m.s) + "</p>" : "") +
+      (Object.keys(notes).length ? '<p class="small oqf-notes">' + esc(T.caveats) + ": " + esc(Object.keys(notes).join("; ")) + "</p>" : "") +
+      '<a class="small" href="' + link("comparar", "", qs({ c: iso, i: I.id, a: Math.max(Y0, Math.floor(first.p[0] / 5) * 5), b: Y1 })) + '">' + esc(T.open_cmp) + "</a></div>";
+  }
   function sourcesBlock() {
     if (isDemo()) return "<p>" + esc(T.srcs_demo) + '</p><ul class="src-list">' + M.indicators.map(function (I) { return "<li>" + esc(indName(I)) + " — " + esc(I.src) + " · " + esc(LANG === "en" ? I.unit_en : I.unit_pt) + "</li>"; }).join("") + "</ul>";
-    return '<ul class="src-list">' + M.indicators.map(function (I) { return "<li>" + esc(indName(I)) + " — " + esc(I.src) + "</li>"; }).join("") + "</ul>" +
-      '<p class="mono small">Auditoria 2 ' + esc(M.a2.version || "") + " · " + esc((M.a2.files || []).join(", ")) + " · " + esc(M.generated) + "</p>";
+    return '<ul class="src-list">' + M.indicators.map(function (I) { return "<li><b>" + esc(indName(I)) + "</b> — " + esc(I.src) + " · <code>" + esc(I.serie) + "</code> · " + esc(I.audit === "a2" ? T.audit2 : T.audit3) + "</li>"; }).join("") + "</ul>" + versionsLine();
+  }
+
+  function versionsLine() {
+    if (!M || isDemo()) return "";
+    return '<p class="mono small oqf-vers">' + esc(T.audit2) + " " + esc(M.a2.version) + " · " + esc(M.a2.files.join(", ")) + " · SHA-256 " + esc(M.a2.sha256.slice(0, 12)) + "…<br>" +
+      esc(T.audit3) + " " + esc(M.a3.version) + " · " + esc(M.a3.files.join(", ")) + " · SHA-256 " + esc(M.a3.sha256.slice(0, 12)) + "…<br>" + esc(T.generated) + " " + esc(M.generated) + "</p>";
   }
 
   /* ---------------------------------------------------------- séries e gráficos */
@@ -4682,15 +4848,16 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var segs = [], cur = null;
     pts.forEach(function (p, i) {
       var st = style(p[2]), prev = pts[i - 1];
-      if (!cur || cur.st !== st || (prev && p[0] - prev[0] > 5)) { cur = { st: st, pts: [] }; segs.push(cur); }
+      if (!cur || cur.st !== st || (prev && p[0] - prev[0] > 1)) { cur = { st: st, pts: [] }; segs.push(cur); }
       cur.pts.push(p);
     });
     return segs;
   }
   function niceStep(range, n) { var raw = range / n, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p; return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p; }
   function chart(list, o) {
+    var I = o.I || null, V = function (p) { return dv(I, p[1]); };
     var W = o.mini ? 320 : 760, H = o.mini ? 120 : 340, ml = o.mini ? 8 : 46, mr = 12, mt = 12, mb = o.mini ? 18 : 30;
-    var vals = []; list.forEach(function (s) { s.pts.forEach(function (p) { vals.push(p[1]); }); });
+    var vals = []; list.forEach(function (s) { s.pts.forEach(function (p) { vals.push(V(p)); }); });
     if (!vals.length) return '<p class="oqf-empty">' + esc(T.c_empty) + "</p>";
     var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), pad = (hi - lo) * 0.08 || 1; lo -= pad; hi += pad;
     var X = function (y) { return ml + (y - o.a) / Math.max(1, o.b - o.a) * (W - ml - mr); };
@@ -4699,31 +4866,34 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     for (var v = Math.ceil(lo / step) * step; v <= hi; v += step) {
       g += '<line class="gr" x1="' + ml + '" x2="' + (W - mr) + '" y1="' + Yp(v).toFixed(1) + '" y2="' + Yp(v).toFixed(1) + '"/>';
       if (!o.mini) g += '<text class="ax" x="' + (ml - 6) + '" y="' + (Yp(v) + 4).toFixed(1) + '" text-anchor="end">' + fmt(+v.toFixed(2)) + "</text>";
+      else g += '<text class="ax ax-mini" x="' + (ml + 1) + '" y="' + (Yp(v) - 2).toFixed(1) + '">' + fmt(+v.toFixed(2)) + "</text>";
     }
+    if (lo < 0 && hi > 0) g += '<line class="gr zero" x1="' + ml + '" x2="' + (W - mr) + '" y1="' + Yp(0).toFixed(1) + '" y2="' + Yp(0).toFixed(1) + '"/>';
     var span = o.b - o.a, xstep = span > 60 ? 15 : span > 30 ? 10 : 5;
     for (var yy = Math.ceil(o.a / xstep) * xstep; yy <= o.b; yy += xstep) g += '<text class="ax" x="' + X(yy).toFixed(1) + '" y="' + (H - (o.mini ? 4 : 8)) + '" text-anchor="middle">' + yy + "</text>";
     if (o.mark && o.mark >= o.a && o.mark <= o.b) g += '<line class="mk" x1="' + X(o.mark).toFixed(1) + '" x2="' + X(o.mark).toFixed(1) + '" y1="' + mt + '" y2="' + (H - mb) + '"/>' + (o.mini ? "" : '<text class="mk-t" x="' + (X(o.mark) + 5).toFixed(1) + '" y="' + (mt + 12) + '">' + esc(T.c_marker) + " · " + o.mark + "</text>");
     list.forEach(function (s) {
-      var col = COLOR[s.iso], dash = DASH[s.ent] || "";
+      var col = COLOR[s.iso] || "#8fa3c9", dash = DASH[s.ent] || "";
       segments(s.pts).forEach(function (seg) {
-        var d = seg.pts.map(function (p, i) { return (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Yp(p[1]).toFixed(1); }).join("");
+        var d = seg.pts.map(function (p, i) { return (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Yp(V(p)).toFixed(1); }).join("");
         var da = seg.st === "r" ? "1.5 3" : seg.st === "p" ? "" : dash;
         if (seg.st !== "p" && seg.pts.length > 1) g += '<path class="ln ln-' + seg.st + '" d="' + d + '" stroke="' + col + '"' + (da ? ' stroke-dasharray="' + da + '"' : "") + "/>";
         var showPts = seg.st === "p" || seg.pts.length < 2 || (seg.pts.length > 1 && seg.pts[1][0] - seg.pts[0][0] >= 2);
         if (showPts) seg.pts.forEach(function (p) {
-          g += '<circle class="pt pt-' + seg.st + '" cx="' + X(p[0]).toFixed(1) + '" cy="' + Yp(p[1]).toFixed(1) + '" r="' + (o.mini ? 1.8 : 2.8) + '" stroke="' + col + '" fill="' + (seg.st === "p" ? "none" : col) + '"><title>' + esc(T.ent_names[s.ent]) + " · " + p[0] + " · " + fmt(p[1]) + " · " + esc(T.types[p[2]]) + "</title></circle>";
+          g += '<circle class="pt pt-' + seg.st + '" cx="' + X(p[0]).toFixed(1) + '" cy="' + Yp(V(p)).toFixed(1) + '" r="' + (o.mini ? 1.8 : 2.8) + '" stroke="' + col + '" fill="' + (seg.st === "p" ? "none" : col) + '"><title>' + esc(T.ent_names[s.ent]) + " · " + p[0] + " · " + fmtI(I, V(p)) + " " + esc(I ? indUnit(I) : "") + " · " + esc(T.types[p[2]]) + (p[5] ? " · " + esc(T.cats[p[5]]) : "") + "</title></circle>";
         });
       });
-      if (o.mark) { s.pts.forEach(function (p) { if (p[0] === o.mark) g += '<circle class="pt-mark" cx="' + X(p[0]).toFixed(1) + '" cy="' + Yp(p[1]).toFixed(1) + '" r="' + (o.mini ? 3.5 : 5) + '" fill="' + col + '"/>'; }); }
+      if (o.mark) { s.pts.forEach(function (p) { if (p[0] === o.mark) g += '<circle class="pt-mark" cx="' + X(p[0]).toFixed(1) + '" cy="' + Yp(V(p)).toFixed(1) + '" r="' + (o.mini ? 3.5 : 5) + '" fill="' + col + '"/>'; }); }
     });
     var wm = isDemo() ? '<text class="wm" x="' + (W / 2) + '" y="' + (H / 2 + (o.mini ? 6 : 10)) + '" text-anchor="middle">' + esc(T.demo_banner.toUpperCase()) + "</text>" : "";
     return '<svg class="oqf-chart' + (o.mini ? " mini" : "") + (isDemo() ? " is-demo" : "") + '" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(o.label || "") + '">' + wm + g + "</svg>";
   }
   /* dispersão animada: um círculo por entidade no ano t, com rastro dos anos anteriores */
   function scatter(ents, ix, iy, t, a) {
+    var DX = function (p) { return dv(ind(ix), p[1]); }, DY = function (p) { return dv(ind(iy), p[1]); };
     var W = 760, H = 440, ml = 52, mr = 18, mt = 16, mb = 46;
     var xs = [], ys = [];
-    ents.forEach(function (e) { [ix, iy].forEach(function (id, k) { ((SER[e.ent] && SER[e.ent].ind[id]) || []).forEach(function (p) { if (p[0] >= a) (k ? ys : xs).push(p[1]); }); }); });
+    ents.forEach(function (e) { [ix, iy].forEach(function (id, k) { ((SER[e.ent] && SER[e.ent].ind[id]) || []).forEach(function (p) { if (p[0] >= a) (k ? ys : xs).push(k ? DY(p) : DX(p)); }); }); });
     if (!xs.length || !ys.length) return '<p class="oqf-empty">' + esc(T.c_empty) + "</p>";
     var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
     var px = (x1 - x0) * 0.08 || 1, py = (y1 - y0) * 0.08 || 1; x0 -= px; x1 += px; y0 -= py; y1 += py;
@@ -4737,11 +4907,11 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     ents.forEach(function (e) {
       var col = COLOR[e.iso], trail = [];
       for (var y = a; y <= t; y++) { var px2 = valAt(e.ent, ix, y), py2 = valAt(e.ent, iy, y); if (px2 && py2) trail.push([y, px2, py2]); }
-      if (trail.length > 1) g += '<path class="sc-trail" d="' + trail.map(function (p, i) { return (i ? "L" : "M") + X(p[1][1]).toFixed(1) + " " + Y(p[2][1]).toFixed(1); }).join("") + '" stroke="' + col + '"' + (DASH[e.ent] ? ' stroke-dasharray="' + DASH[e.ent] + '"' : "") + "/>";
+      if (trail.length > 1) g += '<path class="sc-trail" d="' + trail.map(function (p, i) { return (i ? "L" : "M") + X(DX(p[1])).toFixed(1) + " " + Y(DY(p[2])).toFixed(1); }).join("") + '" stroke="' + col + '"' + (DASH[e.ent] ? ' stroke-dasharray="' + DASH[e.ent] + '"' : "") + "/>";
       var cur = trail.length && trail[trail.length - 1][0] === t ? trail[trail.length - 1] : null;
       if (!cur) { missing.push(T.ent_names[e.ent]); return; }
       var proj = cur[1][2] === "p" || cur[2][2] === "p", rec = cur[1][2] === "r" || cur[2][2] === "r";
-      g += '<g class="sc-pt"><circle cx="' + X(cur[1][1]).toFixed(1) + '" cy="' + Y(cur[2][1]).toFixed(1) + '" r="13" fill="' + (proj ? "none" : col) + '" fill-opacity="' + (rec ? ".35" : ".85") + '" stroke="' + col + '" stroke-width="2"' + (rec ? ' stroke-dasharray="2 2"' : "") + "><title>" + esc(T.ent_names[e.ent] + " · " + t + " · " + fmt(cur[1][1]) + " × " + fmt(cur[2][1]) + " · " + T.types[cur[1][2]] + " / " + T.types[cur[2][2]]) + '</title></circle><text class="sc-lbl" x="' + (X(cur[1][1]) + 17).toFixed(1) + '" y="' + (Y(cur[2][1]) + 4).toFixed(1) + '">' + esc(T.ent_names[e.ent]) + "</text></g>";
+      g += '<g class="sc-pt"><circle cx="' + X(DX(cur[1])).toFixed(1) + '" cy="' + Y(DY(cur[2])).toFixed(1) + '" r="13" fill="' + (proj ? "none" : col) + '" fill-opacity="' + (rec ? ".35" : ".85") + '" stroke="' + col + '" stroke-width="2"' + (rec ? ' stroke-dasharray="2 2"' : "") + "><title>" + esc(T.ent_names[e.ent] + " · " + t + " · " + fmt(DX(cur[1])) + " × " + fmt(DY(cur[2])) + " · " + T.types[cur[1][2]] + " / " + T.types[cur[2][2]]) + '</title></circle><text class="sc-lbl" x="' + (X(DX(cur[1])) + 17).toFixed(1) + '" y="' + (Y(DY(cur[2])) + 4).toFixed(1) + '">' + esc(T.ent_names[e.ent]) + "</text></g>";
     });
     var wm = isDemo() ? '<text class="wm" x="' + (W / 2) + '" y="' + (H / 2) + '" text-anchor="middle">' + esc(T.demo_banner.toUpperCase()) + "</text>" : "";
     return '<svg class="oqf-chart oqf-scatter" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(indName(ind(ix)) + " × " + indName(ind(iy)) + " · " + t) + '">' + wm + g + "</svg>" +
@@ -4754,7 +4924,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   function modeLbl(m) { return T.modes[m] || T.modes2[m]; }
   function renderCompare(app, q) {
     var c = (q.c || "BRA,DEU").split(",").filter(function (x) { return PILOTS.indexOf(x) > -1; });
-    cmp = { c: c, i: q.i || "life_exp", j: q.j || "gdp_proxy", t: clampY(q.t, 1990), a: clampY(q.a, 1950), b: clampY(q.b, Y1), r: q.r ? clampY(q.r, 1991) : null, m: MODES.indexOf(q.m) > -1 ? q.m : "paises" };
+    cmp = { c: c, i: q.i || "life_exp", j: q.j || "gdp_pc_ppp", t: clampY(q.t, 1990), a: clampY(q.a, 1950), b: clampY(q.b, Y1), r: q.r ? clampY(q.r, 1991) : null, m: MODES.indexOf(q.m) > -1 ? q.m : "paises" };
     if (cmp.a > cmp.b) { var t = cmp.a; cmp.a = cmp.b; cmp.b = t; }
     if (cmp.m === "reforma" && !cmp.r) cmp.r = 1991;
     var h = hero({ active: "comparar", crumb: T.sub.comparar, kicker: T.title, title: esc(T.cmp_h), dek: T.cmp_dek });
@@ -4774,7 +4944,19 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     });
   }
   function yearOpts(sel) { var o = ""; for (var y = Y0; y <= Y1; y++) o += '<option value="' + y + '"' + (y === sel ? " selected" : "") + ">" + y + "</option>"; return o; }
-  function indOpts(sel) { return M.indicators.map(function (I) { return '<option value="' + esc(I.id) + '"' + (I.id === sel ? " selected" : "") + ">" + esc(indName(I)) + "</option>"; }).join(""); }
+  function indOpts(sel, intlOnly) {
+    var one = function (I) { return '<option value="' + esc(I.id) + '"' + (I.id === sel ? " selected" : "") + ">" + esc(indName(I)) + (I.intl ? "" : " · " + esc(I.only ? T.only_br : T.single_country)) + "</option>"; };
+    if (isDemo()) return M.indicators.map(one).join("");
+    return ["pros", "eco"].map(function (l) { var xs = indsOf(l).filter(function (I) { return !intlOnly || I.intl; }); return xs.length ? '<optgroup label="' + esc(T.layers[l] + " · " + (l === "pros" ? T.audit2 : T.audit3)) + '">' + xs.map(one).join("") + "</optgroup>" : ""; }).join("");
+  }
+  /* países efetivamente desenhados: indicador sem comparabilidade internacional → só um país */
+  function cmpCountries(I, I2) {
+    var c = cmp.c.slice(), note = "";
+    var only = function (X) { return X && X.only; };
+    [I, I2].forEach(function (X) { if (only(X)) { var keep = c.filter(function (k) { return X.only.indexOf(k) > -1; }); if (keep.length < c.length) note = tf(T.c_only, { ind: indName(X) }); c = keep; } });
+    if (c.length > 1 && ((I && !I.intl) || (I2 && !I2.intl))) { c = [c[0]]; note = tf(T.c_national, { c: T.countries[c[0]].name }); }
+    return { c: c, note: note };
+  }
   function drawForm() {
     var f = document.getElementById("oqf-form"); if (!f) return;
     var h = '<fieldset class="oqf-f"><legend>' + esc(T.c_countries) + '</legend><div class="oqf-picks">' + PILOTS.map(function (k) {
@@ -4782,9 +4964,10 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     }).join("") + "</div></fieldset>";
     if (cmp.m === "dispersao") {
       h += '<div class="oqf-f"><label for="oqf-j">' + esc(T.c_x) + '</label><select id="oqf-j" class="uf-select">' + indOpts(cmp.j) + "</select></div>" +
-        '<div class="oqf-f"><label for="oqf-i">' + esc(T.c_y) + '</label><select id="oqf-i" class="uf-select">' + indOpts(cmp.i) + "</select></div>";
+        '<div class="oqf-f"><label for="oqf-i">' + esc(T.c_y) + '</label><select id="oqf-i" class="uf-select">' + indOpts(cmp.i) + "</select></div>" +
+        '<p class="small oqf-f-hint">' + esc(T.c_intl_hint) + "</p>";
     } else {
-      h += '<div class="oqf-f"><label for="oqf-i">' + esc(T.c_ind) + '</label><select id="oqf-i" class="uf-select">' + indOpts(cmp.i) + "</select></div>" +
+      h += '<div class="oqf-f"><label for="oqf-i">' + esc(T.c_ind) + '</label><select id="oqf-i" class="uf-select">' + indOpts(cmp.i) + '</select><p class="small oqf-f-hint">' + esc(T.c_intl_hint) + "</p></div>" +
         '<div class="oqf-f oqf-f-yrs"><label for="oqf-a">' + esc(T.c_from) + '</label><select id="oqf-a" class="uf-select">' + yearOpts(cmp.a) + '</select><label for="oqf-b">' + esc(T.c_to) + '</label><select id="oqf-b" class="uf-select">' + yearOpts(cmp.b) + "</select></div>";
     }
     if (cmp.m === "reforma") h += '<div class="oqf-f"><label for="oqf-r">' + esc(T.c_mark) + '</label><select id="oqf-r" class="uf-select">' + yearOpts(cmp.r) + '</select><p class="small">' + esc(T.c_mark_hint) + '</p><div class="oqf-presets"><span class="mono small">' + esc(T.c_presets) + "</span>" +
@@ -4795,21 +4978,23 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   function drawCompare() {
     var out = document.getElementById("oqf-cmp-out"); if (!out) return;
     setHash(link("comparar", "", qs({ c: cmp.c.join(","), i: cmp.i, j: cmp.m === "dispersao" ? cmp.j : "", t: cmp.m === "dispersao" ? cmp.t : "", a: cmp.m === "dispersao" ? "" : cmp.a, b: cmp.m === "dispersao" ? "" : cmp.b, m: cmp.m === "paises" ? "" : cmp.m, r: cmp.m === "reforma" ? cmp.r : "" })));
-    var I = ind(cmp.i), ents = [];
-    cmp.c.forEach(function (k) { ENTS[k].forEach(function (e) { ents.push({ ent: e, iso: k }); }); });
+    var I = ind(cmp.i), ents = [], cc = cmpCountries(I, cmp.m === "dispersao" ? ind(cmp.j) : null);
+    var notice = cc.note ? '<p class="oqf-notice" role="note">' + chip("nat") + " " + esc(cc.note) + "</p>" : "";
+    if (!cc.c.length) { out.innerHTML = '<div class="oqf-chart-h"><h3>' + esc(indName(I)) + "</h3></div>" + notice + '<p class="oqf-empty">' + chip("prep") + " " + esc(T.no_data) + "</p>"; return; }
+    cc.c.forEach(function (k) { ENTS[k].forEach(function (e) { ents.push({ ent: e, iso: k }); }); });
     if (cmp.m === "dispersao") {
-      out.innerHTML = '<div class="oqf-chart-h"><h3>' + esc(indName(ind(cmp.j))) + " × " + esc(indName(I)) + "</h3></div>" + legendHtml(ents.map(function (e) { return { ent: e.ent, iso: e.iso, pts: [1] }; })) +
+      out.innerHTML = '<div class="oqf-chart-h"><h3>' + esc(indName(ind(cmp.j))) + " × " + esc(indName(I)) + "</h3></div>" + notice + legendHtml(ents.map(function (e) { return { ent: e.ent, iso: e.iso, pts: [1] }; })) +
         '<div class="oqf-chart-box" id="oqf-sc">' + scatter(ents, cmp.j, cmp.i, cmp.t, 1950) + "</div>" +
         '<div class="oqf-player oqf-player--dark"><button class="oqf-play" id="oqf-scplay" type="button" aria-pressed="false" aria-label="' + esc(T.play) + '">▶</button><div class="oqf-range"><label class="sr-only" for="oqf-t">' + esc(T.year) + '</label><input type="range" id="oqf-t" min="1950" max="' + Y1 + '" value="' + cmp.t + '"></div><output class="oqf-tv" id="oqf-tv">' + cmp.t + "</output></div>" +
-        '<p class="oqf-causal">' + tagHtml("m", TAGTXT.m) + " " + esc(T.c_scatter_note) + "</p>" + metaBlock(I, ind(cmp.j));
+        '<p class="oqf-causal">' + tagHtml("m", TAGTXT.m) + " " + esc(T.c_scatter_note) + "</p>" + metaBlock(I, ind(cmp.j), cc.c);
       return;
     }
     var list = [];
-    cmp.c.forEach(function (k) { list = list.concat(seriesFor(k, cmp.i, cmp.a, cmp.b)); });
-    var h = '<div class="oqf-chart-h"><h3>' + esc(indName(I)) + '</h3><span class="mono small">' + cmp.a + "–" + cmp.b + "</span></div>" + legendHtml(list) +
-      '<div class="oqf-chart-box">' + chart(list, { a: cmp.a, b: cmp.b, mark: cmp.m === "reforma" ? cmp.r : null, label: indName(I) });
+    cc.c.forEach(function (k) { list = list.concat(seriesFor(k, cmp.i, cmp.a, cmp.b)); });
+    var h = '<div class="oqf-chart-h"><h3>' + esc(indName(I)) + '</h3><span class="mono small">' + cmp.a + "–" + cmp.b + " · " + esc(indUnit(I)) + "</span></div>" + notice + legendHtml(list) +
+      '<div class="oqf-chart-box">' + chart(list, { a: cmp.a, b: cmp.b, mark: cmp.m === "reforma" ? cmp.r : null, label: indName(I), I: I });
     if (cmp.m === "governos" && L) {
-      h += cmp.c.map(function (k) { return '<div class="oqf-bandrow"><span>' + flag(k) + esc(T.countries[k].name) + "</span>" + govBand(k, cmp.a, cmp.b, { ml: 46 }) + "</div>"; }).join("");
+      h += cc.c.map(function (k) { return '<div class="oqf-bandrow"><span>' + flag(k) + esc(T.countries[k].name) + "</span>" + govBand(k, cmp.a, cmp.b, { ml: 46 }) + "</div>"; }).join("");
     }
     h += "</div>";
     if (cmp.m === "reforma") h += '<p class="oqf-causal">' + tagHtml("m", TAGTXT.m) + " " + esc(T.c_causal) + "</p>";
@@ -4819,33 +5004,124 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     else { var st = cmp.b - cmp.a > 40 ? 10 : 5; for (var y = Math.ceil(cmp.a / st) * st; y <= cmp.b; y += st) years.push(y); if (years[years.length - 1] !== cmp.b) years.push(cmp.b); }
     var cols = list.filter(function (s) { return s.pts.length; });
     if (cols.length) {
-      h += '<details class="oqf-tbl" open><summary>' + esc(T.c_table) + '</summary><div class="ptable-wrap oqf-scroll"><table class="ptable oqf-table"><thead><tr><th>' + esc(T.c_year) + "</th>" + (cmp.m === "governos" ? cmp.c.map(function (k) { return "<th>" + esc(tf(T.gov_in, { y: "" }).trim()) + " · " + esc(T.countries[k].name) + "</th>"; }).join("") : "") + cols.map(function (s) { return "<th>" + esc(T.ent_names[s.ent]) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      h += '<details class="oqf-tbl" open><summary>' + esc(T.c_table) + '</summary><div class="ptable-wrap oqf-scroll"><table class="ptable oqf-table"><thead><tr><th>' + esc(T.c_year) + "</th>" + (cmp.m === "governos" ? cc.c.map(function (k) { return "<th>" + esc(tf(T.gov_in, { y: "" }).trim()) + " · " + esc(T.countries[k].name) + "</th>"; }).join("") : "") + cols.map(function (s) { return "<th>" + esc(T.ent_names[s.ent]) + "</th>"; }).join("") + "</tr></thead><tbody>" +
         years.map(function (y) {
-          return "<tr" + (y === cmp.r && cmp.m === "reforma" ? ' class="is-mark"' : "") + "><td>" + y + "</td>" + (cmp.m === "governos" ? cmp.c.map(function (k) { return '<td class="meta">' + (leadersIn(k, y).map(function (l) { return esc(lname(l)); }).join(", ") || "—") + "</td>"; }).join("") : "") + cols.map(function (s) {
+          return "<tr" + (y === cmp.r && cmp.m === "reforma" ? ' class="is-mark"' : "") + "><td>" + y + "</td>" + (cmp.m === "governos" ? cc.c.map(function (k) { return '<td class="meta">' + (leadersIn(k, y).map(function (l) { return esc(lname(l)); }).join(", ") || "—") + "</td>"; }).join("") : "") + cols.map(function (s) {
             var p = null; s.pts.forEach(function (x) { if (x[0] === y) p = x; });
-            return '<td class="num">' + (p ? fmt(p[1]) + ' <small class="oqf-tt-t t-' + p[2] + '" title="' + esc(T.types[p[2]] + " · " + T.cats[p[5]] + " · " + p[3] + " · " + p[4]) + '">' + esc(T.types[p[2]].split(" ")[0]) + " · " + p[3] + "/" + p[4] + "</small>" : "—") + "</td>";
+            return '<td class="num">' + (p ? fmtI(I, dv(I, p[1])) + ' <small class="oqf-tt-t t-' + p[2] + '" title="' + esc(T.types[p[2]] + " · " + T.cats[p[5]] + " · " + p[3] + " · " + p[4]) + '">' + esc(T.types[p[2]].split(" ")[0]) + " · " + p[3] + "/" + p[4] + "</small>" : "—") + "</td>";
           }).join("") + "</tr>";
         }).join("") + "</tbody></table></div></details>";
     }
-    out.innerHTML = h + metaBlock(I);
+    out.innerHTML = h + metaBlock(I, null, cc.c);
   }
   function legendHtml(list) {
     return '<div class="oqf-cleg">' + list.map(function (s) {
       return '<span><i style="border-color:' + COLOR[s.iso] + (DASH[s.ent] ? ";border-top-style:dashed" : "") + '"></i>' + esc(T.ent_names[s.ent]) + (s.pts.length ? "" : " — " + esc(T.no_data)) + "</span>";
-    }).join("") + '<span><i class="lg-r"></i>' + esc(T.types.r) + '</span><span><i class="lg-p"></i>' + esc(T.types.p) + "</span></div>";
+    }).join("") + missingEnts(list) + (isDemo() ? '<span><i class="lg-r"></i>' + esc(T.types.r) + '</span><span><i class="lg-p"></i>' + esc(T.types.p) + "</span>" : "") + "</div>";
   }
-  function metaBlock(I, I2) {
-    var unit = function (x) { return esc(indUnit(x)) + (isDemo() ? " · " + esc(LANG === "en" ? "planned: " : "prevista: ") + esc(LANG === "en" ? x.unit_en : x.unit_pt) : ""); };
-    var src = function (x) { return isDemo() ? esc(LANG === "en" ? "None — synthetic series (prepare_data.py --demo, seed " : "Nenhuma — série sintética (prepare_data.py --demo, semente ") + M.seed + "). " + esc(LANG === "en" ? "Planned source: " : "Fonte prevista: ") + esc(x.src) : esc(x.src); };
-    return '<dl class="oqf-meta"><dt>' + esc(T.c_unit) + "</dt><dd>" + (I2 ? esc(indName(I2)) + ": " + unit(I2) + "<br>" + esc(indName(I)) + ": " : "") + unit(I) + "</dd><dt>" + esc(T.c_src) + "</dt><dd>" + (I2 ? esc(indName(I2)) + ": " + src(I2) + "<br>" + esc(indName(I)) + ": " : "") + src(I) + "</dd>" +
-      "<dt>" + esc(T.c_lim) + "</dt><dd><ul>" + T.c_lims.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("") + "</ul></dd></dl>";
+  /* entidades-piloto sem série para o indicador: dizê-lo em vez de omitir */
+  function missingEnts(list) {
+    if (isDemo() || !cmp) return "";
+    var have = {}; list.forEach(function (s) { have[s.ent] = 1; });
+    var miss = []; cmpCountries(ind(cmp.i), cmp.m === "dispersao" ? ind(cmp.j) : null).c.forEach(function (k) { ENTS[k].forEach(function (e) { if (!have[e]) miss.push(T.ent_names[e] || e); }); });
+    return miss.length ? '<span class="oqf-cleg-miss">' + esc(miss.join(", ")) + ": " + esc(T.no_data) + "</span>" : "";
+  }
+  function metaBlock(I, I2, countries) {
+    if (isDemo()) {
+      var unit = function (x) { return esc(indUnit(x)) + " · " + esc(LANG === "en" ? "planned: " : "prevista: ") + esc(LANG === "en" ? x.unit_en : x.unit_pt); };
+      var src = function (x) { return esc(LANG === "en" ? "None — synthetic series (prepare_data.py --demo, seed " : "Nenhuma — série sintética (prepare_data.py --demo, semente ") + M.seed + "). " + esc(LANG === "en" ? "Planned source: " : "Fonte prevista: ") + esc(x.src); };
+      return '<dl class="oqf-meta"><dt>' + esc(T.c_unit) + "</dt><dd>" + (I2 ? esc(indName(I2)) + ": " + unit(I2) + "<br>" + esc(indName(I)) + ": " : "") + unit(I) + "</dd><dt>" + esc(T.c_src) + "</dt><dd>" + (I2 ? esc(indName(I2)) + ": " + src(I2) + "<br>" + esc(indName(I)) + ": " : "") + src(I) + "</dd>" +
+        "<dt>" + esc(T.c_lim) + "</dt><dd><ul>" + T.c_lims.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("") + "</ul></dd></dl>";
+    }
+    function one(X) {
+      var srcs = [], notes = {}, types = {}, cats = {};
+      (countries || cmp.c).forEach(function (k) {
+        ENTS[k].forEach(function (e) {
+          var m = metaOf(e, X.id), pts = SER[e] && SER[e].ind[X.id]; if (!m || !pts) return;
+          srcs.push((T.ent_names[e] || e) + ": " + m.f + " · " + m.v + " · " + m.s);
+          pts.forEach(function (p) { types[p[2]] = 1; cats[p[5]] = 1; var t = noteTxt(m, p[6]); if (t) t.split("; ").forEach(function (x) { notes[x] = 1; }); });
+        });
+      });
+      return "<dt>" + esc(indName(X)) + "</dt><dd>" +
+        "<b>" + esc(T.c_unit) + ":</b> " + esc(indUnit(X)) + (X.scale && X.scale !== 1 ? " · " + esc(T.scale_note) : "") + "<br>" +
+        "<b>" + esc(T.c_src) + ":</b> " + (srcs.length ? srcs.map(esc).join("<br>") : "—") + "<br>" +
+        "<b>" + esc(T.c_type) + ":</b> " + Object.keys(types).map(function (t) { return esc(T.types[t]); }).join(", ") + " · " + Object.keys(cats).map(function (c) { return chip(c === "P" ? "ok" : "res"); }).join(" ") + "<br>" +
+        "<b>" + esc(T.c_cmpb) + ":</b> " + esc(X.intl ? T.c_intl_yes : T.c_intl_no) +
+        (Object.keys(notes).length ? "<br><b>" + esc(T.caveats) + ":</b> " + esc(Object.keys(notes).join("; ")) : "") + "</dd>";
+    }
+    return '<dl class="oqf-meta">' + (I2 ? one(I2) : "") + one(I) +
+      "<dt>" + esc(T.c_lim) + "</dt><dd><ul>" + T.c_lims.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("") + "</ul></dd></dl>" + versionsLine();
   }
   function redrawScatter() {
     var box = document.getElementById("oqf-sc"); if (!box) return;
-    var ents = []; cmp.c.forEach(function (k) { ENTS[k].forEach(function (e) { ents.push({ ent: e, iso: k }); }); });
+    var ents = []; cmpCountries(ind(cmp.i), ind(cmp.j)).c.forEach(function (k) { ENTS[k].forEach(function (e) { ents.push({ ent: e, iso: k }); }); });
     box.innerHTML = scatter(ents, cmp.j, cmp.i, cmp.t, 1950);
     var tv = document.getElementById("oqf-tv"); if (tv) tv.textContent = cmp.t;
     var r = document.getElementById("oqf-t"); if (r && +r.value !== cmp.t) r.value = cmp.t;
+  }
+
+  /* ---------------------------------------------------------- MANDATOS (painel da Auditoria 3) */
+  var termsState = null;
+  function sgn(v, d) { var x = +v; return (x > 0 ? "+" : x < 0 ? "−" : "") + Math.abs(x).toLocaleString(LANG === "en" ? "en-US" : "pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  function nfmt(v, d) { return (+v).toLocaleString(LANG === "en" ? "en-US" : "pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d }); }
+  function termResult(r) {
+    var u = LANG === "en" ? r.uen : r.u, d = 1;
+    if (r.t === "nivel") return "<b>" + sgn(r["var"], d) + "% " + esc(T.t_py) + "</b>" + (r.acc ? ' <span class="small">(' + esc(T.t_acc) + " " + sgn(r.acc, d) + "%)</span>" : "");
+    if (r.t === "taxa_composta") return "<b>" + nfmt(r["var"], d) + "% " + esc(T.t_py) + "</b>" + (r.acc ? ' <span class="small">(' + esc(T.t_acc) + " " + nfmt(r.acc, d) + "%)</span>" : "");
+    if (r.t === "media") return "<b>" + nfmt(r.avg, d) + "</b> " + esc(u) + ' <span class="small">(' + esc(T.t_avg) + "; " + esc(T.t_diff) + " " + sgn(r["var"], d) + " p.p.)</span>";
+    return "<b>" + sgn(r["var"], d) + " p.p.</b>" + ' <span class="small">(' + nfmt(r.v0, d) + " → " + nfmt(r.v1, d) + " " + esc(u) + ")</span>";
+  }
+  function altVal(r, v) { return r.t === "nivel" || r.t === "taxa_composta" ? nfmt(v, 1) + "% " + T.t_py : r.t === "media" ? sgn(v, 1) + " p.p." : sgn(v, 1) + " p.p."; }
+  function winTxt(y0, y1) { return (+y0 + 1 === +y1 ? y1 : (+y0 + 1) + "–" + y1) + " (" + T.t_base + " " + y0 + ")"; }
+  function altWinTxt(w) { var m = /^(\d{4})–(\d{4})$/.exec(w); return m ? winTxt(m[1], m[2]) : w; }
+  function renderTerms(app, q) {
+    var iso = PILOTS.indexOf((q.c || "").toUpperCase()) > -1 ? q.c.toUpperCase() : "BRA";
+    termsState = { c: iso, i: q.i || "" };
+    var h = hero({ active: "mandatos", crumb: SUBLBL("mandatos"), kicker: T.title, title: esc(T.terms_h), dek: T.terms_dek });
+    h += '<section class="sec sec--paper sec--tight"><div class="wrap"><div id="oqf-banner"></div><div class="tabs" role="tablist" aria-label="' + esc(T.terms_h) + '">' + PILOTS.map(function (k) { return '<button class="tab" role="tab" data-oqf-tc="' + k + '" aria-selected="' + (k === iso) + '">' + flag(k) + " " + esc(T.countries[k].name) + "</button>"; }).join("") + "</div>" +
+      '<ul class="oqf-guard oqf-terms-guard">' + T.terms_rules.map(function (g) { return "<li>" + tagHtml("m", TAGTXT.m) + "<span>" + esc(g) + "</span></li>"; }).join("") + "</ul>" +
+      '<div class="oqf-f oqf-terms-f"><label for="oqf-ti">' + esc(T.c_ind) + '</label><select id="oqf-ti" class="uf-select"></select></div></div></section>' +
+      '<section class="sec sec--dark2 sec--tight"><div class="wrap" id="oqf-terms-out"><div class="oqf-loading"></div></div></section>';
+    app.innerHTML = h;
+    withManifest(function () { var b = document.getElementById("oqf-banner"); if (b) b.innerHTML = banner(); });
+    withTerms(function (ok) { drawTerms(ok); });
+  }
+  function drawTerms(ok) {
+    var out = document.getElementById("oqf-terms-out"); if (!out) return;
+    if (!ok) { out.innerHTML = errBox(); return; }
+    var S = termsState, rows = [];
+    ENTS[S.c].forEach(function (e) { rows = rows.concat(TERMS.rows[e] || []); });
+    var inds = {}; rows.forEach(function (r) { inds[r.i] = LANG === "en" ? r.ien : r.ipt; });
+    var sel = document.getElementById("oqf-ti");
+    if (sel) sel.innerHTML = '<option value="">' + esc(T.terms_all) + "</option>" + Object.keys(inds).sort(function (a, b) { return inds[a].localeCompare(inds[b], LANG); }).map(function (k) { return '<option value="' + esc(k) + '"' + (k === S.i ? " selected" : "") + ">" + esc(inds[k]) + "</option>"; }).join("");
+    if (S.i && !inds[S.i]) S.i = "";
+    if (S.i) rows = rows.filter(function (r) { return r.i === S.i; });
+    setHash(link("mandatos", "", qs({ c: S.c === "BRA" ? "" : S.c, i: S.i })));
+    if (!rows.length) { out.innerHTML = '<p class="oqf-empty">' + chip("prep") + " " + esc(T.no_data) + "</p>"; return; }
+    var groups = [], idx = {};
+    rows.forEach(function (r) { if (idx[r.g] == null) { idx[r.g] = groups.length; groups.push({ g: r.g, n: r.n, a: r.a, b: r.b, rows: [] }); } groups[idx[r.g]].rows.push(r); });
+    groups.sort(function (x, y) { return x.a < y.a ? -1 : x.a > y.a ? 1 : 0; });
+    var nsens = rows.filter(function (r) { return !r.rob || r.mdiff === "sim"; }).length;
+    var h = '<p class="mono small oqf-terms-sum">' + esc(tf(T.terms_sum, { n: rows.length, g: groups.length, s: nsens })) + "</p>";
+    h += groups.map(function (G) {
+      var b = /^\d{4}-\d{2}-\d{2}$/.test(G.b) ? dateTxt(G.b) : (LANG === "en" ? "in office (cut-off Oct. 12, 2026)" : "no cargo (corte 12/10/2026)");
+      return '<article class="oqf-term"><header class="oqf-term-h"><h3>' + esc(G.n) + '</h3><span class="mono small">' + dateTxt(G.a) + " – " + esc(b) + ' · <code>' + esc(G.g) + "</code></span></header>" +
+        '<div class="oqf-scroll"><table class="oqf-ttable"><thead><tr>' + T.terms_cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        G.rows.map(function (r) {
+          var sens = !r.rob || r.mdiff === "sim";
+          var det = '<details class="oqf-term-d"><summary>' + esc(T.terms_details) + "</summary><dl>" +
+            "<dt>" + esc(T.t_rule) + "</dt><dd>" + esc(LANG === "en" ? r.rule_en : r.rule) + "</dd>" +
+            (r.lim ? "<dt>" + esc(T.t_lim) + "</dt><dd>" + esc(LANG === "en" ? r.lim_en : r.lim) + "</dd>" : "") +
+            "<dt>" + esc(T.t_adeq) + "</dt><dd>" + esc(T.adeq[r.ad] || r.ad) + " · " + esc(LANG === "en" ? r.adm_en : r.adm) + "</dd>" +
+            (r.pre ? "<dt>" + esc(T.t_pre) + "</dt><dd>" + esc(LANG === "en" ? r.pre_en : r.pre) + "</dd>" : "") +
+            (r.ctx ? "<dt>" + esc(T.t_ctx) + "</dt><dd>" + esc(LANG === "en" ? r.ctx_en : r.ctx) + "</dd>" : "") +
+            "<dt>" + esc(T.t_alt) + "</dt><dd>" + (r.alt.length ? '<ul class="oqf-alt">' + r.alt.map(function (x) { return "<li><b>" + esc(T.win[x[0]] || x[0]) + "</b> · " + esc(x[0] === "M" ? x[1] : altWinTxt(x[1])) + ": " + esc(altVal(r, x[2])) + "</li>"; }).join("") + "</ul>" : "—") + "</dd>" +
+            "<dt>" + esc(T.c_src) + "</dt><dd><code>" + esc(r.s) + "</code> · " + esc(TERMS.source) + "</dd></dl></details>";
+          return "<tr><td><b>" + esc(LANG === "en" ? r.ien : r.ipt) + "</b></td><td class=\"mono small\">" + esc(winTxt(r.y0, r.y1)) + "</td><td>" + termResult(r) + "</td><td>" + chip(r.cat === "P" ? "ok" : "res") + (sens ? " " + chip("sens") : "") + "</td><td>" + det + "</td></tr>";
+        }).join("") + "</tbody></table></div></article>";
+    }).join("");
+    h += '<p class="oqf-causal">' + tagHtml("m", TAGTXT.m) + " " + esc(T.terms_causal) + "</p>";
+    out.innerHTML = h;
   }
 
   /* ---------------------------------------------------------- METODOLOGIA */
@@ -4895,6 +5171,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
       scTimer = setInterval(function () { if (!document.getElementById("oqf-sc")) return stopSc(); cmp.t++; redrawScatter(); if (cmp.t >= Y1) { stopSc(); drawCompareHashOnly(); } }, 220);
       return;
     }
+    if ((el = t.closest("[data-oqf-tc]")) && termsState) { termsState.c = el.getAttribute("data-oqf-tc"); termsState.i = ""; [].forEach.call(document.querySelectorAll("[data-oqf-tc]"), function (b) { b.setAttribute("aria-selected", b === el); }); drawTerms(true); return; }
     if ((el = t.closest("[data-oqf-gc]"))) { [].forEach.call(document.querySelectorAll("[data-oqf-gc]"), function (b) { b.setAttribute("aria-selected", b === el); }); withLeaders(function (ok) { drawLeaders(el.getAttribute("data-oqf-gc"), ok); }); return; }
     if ((el = t.closest("[data-oqf-mode]")) && cmp) { stopSc(); cmp.m = el.getAttribute("data-oqf-mode"); if (cmp.m === "reforma" && !cmp.r) cmp.r = 1991; [].forEach.call(document.querySelectorAll("[data-oqf-mode]"), function (b) { b.setAttribute("aria-selected", b === el); }); drawForm(); drawCompare(); return; }
     if ((el = t.closest("[data-oqf-c]")) && cmp) { var c = el.getAttribute("data-oqf-c"), j = cmp.c.indexOf(c); if (j > -1) cmp.c.splice(j, 1); else cmp.c.push(c); cmp.c.sort(function (a, b) { return PILOTS.indexOf(a) - PILOTS.indexOf(b); }); el.setAttribute("aria-pressed", j < 0); drawCompare(); return; }
@@ -4918,6 +5195,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   document.addEventListener("change", function (e) {
     var id = e.target && e.target.id;
     if (id === "oqf-sel" && mapState) { selectCountry(e.target.value); return; }
+    if (id === "oqf-ti" && termsState) { termsState.i = e.target.value; drawTerms(true); return; }
     if (!cmp) return;
     if (id === "oqf-i") { cmp.i = e.target.value; drawCompare(); }
     else if (id === "oqf-j") { cmp.j = e.target.value; drawCompare(); }
@@ -4931,13 +5209,14 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
 
   /* ---------------------------------------------------------- ponto de entrada (chamado pelo roteador) */
   OQF.render = function (app, parts, q) {
-    stopPlay(); stopSc(); mapState = null; cmp = null;
+    stopPlay(); stopSc(); mapState = null; cmp = null; termsState = null;
     var sub = parts[1] || "", arg = parts[2];
     if (sub === "mapa") renderMap(app, q);
     else if (sub === "governantes") renderLeaders(app, q);
     else if (sub === "perfil" && arg) renderProfile(app, arg.toUpperCase(), q);
     else if (sub === "perfil") renderProfiles(app);
     else if (sub === "comparar") renderCompare(app, q);
+    else if (sub === "mandatos") renderTerms(app, q);
     else if (sub === "metodologia") renderMethod(app);
     else renderLanding(app);
   };
@@ -5743,7 +6022,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources", apuracao: "results", "o-que-funciona": "what-works" };
   var SLUG_IN = {}; Object.keys(SLUGS).forEach(function (k) { SLUG_IN[SLUGS[k]] = k; });
   /* Subpáginas de "O que funciona?" (segundo segmento da rota). */
-  var SUB2 = { "o-que-funciona": { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", metodologia: "methodology" } };
+  var SUB2 = { "o-que-funciona": { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", mandatos: "terms", metodologia: "methodology" } };
   function sub2(key, seg, to) { var m = SUB2[key]; if (!m || !seg) return seg; var k = seg; Object.keys(m).forEach(function (x) { if (m[x] === seg) k = x; }); return to === "en" ? (m[k] || k) : k; }
 
   /* Seletor de idioma: mantém a página equivalente (#/candidates/lula ↔ #/candidates/lula). */

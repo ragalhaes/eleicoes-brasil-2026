@@ -380,3 +380,53 @@
 .oqf-missing { color: var(--t-light-2); margin-top: 6px; }
 .oqf-player--dark { align-items: center; }
 .oqf-mini .oqf-chart, .oqf-pchart .oqf-chart { overflow: hidden; }
+
+/* ---- Integração das Auditorias 2 e 3 (dados reais) ---- */
+.oqf-st.st-auto { color: #5b6b8c; border-style: dashed; } .oqf-st.st-nat { color: #555c66; } .oqf-st.st-sens { color: #a1600a; border-style: dashed; }
+.sec--dark .oqf-st.st-ok, .sec--dark2 .oqf-st.st-ok, .oqf-panel .oqf-st.st-ok { color: #2fb3c6; }
+.sec--dark .oqf-st.st-res, .sec--dark2 .oqf-st.st-res, .oqf-panel .oqf-st.st-res { color: #e0bf4e; }
+.sec--dark .oqf-st.st-auto, .sec--dark2 .oqf-st.st-auto { color: #8fa3c9; }
+.sec--dark .oqf-st.st-nat, .sec--dark2 .oqf-st.st-nat { color: var(--t-light-2); }
+.sec--dark .oqf-st.st-sens, .sec--dark2 .oqf-st.st-sens { color: #f0a33a; }
+.oqf-map path.st-auto { fill: #33405a; } .oqf-map path.st-proj { fill: #2b2442; }
+.sw.st-auto { background: #33405a; border-style: dashed !important; } .sw.st-nat, .sw.st-sens { background: #222836; }
+.oqf-chart .gr.zero { stroke: rgba(255,255,255,.35); stroke-dasharray: 3 3; }
+.oqf-pval { margin: 6px 0 0; line-height: 1.5; color: var(--t-light-2); } .oqf-pval b { color: var(--t-light); font-size: 14px; }
+.oqf-note-i { color: #e0bf4e; }
+.oqf-unit { margin: -4px 0 6px; color: var(--t-dark-2); }
+.oqf-src-l, .oqf-notes { margin: 4px 0; color: var(--t-dark-2); line-height: 1.45; }
+.oqf-notes { color: #8a6d12; }
+.oqf-vers { margin-top: 14px; color: var(--t-light-2); line-height: 1.6; word-break: break-word; }
+.sec--paper .oqf-vers, .sec--white .oqf-vers { color: var(--t-dark-2); }
+.oqf-notice { margin: 10px 0 14px; padding: 10px 12px; border: 1px dashed var(--line-d); border-radius: var(--radius); color: var(--t-light); font-size: 13.5px; }
+.oqf-f-hint { margin: 6px 0 0; color: var(--t-dark-2); max-width: 360px; }
+.oqf-cleg .oqf-cleg-miss { opacity: .7; font-style: italic; }
+/* Mandatos */
+.oqf-terms-guard { margin: 18px 0 8px; }
+.oqf-terms-f { max-width: 420px; margin-top: 14px; }
+.oqf-terms-sum { color: var(--t-light-2); margin: 0 0 18px; }
+.oqf-term { border: 1px solid var(--line-d); border-radius: var(--radius); background: var(--ink-2); padding: 16px 16px 6px; margin: 0 0 16px; }
+.oqf-term-h { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
+.oqf-term-h h3 { font-family: var(--f-display); font-size: 22px; margin: 0; color: var(--t-light); }
+.oqf-term-h span { color: var(--t-light-2); } .oqf-term-h code { color: var(--t-light-2); font-size: 11px; }
+.oqf-ttable { width: 100%; border-collapse: collapse; font-size: 13.5px; color: var(--t-light); }
+.oqf-ttable th { text-align: left; font-family: var(--f-mono); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--t-light-2); padding: 6px 10px 8px 0; border-bottom: 1px solid var(--line-d); }
+.oqf-ttable td { padding: 10px 10px 10px 0; border-bottom: 1px solid var(--line-d); vertical-align: top; }
+.oqf-ttable tr:last-child td { border-bottom: 0; }
+.oqf-ttable td:nth-child(2) { white-space: nowrap; color: var(--t-light-2); }
+.oqf-ttable td:nth-child(3) b { color: var(--accent); font-variant-numeric: tabular-nums; }
+.oqf-ttable td:nth-child(3) .small { color: var(--t-light-2); }
+.oqf-ttable td:nth-child(4) { white-space: nowrap; } .oqf-ttable td:nth-child(4) .oqf-st { margin: 0 4px 4px 0; }
+.oqf-term-d summary { cursor: pointer; color: var(--t-light-2); font-size: 12.5px; }
+.oqf-term-d summary:hover { color: var(--t-light); }
+.oqf-term-d dl { margin: 8px 0 4px; font-size: 12.5px; line-height: 1.5; min-width: 260px; }
+.oqf-term-d dt { font-family: var(--f-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--t-light-2); margin-top: 8px; }
+.oqf-term-d dd { margin: 2px 0 0; color: var(--t-light); }
+.oqf-alt { margin: 0; padding-left: 16px; }
+@media (max-width: 760px) {
+  .oqf-ttable thead { display: none; }
+  .oqf-ttable tr { display: block; padding: 10px 0; border-bottom: 1px solid var(--line-d); }
+  .oqf-ttable td { display: block; border: 0; padding: 2px 0; white-space: normal !important; }
+  .oqf-ttable td:first-child { font-size: 14.5px; }
+}
+.oqf-chart.mini .ax-mini { font-size: 9px; fill: rgba(255,255,255,.45); }
