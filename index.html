@@ -1086,6 +1086,389 @@ body.apu-nocursor, body.apu-nocursor * { cursor: none !important; }
 .apu-hb:hover .apu-hb-cta { transform: translateX(3px); }
 @media (prefers-reduced-motion: reduce) { .apu-hb-k i { animation: none; } }
 
+/* =========================================================
+   O QUE FUNCIONA? / WHAT WORKS? — seção de dados históricos
+   Mesmos tokens e componentes do site; só o que é novo fica aqui.
+   ========================================================= */
+.oqf-hero { min-height: 0 !important; }
+@media (min-width: 900px) { .oqf-hero { padding: 64px 0 56px; } }
+.oqf-hero-grid { display: grid; gap: 28px; align-items: center; }
+@media (min-width: 1000px) { .oqf-hero-grid { grid-template-columns: 1fr 1.15fr; gap: 40px; } }
+.oqf-hero h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(54px, 10.5vw, 118px); line-height: .88; letter-spacing: -.045em; }
+.oqf-hero-map { min-height: 160px; }
+.oqf-hero-map .oqf-world .oqf-c { fill: rgba(255,255,255,.07); stroke: rgba(255,255,255,.22); stroke-width: .4; }
+.oqf-hero-map .oqf-world .oqf-c.is-pilot { fill: var(--accent); stroke: var(--ink); }
+.oqf-hero-map .oqf-crimea { fill: var(--accent); stroke: var(--ink); stroke-width: .4; }
+.oqf-subnav-bar { background: var(--ink-2); border-bottom: 1px solid var(--line-d); }
+.oqf-subnav { margin: 26px 0 0; }
+.oqf-subnav-bar .oqf-subnav { margin: 0; padding: 12px 0; }
+.oqf-subnav .tab { color: var(--t-light-2); border-color: var(--line-d); text-decoration: none; display: inline-flex; align-items: center; }
+.oqf-subnav .tab:hover { color: var(--t-light); }
+.oqf-subnav .tab[aria-selected="true"] { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+
+.oqf-q { font-family: var(--f-display); font-size: clamp(30px, 4.6vw, 52px); letter-spacing: -.02em; line-height: 1.04; margin-bottom: 26px; }
+.oqf-lede { font-size: clamp(17px, 2vw, 19px); line-height: 1.6; }
+.oqf-punch { font-family: var(--f-display); font-weight: 700; font-size: clamp(26px, 3.6vw, 38px); line-height: 1.1; letter-spacing: -.02em; margin: 30px 0; padding: 18px 0; border-top: 2px solid var(--t-dark); border-bottom: 2px solid var(--t-dark); }
+.oqf-guard { display: grid; gap: 10px; }
+.oqf-guard li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+.oqf-guard .tag { flex: none; margin-top: 2px; }
+
+.oqf-axes { display: grid; gap: 1px; background: var(--line-d); border: 1px solid var(--line-d); }
+@media (min-width: 860px) { .oqf-axes { grid-template-columns: repeat(3, 1fr); } }
+.oqf-axis { background: var(--ink-2); padding: 26px 22px; display: flex; flex-direction: column; gap: 10px; }
+.oqf-axis-k { font-family: var(--f-display); font-weight: 700; font-size: 64px; line-height: .8; color: transparent; -webkit-text-stroke: 1.2px var(--accent); }
+.oqf-axis h3 { font-family: var(--f-display); font-size: clamp(26px, 3vw, 34px); letter-spacing: -.02em; }
+.oqf-axis p { color: #d4d3cd; font-size: 15px; flex: 1; }
+.oqf-axis-f { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: space-between; color: var(--t-light-2); }
+
+.oqf-strip { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(150px, 1fr); gap: 0; overflow-x: auto; border-top: 2px solid var(--accent); padding-top: 18px; scrollbar-width: thin; }
+.oqf-strip-i { position: relative; padding: 0 14px 6px 0; }
+.oqf-strip-i::before { content: ""; position: absolute; top: -25px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+.oqf-strip-i b { font-family: var(--f-mono); font-size: 13px; color: var(--accent); display: block; margin-bottom: 4px; }
+.oqf-strip-i span { font-size: 13.5px; color: #d4d3cd; line-height: 1.45; display: block; }
+.oqf-note { margin-top: 18px; font-size: 13px; opacity: .8; }
+.oqf-note .tag { vertical-align: middle; margin-right: 4px; }
+.oqf-cards { margin-top: 0; }
+@media (min-width: 720px) { .oqf-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .oqf-cards { grid-template-columns: repeat(5, 1fr); } }
+.oqf-cards a { background: var(--paper); }
+.oqf-cards a span { font-size: 14.5px; display: block; }
+.oqf-cards a small { display: block; margin-bottom: 14px; opacity: .6; font-size: 11px; letter-spacing: .1em; }
+.oqf-audit-rows { display: grid; border-top: 1px solid var(--line-l); }
+.oqf-audit-row { display: grid; grid-template-columns: 110px 1fr auto; gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line-l); text-decoration: none; }
+.oqf-audit-row b { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.oqf-audit-row:hover span { text-decoration: underline; }
+@media (max-width: 560px) { .oqf-audit-row { grid-template-columns: 1fr auto; } .oqf-audit-row span { grid-column: 1 / -1; grid-row: 2; } }
+.oqf-mode { margin-top: 18px; }
+
+/* estados de dado */
+.oqf-st { display: inline-flex; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 4px 8px; border-radius: 2px; border: 1px solid currentColor; white-space: nowrap; }
+.oqf-st::before { content: ""; width: 8px; height: 8px; border-radius: 1px; background: currentColor; }
+.oqf-st.st-ok { color: #0d7584; } .oqf-st.st-res { color: #8a6d12; } .oqf-st.st-exp { color: #a1600a; }
+.oqf-st.st-proj, .oqf-st.st-prelim { color: #6f3fd1; } .oqf-st.st-np { color: #c2410c; }
+.oqf-st.st-demo { color: var(--t-dark); background: repeating-linear-gradient(135deg, rgba(198,242,78,.55) 0 5px, transparent 5px 10px); }
+.oqf-st.st-prep, .oqf-st.st-gap { color: #555c66; } .oqf-st.st-pend { color: #555c66; border-style: dashed; }
+.sec--dark .oqf-st, .sec--dark2 .oqf-st, .page-hero .oqf-st { filter: none; }
+.sec--dark .oqf-st.st-prep, .sec--dark2 .oqf-st.st-prep, .sec--dark .oqf-st.st-pend, .sec--dark2 .oqf-st.st-pend, .sec--dark2 .oqf-st.st-gap { color: var(--t-light-2); }
+.sec--dark .oqf-st.st-demo, .sec--dark2 .oqf-st.st-demo { color: var(--accent); background: none; }
+.sec--dark2 .oqf-st.st-np { color: var(--ver); }
+
+/* faixas de modo */
+.oqf-demo, .oqf-real { display: grid; gap: 6px; padding: 14px 18px; border-radius: var(--radius); margin-bottom: 22px; }
+.oqf-demo { border: 2px dashed var(--t-dark); background: repeating-linear-gradient(135deg, rgba(198,242,78,.22) 0 12px, transparent 12px 24px); color: var(--t-dark); }
+.oqf-real { border: 1px solid var(--line-l); background: var(--white); color: var(--t-dark); }
+.oqf-demo b, .oqf-real b { font-family: var(--f-mono); font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+.oqf-demo p, .oqf-real p { font-size: 14.5px; margin: 0; }
+
+/* mapa — painel escuro (mapa, linha do tempo, painel do país, tabela) */
+.oqf-dash { padding-top: 32px; }
+.oqf-dash .oqf-demo { color: var(--t-light); border-color: rgba(198,242,78,.6); background: repeating-linear-gradient(135deg, rgba(198,242,78,.10) 0 12px, transparent 12px 24px); }
+.oqf-kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line-d); border: 1px solid var(--line-d); border-radius: var(--radius); margin-bottom: 16px; }
+@media (min-width: 900px) { .oqf-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.oqf-kpi { background: var(--ink-2); padding: 16px 18px; display: grid; gap: 2px; align-content: start; }
+.oqf-kpi b { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 4vw, 44px); line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.oqf-kpi b::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin: 0 10px 0 0; vertical-align: .32em; }
+.oqf-kpi span { font-size: 14px; font-weight: 600; }
+.oqf-kpi small { font-size: 12px; color: var(--t-light-2); }
+.oqf-kpi-y b { color: var(--accent); }
+.oqf-kpi-y b::before { display: none; }
+.oqf-board { display: grid; gap: 16px; }
+@media (min-width: 1040px) { .oqf-board { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; } }
+.oqf-mapcard { position: relative; background: #10131a; border: 1px solid var(--line-d); border-radius: 6px; padding: 14px 14px 12px; min-width: 0; }
+.oqf-mapbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.oqf-mapbar .tabs { margin: 0; padding: 0; }
+.oqf-dash .tab { color: var(--t-light-2); border-color: var(--line-d); }
+.oqf-dash .tab[aria-selected="true"] { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+.oqf-layer-note { font-size: 13px; color: var(--t-light-2); margin: 10px 0 6px; max-width: 760px; }
+.oqf-layer-note b { color: var(--t-light); }
+.oqf-map { min-height: 200px; position: relative; }
+.oqf-world { width: 100%; height: auto; display: block; }
+.oqf-world .h-bg { fill: #1d2a12; } .oqf-world .h-ln { stroke: #c6f24e; stroke-width: 1.6; opacity: .85; }
+.oqf-world .h-bg2 { fill: #2a2f3a; } .oqf-world .h-ln2 { stroke: #f0a33a; stroke-width: 1; }
+.oqf-map .oqf-c { fill: #222836; stroke: #10131a; stroke-width: .5; transition: fill .2s, opacity .2s; cursor: pointer; outline: none; }
+.oqf-map path.st-prep, .oqf-map path.st-gap { fill: #222836; }
+.oqf-map path.st-pend { fill: #1a1f2a; stroke: #343b4a; stroke-dasharray: 1.5 1.5; }
+.oqf-map path.st-demo { fill: url(#oqf-hatch); stroke: #c6f24e; stroke-width: .7; }
+.oqf-map path.st-ok { fill: #2fb3c6; } .oqf-map path.st-res { fill: #c9a83a; } .oqf-map path.st-exp { fill: #e08a35; }
+.oqf-map path.st-proj { fill: #4a3a7a; stroke: #b48cff; stroke-width: .8; }
+.oqf-map path.st-np { fill: #4a2a22; stroke: #ff8a65; stroke-width: .8; }
+.oqf-map .oqf-c:hover, .oqf-map .oqf-c:focus-visible { stroke: #eceae4; stroke-width: 1.2; }
+.oqf-map .oqf-c.is-sel { stroke: #eceae4; stroke-width: 1.6; filter: url(#oqf-glow); }
+.oqf-map .oqf-c.is-cmp { stroke: #c6f24e; stroke-width: 1.3; stroke-dasharray: 3 2; }
+.oqf-map .oqf-crimea { cursor: pointer; stroke: #10131a; stroke-width: .5; }
+.oqf-map .oqf-crimea.is-occ { fill: url(#oqf-hatch2); stroke: #f0a33a; stroke-width: .6; }
+.oqf-sel { margin-top: 10px; width: 100%; min-height: 42px; padding: 8px 10px; border: 1px solid var(--line-d); border-radius: var(--radius); background: var(--ink-3); color: var(--t-light); font: inherit; font-size: 14px; }
+.oqf-tt { position: absolute; z-index: 3; pointer-events: none; min-width: 190px; max-width: 260px; background: rgba(11,12,15,.96); border: 1px solid var(--line-d); border-radius: 6px; padding: 12px 14px; box-shadow: 0 12px 30px rgba(0,0,0,.45); display: grid; gap: 8px; font-size: 13px; }
+.oqf-tt[hidden] { display: none; }
+.oqf-tt-h { display: flex; gap: 8px; align-items: center; }
+.oqf-tt-h b { font-family: var(--f-display); font-size: 19px; font-weight: 600; }
+.oqf-tt dl { display: grid; gap: 2px; margin: 0; }
+.oqf-tt dt { font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--t-light-2); }
+.oqf-tt dd { margin: 0 0 4px; }
+.oqf-tt-hint { color: var(--t-light-2); font-size: 11.5px; }
+.oqf-player { display: flex; align-items: flex-start; gap: 14px; margin-top: 14px; }
+.oqf-play { flex: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--accent); background: transparent; color: var(--accent); font-size: 15px; display: grid; place-items: center; }
+.oqf-play[aria-pressed="true"] { background: var(--accent); color: var(--ink); }
+.oqf-range { flex: 1; min-width: 0; padding-top: 6px; }
+.oqf-range input[type=range] { width: 100%; accent-color: var(--accent); height: 28px; margin: 0; }
+.oqf-ticks { position: relative; height: 16px; margin: 0 10px; font-family: var(--f-mono); font-size: 10.5px; color: var(--t-light-2); }
+.oqf-ticks span { position: absolute; transform: translateX(-50%); }
+.oqf-tv { font-family: var(--f-display); font-weight: 700; font-size: 34px; line-height: 1.1; color: var(--accent); min-width: 3ch; font-variant-numeric: tabular-nums; }
+.oqf-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 10px; font-family: var(--f-mono); font-size: 11px; color: var(--t-light-2); align-items: center; }
+.oqf-lg { display: inline-flex; align-items: center; gap: 6px; }
+.oqf-lg .sw { width: 16px; height: 11px; border: 1px solid rgba(255,255,255,.25); display: inline-block; border-radius: 2px; }
+.sw.st-ok { background: #2fb3c6; } .sw.st-res { background: #c9a83a; } .sw.st-exp { background: #e08a35; } .sw.st-proj, .sw.st-prelim { background: #4a3a7a; border-color: #b48cff !important; }
+.sw.st-np { background: #4a2a22; border-color: #ff8a65 !important; } .sw.st-prep, .sw.st-gap { background: #222836; } .sw.st-pend { background: #1a1f2a; border-style: dashed !important; }
+.sw.st-demo { background: repeating-linear-gradient(45deg, #1d2a12 0 2px, #c6f24e 2px 4px); }
+.sw.sw-crimea { background: repeating-linear-gradient(-45deg, #2a2f3a 0 1.5px, #f0a33a 1.5px 3px); }
+.oqf-y26 { margin-top: 10px; font-size: 13.5px; padding: 10px 14px; border-left: 3px solid #b48cff; background: rgba(180,140,255,.08); color: #d4d3cd; }
+.oqf-loading { min-height: 160px; background: repeating-linear-gradient(90deg, rgba(127,127,127,.06) 0 40px, transparent 40px 80px); border-radius: var(--radius); }
+.oqf-box { padding: 18px; border: 1px dashed currentColor; border-radius: var(--radius); }
+
+/* painel do país */
+.oqf-panel { background: #10131a; border: 1px solid var(--line-d); border-radius: 6px; padding: 16px; display: grid; gap: 14px; min-width: 0; overflow-wrap: anywhere; }
+.oqf-panel-h { display: flex; gap: 10px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid var(--line-d); }
+.oqf-panel-h h3 { font-family: var(--f-display); font-size: 26px; letter-spacing: -.02em; flex: 1; }
+.oqf-x { width: 34px; height: 34px; border: 1px solid var(--line-d); border-radius: 50%; background: none; color: var(--t-light-2); font-size: 20px; line-height: 1; }
+.oqf-x:hover { color: var(--t-light); border-color: var(--t-light-2); }
+.oqf-panel-n { font-size: 13.5px; color: var(--t-light-2); }
+.oqf-quick { display: grid; gap: 6px; }
+.oqf-quick button { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--line-d); border-radius: 4px; background: var(--ink-2); text-align: left; }
+.oqf-quick button span { flex: 1; font-weight: 600; }
+.oqf-quick button:hover { border-color: var(--accent); }
+.oqf-pk { display: grid; grid-template-columns: 1fr 1.25fr; gap: 12px; }
+.oqf-pk > div { display: grid; gap: 4px; align-content: start; }
+.oqf-pk small, .oqf-pband small { font-family: var(--f-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--t-light-2); }
+.oqf-pk b { font-size: 15px; line-height: 1.25; }
+.oqf-ldr { display: flex; gap: 8px; align-items: center; }
+.oqf-ldr > i { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-family: var(--f-mono); font-size: 11px; font-weight: 600; }
+.oqf-ldr > span { display: grid; line-height: 1.25; }
+.oqf-ldr b { font-size: 14px; }
+.oqf-ldr small { font-family: var(--f-sans) !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 11.5px !important; }
+.oqf-pchart { background: var(--ink-2); border-radius: 4px; padding: 12px; display: grid; gap: 8px; }
+.oqf-pchart-h { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; }
+.oqf-pchart-h b { font-size: 13.5px; }
+.oqf-seg { display: inline-flex; border: 1px solid var(--line-d); border-radius: 99px; padding: 2px; }
+.oqf-seg button { border: 0; background: none; color: var(--t-light-2); font-size: 11.5px; padding: 4px 10px; border-radius: 99px; }
+.oqf-seg button[aria-selected="true"] { background: var(--accent); color: var(--ink); font-weight: 600; }
+.oqf-pband { display: grid; gap: 6px; }
+.oqf-panel-layers { display: grid; grid-template-columns: max-content 1fr; gap: 8px 12px; margin: 0; align-items: center; }
+.oqf-panel-layers dt { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--t-light-2); }
+.oqf-panel-layers dd { margin: 0; }
+.oqf-panel-cta { display: flex; flex-wrap: wrap; gap: 8px; }
+.oqf-panel .btn--ghost { color: var(--t-light); border-color: var(--line-d); }
+.oqf-panel .btn--ghost[aria-pressed="true"] { background: var(--t-light); color: var(--ink); }
+.oqf-selbox { border-top: 1px solid var(--line-d); padding-top: 12px; display: grid; gap: 8px; font-size: 14px; }
+.oqf-selbox .oqf-flag { margin-right: 4px; }
+.oqf-panel .oqf-st { white-space: normal; }
+
+/* tabela de países */
+.oqf-tblcard { margin-top: 16px; background: #10131a; border: 1px solid var(--line-d); border-radius: 6px; padding: 16px; }
+.oqf-tblcard h3 { font-family: var(--f-display); font-size: 22px; margin-bottom: 10px; }
+.oqf-ctable { width: 100%; border-collapse: separate; border-spacing: 0 6px; font-size: 14px; min-width: 720px; }
+.oqf-ctable th { text-align: left; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--t-light-2); font-weight: 500; padding: 4px 12px; }
+.oqf-ctable td { background: var(--ink-2); padding: 10px 12px; vertical-align: middle; }
+.oqf-ctable td:first-child { border-radius: 4px 0 0 4px; white-space: nowrap; } .oqf-ctable td:last-child { border-radius: 0 4px 4px 0; }
+.oqf-ctable tr[data-oqf-pick] { cursor: pointer; }
+.oqf-ctable tr[data-oqf-pick]:hover td, .oqf-ctable tr.is-sel td { background: var(--ink-3); }
+.oqf-ctable tr.is-sel td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+.oqf-ctable tr.is-rest td { color: var(--t-light-2); }
+.oqf-dash .oqf-note { color: var(--t-light-2); }
+
+/* governantes: linha do tempo por regime e partido */
+.oqf-gov-card { background: var(--white); border: 1px solid var(--line-l); border-radius: 6px; padding: 18px; display: grid; gap: 14px; }
+.oqf-gov-head { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.oqf-gov-head h2 { font-family: var(--f-display); font-size: clamp(28px, 4vw, 40px); letter-spacing: -.02em; flex: 1; }
+.oqf-gov-conv { margin: 6px 0 16px; max-width: 900px; }
+.oqf-gov-scroll { overflow-x: auto; margin: 0 -6px; padding: 0 6px; scrollbar-width: thin; }
+.oqf-gov { display: block; max-width: none; height: auto; }
+@media (min-width: 1240px) { .oqf-gov { width: 100%; } }
+.oqf-gov .g-grid { stroke: rgba(21,23,28,.12); stroke-width: 1; } .oqf-gov .g-grid.minor { stroke-dasharray: 2 3; }
+.oqf-gov .g-yr { font-family: var(--f-mono); font-size: 10.5px; fill: var(--t-dark-2); text-anchor: middle; }
+.oqf-gov .g-lane { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; fill: var(--t-dark); text-anchor: end; font-weight: 600; }
+.oqf-gov .g-track { fill: rgba(21,23,28,.035); }
+.oqf-gov .g-span { fill: rgba(21,23,28,.07); }
+.oqf-gov .g-term rect:first-child { stroke: var(--white); stroke-width: 1; }
+.oqf-gov .g-term:hover rect:first-child { stroke: var(--t-dark); stroke-width: 1.5; }
+.oqf-gov .g-conn { stroke: rgba(21,23,28,.4); stroke-width: 1; fill: none; }
+.oqf-gov .g-ldr circle { stroke: var(--white); stroke-width: 2.5; }
+.oqf-gov .g-ini { font-family: var(--f-mono); font-size: 10.5px; font-weight: 600; text-anchor: middle; }
+.oqf-gov .g-nm { font-family: var(--f-sans); font-size: 10px; font-weight: 600; letter-spacing: .04em; text-anchor: middle; fill: var(--t-dark); }
+.oqf-gov .g-yy { font-family: var(--f-mono); font-size: 9.5px; text-anchor: middle; fill: var(--t-dark-2); }
+.oqf-gov .g-ev { stroke-width: 1.5; }
+.oqf-gov .g-ev-rup { stroke: #c2410c; stroke-dasharray: 4 3; }
+.oqf-gov .g-ev-chg { stroke: var(--t-dark); stroke-dasharray: 1 3; stroke-width: 2; stroke-linecap: round; }
+.oqf-gov .g-ev-imp { stroke: #6f3fd1; }
+.oqf-gov .g-mark { stroke: var(--t-dark); stroke-width: 2; }
+.oqf-gov-leg { display: grid; gap: 8px; }
+.oqf-gov-parties { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; }
+.oqf-gov-parties span { display: inline-flex; gap: 6px; align-items: center; }
+.oqf-gov-parties i { width: 14px; height: 10px; border-radius: 2px; display: inline-block; }
+.oqf-gov-parties i.int { background: repeating-linear-gradient(45deg, #8b8f98 0 2px, #fff 2px 4px); border: 1px solid #8b8f98; }
+.oqf-gov-parties i.ev { width: 0; height: 14px; border-radius: 0; border-left: 2px solid; }
+.oqf-gov-parties i.ev-rup { border-left: 2px dashed #c2410c; } .oqf-gov-parties i.ev-chg { border-left: 2px dotted var(--t-dark); } .oqf-gov-parties i.ev-imp { border-left-color: #6f3fd1; }
+.oqf-gov-src a { overflow-wrap: anywhere; }
+.oqf-gov-list summary { cursor: pointer; font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--t-dark-2); }
+.oqf-ltable { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px; min-width: 640px; }
+.oqf-ltable th { text-align: left; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--t-dark-2); font-weight: 500; padding: 6px 8px; border-bottom: 1px solid var(--line-l); }
+.oqf-ltable td { padding: 8px; border-bottom: 1px solid var(--line-l); vertical-align: top; }
+.oqf-ltable td:nth-child(2), .oqf-ltable td:nth-child(3) { font-family: var(--f-mono); font-size: 12px; white-space: nowrap; }
+.oqf-ltable .oqf-ldr small { color: var(--t-dark-2); }
+/* faixa compacta de mandatos (painel e comparador) */
+.oqf-band { width: 100%; height: auto; display: block; }
+.oqf-band .b-t { font-family: var(--f-mono); font-size: 9px; font-weight: 600; }
+.oqf-band .b-l { font-family: var(--f-mono); font-size: 9px; fill: var(--t-light-2); text-anchor: end; }
+.oqf-band .b-l-in { text-anchor: start; letter-spacing: .06em; text-transform: uppercase; }
+.oqf-band .b-short { opacity: .55; }
+.oqf-band .b-mark { stroke: #eceae4; stroke-width: 1.5; }
+.oqf-bandrow { display: grid; gap: 2px; margin-top: 8px; }
+.oqf-bandrow > span { font-size: 12px; color: var(--t-light-2); display: inline-flex; gap: 6px; align-items: center; padding-left: 46px; }
+.oqf-bandrow .oqf-flag { width: 16px; }
+
+/* bandeiras */
+.oqf-flag { display: inline-block; width: 26px; flex: none; vertical-align: middle; border: 1px solid rgba(0,0,0,.15); line-height: 0; }
+.oqf-flag svg { width: 100%; height: auto; display: block; }
+.oqf-flag.lg { width: 56px; } .oqf-flag.xl { width: clamp(46px, 7vw, 74px); margin-right: 16px; vertical-align: .06em; border-color: rgba(255,255,255,.25); }
+
+/* perfis */
+.oqf-pilots { display: grid; gap: 12px; }
+@media (min-width: 720px) { .oqf-pilots { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .oqf-pilots { grid-template-columns: repeat(4, 1fr); } }
+.oqf-pilot { display: grid; gap: 12px; align-content: start; padding: 22px 20px; border: 1px solid var(--line-l); background: var(--white); border-radius: var(--radius); text-decoration: none; transition: border-color .2s, transform .2s var(--ease); }
+.oqf-pilot:hover { border-color: var(--t-dark); transform: translateY(-2px); }
+.oqf-pilot h3 { font-family: var(--f-display); font-size: 32px; letter-spacing: -.02em; }
+.oqf-pilot ul { display: grid; gap: 4px; font-size: 14px; }
+.oqf-more { font-weight: 600; font-size: 14px; margin-top: 4px; }
+.oqf-jump { display: flex; gap: 6px 16px; flex-wrap: wrap; padding: 12px 0 16px; border-bottom: 1px solid var(--line-l); margin-bottom: 8px; font-family: var(--f-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; }
+.oqf-jump a { text-decoration: none; color: var(--t-dark-2); } .oqf-jump a:hover { color: var(--t-dark); text-decoration: underline; }
+.oqf-sec { padding: 32px 0; border-bottom: 1px solid var(--line-l); scroll-margin-top: calc(var(--header-h) + 12px); }
+.oqf-sec > h2 { font-family: var(--f-display); font-size: clamp(26px, 3.4vw, 36px); letter-spacing: -.02em; margin-bottom: 14px; }
+.oqf-sec > .oqf-st { margin-bottom: 12px; }
+.oqf-sec > p { max-width: 820px; }
+.oqf-two { display: grid; gap: 22px; }
+@media (min-width: 900px) { .oqf-two { grid-template-columns: 1fr 1.1fr; gap: 40px; } }
+.oqf-events { border-left: 2px solid var(--t-dark); }
+.oqf-events li { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 7px 0 7px 14px; position: relative; font-size: 15px; }
+.oqf-events li::before { content: ""; position: absolute; left: -6px; top: 14px; width: 10px; height: 10px; border-radius: 50%; background: var(--paper); border: 2px solid var(--t-dark); }
+.oqf-events time { font-family: var(--f-mono); font-size: 12.5px; color: var(--t-dark-2); padding-top: 2px; }
+.oqf-tl { margin: 6px 0 18px; }
+.oqf-tl-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; align-items: center; padding: 4px 0; }
+.oqf-tl-lbl { font-size: 13px; font-weight: 600; }
+.oqf-tl-track { position: relative; height: 18px; background: rgba(21,23,28,.05); border-radius: 2px; }
+.oqf-tl-track i { position: absolute; top: 0; bottom: 0; background: var(--t-dark); border-radius: 2px; }
+.oqf-tl-track i.ent-FRG, .oqf-tl-track i.ent-SUN { background: #4a4f59; }
+.oqf-tl-track i.ent-GDR, .oqf-tl-track i.ent-UKR-SSR { background: repeating-linear-gradient(135deg, #4a4f59 0 3px, transparent 3px 6px); border: 1px solid #4a4f59; }
+.oqf-tl-track i.ent-DEU-OCUP { background: repeating-linear-gradient(90deg, #4a4f59 0 2px, transparent 2px 4px); }
+.oqf-tl-track i.pend { background: repeating-linear-gradient(90deg, rgba(21,23,28,.12) 0 6px, transparent 6px 12px); }
+.oqf-tl-ticks { position: relative; height: 18px; margin-left: 160px; font-family: var(--f-mono); font-size: 10.5px; color: var(--t-dark-2); }
+.oqf-tl-ticks span { position: absolute; transform: translateX(-50%); }
+.oqf-tl-ticks span:last-child { transform: translateX(-100%); }
+@media (max-width: 560px) { .oqf-tl-row { grid-template-columns: 1fr; gap: 2px; } .oqf-tl-ticks { margin-left: 0; } }
+.oqf-ents { display: grid; gap: 4px 0; margin: 0; }
+.oqf-ents dt { font-weight: 600; margin-top: 10px; } .oqf-ents dd { margin: 0; font-size: 14.5px; color: var(--t-dark-2); }
+.oqf-ents code { font-family: var(--f-mono); font-size: 12px; background: var(--paper-2); padding: 2px 6px; border-radius: 2px; }
+.oqf-dims { display: grid; gap: 1px; background: var(--line-l); border: 1px solid var(--line-l); margin-top: 14px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 720px) { .oqf-dims { grid-template-columns: repeat(5, 1fr); } }
+.oqf-dims div { background: var(--paper); padding: 12px; display: grid; gap: 2px; }
+.oqf-dims b { font-family: var(--f-display); font-size: 22px; } .oqf-dims span { font-size: 13.5px; font-weight: 600; } .oqf-dims small { font-family: var(--f-mono); font-size: 10.5px; color: var(--t-dark-2); }
+.oqf-ref { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: start; padding: 16px; background: var(--white); border: 1px solid var(--line-l); border-radius: var(--radius); margin-bottom: 12px; }
+.oqf-ref-y { font-family: var(--f-display); font-weight: 700; font-size: 40px; line-height: .9; }
+.oqf-ref p { margin: 6px 0; }
+.oqf-minis { display: grid; gap: 12px; }
+@media (min-width: 720px) { .oqf-minis { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .oqf-minis { grid-template-columns: repeat(3, 1fr); } }
+.oqf-mini { background: var(--ink-2); color: var(--t-light); padding: 14px 14px 12px; border-radius: var(--radius); display: grid; gap: 8px; align-content: start; }
+.oqf-mini h3 { font-size: 15px; font-weight: 600; }
+.oqf-mini p { margin: 0; color: var(--t-light-2); font-size: 11.5px; }
+.oqf-mini a { color: var(--accent); }
+.oqf-mini.is-empty { background: var(--white); color: var(--t-dark); border: 1px dashed var(--line-l); }
+
+/* gráficos */
+.oqf-chart { width: 100%; height: auto; display: block; overflow: visible; }
+.oqf-chart .gr { stroke: rgba(255,255,255,.09); stroke-width: 1; }
+.oqf-chart .ax { fill: var(--t-light-2); font-family: var(--f-mono); font-size: 11px; }
+.oqf-chart.mini .ax { font-size: 10px; }
+.oqf-chart .ln { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.oqf-chart.mini .ln { stroke-width: 1.5; }
+.oqf-chart .ln-r { opacity: .75; }
+.oqf-chart .pt-p { stroke-width: 1.5; }
+.oqf-chart .mk { stroke: var(--t-light); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.oqf-chart .mk-t { fill: var(--t-light); font-family: var(--f-mono); font-size: 11px; }
+.oqf-chart .wm { fill: rgba(198,242,78,.07); font-family: var(--f-mono); font-weight: 600; font-size: 44px; letter-spacing: .14em; }
+.oqf-chart.mini .wm { font-size: 17px; fill: rgba(198,242,78,.1); }
+.oqf-chart-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.oqf-chart-h h3 { font-family: var(--f-display); font-size: clamp(24px, 3vw, 32px); letter-spacing: -.02em; }
+.oqf-chart-box { margin: 10px 0 6px; padding: 14px 6px 4px; border: 1px solid var(--line-d); border-radius: var(--radius); }
+.oqf-cleg { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 12px; font-size: 13px; color: #d4d3cd; }
+.oqf-cleg span { display: inline-flex; align-items: center; gap: 8px; }
+.oqf-cleg i { width: 22px; height: 0; border-top: 2.5px solid; display: inline-block; }
+.oqf-cleg i.lg-r { border-top: 2.5px dotted var(--t-light-2); }
+.oqf-cleg i.lg-p { width: 9px; height: 9px; border: 1.5px solid var(--t-light-2); border-radius: 50%; }
+.oqf-causal { font-size: 14px; color: #d4d3cd; margin: 10px 0; padding: 10px 14px; border-left: 3px solid var(--met); background: var(--met-bg); }
+.oqf-tbl { margin-top: 16px; }
+.oqf-tbl summary { cursor: pointer; font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--t-light-2); }
+.oqf-scroll { overflow-x: auto; }
+.oqf-table { display: table; min-width: 420px; }
+.oqf-table tr.is-mark td { background: rgba(198,242,78,.08); }
+.oqf-tt { font-family: var(--f-mono); font-size: 10px; color: var(--t-light-2); margin-left: 4px; }
+.oqf-tt.t-p { color: #b48cff; } .oqf-tt.t-r { color: var(--inv); }
+.oqf-meta { display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; margin: 18px 0 0; font-size: 14px; color: #d4d3cd; }
+.oqf-meta dt { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--t-light-2); padding-top: 3px; }
+.oqf-meta dd { margin: 0; } .oqf-meta ul { list-style: disc; padding-left: 18px; display: grid; gap: 4px; }
+@media (max-width: 560px) { .oqf-meta { grid-template-columns: 1fr; } }
+.oqf-empty { padding: 30px 10px; text-align: center; color: var(--t-light-2); }
+
+/* comparador: formulário */
+.oqf-form { display: grid; gap: 16px; margin-top: 8px; }
+@media (min-width: 900px) { .oqf-form { grid-template-columns: 1.3fr 1fr 1fr; align-items: start; } .oqf-form > .oqf-f:nth-child(4) { grid-column: 1 / -1; } }
+.oqf-f { border: 0; padding: 0; margin: 0; min-width: 0; }
+.oqf-f legend, .oqf-f > label { font-family: var(--f-mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--t-dark-2); display: block; margin-bottom: 8px; padding: 0; }
+.oqf-f .uf-select { margin-top: 0; }
+.oqf-f-yrs { display: grid; grid-template-columns: auto 1fr auto 1fr; gap: 8px; align-items: center; }
+.oqf-f-yrs label { margin: 0 !important; }
+.oqf-picks { display: flex; flex-wrap: wrap; gap: 6px; }
+.oqf-pick { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line-l); border-radius: 99px; background: var(--white); font-size: 14px; font-weight: 600; min-height: 40px; }
+.oqf-pick .oqf-flag { width: 20px; }
+.oqf-pick[aria-pressed="true"] { background: var(--t-dark); color: var(--paper); border-color: var(--t-dark); box-shadow: inset 0 -3px 0 var(--c); }
+.oqf-pick[aria-pressed="true"]::before { content: none; }
+.oqf-presets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; align-items: center; }
+.oqf-presets .btn { text-align: left; justify-content: flex-start; font-weight: 500; }
+.oqf-presets .oqf-flag { width: 18px; }
+
+/* metodologia */
+.oqf-audits { display: grid; gap: 12px; }
+@media (min-width: 1000px) { .oqf-audits { grid-template-columns: 1.2fr 1.2fr .8fr; } }
+.oqf-audit { background: var(--white); border: 1px solid var(--line-l); border-radius: var(--radius); padding: 20px; display: grid; gap: 8px; align-content: start; }
+.oqf-audit-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.oqf-audit h3 { font-family: var(--f-display); font-size: 26px; letter-spacing: -.02em; }
+.oqf-audit ul { list-style: disc; padding-left: 18px; display: grid; gap: 6px; font-size: 14.5px; margin-top: 6px; }
+.oqf-mgrids { display: grid; gap: 14px; }
+@media (min-width: 900px) { .oqf-mgrids { grid-template-columns: 1fr 1fr; } }
+.oqf-mgrid { border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.oqf-mgrids .oqf-mgrid { margin-bottom: 0; }
+.oqf-mgrid h3 { font-family: var(--f-display); font-size: 22px; margin-bottom: 10px; }
+.oqf-mgrid dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 14px; margin: 0; font-size: 14.5px; }
+.oqf-mgrid dt { font-family: var(--f-mono); font-weight: 600; font-size: 12.5px; padding-top: 2px; }
+.oqf-mgrid dd { margin: 0; }
+.oqf-mgrid.elig dt { max-width: 130px; }
+.oqf-list { list-style: disc; padding-left: 18px; display: grid; gap: 6px; font-size: 14.5px; }
+.sec--dark2 .oqf-mgrid { border-color: var(--line-d); color: #d4d3cd; }
+.sec--dark2 .oqf-mgrid h3 { color: var(--t-light); }
+@media (max-width: 480px) { .oqf-mgrid dl { grid-template-columns: 1fr; gap: 2px; } .oqf-mgrid dd { margin-bottom: 8px; } }
+.oqf-panel .oqf-st { white-space: normal; }
+/* Cabeçalho com 8 itens: a linha pequena da marca sai em telas médias para não encostar no menu. */
+@media (min-width: 1080px) and (max-width: 1599px) { .brand small { display: none; } }
+
+/* dispersão animada */
+.oqf-scatter .ax-t { fill: var(--t-light-2); font-family: var(--f-mono); font-size: 11px; }
+.oqf-scatter .sc-year { font-family: var(--f-display); font-weight: 700; font-size: 72px; fill: rgba(236,234,228,.08); }
+.oqf-scatter .sc-trail { fill: none; stroke-width: 1.5; opacity: .45; }
+.oqf-scatter .sc-lbl { fill: var(--t-light); font-size: 12px; font-weight: 600; }
+.oqf-chart .pt-mark { stroke: #0b0c0f; stroke-width: 1.5; }
+.oqf-missing { color: var(--t-light-2); margin-top: 6px; }
+.oqf-player--dark { align-items: center; }
+.oqf-mini .oqf-chart, .oqf-pchart .oqf-chart { overflow: hidden; }
+
 </style>
 </head>
 <body>
@@ -1103,6 +1486,7 @@ body.apu-nocursor, body.apu-nocursor * { cursor: none !important; }
       <a href="#/pesquisas" data-nav="pesquisas">Pesquisas</a>
       <a href="#/estados" data-nav="estados">Estados</a>
       <a href="#/fontes" data-nav="fontes">Fontes</a>
+      <a href="#/o-que-funciona" data-nav="o-que-funciona">O que funciona?</a>
     </nav>
     <div class="hdr-r">
       <div class="lang" role="group" aria-label="Idioma"><a href="#/" data-lang="pt" hreflang="pt-BR" lang="pt-BR" aria-label="Português" class="is-on" aria-current="true"><svg viewBox="0 0 20 14" aria-hidden="true" focusable="false"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.6 18.2 7 10 12.4 1.8 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="3.3" fill="#002776"/><path d="M6.9 6.2c2.1-.5 4.4-.2 6.1.9" stroke="#fff" stroke-width=".6" fill="none"/></svg><span>PT</span></a><a href="https://brazilbeyondtheballot.com/" data-lang="en" hreflang="en-US" lang="en-US" aria-label="English"><svg viewBox="0 0 20 14" aria-hidden="true" focusable="false"><rect width="20" height="14" fill="#fff"/><rect y="0.000" width="20" height="1.077" fill="#b22234"/><rect y="2.154" width="20" height="1.077" fill="#b22234"/><rect y="4.308" width="20" height="1.077" fill="#b22234"/><rect y="6.462" width="20" height="1.077" fill="#b22234"/><rect y="8.615" width="20" height="1.077" fill="#b22234"/><rect y="10.769" width="20" height="1.077" fill="#b22234"/><rect y="12.923" width="20" height="1.077" fill="#b22234"/><rect width="8.4" height="7.54" fill="#3c3b6e"/><circle cx="1.1" cy="1.0" r=".42" fill="#fff"/><circle cx="2.7" cy="1.0" r=".42" fill="#fff"/><circle cx="4.2" cy="1.0" r=".42" fill="#fff"/><circle cx="5.8" cy="1.0" r=".42" fill="#fff"/><circle cx="7.3" cy="1.0" r=".42" fill="#fff"/><circle cx="1.9" cy="2.4" r=".42" fill="#fff"/><circle cx="3.4" cy="2.4" r=".42" fill="#fff"/><circle cx="5.0" cy="2.4" r=".42" fill="#fff"/><circle cx="6.5" cy="2.4" r=".42" fill="#fff"/><circle cx="1.1" cy="3.7" r=".42" fill="#fff"/><circle cx="2.7" cy="3.7" r=".42" fill="#fff"/><circle cx="4.2" cy="3.7" r=".42" fill="#fff"/><circle cx="5.8" cy="3.7" r=".42" fill="#fff"/><circle cx="7.3" cy="3.7" r=".42" fill="#fff"/><circle cx="1.9" cy="5.1" r=".42" fill="#fff"/><circle cx="3.4" cy="5.1" r=".42" fill="#fff"/><circle cx="5.0" cy="5.1" r=".42" fill="#fff"/><circle cx="6.5" cy="5.1" r=".42" fill="#fff"/><circle cx="1.1" cy="6.4" r=".42" fill="#fff"/><circle cx="2.7" cy="6.4" r=".42" fill="#fff"/><circle cx="4.2" cy="6.4" r=".42" fill="#fff"/><circle cx="5.8" cy="6.4" r=".42" fill="#fff"/><circle cx="7.3" cy="6.4" r=".42" fill="#fff"/></svg><span>EN</span></a></div>
@@ -1130,6 +1514,7 @@ body.apu-nocursor, body.apu-nocursor * { cursor: none !important; }
           <li><a href="#/mercados">Mercados</a></li>
           <li><a href="#/iris">Modelo ÍRIS</a></li>
           <li><a href="#/estados">Estados</a></li>
+          <li><a href="#/o-que-funciona">O que funciona?</a></li>
         </ul>
       </div>
       <div>
@@ -3286,6 +3671,233 @@ window.EB = window.EB || {};
 EB.brMap = {"w":3918,"h":3901,"paths":{"RO":"M1156,1839l14,4 7,-5 9,5 0,10 23,18 7,9 24,-2 11,5 22,-6 6,4 18,-3 9,4 4,7 17,7 8,-12 24,-12 2,-13 4,-6 6,-18 9,-11 6,-1 9,-34 8,-2 17,-26 -11,-9 -1,-13 -8,-9 0,-12 -12,-6 -1,-27 18,-16 1,-8 -6,-10 0,-12 -41,-3 -7,-10 -54,0 -43,0 -12,0 7,-22 2,-35 -9,-11 -3,-25 4,-6 3,-14 -6,-14 9,-9 -10,-17 -4,-13 -1,-7 10,-1 -3,-16 9,-17 -11,-12 -13,-11 -13,4 -6,13 -9,1 -4,-7 -9,0 -7,-21 -8,-1 -2,6 -8,-15 1,-9 -11,-6 -5,4 -4,-10 -10,-5 -3,-14 -18,-11 -75,0 0,5 -13,18 -4,12 -8,-4 -7,4 -3,15 5,8 -12,13 -10,5 0,21 -17,5 -1,-7 -26,6 -3,3 -20,-3 -13,13 2,10 -13,18 -9,5 -7,-17 -6,-2 -12,8 -5,-3 1,15 -16,-5 -9,4 -5,11 -10,-3 -14,-12 -20,2 -24,-2 2,9 -11,13 -11,3 -20,16 18,8 42,-7 6,-4 17,2 9,-6 19,1 15,7 11,-16 8,5 7,15 -4,7 4,28 -10,15 1,6 -5,5 2,16 7,6 -2,10 8,7 3,11 -11,17 6,35 9,3 1,22 11,-4 6,29 19,1 14,9 -1,7 12,5 8,0 0,12 10,11 18,1 27,7 7,-8 21,0 24,11 14,12 21,-4 8,20 12,2 10,14 13,-3 5,7 19,8z","AC":"M684,1495l-19,-9 -19,-3 -46,-21 -24,-11 -43,-19 -27,-24 -29,-25 -23,-19 -36,-31 -26,-21 -46,-6 -57,-6 -29,-4 -57,-6 -22,-3 -41,-5 -32,-11 -84,-31 -6,-2 10,19 -18,8 -9,-2 5,11 -6,10 16,15 13,5 -1,10 -7,-1 4,11 10,9 9,29 21,13 -1,12 21,17 7,14 7,1 5,15 -16,23 -11,11 49,0 20,8 18,2 9,11 -2,12 12,6 -3,20 80,0 17,-3 13,-14 8,-1 13,-16 7,-2 23,-21 6,-1 -9,19 8,11 -10,11 0,25 0,34 0,29 0,29 9,-7 11,11 12,3 14,-3 23,-12 19,5 32,-4 19,1 32,8 16,0 3,13 18,-4 15,-7 15,-8 24,-31 14,-1 16,6 13,-19 26,-13 -1,-6 14,2 18,-11 10,-12 27,-21 -18,-8 -33,-14z","AM":"M1583,1261l-3,-16 -16,-19 -9,-8 -5,-13 5,-16 16,-14 41,-88 51,-110 39,-84 5,-10 10,-23 4,-9 37,-78 -6,-3 7,-15 19,-10 10,-15 -13,3 -18,12 -12,-4 -6,4 -9,3 -8,-4 1,-16 -11,1 -17,-10 -5,-14 -18,-8 -9,4 -24,-16 -8,2 -4,-10 -25,-10 -4,-7 3,-16 -6,-7 -13,13 -10,-10 -6,2 -11,-12 0,-14 -23,-17 -8,-11 2,-17 -15,-9 1,-27 -4,-7 0,-27 -36,0 -17,0 -61,0 -19,38 -16,43 8,17 -19,6 -4,9 -13,2 -9,-4 -6,-16 -11,-14 -29,-5 -1,6 -23,9 -8,10 -4,23 4,8 -9,24 1,9 8,4 7,15 -13,-13 -20,-7 -4,2 -6,0 -12,-26 -11,-10 -13,-6 -14,-16 -11,-6 2,-8 13,2 7,-7 -3,-9 13,-22 -6,-2 1,-13 -8,-7 -1,-10 -8,-8 -4,-13 0,-17 -7,-6 -2,-24 8,-10 2,-18 -3,-13 -5,1 -12,-36 -10,-9 -7,-6 8,-11 3,-23 -14,-9 -18,1 -12,-15 -14,1 -9,-6 -3,6 -16,2 -27,16 -15,-2 -8,6 -1,25 -26,24 -7,5 0,-14 -15,11 -4,8 -17,11 -6,-5 -13,5 -7,12 -14,-1 0,17 -17,2 -11,24 -10,4 -5,-7 9,-12 -9,-17 -15,1 -19,11 -3,8 -19,7 -6,-4 -11,4 0,-2 -54,-47 -23,6 2,-27 -3,-29 -6,-12 -12,-3 -11,-36 -13,7 -10,15 -16,-1 -16,20 -15,-7 -5,-8 -10,5 -3,10 11,10 -123,0 -14,-5 -12,6 -20,1 0,63 15,-4 0,4 38,-1 7,4 11,17 -5,13 7,11 -23,3 -13,-13 -15,11 -6,-3 -13,7 -23,3 0,49 -1,26 14,14 8,2 23,16 5,13 -7,11 10,17 11,8 2,14 -3,25 -18,105 -23,125 -11,58 -10,10 -8,-9 -7,8 -11,-11 2,-9 -23,-2 -10,5 -14,-3 -10,9 -8,13 -33,0 1,4 -24,2 -12,9 -16,-5 -14,5 -3,8 -29,17 -13,3 -4,9 -19,8 -29,18 2,14 -9,20 0,15 -19,21 -10,28 14,27 -10,17 -14,1 -29,17 -11,18 2,8 -7,9 6,2 84,31 32,11 41,5 22,3 57,6 29,4 57,6 46,6 26,21 36,31 23,19 29,25 27,24 43,19 24,11 46,21 19,3 19,9 33,14 20,-16 11,-3 11,-13 -2,-9 24,2 20,-2 14,12 10,3 5,-11 9,-4 16,5 -1,-15 5,3 12,-8 6,2 7,17 9,-5 13,-18 -2,-10 13,-13 20,3 3,-3 26,-6 1,7 17,-5 0,-21 10,-5 12,-13 -5,-8 3,-15 7,-4 8,4 4,-12 13,-18 0,-5 75,0 18,11 3,14 10,5 4,10 5,-4 11,6 -1,9 8,15 2,-6 8,1 7,21 9,0 4,7 9,-1 6,-13 13,-4 13,11 116,0 129,0 69,0 11,-9 -11,-1 5,-11 -3,-10 11,-17 2,-23 -9,-26 9,-6 9,-15 -1,-16 7,-10 -1,-2z","RR":"M980,178l6,15 -10,25 8,6 13,22 2,16 -7,15 10,3 11,-3 9,6 16,-2 13,6 6,-5 5,7 -1,17 9,6 14,-1 12,15 18,-1 14,9 -3,23 -8,11 7,6 10,9 12,36 5,-1 3,13 -2,18 -8,10 2,24 7,6 0,17 4,13 8,8 1,10 8,7 -1,13 6,2 -13,22 3,9 -7,7 -13,-2 -2,8 11,6 14,16 13,6 11,10 12,26 6,0 4,-2 20,7 13,13 -7,-15 -8,-4 -1,-9 9,-24 -4,-8 4,-23 8,-10 23,-9 1,-6 29,5 11,14 6,16 9,4 13,-2 4,-9 19,-6 -8,-17 16,-43 19,-38 61,0 17,0 36,0 0,-97 -2,-9 -13,0 -20,-7 -8,-12 -8,-4 -12,-17 -16,-4 3,-10 -9,1 2,-15 -1,-29 -10,-3 -15,-36 1,-25 7,-28 10,-14 0,-16 -6,-5 21,-16 13,-20 -18,-24 -2,-13 5,-6 -6,-7 -23,-9 -19,-1 13,-19 6,-36 -13,-7 -4,-11 -7,-2 -12,6 -25,1 -12,-3 12,27 -7,8 -10,13 -20,9 -5,14 -15,4 -12,-6 -8,12 -10,-2 -6,12 -5,7 -18,-1 -8,9 -17,0 -15,9 -25,-10 -16,7 2,6 -21,1 -5,15 6,9 -2,13 -6,-6 -18,12 -9,-8 2,-6 -14,-6 0,-14 -25,-1 4,5 -10,6 -17,-17 -3,12 -5,-4 -17,1 -4,6 -14,-22 -6,-4 -26,0 -13,3 -22,-19 -3,12 33,39 19,8 9,12 2,9z","PA":"M2579,1018l13,-11 3,-2 21,-17 14,0 6,-5 18,-27 7,-4 2,-14 26,-25 6,-26 -1,-4 9,-8 1,-10 13,-8 4,-12 9,-9 0,-20 9,-4 -8,-12 6,-9 10,-2 7,-15 0,-6 2,-14 14,-12 2,-10 4,-14 1,-8 -10,-2 -1,-7 11,-1 5,-11 -2,-14 8,-14 -6,-6 6,-8 4,-9 -3,-9 -10,6 -2,-19 -13,13 -13,1 -3,-16 -3,8 -11,2 1,-17 -17,7 -4,-12 -10,11 -5,-15 -7,8 -3,-12 -7,9 -1,-9 -9,-2 -13,-5 -4,6 -4,-7 -1,15 -11,-16 -2,12 -2,1 0,-11 -13,1 -16,-4 -6,12 -7,-3 -9,9 -3,7 -12,10 -12,-1 -6,-4 -4,-12 7,-34 7,-11 -6,-7 -31,2 -18,-2 -24,-10 -22,6 -6,-6 8,-10 -4,-9 -23,-1 -7,-8 7,-9 14,-9 -8,-9 -32,10 -28,-2 0,-6 13,-13 -3,-11 -16,-6 -18,8 -19,37 -4,4 -10,8 -23,9 -15,14 -9,2 -14,18 -8,17 -17,18 -8,15 -2,26 -8,8 -11,3 -8,-4 -14,9 -1,-7 -21,-3 -9,-7 -4,-22 -5,3 1,-15 -4,-14 -10,1 -6,-8 2,-19 -25,-17 -5,-17 -11,-17 -9,-18 3,-22 4,-8 -30,-25 -5,-20 3,-10 -10,2 0,-11 -36,-9 -1,-5 -19,-3 -3,-12 -26,-15 -12,1 -10,-3 -14,0 -2,-19 -5,-7 5,-16 -11,-23 -8,-15 -15,5 -7,-3 -15,4 -7,10 -11,-2 -21,4 -1,0 -21,-13 -12,19 -9,7 10,4 7,14 7,20 -10,6 -15,-6 -9,1 -20,-7 -14,4 -14,-2 -7,8 -13,-8 -8,2 -9,-12 -16,8 -5,-5 -13,9 -2,10 -13,12 -21,-4 -1,4 -19,3 -1,16 -13,0 -3,-6 -16,-1 -5,9 -14,2 5,9 -4,10 -21,-2 -2,7 -10,5 -7,-6 0,97 0,27 4,7 -1,27 15,9 -2,17 8,11 23,17 0,14 11,12 6,-2 10,10 13,-13 6,7 -3,16 4,7 25,10 4,10 8,-2 24,16 9,-4 18,8 5,14 17,10 11,-1 -1,16 8,4 9,-3 6,-4 12,4 18,-12 13,-3 -10,15 -19,10 -7,15 6,3 -37,78 -4,9 -10,23 -5,10 -39,84 -51,110 -41,88 -16,14 -5,16 5,13 9,8 16,19 3,16 1,2 8,4 16,28 7,28 19,26 -5,19 6,12 4,23 17,3 0,7 22,6 16,18 -2,8 6,5 18,2 7,16 8,-4 40,3 11,1 29,2 87,8 39,3 50,3 52,4 46,4 51,3 36,3 96,6 45,3 63,4 13,-31 5,-24 7,-6 11,-15 1,-2 17,-20 9,-2 11,-17 8,-12 5,-13 7,-4 6,-18 4,-19 1,-15 1,-7 -18,-13 -2,-5 -2,-11 12,-14 7,-16 0,-7 0,-9 -2,-11 13,-9 4,-3 19,-6 18,-9 4,-17 0,-1 13,-13 12,-1 -6,-14 5,-5 10,-5 -4,-10 10,-5 -6,-11 1,-11 11,-2 3,-11 -19,-10 -4,-10 -7,1 -16,1 -16,-7 31,-24 24,-19 2,-1z","AP":"M2330,313l-11,-36 -4,-1 -6,-24 -6,-9 -8,-37 -8,-24 3,-11 0,-32 -7,-3 -7,-24 -6,-10 -21,-19 -15,-7 -4,18 6,10 -4,18 -12,9 -2,7 -17,18 -2,8 -24,39 -12,11 2,5 -15,30 -7,26 -11,15 -18,8 -6,10 -18,-2 -20,2 5,-7 -9,-9 -15,9 -28,-5 -2,-7 -17,14 -25,6 -25,-3 -16,-13 -9,-2 -5,-11 -13,4 11,23 -5,16 5,7 2,19 14,0 10,3 12,-1 26,15 3,12 19,3 1,5 36,9 0,11 10,-2 -3,10 5,20 30,25 -4,8 -3,22 9,18 11,17 5,17 25,17 -2,19 6,8 10,-1 4,14 -1,15 5,-3 4,22 9,7 21,3 1,7 14,-9 8,4 11,-3 8,-8 2,-26 8,-15 17,-18 8,-17 14,-18 9,-2 15,-14 23,-9 10,-8 4,-4 19,-37 18,-8 24,-17 0,-7 10,-7 -1,-23 2,-26 -4,-19 -24,-12 -26,1 -26,-34z M2347,308l0,9 9,-2 -9,-7z M2353,316l-7,10 7,12 13,-6 -4,-11 -9,-5z","TO":"M2655,1169l5,-17 -5,-18 -1,-6 0,-15 0,-3 -4,-19 0,-2 -8,-16 -12,-4 -15,-3 -4,-8 -7,-7 -7,0 -6,3 -11,-1 -4,-2 -14,-7 -13,2 -7,4 -5,11 -15,1 16,7 16,-1 7,-1 4,10 19,10 -3,11 -11,2 -1,11 6,11 -10,5 4,10 -10,5 -5,5 6,14 -12,1 -13,13 0,1 -4,17 -18,9 -19,6 -4,3 -13,9 2,11 0,9 0,7 -7,16 -12,14 2,11 2,5 18,13 -1,7 -1,15 -4,19 -6,18 -7,4 -5,13 -8,12 -11,17 -9,2 -17,20 -1,2 -11,15 -7,6 -5,24 -13,31 -8,20 -10,12 -2,19 -5,5 -7,21 -6,5 3,9 -6,18 2,14 -9,24 -4,23 7,4 -5,15 8,15 -4,11 0,23 4,0 2,24 -6,19 6,17 11,4 8,-21 12,-16 17,-9 -8,8 3,8 -5,4 -7,19 12,10 28,9 54,29 1,-11 12,-28 12,-9 14,17 10,-14 1,-2 23,21 6,11 0,19 6,-17 6,14 32,-13 -3,15 10,-6 10,8 17,1 12,14 6,-10 -5,-15 10,-10 18,14 54,-19 10,-10 11,0 19,0 0,-3 3,-12 6,17 25,-7 -22,3 5,-19 -2,-18 10,-8 -7,1 -2,-13 -8,-3 0,-25 -2,-5 8,-11 -7,-8 4,-5 -4,-6 7,-6 -5,-6 22,-1 6,0 -3,-1 -24,-10 -9,1 -12,-15 1,-10 21,-33 7,-1 1,-12 5,-1 8,-18 31,-16 2,-14 10,-6 -2,-10 -2,8 -16,2 -1,11 -10,-12 -1,-7 -17,0 -13,0 -13,-10 -3,-18 -3,-10 -13,-6 5,-15 5,-3 -9,-15 -12,0 -10,-12 3,-8 -11,-8 -1,-7 -13,0 3,-6 12,-14 2,-27 5,-6 7,-16 5,1 19,-6 7,-25 -3,-10 -11,-8 -20,6 -20,11 -18,-22 -6,-3 -18,-26 -7,-11 -9,0 11,-10 -6,-7 -11,3 -3,-5 -7,-9 9,-1 11,-13 3,-18 2,-14 3,-12 4,-8 0,-8z","MA":"M2595,1005l-3,2 -13,11 -2,1 -24,19 -31,24 15,-1 5,-11 7,-4 13,-2 14,7 4,2 11,1 6,-3 7,0 7,7 4,8 15,3 12,4 8,16 0,2 4,19 0,3 0,15 1,6 5,18 -5,17 0,8 -4,8 -3,12 -2,14 -3,18 -11,13 -9,1 7,9 3,5 11,-3 6,7 -11,10 9,0 7,11 18,26 6,3 18,22 20,-11 20,-6 11,8 3,10 -7,25 -19,6 -5,-1 -7,16 -5,6 -2,27 -12,14 -3,6 13,0 1,7 11,8 -3,8 10,12 12,0 9,15 -5,3 -5,15 13,6 3,10 3,18 13,10 13,0 17,0 1,7 6,1 11,-32 -3,-7 4,-19 -1,-12 5,-8 -10,-14 -5,-30 -6,-11 6,-14 10,-7 13,-33 5,-14 8,-9 6,-27 -2,-3 8,-19 12,-9 25,-8 10,-2 17,-12 13,4 12,-17 18,-11 8,0 3,-6 3,-6 13,-19 19,-4 18,-7 11,2 15,10 4,3 6,-2 14,-6 26,-2 7,-10 3,-15 4,-22 -13,-14 -7,-4 -5,-19 2,-5 -1,-25 9,-7 3,-9 15,-13 2,-13 -9,-30 -6,-20 10,-19 -10,-11 -1,-3 -3,-14 5,-5 8,-9 7,-10 7,-10 5,-9 -1,-10 5,-6 1,-2 6,-5 6,-11 3,3 7,-1 13,-3 7,-1 7,-8 1,-8 13,-5 1,0 11,-16 7,-10 -3,-4 0,-16 2,-3 -23,0 -3,-4 -15,0 -4,7 -23,-6 -15,-7 -37,-17 -23,-10 -7,-2 -7,0 -10,5 2,10 -8,-7 -4,9 -12,0 -4,-7 10,-4 5,-12 -13,1 -4,13 -8,0 -1,9 -8,5 -15,18 -7,3 -12,-1 9,-6 9,-13 5,-1 -1,-9 2,-6 -14,5 -1,0 -4,1 -8,2 -11,31 -1,14 -8,9 -5,2 -4,-1 -7,-3 1,-12 0,-9 9,-20 20,-26 -10,-20 -18,16 -4,-2 18,-25 -8,0 10,-4 -7,-10 2,-7 -9,-6 -14,2 6,-6 -10,-2 16,-8 -8,-6 -13,6 -4,-2 3,-19 -9,15 -6,-7 -19,0 -7,11 -5,0 1,-27 -17,15 -3,-17 -10,-4 -8,0 -9,-8 -1,0 -1,-1 -5,3 0,-16 -10,15 -4,-15 -11,15 -6,8 6,6 -8,14 2,14 -5,11 -11,1 1,7 10,2 -1,8 -4,14 -2,10 -14,12 -2,14 0,6 -7,15 -10,2 -6,9 8,12 -9,4 0,20 -9,9 -4,12 -13,8 -1,10 -9,8 1,4 -6,26 -26,25 -2,14 -7,4 -18,27 -6,5 -14,0 -21,17z M2950,800l-11,8 -5,17 8,4 8,-6 0,-23z M2901,654l-6,5 4,8 12,-7 -10,-6z","PI":"M3322,1351l16,-14 2,-7 2,-3 2,-4 -1,-14 -12,-6 5,-10 -9,-18 6,-5 10,-4 3,-7 1,-11 5,-13 4,-14 5,-14 -11,-7 -23,-5 -3,-8 -5,-10 1,-16 -7,-12 -1,-11 -5,-6 4,-8 -4,-20 0,-13 -2,-15 -1,-5 1,-27 -15,-8 -4,-7 -13,-15 2,-6 5,-14 -6,-10 6,-10 3,-10 3,-5 2,-14 -4,-6 -4,-10 -5,-5 -2,-7 1,-19 -9,-3 -4,-12 7,-7 -2,-10 -9,-4 9,-17 6,-13 -1,-8 -5,-5 -12,-1 -21,-5 -13,-10 -5,0 0,16 3,4 -7,10 -11,16 -1,0 -13,5 -1,8 -7,8 -7,1 -13,3 -7,1 -3,-3 -6,11 -6,5 -1,2 -5,6 1,10 -5,9 -7,10 -7,10 -8,9 -5,5 3,14 1,3 10,11 -10,19 6,20 9,30 -2,13 -15,13 -3,9 -9,7 1,25 -2,5 5,19 7,4 13,14 -4,22 -3,15 -7,10 -26,2 -14,6 -6,2 -4,-3 -15,-10 -11,-2 -18,7 -19,4 -13,19 -3,6 -3,6 -8,0 -18,11 -12,17 -13,-4 -17,12 -10,2 -25,8 -12,9 -8,19 2,3 -6,27 -8,9 -5,14 -13,33 -10,7 -6,14 6,11 5,30 10,14 -5,8 1,12 -4,19 3,7 -11,32 -6,-1 10,12 1,-11 16,-2 2,-8 12,-5 4,11 7,8 9,14 -5,7 4,14 16,17 17,2 14,8 8,-3 19,-13 0,-7 9,-6 8,2 16,-10 17,9 9,-5 9,-17 7,-3 8,-9 8,-23 7,-1 -2,-14 6,-8 -13,-8 -7,-21 6,-9 1,-1 17,-10 7,-4 10,-4 15,15 7,-2 15,0 1,0 10,3 1,8 18,11 8,-7 9,-3 11,-3 17,-17 9,-4 16,-2 16,2 6,-4 12,-15 1,-8 17,-7 14,-17 3,-6 2,0 15,-8 6,-10 17,-13 5,5 7,-8 8,-7 2,-6z","CE":"M3361,808l-9,-1 -13,5 -17,0 -34,5 -17,-1 -5,3 5,5 1,8 -6,13 -9,17 9,4 2,10 -7,7 4,12 9,3 -1,19 2,7 5,5 4,10 4,6 -2,14 -3,5 -3,10 -6,10 6,10 -5,14 -2,6 13,15 4,7 15,8 -1,27 1,5 2,15 0,13 4,20 -4,8 5,6 1,11 7,12 -1,16 5,10 3,8 23,5 11,7 -5,14 -4,14 -5,13 -1,11 9,5 8,-4 11,-1 8,5 26,-3 1,0 15,-1 14,10 5,5 9,-1 1,10 6,4 2,1 10,4 12,6 5,5 1,9 7,-5 5,4 1,-1 7,-9 17,-12 0,-1 4,-4 13,-24 0,-9 -7,-3 -2,-4 -3,-13 -9,-6 -1,-8 10,-6 6,-7 -4,-2 -2,-5 2,-8 4,-10 7,-11 -2,-6 -1,-7 5,-7 5,-10 7,-6 6,2 7,-1 2,-6 9,-7 0,-2 10,-17 -2,-8 5,-5 13,-12 9,-18 2,-2 1,-6 -1,-2 11,-17 4,-12 17,-4 2,-1 9,-2 11,-3 -8,-13 -21,-6 -6,-2 -17,-19 -8,-5 -30,-28 -7,-9 -18,-19 -6,-11 -13,-1 -6,-2 -16,-13 -12,-8 -13,-6 -10,-8 -10,-11 -12,-4 -17,-10 -17,-8 -22,-13 -25,-6 -18,0z","RN":"M3748,1166l16,-9 4,-1 2,3 -2,5 7,6 6,0 7,-1 13,6 10,1 9,-1 1,0 11,-3 2,0 6,3 14,1 3,0 5,2 2,3 12,-2 3,3 4,0 4,-4 14,-2 -6,-18 0,-2 -6,-11 -1,-4 -2,-16 -3,-8 -5,-16 -3,-13 -3,-9 -7,-14 -5,-11 -11,-11 -13,-5 -17,-3 -12,-2 -13,-1 -6,3 -21,2 -10,-2 -31,0 -14,-11 -10,-5 -18,3 -8,-7 -3,-5 -11,3 -9,2 -2,1 -17,4 -4,12 -11,17 1,2 -1,6 -2,2 -9,18 -13,12 -5,5 2,8 -10,17 0,2 -9,7 -2,6 -7,1 -6,-2 -7,6 -5,10 -5,7 1,7 10,-3 1,7 11,6 5,5 6,-3 11,4 5,-6 4,1 11,-6 8,-8 6,-8 7,-7 9,0 10,-3 14,-6 12,-6 9,2 1,10 -7,6 -10,10 -6,8 1,5 -8,9 -2,18 17,-2 5,4 3,9 8,-2 7,-5 4,-2 4,-2 4,7 5,-2 7,-3 11,11 -3,7 11,2 8,-6 1,-3 2,0 1,-11 1,-12 8,2 -4,-11 -5,-4 3,-9z","PB":"M3641,1276l5,-5 9,-8 4,0 8,-7 5,-2 8,4 13,7 4,2 2,8 -4,2 -5,2 -12,12 4,6 1,2 0,6 -2,2 -18,15 20,7 1,10 -2,5 14,12 7,1 4,-5 12,-6 10,-3 6,-5 6,-17 3,-4 9,2 5,-11 14,2 4,-7 9,2 11,3 2,0 6,-2 6,-2 5,-2 4,-1 11,-4 6,-4 9,-1 3,-14 1,-3 6,-1 7,-3 2,-2 1,0 5,-3 13,0 16,7 0,4 14,4 2,1 3,-16 -1,-15 -3,-18 -2,-3 -1,-5 -3,-11 -2,-10 -1,-5 -3,-12 -1,-11 -14,2 -4,4 -4,0 -3,-3 -12,2 -2,-3 -5,-2 -3,0 -14,-1 -6,-3 -2,0 -11,3 -1,0 -9,1 -10,-1 -13,-6 -7,1 -6,0 -7,-6 2,-5 -2,-3 -4,1 -16,9 -3,9 5,4 4,11 -8,-2 -1,12 -1,11 -2,0 -1,3 -8,6 -11,-2 3,-7 -11,-11 -7,3 -5,2 -4,-7 -4,2 -4,2 -7,5 -8,2 -3,-9 -5,-4 -17,2 2,-18 8,-9 -1,-5 6,-8 10,-10 7,-6 -1,-10 -9,-2 -12,6 -14,6 -10,3 -9,0 -7,7 -6,8 -8,8 -11,6 -4,-1 -5,6 -11,-4 -6,3 -5,-5 -11,-6 -1,-7 -10,3 2,6 -7,11 -4,10 -2,8 2,5 4,2 -6,7 -10,6 1,8 9,6 3,13 2,4 7,3 0,9 -13,24 -4,4 13,13 13,-3 3,0 7,-4 5,6 9,8 9,-2 1,2 5,-5 7,1 4,-1 6,-7 13,-4 2,-3 0,-2 2,-1 11,-7 5,-4z","PE":"M3262,1398l8,3 17,-4 1,8 14,6 11,11 3,13 15,11 -10,26 5,0 10,3 20,-13 6,3 9,-30 6,-2 8,5 13,-5 2,-1 11,-11 -2,-11 22,-5 2,-12 17,-7 12,-4 9,3 4,13 17,2 11,7 10,-2 14,8 2,6 8,4 4,-13 10,4 -4,9 11,8 8,-5 1,16 7,18 8,-8 7,-8 8,-1 6,-6 12,-17 7,-8 6,9 6,6 11,-4 1,1 12,6 12,12 5,8 3,-1 3,5 11,5 0,-1 8,5 4,2 6,-10 8,0 10,1 8,4 12,-7 10,-4 4,0 7,-5 9,-13 8,-1 1,-1 -2,-6 10,-5 4,-1 4,-1 11,-2 1,0 11,4 7,-3 7,-3 1,-1 3,-2 13,2 6,2 11,2 9,3 2,-5 3,-8 1,-9 4,-8 9,-24 3,-14 2,-7 5,-12 3,-8 -1,-11 -1,-3 0,-13 2,-14 -2,-1 -14,-4 0,-4 -16,-7 -13,0 -5,3 -1,0 -2,2 -7,3 -6,1 -1,3 -3,14 -9,1 -6,4 -11,4 -4,1 -5,2 -6,2 -6,2 -2,0 -11,-3 -9,-2 -4,7 -14,-2 -5,11 -9,-2 -3,4 -6,17 -6,5 -10,3 -12,6 -4,5 -7,-1 -14,-12 2,-5 -1,-10 -20,-7 18,-15 2,-2 0,-6 -1,-2 -4,-6 12,-12 5,-2 4,-2 -2,-8 -4,-2 -13,-7 -8,-4 -5,2 -8,7 -4,0 -9,8 -5,5 -5,4 -11,7 -2,1 0,2 -2,3 -13,4 -6,7 -4,1 -7,-1 -5,5 -1,-2 -9,2 -9,-8 -5,-6 -7,4 -3,0 -13,3 -13,-13 0,1 -17,12 -7,9 -1,1 -5,-4 -7,5 -1,-9 -5,-5 -12,-6 -10,-4 -2,-1 -6,-4 -1,-10 -9,1 -5,-5 -14,-10 -15,1 -1,0 -26,3 -8,-5 -11,1 -8,4 -9,-5 -3,7 -10,4 -6,5 9,18 -5,10 12,6 1,14 -2,4 -2,3 -2,7 -16,14 -2,6 -8,7 -7,8 -5,-5 -17,13 -6,10 -15,8z","AL":"M3597,1443l-8,1 -7,8 -8,8 3,2 1,7 12,2 8,8 11,2 5,4 17,9 1,1 19,7 17,8 7,7 10,1 18,11 0,5 3,5 4,3 3,3 1,1 12,7 2,1 2,0 5,-2 4,5 3,12 7,0 9,8 10,-16 4,-8 23,-21 7,-11 6,-8 4,-7 7,-8 7,-3 16,-19 4,-5 5,-8 8,-7 5,-6 4,-7 6,-10 9,-15 -9,-3 -11,-2 -6,-2 -13,-2 -3,2 -1,1 -7,3 -7,3 -11,-4 -1,0 -11,2 -4,1 -4,1 -10,5 2,6 -1,1 -8,1 -9,13 -7,5 -4,0 -10,4 -12,7 -8,-4 -10,-1 -8,0 -6,10 -4,-2 -8,-5 0,1 -11,-5 -3,-5 -3,1 -5,-8 -12,-12 -12,-6 -1,-1 -11,4 -6,-6 -6,-9 -7,8 -12,17 -6,6z","SE":"M3706,1539l-3,-5 0,-5 -18,-11 -10,-1 -7,-7 -17,-8 -19,-7 -1,-1 -17,-9 -5,-4 -11,-2 -6,7 6,31 10,2 11,11 -1,8 3,3 0,6 0,9 3,5 -11,10 3,8 1,8 0,9 -16,7 -7,-6 -10,2 -6,-1 -4,9 3,13 3,1 7,9 6,15 7,2 -1,14 1,1 15,13 3,4 13,5 4,-5 5,3 21,-9 3,-2 8,-15 11,-13 12,-20 18,-22 18,-11 18,-9 9,-4 -9,-8 -7,0 -3,-12 -4,-5 -5,2 -2,0 -2,-1 -12,-7 -1,-1 -3,-3 -4,-3z","BA":"M3462,1382l-12,4 -17,7 -2,12 -22,5 2,11 -11,11 -2,1 -13,5 -8,-5 -6,2 -9,30 -6,-3 -20,13 -10,-3 -5,0 10,-26 -15,-11 -3,-13 -11,-11 -14,-6 -1,-8 -17,4 -8,-3 -2,0 -3,6 -14,17 -17,7 -1,8 -12,15 -6,4 -16,-2 -16,2 -9,4 -17,17 -11,3 -9,3 -8,7 -18,-11 -1,-8 -10,-3 -1,0 -15,0 -7,2 -15,-15 -10,4 -7,4 -17,10 -1,1 -6,9 7,21 13,8 -6,8 2,14 -7,1 -8,23 -8,9 -7,3 -9,17 -9,5 -17,-9 -16,10 -8,-2 -9,6 0,7 -19,13 -8,3 -14,-8 -17,-2 -16,-17 -4,-14 5,-7 -9,-14 -7,-8 -4,-11 -12,5 2,10 -10,6 -2,14 -31,16 -8,18 -5,1 -1,12 -7,1 -21,33 -1,10 12,15 9,-1 24,10 3,1 -6,0 -22,1 5,6 -7,6 4,6 -4,5 7,8 -8,11 2,5 0,25 8,3 2,13 7,-1 -10,8 2,18 -5,19 22,-3 -19,14 -3,19 4,7 19,-6 3,4 -18,14 4,3 -4,11 9,2 -8,11 -2,24 5,6 -2,4 5,11 12,7 15,13 -9,9 1,21 -3,1 -1,1 -1,20 0,-1 7,10 -11,29 11,-11 23,-3 12,-11 31,-18 10,-9 11,1 6,-7 16,-8 5,-10 9,-3 18,-13 15,-6 11,-3 25,3 8,-1 19,7 -4,5 -6,17 0,9 17,7 18,10 4,-3 18,-12 13,-2 24,6 7,5 25,18 10,4 4,3 20,10 1,1 10,-3 12,8 10,1 14,-8 1,0 4,4 30,27 10,8 0,1 2,14 1,10 19,3 32,-12 5,6 7,-4 6,6 12,7 7,-4 3,5 18,-1 11,11 13,9 9,0 5,11 -6,17 -10,7 -9,10 -5,13 -12,-1 -3,11 0,2 3,20 -12,-1 -1,1 -2,-1 -6,0 -9,26 3,13 -5,8 8,9 4,4 7,12 7,1 10,11 2,0 1,16 -1,9 31,20 24,16 3,-11 15,-23 23,-17 12,-15 -5,-23 -2,-29 9,-27 -2,-13 4,-6 4,-26 5,-9 0,-10 6,-16 10,-24 -4,-8 -4,-10 -4,-28 -3,-30 -3,-31 -3,-3 3,-23 1,-10 3,-20 6,-31 -2,-4 -2,-2 0,-1 -2,-12 2,-5 8,-3 -4,-9 4,-9 -6,-7 3,-18 12,-7 16,-12 5,-1 12,0 17,-10 2,-3 25,-28 14,-19 12,-17 8,-14 18,-36 17,-30 -3,2 -21,9 -5,-3 -4,5 -13,-5 -3,-4 -15,-13 -1,-1 1,-14 -7,-2 -6,-15 -7,-9 -3,-1 -3,-13 4,-9 6,1 10,-2 7,6 16,-7 0,-9 -1,-8 -3,-8 11,-10 -3,-5 0,-9 0,-6 -3,-3 1,-8 -11,-11 -10,-2 -6,-31 6,-7 -8,-8 -12,-2 -1,-7 -3,-2 -7,-18 -1,-16 -8,5 -11,-8 4,-9 -10,-4 -4,13 -8,-4 -2,-6 -14,-8 -10,2 -11,-7 -17,-2 -4,-13 -9,-3z","MG":"M2630,2363l-9,6 -9,2 0,1 -9,5 -8,-6 -20,-9 -4,-2 -7,4 -31,-3 -14,1 -13,-4 -4,1 -9,8 -16,1 -4,11 -4,4 -8,7 -12,-10 -6,1 -17,7 -4,0 -3,3 -24,-4 -5,7 -19,1 -8,8 -12,16 -7,18 -11,3 -8,6 -1,2 -9,10 -5,11 5,5 -11,0 1,12 -11,10 1,10 3,30 11,-10 5,-2 15,-5 8,-6 5,-5 11,-2 11,8 17,1 6,-1 7,5 13,2 16,-2 14,0 16,6 20,-1 -6,15 4,11 1,3 8,5 6,-4 5,-12 8,2 3,23 7,4 2,-4 -2,-12 7,-12 9,-1 8,2 11,-4 9,0 23,0 2,-8 12,10 10,-11 8,9 3,-5 2,-9 9,0 12,6 9,-6 6,-2 16,15 10,10 0,1 -5,6 -1,13 7,7 8,5 0,2 0,1 4,11 -9,5 -4,13 5,9 3,9 3,11 0,4 8,8 4,9 -1,6 13,-1 10,-4 2,-1 11,2 3,5 11,6 0,8 -4,8 -6,3 -2,9 -6,7 7,16 -3,1 -7,7 12,6 -5,4 -2,0 -1,4 -4,9 6,6 4,7 7,3 9,5 4,8 3,6 -8,4 14,7 -4,5 3,9 15,-4 14,3 9,-5 9,2 10,-3 6,-7 -10,-3 12,-9 -4,-3 5,-5 1,8 9,-5 0,5 10,-6 6,3 2,3 13,-4 10,-8 5,-3 2,-1 13,-1 13,-5 3,-2 0,-1 1,-1 13,-2 1,1 12,-5 8,-7 10,-1 10,2 7,-3 1,-1 20,-8 22,-9 5,2 4,1 8,-3 15,0 9,-6 2,1 10,2 10,0 0,1 -1,6 14,-7 9,-4 24,-12 6,-2 15,-6 0,-1 8,-3 11,-4 -8,-12 0,-1 10,-9 -3,-6 4,-9 2,0 2,-12 0,-6 3,-3 5,-6 4,-4 0,-1 -7,-5 17,-3 5,-10 0,-5 6,-2 2,-8 2,-21 3,0 0,-6 -4,-1 -2,-4 4,-6 4,-5 2,-5 9,0 25,0 1,0 11,-27 3,0 8,-5 2,-12 0,-10 20,-16 0,-9 4,-17 -1,-3 -2,-10 -10,-6 0,-12 -8,-5 -10,-4 1,-5 8,0 12,4 11,-2 -2,-13 -11,-6 2,-10 1,-7 -16,-2 4,-3 -2,-10 11,-14 28,-6 -13,-12 10,-3 14,5 13,-12 16,3 15,6 1,-9 -1,-16 -2,0 -10,-11 -7,-1 -7,-12 -4,-4 -8,-9 5,-8 -3,-13 9,-26 6,0 2,1 1,-1 12,1 -3,-20 0,-2 3,-11 12,1 5,-13 9,-10 10,-7 6,-17 -5,-11 -9,0 -13,-9 -11,-11 -18,1 -3,-5 -7,4 -12,-7 -6,-6 -7,4 -5,-6 -32,12 -19,-3 -1,-10 -2,-14 0,-1 -10,-8 -30,-27 -4,-4 -1,0 -14,8 -10,-1 -12,-8 -10,3 -1,-1 -20,-10 -4,-3 -10,-4 -25,-18 -7,-5 -24,-6 -13,2 -18,12 -4,3 -18,-10 -17,-7 0,-9 6,-17 4,-5 -19,-7 -8,1 -25,-3 -11,3 -15,6 -18,13 -9,3 -5,10 -16,8 -6,7 -11,-1 -10,9 -31,18 -12,11 -23,3 -11,11 11,-29 -7,-10 0,1 -14,7 -14,-5 0,-9 -18,-11 -6,12 6,23 -3,1 -10,3 -23,-8 -7,5 -1,14 7,9 2,8 -8,7 -2,12 7,5 7,26 -14,5 -19,1 -17,11 0,1 -1,16 -13,25 4,11 11,6 7,9 2,15 8,11 -5,8 -17,11 -14,18 -2,-2 -1,8 -2,5 7,7 16,1 5,7 -11,22 9,21 -13,10 -2,3 -18,8 0,7 -7,4z","ES":"M3271,2521l-3,0 -11,27 -1,0 -25,0 -9,0 -2,5 -4,5 -4,6 2,4 4,1 0,6 -3,0 -2,21 -2,8 3,1 6,2 4,7 1,7 1,17 7,3 9,3 9,3 19,4 14,-1 18,7 3,-11 12,-19 5,-13 6,-4 13,-6 19,-23 11,-22 6,-8 2,-19 4,-4 10,-20 14,-12 10,-4 12,-35 -3,-20 -3,-39 2,-19 6,-18 -24,-16 -31,-20 -15,-6 -16,-3 -13,12 -14,-5 -10,3 13,12 -28,6 -11,14 2,10 -4,3 16,2 -1,7 -2,10 11,6 2,13 -11,2 -12,-4 -8,0 -1,5 10,4 8,5 0,12 10,6 2,10 1,3 -4,17 0,9 -20,16 0,10 -2,12 -8,5z","RJ":"M2934,2818l-15,7 -3,18 -6,4 16,17 14,-1 4,-7 -11,-10 -7,1 5,-15 15,-2 18,-11 -1,11 18,0 16,-9 13,-2 8,0 24,13 27,-3 13,-11 -11,-10 6,-8 17,-4 1,4 0,1 -7,12 -1,9 10,3 37,-4 26,0 10,0 24,-1 7,-11 0,-9 -2,-13 1,-4 16,-14 13,-12 15,-7 41,-13 13,-8 2,-11 -7,-29 -2,-12 11,-20 -18,-7 -14,1 -19,-4 -9,-3 -9,-3 -7,-3 -1,-17 -1,-7 -4,-7 -6,-2 -3,-1 -6,2 0,5 -5,10 -17,3 7,5 0,1 -4,4 -5,6 -3,3 0,6 -2,12 -2,0 -4,9 3,6 -10,9 0,1 8,12 -11,4 -8,3 0,1 -15,6 -6,2 -24,12 -9,4 -14,7 1,-6 0,-1 -10,0 -10,-2 -2,-1 -9,6 -15,0 -8,3 -4,-1 -5,-2 -22,9 -20,8 -1,1 -7,3 -10,-2 -10,1 -8,7 -12,5 -1,-1 -13,2 -1,1 0,1 12,11 4,8 18,2 11,-1 2,-2 11,1 6,7 -15,18 -17,0 -14,5 -1,1z M2963,2849l21,-5 -9,-8 -14,8 2,5z M3019,2833l-18,-1 2,4 16,-3 12,-1 0,-1 -12,2z","SP":"M2729,2711l6,-7 2,-9 6,-3 4,-8 0,-8 -11,-6 -3,-5 -11,-2 -2,1 -10,4 -13,1 1,-6 -4,-9 -8,-8 0,-4 -3,-11 -3,-9 -5,-9 4,-13 9,-5 -4,-11 0,-1 0,-2 -8,-5 -7,-7 1,-13 5,-6 0,-1 -10,-10 -16,-15 -6,2 -9,6 -12,-6 -9,0 -2,9 -3,5 -8,-9 -10,11 -12,-10 -2,8 -23,0 -9,0 -11,4 -8,-2 -9,1 -7,12 2,12 -2,4 -7,-4 -3,-23 -8,-2 -5,12 -6,4 -8,-5 -1,-3 -4,-11 6,-15 -20,1 -16,-6 -14,0 -16,2 -13,-2 -7,-5 -6,1 -17,-1 -11,-8 -11,2 -5,5 -8,6 -15,5 -5,2 -11,10 0,1 -11,18 -23,8 -8,10 -15,16 -1,0 -5,13 1,19 -15,11 -11,15 2,14 -10,15 -14,8 4,11 -10,9 -16,20 -7,14 -7,8 -20,11 -29,17 -12,8 -4,7 7,0 3,-2 9,-3 14,3 2,1 17,-4 5,5 9,-1 3,0 13,2 11,3 3,-9 1,-4 11,1 13,6 1,1 3,2 14,4 9,-1 11,3 7,-4 12,2 3,0 9,5 3,2 18,5 2,-1 5,2 11,7 2,8 16,-4 6,-1 5,3 17,-1 2,3 14,0 7,-1 8,-3 8,4 0,1 14,11 1,1 1,1 9,6 9,13 -1,7 4,11 -2,6 2,13 3,3 1,11 -5,5 7,9 2,-1 3,10 15,12 -1,8 10,10 0,8 0,3 0,2 -7,11 1,10 10,4 5,-3 3,1 22,-1 10,1 21,-1 6,6 -3,19 -3,8 4,8 15,-10 9,6 8,-5 14,32 19,-15 0,-11 18,-17 31,-20 34,-23 18,-20 19,-11 11,-5 21,-9 3,-3 5,2 13,0 5,-13 29,-10 28,4 5,4 11,-3 -3,-10 2,-9 13,-4 21,-9 16,-16 7,6 12,-2 -16,-17 6,-4 3,-18 15,-7 1,-1 14,-5 17,0 15,-18 -6,-7 -11,-1 -2,2 -11,1 -18,-2 -4,-8 -12,-11 -3,2 -13,5 -13,1 -2,1 -5,3 -10,8 -13,4 -2,-3 -6,-3 -10,6 0,-5 -9,5 -1,-8 -5,5 4,3 -12,9 10,3 -6,7 -10,3 -9,-2 -9,5 -14,-3 -15,4 -3,-9 4,-5 -14,-7 8,-4 -3,-6 -4,-8 -9,-5 -7,-3 -4,-7 -6,-6 4,-9 1,-4 2,0 5,-4 -12,-6 7,-7 3,-1 -7,-16z M2869,2914l6,-9 -11,-5 -10,20 19,-3 -4,-3z","PR":"M2485,2995l-3,-1 -5,3 -10,-4 -1,-10 7,-11 0,-2 0,-3 0,-8 -10,-10 1,-8 -15,-12 -3,-10 -2,1 -7,-9 5,-5 -1,-11 -3,-3 -2,-13 2,-6 -4,-11 1,-7 -9,-13 -9,-6 -1,-1 -1,-1 -14,-11 0,-1 -8,-4 -8,3 -7,1 -14,0 -2,-3 -17,1 -5,-3 -6,1 -16,4 -2,-8 -11,-7 -5,-2 -2,1 -18,-5 -3,-2 -9,-5 -3,0 -12,-2 -7,4 -11,-3 -9,1 -14,-4 -3,-2 -1,-1 -13,-6 -11,-1 -1,4 -3,9 -11,-3 -13,-2 -3,0 -9,1 -5,-5 -17,4 -2,-1 -14,-3 -9,3 -3,2 -7,0 -2,3 -11,8 -9,3 -8,5 -14,8 -8,11 -1,12 -7,16 -5,8 -20,8 -7,19 -2,6 -3,12 0,5 -9,14 -12,7 -6,9 9,22 -4,5 -2,16 -1,7 0,3 -6,9 -7,26 4,11 -5,6 -15,24 3,14 14,8 15,-11 12,2 4,-6 15,7 14,10 1,8 2,14 -2,6 11,7 6,14 2,3 1,4 21,3 9,-3 17,10 1,0 13,2 9,-1 3,0 15,-1 6,1 6,2 8,3 4,-1 8,4 28,3 13,8 21,3 31,0 10,14 2,-6 15,-3 2,-4 -8,-17 3,-3 2,-4 5,-5 12,-7 9,1 9,5 20,-10 0,-1 7,-12 6,-6 20,11 10,-7 8,3 20,-6 6,1 7,2 17,15 9,4 11,-4 6,-2 7,-3 13,-11 26,-4 2,0 27,-1 8,0 5,-13 7,-14 12,-12 5,-10 10,-2 11,-16 -14,-32 -8,5 -9,-6 -15,10 -4,-8 3,-8 3,-19 -6,-6 -21,1 -10,-1 -22,1z","SC":"M2154,3171l-8,-4 -4,1 -8,-3 -6,-2 -6,-1 -15,1 -3,0 -9,1 -13,-2 -1,0 -17,-10 -9,3 -21,-3 -5,18 0,1 -3,10 -1,6 2,15 3,9 0,5 1,5 -6,6 -11,17 2,1 10,0 12,1 5,-1 6,1 13,-8 6,2 -2,8 13,-2 11,-8 6,-2 3,5 2,8 12,-5 5,3 1,1 10,7 15,-4 0,2 11,-4 1,6 2,1 10,3 4,-6 4,7 11,1 6,1 7,3 12,10 2,4 5,-1 9,-3 7,1 5,9 3,-2 9,5 15,11 4,2 22,13 -1,2 6,7 2,-1 10,9 13,21 5,2 9,12 19,4 35,5 10,-4 15,3 9,5 3,11 -8,-2 -6,10 -9,2 -2,16 -1,6 0,12 -6,11 -12,1 0,8 10,9 1,-1 -8,-9 15,-6 6,2 11,7 8,4 6,-9 13,-14 14,-14 9,-8 10,-8 33,-18 11,-11 4,-17 8,-23 1,-17 3,-4 1,-6 6,-6 15,-33 -5,-7 -11,3 -6,-9 -1,-10 2,-1 8,-1 -1,-9 -8,3 0,-8 -4,-10 -1,-5 2,-8 -4,-6 -2,-5 2,-14 1,-3 6,-10 10,-23 -8,-5 -3,-19 -8,0 -27,1 -2,0 -26,4 -13,11 -7,3 -6,2 -11,4 -9,-4 -17,-15 -7,-2 -6,-1 -20,6 -8,-3 -10,7 -20,-11 -6,6 -7,12 0,1 -20,10 -9,-5 -9,-1 -12,7 -5,5 -2,4 -3,3 8,17 -2,4 -15,3 -2,6 -10,-14 -31,0 -21,-3 -13,-8 -28,-3z","RS":"M2003,3722l22,15 5,14 4,14 20,17 26,11 18,-7 3,-10 17,-4 8,-8 -10,-4 10,-18 10,0 -7,17 9,14 -2,18 -10,19 -11,9 -17,-12 -12,-1 -5,21 -9,11 -7,-4 -14,19 5,18 -9,9 -1,16 10,5 5,0 59,-46 16,-18 12,-23 8,-24 13,-29 19,-18 -1,-22 -15,-9 4,-6 7,-9 11,0 3,-10 0,-10 9,-19 11,-2 19,-2 -1,-12 9,-3 10,-3 -6,-11 5,-11 8,0 -1,-23 6,1 5,-17 13,-4 -7,-14 -12,-7 3,-18 3,-1 4,14 17,8 0,13 13,5 2,-11 25,-4 4,-9 8,5 -4,24 -15,-12 4,13 0,21 -6,11 -22,8 2,10 -23,13 2,15 -8,18 -12,7 -7,-4 -23,28 -18,3 -6,7 -20,-3 8,8 -6,22 25,-22 40,-22 24,-20 35,-31 7,-8 44,-61 8,-20 3,-6 5,-14 5,-12 4,-10 2,-2 4,-9 9,-14 1,-2 12,-17 9,-11 -8,-4 -11,-7 -6,-2 -15,6 8,9 -1,1 -10,-9 0,-8 12,-1 6,-11 0,-12 1,-6 2,-16 9,-2 6,-10 8,2 -3,-11 -9,-5 -15,-3 -10,4 -35,-5 -19,-4 -9,-12 -5,-2 -13,-21 -10,-9 -2,1 -6,-7 1,-2 -22,-13 -4,-2 -15,-11 -9,-5 -3,2 -5,-9 -7,-1 -9,3 -5,1 -2,-4 -12,-10 -7,-3 -6,-1 -11,-1 -4,-7 -4,6 -10,-3 -2,-1 -1,-6 -11,4 0,-2 -15,4 -10,-7 -1,-1 -5,-3 -12,5 -2,-8 -3,-5 -6,2 -11,8 -13,2 2,-8 -6,-2 -13,8 -6,-1 -5,1 -12,-1 -10,0 -2,-1 -11,-2 -11,11 -5,4 -8,-4 -3,12 -6,7 -13,-4 -6,7 -12,-2 -4,9 -9,1 -10,-2 -8,16 -10,9 -5,6 -15,1 -8,7 -6,4 -4,6 -6,6 -33,15 10,10 -2,8 -16,-6 -3,12 -14,4 2,6 -19,20 -11,3 -2,11 -11,16 -16,4 -7,18 -12,12 -19,22 -16,13 -11,1 -9,11 0,8 -13,14 -13,7 2,7 18,5 19,-1 8,-18 27,-2 19,11 11,16 9,2 8,12 9,3 10,7 4,11 13,8 1,29 14,-1 20,-12 9,-12 14,17 9,4 10,21 18,8 3,-5 20,16 14,0 11,2 12,11 2,8 36,28 14,2z","MS":"M2058,2326l-9,5 -12,-6 -16,2 -18,-8 9,-22 10,-3 6,-1 2,-41 -14,4 -15,18 -5,1 -6,14 -11,-1 -11,5 -20,-18 -25,4 -11,10 -28,3 -16,-11 -21,-5 -9,-12 -39,-11 -5,-9 -21,5 -19,11 -28,-2 -16,22 -10,5 -1,8 -13,12 -26,5 -7,5 -15,-8 -8,-8 -1,-9 -6,-7 -3,8 7,9 -1,10 15,30 12,10 -11,1 -21,66 6,13 -7,1 -35,72 27,21 -31,20 7,8 3,14 7,5 -1,17 5,9 10,5 -10,5 10,2 -7,8 10,4 -4,10 2,28 -11,24 7,12 -8,16 5,4 -8,21 25,5 14,-4 9,7 20,8 27,-2 21,7 27,-9 7,-11 11,-2 4,10 14,10 37,1 7,9 5,17 11,14 -6,16 7,30 6,9 4,14 -6,10 3,15 9,9 -1,20 5,5 14,2 20,0 38,-16 25,10 14,14 12,-7 9,-14 0,-5 3,-12 2,-6 7,-19 20,-8 5,-8 7,-16 1,-12 8,-11 14,-8 8,-5 9,-3 11,-8 2,-3 4,-7 12,-8 29,-17 20,-11 7,-8 7,-14 16,-20 10,-9 -4,-11 14,-8 10,-15 -2,-14 11,-15 15,-11 -1,-19 5,-13 1,0 15,-16 8,-10 23,-8 11,-18 0,-1 -3,-30 -1,-10 11,-10 -1,-12 -15,-16 -36,-15 -9,-2 -15,-2 -16,-7 -9,-8 -14,-2 -10,-10 -15,-2 -8,-9 -9,-6 -25,1 -12,-4 -5,-4 -4,-6 12,-13 8,-6 -6,-5 -28,0 -4,-23 7,-5 -17,-2 -16,-2z","MT":"M1771,1467l-40,-3 -8,4 -7,-16 -18,-2 -6,-5 2,-8 -16,-18 -22,-6 0,-7 -17,-3 -4,-23 -6,-12 5,-19 -19,-26 -7,-28 -16,-28 -8,-4 -7,10 1,16 -9,15 -9,6 9,26 -2,23 -11,17 3,10 -5,11 11,1 -11,9 -69,0 -129,0 -116,0 11,12 -9,17 3,16 -10,1 1,7 4,13 10,17 -9,9 6,14 -3,14 -4,6 3,25 9,11 -2,35 -7,22 12,0 43,0 54,0 7,10 41,3 0,12 6,10 -1,8 -18,16 1,27 12,6 0,12 8,9 1,13 11,9 -17,26 -8,2 -9,34 -6,1 -9,11 -6,18 -4,6 -2,13 -24,12 -8,12 24,10 2,15 7,5 -10,11 3,21 18,31 3,48 -34,0 34,37 7,80 70,1 68,3 36,1 11,-5 -2,25 -10,7 -4,35 9,10 -1,14 15,18 25,16 12,-7 13,11 6,7 1,9 8,8 15,8 7,-5 26,-5 13,-12 1,-8 10,-5 16,-22 28,2 19,-11 21,-5 5,9 39,11 9,12 21,5 16,11 28,-3 11,-10 25,-4 20,18 11,-5 11,1 6,-14 5,-1 15,-18 14,-4 -2,41 -6,1 -10,3 -9,22 18,8 16,-2 12,6 9,-5 16,2 17,2 -9,-26 -8,-6 0,-11 0,-10 2,-20 11,-19 5,-3 5,-22 8,-2 2,-3 8,-4 11,-13 -1,-5 10,-7 -5,-22 13,-8 8,-9 11,-5 11,-19 24,0 4,-5 9,-2 11,-17 -1,-10 8,-7 5,-31 12,-10 18,-8 -7,0 7,0 1,-1 1,-1 2,1 3,6 18,-11 1,-1 0,-3 13,-36 -4,-12 9,-26 7,-5 -3,-37 6,-3 5,-18 10,-8 5,-12 4,-29 6,-17 -11,-4 -6,-17 6,-19 -2,-24 -4,0 0,-23 4,-11 -8,-15 5,-15 -7,-4 4,-23 9,-24 -2,-14 6,-18 -3,-9 6,-5 7,-21 5,-5 2,-19 10,-12 8,-20 -63,-4 -45,-3 -96,-6 -36,-3 -51,-3 -46,-4 -52,-4 -50,-3 -39,-3 -87,-8 -29,-2 -11,-1z","GO":"M2575,2093l3,-16 13,0 2,0 2,0 54,0 17,9 1,16 -7,13 1,12 6,4 17,-11 19,-1 14,-5 -7,-26 -7,-5 2,-12 8,-7 -2,-8 -7,-9 1,-14 7,-5 23,8 10,-3 3,-1 -6,-23 6,-12 18,11 0,9 14,5 14,-7 1,-20 1,-1 3,-1 -1,-21 9,-9 -15,-13 -12,-7 -5,-11 2,-4 -5,-6 2,-24 8,-11 -9,-2 4,-11 -4,-3 18,-14 -3,-4 -19,6 -4,-7 3,-19 19,-14 -25,7 -6,-17 -3,12 0,3 -19,0 -11,0 -10,10 -54,19 -18,-14 -10,10 5,15 -6,10 -12,-14 -17,-1 -10,-8 -10,6 3,-15 -32,13 -6,-14 -6,17 0,-19 -6,-11 -23,-21 -1,2 -10,14 -14,-17 -12,9 -12,28 -1,11 -54,-29 -28,-9 -12,-10 7,-19 5,-4 -3,-8 8,-8 -17,9 -12,16 -8,21 -6,17 -4,29 -5,12 -10,8 -5,18 -6,3 3,37 -7,5 -9,26 4,12 -13,36 0,3 -1,1 -18,11 -3,-6 -3,0 -1,1 -18,8 -12,10 -5,31 -8,7 1,10 -11,17 -9,2 -4,5 -24,0 -11,19 -11,5 -8,9 -13,8 5,22 -10,7 1,5 -11,13 -8,4 -2,3 -8,2 -5,22 -5,3 -11,19 -2,20 0,10 0,11 8,6 9,26 -7,5 4,23 28,0 6,5 -8,6 -12,13 4,6 5,4 12,4 25,-1 9,6 8,9 15,2 10,10 14,2 9,8 16,7 15,2 9,2 36,15 15,16 11,0 -5,-5 5,-11 9,-10 1,-2 8,-6 11,-3 7,-18 12,-16 8,-8 19,-1 5,-7 24,4 3,-3 4,0 17,-7 6,-1 12,10 8,-7 4,-4 4,-11 16,-1 9,-8 4,-1 13,4 14,-1 31,3 7,-4 4,2 20,9 8,6 9,-5 0,-1 9,-2 9,-6 7,-4 0,-7 18,-8 2,-3 13,-10 -9,-21 11,-22 -5,-7 -16,-1 -7,-7 2,-5 1,-8 2,2 14,-18 17,-11 5,-8 -8,-11 -2,-15 -7,-9 -11,-6 -4,-11 13,-25 1,-16 -37,0 -26,0 -8,0 -6,0 -20,0 0,-22 7,-11 -2,-6z","DF":"M2596,2132l8,0 26,0 37,0 0,-1 -6,-4 -1,-12 7,-13 -1,-16 -17,-9 -54,0 -2,0 -2,0 -13,0 -3,16 2,6 -7,11 0,22 20,0 6,0z"},"labels":{"RO":[1114,1618],"AC":[351,1448],"AM":[933,942],"RR":[1259,319],"PA":[2091,925],"AP":[2201,383],"TO":[2565,1542],"MA":[2869,1035],"PI":[3101,1266],"CE":[3437,1036],"RN":[3731,1111],"PB":[3715,1239],"PE":[3598,1360],"AL":[3736,1479],"SE":[3654,1585],"BA":[3226,1775],"MG":[2931,2373],"ES":[3331,2485],"RJ":[3132,2746],"SP":[2525,2754],"PR":[2236,2991],"SC":[2351,3252],"RS":[2067,3498],"MS":[1913,2560],"MT":[1807,1822],"GO":[2436,2131],"DF":[2618,2105]}};
 </script>
 <script>
+/* =========================================================
+   O QUE FUNCIONA? / WHAT WORKS? — textos e estrutura (PT e EN)
+   Só fatos históricos estáveis (datas de Estado, fronteiras), regras de método
+   tiradas das metodologias das Auditorias 1 (v0.3) e 2 (v0.2) e textos de interface.
+   Nenhum valor estatístico mora aqui: os dados vêm de assets/data/oqf/ (prepare_data.py).
+   ========================================================= */
+EB.oqfAll = {};
+
+
+EB.oqfAll.pt = {
+  nav: "O que funciona?",
+  sub: { "": "Abertura", mapa: "Mapa", perfil: "Países", comparar: "Comparador", metodologia: "Metodologia" },
+  title: "O que funciona?",
+  subtitle: "Socialismo, capitalismo e os resultados de 80 anos de políticas econômicas.",
+  question: "O que 80 anos de história revelam sobre Estado, mercado e prosperidade?",
+  intro: [
+    "Desde 1945, países do mundo inteiro testaram combinações muito diferentes de Estado e mercado: planejamento central, social-democracia, liberalização, estatização, privatização, reformas e contrarreformas. O debate sobre o que deu certo costuma ser travado com slogans.",
+    "Esta seção propõe outro caminho: olhar país por país, ano a ano, quem governou, o que mudou na economia e o que aconteceu com a vida das pessoas — com fontes, versões e limitações à vista."
+  ],
+  punch: "Menos discurso. Mais história. Mais dados.",
+  axes: [
+    { k: "01", q: "Quem governou?", d: "Governos, mandatos e entidades de Estado, com as mudanças de fronteira e de regime.", a: "Auditoria 1", st: "ref" },
+    { k: "02", q: "O que fizeram?", d: "Medidas econômicas classificadas por relevância (A–D) e por direção em dez dimensões, sem rótulo ideológico único.", a: "Auditoria 1", st: "prep" },
+    { k: "03", q: "O que aconteceu?", d: "Saúde, educação, renda, pobreza, mediana e desigualdade — e, depois, os indicadores macroeconômicos.", a: "Auditorias 2 e 3", st: "demo" }
+  ],
+  guard: [
+    ["met", "Nada aqui é ranking de governos. Antes e depois não é causa e efeito."],
+    ["met", "Séries de entidades diferentes (RFA, RDA, Alemanha unificada, URSS, Rússia, Ucrânia) nunca são emendadas."],
+    ["met", "Onde não há dado verificado, a página diz “Dados em preparação”."]
+  ],
+  strip_h: "1945 → 2026",
+  strip: [
+    [1945, "Fim da Segunda Guerra Mundial; Alemanha ocupada em quatro zonas."],
+    [1949, "Criação da RFA (maio) e da RDA (outubro)."],
+    [1961, "Construção do Muro de Berlim."],
+    [1964, "Brasil: início do regime militar, que dura até 1985."],
+    [1988, "Brasil: Constituição Federal de 1988."],
+    [1989, "Abertura do Muro de Berlim."],
+    [1990, "Reunificação alemã (3 de outubro)."],
+    [1991, "Independência da Ucrânia e dissolução da URSS."],
+    [1994, "Brasil: o real entra em circulação."],
+    [2014, "Rússia anexa a Crimeia; a Assembleia Geral da ONU não reconhece."],
+    [2022, "Invasão russa em larga escala da Ucrânia."],
+    [2026, "Hoje: em 2026 só há projeções, nenhum dado observado."]
+  ],
+  strip_note: "Datas de referência histórica. Os documentos primários serão vinculados quando a base de entidades da Auditoria 1 for incorporada ao site.",
+  cards_h: "Explore",
+  cards: [
+    ["mapa", "Mapa-múndi", "Escolha o ano e a camada (Política, Prosperidade, Economia). Cada país mostra que dado existe — e o que ainda não existe."],
+    ["governantes", "Governantes", "Quem governou Brasil, Alemanha, Rússia e Ucrânia desde 1945, por regime e partido."],
+    ["perfil", "Países-piloto", "Brasil, Alemanha, Rússia e Ucrânia: entidades, fronteiras, linha do tempo, medidas e indicadores."],
+    ["comparar", "Comparador histórico", "Países, períodos e antes/depois de uma reforma, em gráfico e tabela, com unidade, fonte e limites."],
+    ["metodologia", "Metodologia", "As três auditorias, confiabilidade A–D, comparabilidade C1–C4 e regras de publicação."]
+  ],
+  status_h: "Situação das auditorias",
+
+  /* estados de dado (mapa, perfis, comparador) */
+  states: {
+    ok: ["Disponível", "Publicável sem ressalva especial (Auditoria 2, §12)."],
+    res: ["Com ressalvas", "Publicável com ressalva: comparabilidade C2/C4, reconstrução documentada ou território atual reconstruído."],
+    exp: ["Exploratório", "Confiabilidade C, comparabilidade C3 ou valor sinalizado: não serve para conclusão."],
+    proj: ["Projeção", "Projeção (WPP 2024). Não é resultado observado e não conta como cobertura."],
+    prelim: ["Preliminar", "Dado preliminar de fonte oficial. Nenhuma série preliminar foi identificada no piloto."],
+    np: ["Não publicável", "Existe pesquisa, mas o critério de publicação ainda não foi atingido."],
+    ref: ["Referência pública", "Lista pública conferida; a conferir com a Auditoria 1."],
+    demo: ["Dados demonstrativos", "Séries sintéticas para testar a interface. Não são observações."],
+    prep: ["Dados em preparação", "País fora do piloto ou sem dado revisado."],
+    pend: ["Pesquisa pendente", "Auditoria 3 (Economia) ainda não começou."],
+    gap: ["Sem dado no ano", "Nenhuma fonte com dado para este ano dentro da vigência da entidade."]
+  },
+  types: { o: "medido", e: "estimado", p: "projeção", r: "reconstrução histórica", d: "calculado a partir da fonte" },
+  cats: { P: "Publicável", R: "Com ressalva", X: "Exploratório", N: "Não publicável" },
+  layers: { pol: "Política", pros: "Prosperidade", eco: "Economia" },
+  layer_note: {
+    pol: "Classificação de governos (Auditoria 1). Nenhum perfil atingiu o critério de publicação: cobertura das reformas de nível A com mediana de 6% (faixa 0–45%), contra o gatilho de 80%.",
+    pros: "Indicadores de prosperidade (Auditoria 2). Só o piloto (Brasil, Alemanha, Rússia, Ucrânia) tem camada de publicação; a expansão mundial existe sem revisão manual e não é carregada aqui.",
+    eco: "Indicadores macroeconômicos (Auditoria 3). Pesquisa pendente: a interface está pronta, sem valores."
+  },
+  demo_banner: "Dados demonstrativos",
+  demo_text: "Os números e gráficos desta seção são séries sintéticas, geradas só para testar a interface. Não são observações históricas e não devem ser citados. Os valores reais virão dos arquivos da Auditoria 2 (v0.2).",
+  real_banner: "Dados da Auditoria 2",
+
+  map_h: "Mapa-múndi",
+  map_dek: "Escolha o ano e a camada. As cores mostram **que tipo de dado existe**, não resultados: nenhum país é pintado por desempenho.",
+  year: "Ano", layer: "Camada", play: "Reproduzir", pause: "Pausar",
+  map_aria: "Mapa-múndi: escolha um país",
+  borders_note: "Fronteiras atuais (Natural Earth 1:110m, domínio público), usadas só como referência visual. A entidade que existia em cada ano aparece no painel. O site adota as fronteiras reconhecidas internacionalmente: a Crimeia é território da Ucrânia, ocupado pela Rússia desde 2014 (AGNU, Res. 68/262).",
+  crimea: "Crimeia — Ucrânia, ocupada pela Rússia desde 2014",
+  pick_hint: "Clique ou toque num país. Os países-piloto abrem o perfil completo.",
+  panel_empty: "Nenhum país selecionado.",
+  in_year: "Em {y}",
+  entity_then: "Entidade no ano",
+  open_profile: "Abrir perfil",
+  add_cmp: "+ Comparador", in_cmp: "✓ No comparador",
+  not_pilot: "Este país ainda não faz parte do piloto. Dados em preparação.",
+  y2026: "2026: só existem projeções (WPP 2024). Observado: nenhuma série. Preliminar: nenhuma série identificada.",
+  legend_h: "Legenda",
+  sel_h: "Seleção para o comparador",
+  sel_go: "Comparar seleção →",
+
+  prof_h: "Países-piloto",
+  prof_dek: "O Lote 0 das auditorias cobre quatro países escolhidos por atravessarem regimes econômicos muito diferentes desde 1945.",
+  prof_sections: { hist: "História e fronteiras", ent: "Entidades de Estado", gov: "Linha do tempo de governos", pol: "Classificação política", ref: "Medidas e reformas", pros: "Prosperidade", eco: "Indicadores macroeconômicos", src: "Fontes e versões" },
+  gov_pending: "Os mandatos vêm do arquivo governo_ano da Auditoria 1 (Lote 0 v0.3), que ainda não foi incorporado ao site. Nenhum governante é listado antes disso.",
+  gov_rule: "Quando entrar: cada ano é ligado aos governos pelos dias no cargo; quem cruzar com indicadores escolhe e declara a convenção (governo em 31/12 ou governo com mais dias). Nenhum ano é atribuído a um governante por padrão.",
+  pol_pending: "Não publicável. A Auditoria 1 descreve cada governo pelo que mudou em cada dimensão (A–J), sem rótulo ideológico único. Hoje nenhum perfil é utilizável: a cobertura das medidas de nível A fica entre 0% e 45% (mediana 6%), e o gatilho é 80% de cobertura com direção lida no texto em 80% dos efeitos.",
+  dims: [["A", "Tributação"], ["B", "Gasto e orçamento"], ["C", "Propriedade estatal"], ["D", "Mercado e concorrência"], ["E", "Comércio e capitais"], ["F", "Moeda e sistema financeiro"], ["G", "Trabalho e previdência"], ["H", "Propriedade privada e terra"], ["I", "Planejamento"], ["J", "Serviços e políticas sociais"]],
+  dim_cell: "sem dado publicável",
+  ref_note: "Exemplo da metodologia da Auditoria 1 para ilustrar o nível A (reforma estrutural). Não é avaliação nem perfil de governo.",
+  ref_more: "A lista de medidas por governo depende da revisão humana dos atos marcados como A pela triagem automática (precisão de 32% nessa classe).",
+  pros_note: "Pilares separados, nunca somados num índice. Cada gráfico mostra uma entidade por linha; entidades diferentes não se emendam.",
+  eco_pending: "Auditoria 3 pendente. Os indicadores macroeconômicos (incluindo inflação e juros, que a Auditoria 2 deixou de fora) aparecerão aqui.",
+  no_data: "Dados em preparação",
+  last_obs: "Último dado",
+  open_cmp: "Abrir no comparador →",
+  srcs_demo: "Modo demonstrativo: nenhuma fonte de dados está ligada. Fontes previstas para cada indicador (Auditoria 2, §4):",
+
+  cmp_h: "Comparador histórico",
+  cmp_dek: "Compare países, períodos e o antes e depois de uma data. O gráfico mostra **associação no tempo**, não causa: nenhum resultado é atribuído a um governante.",
+  modes: { paises: "Países", reforma: "Antes e depois", governos: "Governos sucessivos" },
+  c_countries: "Países", c_ind: "Indicador", c_from: "De", c_to: "Até", c_mark: "Marcador (ano)",
+  c_mark_hint: "Escolha um ano ou um exemplo de reforma de nível A citado na metodologia.",
+  c_presets: "Exemplos",
+  c_table: "Tabela",
+  c_unit: "Unidade", c_src: "Fonte", c_lim: "Limitações",
+  c_lims: [
+    "Linhas de entidades diferentes não se ligam: RFA, RDA e Alemanha unificada; URSS e Rússia; RSS da Ucrânia e Ucrânia.",
+    "Valores do território atual antes da condição de Estado (ex.: Ucrânia antes de 1992) são reconstrução, com nota rebaixada e comparabilidade C3.",
+    "Projeções (2024–2026) aparecem vazadas e não contam como resultado.",
+    "Não compare séries de fontes, vintages ou bases de PPC diferentes."
+  ],
+  c_causal: "Antes e depois não é causa e efeito. Outras mudanças (preços internacionais, guerras, demografia, crises) acontecem ao mesmo tempo, e reformas têm efeitos defasados.",
+  c_gov_pending: "Governos sucessivos depende da Auditoria 1 (governo_ano e ponte 09_ponte_auditoria1). Em preparação. Quando entrar, o gráfico mostrará faixas de mandato sem atribuir resultados, e mandatos com menos de 1 ano não entram em comparação.",
+  c_empty: "Nenhuma série com dado para esta escolha.",
+  c_marker: "Marcador escolhido pelo leitor",
+  c_year: "Ano",
+  presets: [
+    ["BRA", 1991, "Lei 8.213/1991 — planos de benefícios da previdência"],
+    ["DEU", 1994, "Pflege-Versicherungsgesetz (seguro de cuidados de longa duração), 1994"],
+    ["RUS", 1990, "Lei das empresas e da atividade empresarial (RSFS da Rússia, 1990)"],
+    ["UKR", 2010, "Lei dos princípios do mercado de gás (Ucrânia, 2010)"]
+  ],
+
+  meth_h: "Metodologia",
+  meth_dek: "Três auditorias independentes, com regras publicadas antes dos resultados. Esta página resume o que já está decidido e o que falta.",
+  audits: [
+    { k: "Auditoria 1", h: "Governos e medidas econômicas", v: "Metodologia v0.3 · 19/10/2026 · corte 11/10/2026", st: "np", stl: "Em andamento · perfis não publicáveis",
+      pts: ["Lote 0: Brasil, Alemanha, URSS/Rússia e Ucrânia.", "94.572 atos triados automaticamente em quatro níveis de relevância (A reforma estrutural, B setorial relevante, C alcance limitado, D sem conexão econômica).", "Relevância não é direção: o nível sai do alcance da mudança, nunca de ela ampliar ou reduzir o Estado.", "Direção por efeito, em dez dimensões (A–J); efeitos opostos de uma lei ficam separados e não se compensam.", "No teste reservado, a triagem recupera 54% dos atos A; entre os que ela prevê como A, só 32% são A. Por isso ela prioriza a revisão humana e não classifica sozinha.", "Quantidade de leis nunca mede tamanho do Estado nem qualidade de governo.", "Pendências: dupla codificação (≥200 atos, kappa), revisão de todos os A, leitura do texto para a direção, revisão por especialista de cada país."] },
+    { k: "Auditoria 2", h: "Prosperidade das populações, 1945–2026", v: "Metodologia v0.2 · 20/10/2026 · corte 11/10/2026", st: "res", stl: "Base coletada · camada de publicação no piloto",
+      pts: ["210 entidades (193 membros da ONU, 2 observadores, Taiwan, Kosovo e 13 entidades históricas); núcleo de 195 para a cobertura.", "19 fontes baixadas (F01–F19), cada uma com URL, data, tamanho e SHA-256 no manifesto.", "Seis pilares separados, nunca somados: saúde, educação, renda per capita, pobreza, mediana real e desigualdade.", "Nada interpolado, extrapolado ou emendado. O IDH oficial e o AHDI não foram unidos.", "17 das 19 fontes têm versão comprovadamente anterior ao corte; WID (posterior) e OCDE (sem data) ficam fora da série publicável.", "Quase nenhuma série chega a 2026: o último dado não projetado é de 2023 a 2025."] },
+    { k: "Auditoria 3", h: "Economia", v: "—", st: "pend", stl: "Pesquisa pendente",
+      pts: ["Indicadores macroeconômicos, incluindo inflação e juros (fora da Auditoria 2).", "A interface do mapa, dos perfis e do comparador já tem a camada Economia, sem valores."] }
+  ],
+  rel_h: "Confiabilidade (A–D)",
+  rel: [["A", "Alta: medição direta oficial e harmonizada (registro civil, microdados completos)."], ["B", "Boa: estimativas oficiais harmonizadas ou pesquisas de padrão internacional, com incerteza conhecida."], ["C", "Limitada: muita imputação, reconstruções históricas ou compilações heterogêneas."], ["D", "Inadequada para comparação: imputação sem base primária, projeção ou registro de baixa qualidade."]],
+  cmp2_h: "Comparabilidade (C1–C4)",
+  cmpb: [["C1", "Comparável entre países e no tempo dentro da série."], ["C2", "Comparável no tempo para o mesmo país; entre países, com cautela."], ["C3", "Comparabilidade limitada (reconstruções, valores anteriores à condição de Estado)."], ["C4", "Não comparável (linhas nacionais de pobreza, estimativas nacionais de mortalidade materna)."]],
+  elig_h: "Regras de publicação (Auditoria 2, §12)",
+  elig: [["Não publicável", "Projeção; índice com dimensão política (AHDI); versão ou território não comprovados; confiabilidade D."], ["Exploratório", "Valor sinalizado até revisão; confiabilidade C; comparabilidade C3; reconstrução sem nota A/B."], ["Com ressalva", "Reconstrução documentada com nota A/B; A/B com C2 ou C4; território atual reconstruído."], ["Publicável", "A/B, C1, Estado da época, versão verificada."]],
+  types_h: "Tipos de observação",
+  types_d: [["medido", "Estatística oficial ou pesquisa publicada."], ["estimado", "Modelado pela instituição a partir de dados primários."], ["projeção", "Projeção. No mapa de 2026, é o único tipo disponível."], ["reconstrução histórica", "Reconstrução acadêmica, ou território atual antes da condição de Estado."], ["calculado a partir da fonte", "Conta simples sobre valores da mesma fonte."]],
+  terr_h: "Fronteiras e entidades",
+  terr: ["Nenhum valor é transferido entre entidades.", "Estados históricos recebem só os próprios valores, dentro da vigência.", "Rússia e Ucrânia contam como Estados a partir de 1992 (primeiro ano civil completo); antes disso, valores do território atual são reconstrução.", "Alemanha de 1949 a 1990: RFA e RDA juntas, nunca com atribuição única. Fontes que não declaram o território ficam marcadas “a verificar”.", "Mapa com fronteiras atuais e reconhecidas internacionalmente; a entidade de cada ano aparece no texto."],
+  proto_h: "Como este protótipo usa os dados",
+  proto: ["O site lê apenas o manifesto e as séries de cada país-piloto, sob demanda (alguns KB por país). A base mundial não é carregada no navegador.", "O adaptador _src/oqf/prepare_data.py converte o arquivo 08_publicacao_piloto.csv da Auditoria 2 (e, opcionalmente, o governo_ano da Auditoria 1).", "Sem esses arquivos, ele gera dados demonstrativos sintéticos — e o site mostra a faixa “Dados demonstrativos” em todas as telas. Os dois modos nunca convivem."],
+  files_h: "Arquivos esperados",
+  files: [["Auditoria 2 v0.2", "dados/08_publicacao_piloto.csv · dados/09_ponte_auditoria1.csv"], ["Auditoria 1 Lote 0 v0.3", "governo_ano · crosswalk_entidades · relatorios/v03_perfis_governo.csv"], ["Auditoria 3", "a definir"]],
+  file_state: { demo: "Modo atual: demonstrativo (nenhum arquivo de auditoria carregado).", real: "Modo atual: dados da Auditoria 2." },
+
+  /* Países-piloto: fatos históricos estáveis. Datas ISO. */
+  countries: {
+    BRA: {
+      name: "Brasil", entities: [["BRA", "República Federativa do Brasil", 1945, 2026, "Estado durante todo o período."]],
+      borders: "Fronteiras externas sem mudança no período. Mudanças internas: capital transferida para Brasília (1960); Acre vira estado (1962); estado da Guanabara (1960–1975); Mato Grosso do Sul (criado em 1977); Rondônia vira estado (1981); Tocantins é criado e Roraima e Amapá viram estados (1988).",
+      events: [["1945-10-29", "Fim do Estado Novo."], ["1946-09-18", "Constituição de 1946."], ["1960-04-21", "Capital transferida para Brasília."], ["1964-04-01", "Início do regime militar (até 1985)."], ["1985-03-15", "Posse de governo civil; fim do regime militar."], ["1988-10-05", "Constituição Federal de 1988."], ["1994-07-01", "O real entra em circulação (Plano Real)."]]
+    },
+    DEU: {
+      name: "Alemanha", entities: [["DEU-OCUP", "Alemanha ocupada (quatro zonas aliadas)", 1945, 1949, "Sem Estado alemão soberano; na Auditoria 2 tem 0 linhas: os valores de 1945–49 ficam em DEU, como anteriores à condição de Estado."], ["FRG", "República Federal da Alemanha (RFA)", 1949, 1990, "De 23/5/1949 a 3/10/1990."], ["GDR", "República Democrática Alemã (RDA)", 1949, 1990, "De 7/10/1949 a 3/10/1990."], ["DEU", "Alemanha unificada", 1990, 2026, "Desde 3/10/1990."]],
+      borders: "Os territórios a leste da linha Oder–Neisse passaram à Polônia e à URSS em 1945; a fronteira foi confirmada pelo Tratado Dois Mais Quatro (1990). O Sarre foi incorporado à RFA em 1957. Berlim teve estatuto especial até 1990.",
+      events: [["1945-05-08", "Rendição incondicional; ocupação aliada."], ["1949-05-23", "Lei Fundamental: criação da RFA."], ["1949-10-07", "Criação da RDA."], ["1955-05-05", "RFA recupera a soberania (Tratados de Paris)."], ["1957-01-01", "Sarre incorporado à RFA."], ["1961-08-13", "Construção do Muro de Berlim."], ["1989-11-09", "Abertura do Muro de Berlim."], ["1990-07-01", "União monetária, econômica e social RFA–RDA."], ["1990-10-03", "Reunificação: a RDA adere à RFA."]]
+    },
+    RUS: {
+      name: "Rússia", entities: [["SUN", "União Soviética (URSS)", 1945, 1991, "Estado até 26/12/1991. A RSFS da Rússia (SUN-RSFSR) era uma das repúblicas."], ["RUS", "Federação Russa", 1992, 2026, "Estado nas séries a partir de 1992 (primeiro ano civil completo)."]],
+      borders: "A Crimeia passou da RSFS da Rússia para a RSS da Ucrânia em 1954. Desde 2014 a Rússia ocupa a Crimeia e, desde 2022, partes de quatro regiões ucranianas; as anexações declaradas não são reconhecidas pela Assembleia Geral da ONU (Res. 68/262 e ES-11/4). O site usa as fronteiras reconhecidas.",
+      events: [["1954-02-19", "Crimeia transferida para a RSS da Ucrânia."], ["1991-12-08", "Acordos de Belaveja."], ["1991-12-26", "Dissolução da URSS."], ["1993-12-12", "Constituição aprovada em referendo."], ["2014-03-18", "Anexação da Crimeia, não reconhecida (AGNU 68/262)."], ["2022-02-24", "Invasão em larga escala da Ucrânia."], ["2022-09-30", "Anexação declarada de quatro regiões ucranianas, não reconhecida (AGNU ES-11/4)."]]
+    },
+    UKR: {
+      name: "Ucrânia", entities: [["UKR-SSR", "RSS da Ucrânia (república da URSS)", 1945, 1991, "Membro fundador da ONU, mas não Estado independente. Valores do território nesse período são reconstrução, sob o código UKR."], ["UKR", "Ucrânia", 1992, 2026, "Independência declarada em 24/8/1991; Estado nas séries a partir de 1992."]],
+      borders: "Recebeu a Crimeia em 1954. Fronteiras reconhecidas internacionalmente incluem a Crimeia e as regiões de Donetsk, Luhansk, Zaporíjia e Kherson, ocupadas total ou parcialmente pela Rússia.",
+      events: [["1945-10-24", "RSS da Ucrânia entre os membros fundadores da ONU."], ["1954-02-19", "Recebe a Crimeia."], ["1991-08-24", "Declaração de independência."], ["1991-12-01", "Referendo confirma a independência."], ["1996-06-28", "Constituição."], ["2014-03-18", "Crimeia anexada pela Rússia, não reconhecida; guerra no Donbas."], ["2022-02-24", "Invasão russa em larga escala."]]
+    }
+  },
+  ent_names: { BRA: "Brasil", DEU: "Alemanha unificada", "DEU-OCUP": "Alemanha ocupada", FRG: "RFA", GDR: "RDA", SUN: "URSS", RUS: "Rússia", UKR: "Ucrânia", "UKR-SSR": "RSS da Ucrânia" },
+  sub2: { governantes: "Governantes" },
+  kpis: [["4", "Países-piloto", "de 195 no núcleo da Auditoria 2"], ["10", "Entidades de Estado", "inclui RFA, RDA, URSS e RSS da Ucrânia"], ["19", "Fontes baixadas", "Auditoria 2 · F01–F19"]],
+  kpi_year: "Ano no mapa",
+  tt_click: "Clique para fixar",
+  panel_none_h: "Escolha um país",
+  panel_none: "Passe o mouse sobre o mapa ou escolha um país-piloto:",
+  close: "Fechar",
+  gov_in: "Governo em {y}",
+  ent_in: "Entidade em {y}",
+  ind_lbl: "Indicador",
+  tbl_h: "Países no mapa",
+  tbl_cols: ["País", "Entidade em {y}", "Governo em {y}", "Política", "Prosperidade", "Economia"],
+  tbl_rest: "Outros 191 países do núcleo",
+  gov_h: "Governantes",
+  gov_dek: "Quem governou cada país-piloto desde 1945, por regime e por partido. Linha do tempo de referência: não avalia governos e não atribui resultados.",
+  gov_conv: "Convenção: liderança efetiva. Presidente nos sistemas presidencialistas e semipresidencialistas; chanceler na RFA e na Alemanha unificada; dirigente do partido único na URSS e na RDA.",
+  gov_status: "Lista de referência pública, conferida em 20/10/2026. Será substituída pelos dados da Auditoria 1 (governo_ano) quando o arquivo chegar.",
+  gov_colors: "As cores identificam o partido ou o tipo de governo. Não indicam posição ideológica.",
+  gov_ev: { rup: "Ruptura institucional", chg: "Mudança de regime ou de Estado", imp: "Afastamento ou destituição" },
+  gov_int: "Interino ou mandato curto",
+  gov_list: "Lista completa",
+  gov_cols: ["Governante", "Início", "Fim", "Partido / tipo", "Nota"],
+  gov_now: "no cargo",
+  gov_src: "Fonte",
+  gov_sun_note: "Antes de 1991, o território fazia parte da URSS: a faixa mostra a liderança soviética.",
+  modes2: { dispersao: "Dispersão animada" },
+  c_x: "Eixo horizontal", c_y: "Eixo vertical",
+  c_scatter_note: "Cada círculo é uma entidade num ano; o rastro mostra os anos anteriores. Pontos próximos indicam associação, não causa.",
+  c_gov_note: "As faixas mostram quem governava. O gráfico não atribui resultado a nenhum governante. Mandatos com menos de 1 ano aparecem hachurados e não entram em comparação.",
+  c_missing: "Sem dado nos dois eixos em {y}:",
+  pre_state: "território atual, antes da condição de Estado"
+};
+</script>
+<script>
 /* Configuração de idioma e endereços públicos (PT: alemdaurna.com · EN: brazilbeyondtheballot.com).
    Os mesmos endereços aparecem no <head> (canonical, hreflang, og:url) das duas páginas. */
 EB.lang = "pt";
@@ -3613,6 +4225,750 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     return '<a class="apu-hb" href="' + TX.hb_href + '"><span class="apu-hb-k"><i></i>' + esc(TX.hb_k) + '</span><span class="apu-hb-t"><b>' + esc(TX.hb_t) + "</b><small>" + esc(TX.hb_d) + '</small></span><span class="apu-hb-cta">' + esc(TX.hb_cta) + " →</span></a>";
   }
   window.APURACAO = { render: render, stop: stop, label: TX.title, homeBanner: homeBanner, _parse: parse };
+})();
+</script>
+<!-- Seção "O que funciona?" (dados carregados sob demanda de /assets/data/oqf) -->
+<script>
+/* =========================================================
+   O QUE FUNCIONA? / WHAT WORKS? — interface da seção
+   Rotas: #/o-que-funciona[/mapa|/governantes|/perfil/<ISO>|/comparar|/metodologia]
+          #/what-works[/map|/leaders|/profile/<ISO>|/compare|/methodology]
+   Dados: carregados sob demanda de assets/data/oqf/ (manifesto, uma série por entidade,
+   mapa e lista de governantes). O modo (demonstrativo ou real) vem do manifesto e nunca é misturado.
+   ========================================================= */
+(function () {
+  "use strict";
+  var EB = window.EB, LANG = EB.lang || "pt", ASSET = EB.assetBase || "";
+  var T = EB.oqfAll[LANG];
+  var BASE = LANG === "en" ? "what-works" : "o-que-funciona";
+  var SUBS = { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", metodologia: "methodology" };
+  var DATA = ASSET + "assets/data/oqf/";
+  var PILOTS = ["BRA", "DEU", "RUS", "UKR"];
+  /* Entidades que aparecem para cada país-piloto (nunca emendadas entre si). */
+  var ENTS = { BRA: ["BRA"], DEU: ["DEU", "FRG", "GDR"], RUS: ["RUS", "SUN"], UKR: ["UKR"] };
+  var COLOR = { BRA: "#c6f24e", DEU: "#2fb3c6", RUS: "#f0a33a", UKR: "#b48cff" };
+  var DASH = { FRG: "7 4", GDR: "2 3", SUN: "7 4" };
+  var Y0 = 1945, Y1 = 2026, TODAY = "2026-10-20";
+  var SUBLBL = function (k) { return T.sub[k] || (T.sub2 && T.sub2[k]) || ""; };
+
+  function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function md(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>"); }
+  function tf(s, o) { return String(s).replace(/\{(\w+)\}/g, function (m, k) { return o[k] != null ? o[k] : m; }); }
+  function fmt(v) { return v == null ? "—" : (LANG === "en" ? v.toLocaleString("en-US", { maximumFractionDigits: 1 }) : v.toLocaleString("pt-BR", { maximumFractionDigits: 1 })); }
+  function dateTxt(iso) { if (!iso) return T.gov_now; var p = iso.split("-"); return LANG === "en" ? +p[1] + "/" + +p[2] + "/" + p[0] : +p[2] + "/" + +p[1] + "/" + p[0]; }
+  function clampY(y, d) { y = parseInt(y, 10); return isNaN(y) ? d : Math.max(Y0, Math.min(Y1, y)); }
+  function link(sub, extra, q) {
+    var s = "#/" + BASE + (sub ? "/" + (LANG === "en" ? SUBS[sub] : sub) : "") + (extra ? "/" + extra : "");
+    return s + (q ? "?" + q : "");
+  }
+  function qs(o) { return Object.keys(o).filter(function (k) { return o[k] !== "" && o[k] != null; }).map(function (k) { return k + "=" + encodeURIComponent(o[k]); }).join("&"); }
+  function setHash(h) { try { history.replaceState(null, "", h); } catch (e) {} }
+  function tagHtml(fam, txt) { return '<span class="tag ' + fam + '">' + esc(txt) + "</span>"; }
+  var TAGTXT = LANG === "en" ? { f: "Fact", m: "Methodology", c: "Context", d: "Data" } : { f: "Fato", m: "Metodologia", c: "Contexto", d: "Dado" };
+  function chip(st) { var s = T.states[st]; return s ? '<span class="oqf-st st-' + st + '" title="' + esc(s[1]) + '">' + esc(s[0]) + "</span>" : ""; }
+  /* data ISO → ano fracionário */
+  function yf(iso) { if (!iso) iso = TODAY; var p = iso.split("-"), y = +p[0], d0 = Date.UTC(y, 0, 1), d = Date.UTC(y, +p[1] - 1, +p[2]); return y + (d - d0) / (Date.UTC(y + 1, 0, 1) - d0); }
+
+  /* ---------------------------------------------------------- bandeiras (atuais) */
+  var FLAGS = {
+    BRA: '<svg viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009c3b"/><path d="M10 1.6 18.2 7 10 12.4 1.8 7z" fill="#ffdf00"/><circle cx="10" cy="7" r="3.3" fill="#002776"/></svg>',
+    DEU: '<svg viewBox="0 0 20 12" aria-hidden="true"><rect width="20" height="4" fill="#000"/><rect y="4" width="20" height="4" fill="#dd0000"/><rect y="8" width="20" height="4" fill="#ffce00"/></svg>',
+    RUS: '<svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="4" fill="#fff"/><rect y="4" width="18" height="4" fill="#0039a6"/><rect y="8" width="18" height="4" fill="#d52b1e"/></svg>',
+    UKR: '<svg viewBox="0 0 18 12" aria-hidden="true"><rect width="18" height="6" fill="#0057b7"/><rect y="6" width="18" height="6" fill="#ffd700"/></svg>'
+  };
+  function flag(iso, cls) { return FLAGS[iso] ? '<span class="oqf-flag ' + (cls || "") + '">' + FLAGS[iso] + "</span>" : ""; }
+
+  /* ---------------------------------------------------------- carregamento sob demanda */
+  var M = null, SER = {}, loading = {}, WORLD = null, L = null;
+  var OQF = window.OQF = {
+    manifest: function (m) { M = m; },
+    register: function (id, obj) { SER[id] = obj; },
+    leaders: function (d) { L = d; }
+  };
+  function load(file, cb) {
+    var st = loading[file];
+    if (st === true) return cb(true);
+    if (st) { st.push(cb); return; }
+    loading[file] = [cb];
+    var s = document.createElement("script");
+    s.src = DATA + file; s.async = true;
+    s.onload = function () { var q = loading[file]; loading[file] = true; q.forEach(function (f) { f(true); }); };
+    s.onerror = function () { var q = loading[file]; delete loading[file]; q.forEach(function (f) { f(false); }); };
+    document.head.appendChild(s);
+  }
+  function loadAll(files, cb) { var n = files.length, ok = true; if (!n) return cb(true); files.forEach(function (f) { load(f, function (r) { ok = ok && r; if (--n === 0) cb(ok); }); }); }
+  function withManifest(cb) { if (M) return cb(true); load("manifest.js", function (ok) { cb(ok && !!M); }); }
+  function withSeries(ents, cb) {
+    withManifest(function (ok) {
+      if (!ok) return cb(false);
+      var files = ents.filter(function (e) { return M.entities[e] && !SER[e]; }).map(function (e) { return M.entities[e].file; });
+      loadAll(files, cb);
+    });
+  }
+  function withWorld(cb) { if (WORLD) return cb(true); load("world.js", function (ok) { WORLD = window.OQF_WORLD || null; cb(ok && !!WORLD); }); }
+  function withLeaders(cb) { if (L) return cb(true); load("leaders.js", function (ok) { cb(ok && !!L); }); }
+  function allPilotEnts() { var a = []; PILOTS.forEach(function (p) { a = a.concat(ENTS[p]); }); return a; }
+  function isDemo() { return !M || M.mode === "demo"; }
+  function ind(id) { if (!M) return null; for (var i = 0; i < M.indicators.length; i++) if (M.indicators[i].id === id) return M.indicators[i]; return null; }
+  function indName(x) { return x ? (LANG === "en" ? x.en : x.pt) : ""; }
+  function indUnit(x) { return isDemo() ? (LANG === "en" ? M.unit_en : M.unit_pt) : x ? (LANG === "en" ? x.unit_en : x.unit_pt) : ""; }
+  function errBox() { return '<div class="oqf-box"><b>' + esc(T.no_data) + "</b></div>"; }
+
+  /* ---------------------------------------------------------- governantes */
+  function lname(l) { return LANG === "en" && l.en_n ? l.en_n : l.n; }
+  function lnote(l) { return LANG === "en" ? l.en : l.pt; }
+  function party(p) { return (L && L.parties[p]) || { c: "#8b8f98", pt: p, en: p }; }
+  function pname(p) { var x = party(p); return LANG === "en" ? x.en : x.pt; }
+  function leadersOf(iso) { if (!L) return []; var a = L.leaders[iso] || []; return (iso === "RUS" || iso === "UKR") ? L.leaders.SUN.concat(a) : a; }
+  function lanesOf(iso) { return (L && L.lanes[iso]) || []; }
+  /* governantes com mandato que toca o ano (sem atribuir o ano a ninguém) */
+  function leadersIn(iso, y) { return leadersOf(iso).filter(function (l) { return yf(l.a) < y + 1 && yf(l.b) > y; }); }
+  function initials(n) { var w = n.replace(/[()]/g, "").split(/\s+/).filter(function (x) { return x.length > 2 || /^[A-ZÁÉÍÓÚ]/.test(x); }); return ((w[0] || "")[0] + (w.length > 1 ? w[w.length - 1][0] : (w[0] || "")[1] || "")).toUpperCase(); }
+  function light(c) { var r = parseInt(c.substr(1, 2), 16), g = parseInt(c.substr(3, 2), 16), b = parseInt(c.substr(5, 2), 16); return (r * 299 + g * 587 + b * 114) / 1000 > 150; }
+  function leaderChip(l, y) {
+    var c = party(l.p).c;
+    return '<span class="oqf-ldr"><i style="background:' + c + ";color:" + (light(c) ? "#15171c" : "#fff") + '">' + esc(initials(lname(l))) + "</i><span><b>" + esc(lname(l)) + "</b><small>" + esc(pname(l.p)) + " · " + (l.a === "1945-01-01" ? "…" : l.a.slice(0, 4)) + "–" + (l.b ? l.b.slice(0, 4) : "") + "</small></span></span>";
+  }
+
+  /* Linha do tempo de governantes (faixas de regime × mandatos, retratos com iniciais) */
+  function govChart(iso, o) {
+    o = o || {};
+    var lanes = lanesOf(iso), ls = leadersOf(iso), ev = (L.events && L.events[iso]) || [];
+    var W = o.w || 1180, ml = 150, mr = 18, laneH = 24, laneG = 8, tierH = 52, tiers = 2;
+    var X = function (t) { return ml + (t - Y0) / (Y1 + 1 - Y0) * (W - ml - mr); };
+    var top = tiers * tierH + 30, lanesH = lanes.length * (laneH + laneG), H = top + lanesH + tiers * tierH + 30;
+    var laneY = {}; lanes.forEach(function (ln, i) { laneY[ln.id] = top + i * (laneH + laneG); });
+    var g = '<defs><pattern id="oqf-int-' + iso + '" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="rgba(255,255,255,.65)" stroke-width="2"/></pattern></defs>';
+    /* grade de anos */
+    for (var yy = 1945; yy <= 2025; yy += 5) {
+      var xx = X(yy);
+      g += '<line class="g-grid' + (yy % 10 ? " minor" : "") + '" x1="' + xx.toFixed(1) + '" x2="' + xx.toFixed(1) + '" y1="' + (top - 6) + '" y2="' + (top + lanesH) + '"/>';
+      if (yy % 10 === 5 || yy === 1945) g += '<text class="g-yr" x="' + xx.toFixed(1) + '" y="' + (top + lanesH + 14) + '">' + (yy === 1945 ? "1945" : "’" + String(yy).slice(2)) + "</text>";
+    }
+    /* faixas */
+    lanes.forEach(function (ln) {
+      var y = laneY[ln.id];
+      g += '<text class="g-lane" x="' + (ml - 10) + '" y="' + (y + laneH / 2 + 4) + '">' + esc(LANG === "en" ? ln.en : ln.pt) + "</text>";
+      g += '<rect class="g-track" x="' + X(Y0).toFixed(1) + '" y="' + y + '" width="' + (X(Y1 + 1) - X(Y0)).toFixed(1) + '" height="' + laneH + '"/>';
+      g += '<rect class="g-span" x="' + X(Math.max(Y0, yf(ln.a))).toFixed(1) + '" y="' + y + '" width="' + (X(Math.min(Y1 + 1, yf(ln.b))) - X(Math.max(Y0, yf(ln.a)))).toFixed(1) + '" height="' + laneH + '"/>';
+    });
+    /* mandatos */
+    var labels = [];
+    ls.forEach(function (l, i) {
+      var y = laneY[l.lane]; if (y == null) return;
+      var a = Math.max(Y0, yf(l.a)), b = Math.min(Y1 + 1, yf(l.b)), x1 = X(a), x2 = Math.max(X(b), x1 + 1.2), c = party(l.p).c;
+      var tt = lname(l) + " · " + pname(l.p) + " · " + dateTxt(l.a) + " – " + dateTxt(l.b) + (lnote(l) ? " · " + lnote(l) : "");
+      g += '<g class="g-term" data-l="' + i + '"><rect x="' + x1.toFixed(1) + '" y="' + y + '" width="' + (x2 - x1).toFixed(1) + '" height="' + laneH + '" fill="' + c + '"/>' +
+        (l.k === "int" || (b - a) < 1 ? '<rect x="' + x1.toFixed(1) + '" y="' + y + '" width="' + (x2 - x1).toFixed(1) + '" height="' + laneH + '" fill="url(#oqf-int-' + iso + ')"/>' : "") +
+        "<title>" + esc(tt) + "</title></g>";
+      if ((b - a) >= (o.minLabel || 1.4)) labels.push({ l: l, cx: (x1 + x2) / 2, y: y, c: c, tt: tt });
+    });
+    /* retratos: alternam acima e abaixo, em dois níveis, sem sobrepor */
+    var slots = [[-1e9, -1e9], [-1e9, -1e9]], need = 112;
+    labels.forEach(function (lb, i) {
+      var pref = i % 2 ? 1 : 0, side = -1, tier = 0;
+      [[pref, 0], [1 - pref, 0], [pref, 1], [1 - pref, 1]].some(function (st) { if (lb.cx - slots[st[0]][st[1]] >= need) { side = st[0]; tier = st[1]; return true; } return false; });
+      if (side < 0) { side = pref; tier = slots[pref][0] < slots[pref][1] ? 0 : 1; }
+      slots[side][tier] = lb.cx;
+      var cy = side === 0 ? top - 34 - tier * tierH : top + lanesH + 34 + tier * tierH + 6;
+      var ly = side === 0 ? lb.y : lb.y + laneH, cyEdge = side === 0 ? cy + 15 : cy - 15;
+      var nm = lname(lb.l), short = nm.length > 18 ? nm.split(" ").slice(-1)[0] : nm;
+      g += '<g class="g-ldr"><path class="g-conn" d="M' + lb.cx.toFixed(1) + " " + ly + "V" + cyEdge + '"/>' +
+        '<circle cx="' + lb.cx.toFixed(1) + '" cy="' + cy + '" r="15" fill="' + lb.c + '"/><text class="g-ini" x="' + lb.cx.toFixed(1) + '" y="' + (cy + 4) + '" fill="' + (light(lb.c) ? "#15171c" : "#fff") + '">' + esc(initials(nm)) + "</text>" +
+        '<text class="g-nm" x="' + lb.cx.toFixed(1) + '" y="' + (side === 0 ? cy - 20 : cy + 27) + '">' + esc(short.toUpperCase()) + '</text><text class="g-yy" x="' + lb.cx.toFixed(1) + '" y="' + (side === 0 ? cy - 31 : cy + 38) + '">' + (lb.l.a === "1945-01-01" ? "…" : lb.l.a.slice(0, 4)) + "–" + (lb.l.b ? lb.l.b.slice(0, 4) : "") + "</text><title>" + esc(lb.tt) + "</title></g>";
+    });
+    /* marcos */
+    ev.forEach(function (e) { var x = X(yf(e.d)); g += '<line class="g-ev g-ev-' + e.k + '" x1="' + x.toFixed(1) + '" x2="' + x.toFixed(1) + '" y1="' + (top - 4) + '" y2="' + (top + lanesH - 4) + '"><title>' + esc(dateTxt(e.d) + " · " + (LANG === "en" ? e.en : e.pt)) + "</title></line>"; });
+    if (o.mark) { var mx = X(o.mark + 0.5); g += '<line class="g-mark" x1="' + mx.toFixed(1) + '" x2="' + mx.toFixed(1) + '" y1="' + (top - 10) + '" y2="' + (top + lanesH) + '"/>'; }
+    return '<div class="oqf-gov-scroll"><svg class="oqf-gov" viewBox="0 0 ' + W + " " + H + '" width="' + W + '" role="img" aria-label="' + esc(T.gov_h + " — " + T.countries[iso].name) + '">' + g + "</svg></div>";
+  }
+  function govLegend(iso) {
+    var used = {}; leadersOf(iso).forEach(function (l) { used[l.p] = 1; });
+    var src = [L.sources[iso]]; if (iso === "DEU") src.push(L.sources.GDR); if (iso === "RUS" || iso === "UKR") src.unshift(L.sources.SUN);
+    return '<div class="oqf-gov-leg"><div class="oqf-gov-parties">' + Object.keys(used).map(function (p) { return '<span><i style="background:' + party(p).c + '"></i>' + esc(pname(p)) + "</span>"; }).join("") +
+      '<span><i class="int"></i>' + esc(T.gov_int) + "</span>" + ["rup", "chg", "imp"].filter(function (k) { return ((L.events[iso] || []).some(function (e) { return e.k === k; })); }).map(function (k) { return '<span><i class="ev ev-' + k + '"></i>' + esc(T.gov_ev[k]) + "</span>"; }).join("") + "</div>" +
+      '<p class="small">' + chip("ref") + " " + esc(T.gov_status) + " " + esc(T.gov_colors) + (iso === "UKR" ? " " + esc(T.gov_sun_note) : "") + "</p>" +
+      '<p class="small oqf-gov-src">' + esc(T.gov_src) + ": " + src.map(function (s) { return '<a href="' + esc(s[1]) + '" target="_blank" rel="noopener noreferrer">' + esc(s[0]) + " ↗</a>"; }).join(" · ") + "</p></div>";
+  }
+  function govTable(iso) {
+    return '<details class="oqf-gov-list"><summary>' + esc(T.gov_list) + " (" + leadersOf(iso).length + ')</summary><div class="oqf-scroll"><table class="oqf-ltable"><thead><tr>' + T.gov_cols.map(function (c) { return "<th>" + esc(c) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      leadersOf(iso).map(function (l) { return "<tr><td>" + leaderChip(l) + "</td><td>" + dateTxt(l.a) + "</td><td>" + dateTxt(l.b) + "</td><td>" + esc(pname(l.p)) + "</td><td>" + esc(lnote(l) || "") + "</td></tr>"; }).join("") + "</tbody></table></div></details>";
+  }
+  /* faixa compacta de mandatos alinhada ao gráfico de linhas */
+  function govBand(iso, a, b, o) {
+    o = o || {};
+    var W = o.w || 760, ml = o.ml != null ? o.ml : 46, mr = 12, rowH = 14, lanes = lanesOf(iso).filter(function (ln) { return yf(ln.a) < b + 1 && yf(ln.b) > a; });
+    var X = function (t) { return ml + (t - a) / Math.max(1, b - a) * (W - ml - mr); };
+    var inl = ml < 100, rowS = rowH + (inl ? 15 : 4), H = lanes.length * rowS + 4, g = "";
+    lanes.forEach(function (ln, i) {
+      var y = (inl ? 13 : 2) + i * rowS;
+      leadersOf(iso).filter(function (l) { return l.lane === ln.id; }).forEach(function (l) {
+        var s = Math.max(a, yf(l.a)), e = Math.min(b + 1, yf(l.b)); if (e <= s) return;
+        var x1 = X(s), x2 = Math.max(X(e), x1 + 1), short = (yf(l.b) - yf(l.a)) < 1;
+        g += '<rect x="' + x1.toFixed(1) + '" y="' + y + '" width="' + (x2 - x1).toFixed(1) + '" height="' + rowH + '" fill="' + party(l.p).c + '"' + (short ? ' class="b-short"' : "") + "><title>" + esc(lname(l) + " · " + pname(l.p) + " · " + dateTxt(l.a) + " – " + dateTxt(l.b)) + "</title></rect>";
+        if (x2 - x1 > 46) g += '<text class="b-t" x="' + (x1 + 4).toFixed(1) + '" y="' + (y + 10.5) + '" fill="' + (light(party(l.p).c) ? "#15171c" : "#fff") + '">' + esc(initials(lname(l))) + "</text>";
+      });
+      g += inl ? '<text class="b-l b-l-in" x="' + ml + '" y="' + (y - 3) + '">' : '<text class="b-l" x="' + (ml - 6) + '" y="' + (y + 10.5) + '">' + esc((LANG === "en" ? ln.en : ln.pt).split(" (")[0]) + "</text>";
+    });
+    if (o.mark) { var mx = X(o.mark + 0.5); g += '<line class="b-mark" x1="' + mx.toFixed(1) + '" x2="' + mx.toFixed(1) + '" y1="0" y2="' + H + '"/>'; }
+    return '<svg class="oqf-band" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(T.gov_h + " — " + T.countries[iso].name) + '">' + g + "</svg>";
+  }
+
+  /* ---------------------------------------------------------- moldura comum */
+  function banner() {
+    if (!M) return "";
+    if (M.mode === "demo") return '<div class="oqf-demo" role="note"><b>' + esc(T.demo_banner) + "</b><p>" + esc(T.demo_text) + "</p></div>";
+    return '<div class="oqf-real" role="note"><b>' + esc(T.real_banner) + "</b><p>" + esc(LANG === "en" ? M.label_en : M.label_pt) + " · " + esc(M.generated) + "</p></div>";
+  }
+  function subnav(active) {
+    var keys = ["", "mapa", "governantes", "perfil", "comparar", "metodologia"];
+    return '<nav class="tabs oqf-subnav" aria-label="' + esc(T.title) + '">' + keys.map(function (k) {
+      return '<a class="tab" href="' + link(k) + '"' + (k === active ? ' aria-current="page" aria-selected="true"' : "") + ">" + esc(SUBLBL(k)) + "</a>";
+    }).join("") + "</nav>";
+  }
+  function hero(o) {
+    var home = LANG === "en" ? "Home" : "Início";
+    return '<section class="page-hero alt"><div class="wrap"><nav class="crumbs" aria-label="' + (LANG === "en" ? "You are here" : "Você está em") + '"><a href="#/">' + home + '</a><span><a href="' + link("") + '">' + esc(T.title) + "</a></span>" +
+      (o.crumb ? "<span>" + (o.crumbLink ? '<a href="' + o.crumbLink + '">' + esc(o.crumb) + "</a>" : esc(o.crumb)) + "</span>" : "") + (o.crumb2 ? "<span>" + esc(o.crumb2) + "</span>" : "") + "</nav>" +
+      '<div class="page-hero-grid"><div>' + (o.kicker ? '<div class="page-kicker">' + esc(o.kicker) + "</div>" : "") + '<h1 class="page-title">' + o.title + "</h1>" +
+      (o.dek ? '<p class="page-dek">' + md(o.dek) + "</p>" : "") + "</div></div>" + subnav(o.active) + "</div></section>";
+  }
+
+  /* ---------------------------------------------------------- mapa (SVG) */
+  function worldSvg(opts) {
+    var W = WORLD, out = "";
+    Object.keys(W.countries).forEach(function (k) {
+      var c = W.countries[k], pilot = PILOTS.indexOf(k) > -1, nm = LANG === "en" ? c.en : c.pt;
+      out += '<path class="oqf-c' + (pilot ? " is-pilot" : "") + '" d="' + c.d + '" data-iso="' + k + '"' +
+        (opts.interactive && pilot ? ' tabindex="0" role="button" aria-label="' + esc(nm) + '"' : "") + ">" + (opts.interactive ? "" : "<title>" + esc(nm) + "</title>") + "</path>";
+    });
+    if (W.crimea) out += '<path class="oqf-crimea" d="' + W.crimea + '" data-iso="UKR"></path>';
+    return '<svg class="oqf-world" viewBox="0 0 ' + W.w + " " + W.h + '" role="' + (opts.interactive ? "group" : "img") + '" aria-label="' + esc(opts.label || T.map_aria) + '"><defs>' +
+      '<pattern id="oqf-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" class="h-bg"/><line x1="0" y1="0" x2="0" y2="5" class="h-ln"/></pattern>' +
+      '<pattern id="oqf-hatch2" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect width="3" height="3" class="h-bg2"/><line x1="0" y1="0" x2="0" y2="3" class="h-ln2"/></pattern>' +
+      '<filter id="oqf-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>' + out + "</svg>";
+  }
+  function stateOf(iso, year, layer) {
+    var pilot = PILOTS.indexOf(iso) > -1;
+    if (layer === "eco") return "pend";
+    if (layer === "pol") return pilot ? "np" : "prep";
+    if (!pilot || !M) return "prep";
+    var best = null, rank = { P: 0, R: 1, X: 2, p: 3 };
+    ENTS[iso].forEach(function (e) {
+      var E = M.entities[e]; if (!E) return;
+      var ch = E.avail.charAt(year - M.y0);
+      if (ch && ch !== "-" && (best === null || rank[ch] < rank[best])) best = ch;
+    });
+    if (best === null) return "gap";
+    if (best === "p") return "proj";
+    if (isDemo()) return "demo";
+    return { P: "ok", R: "res", X: "exp" }[best];
+  }
+  function entitiesAt(iso, year) {
+    var C = T.countries[iso]; if (!C) return [];
+    return C.entities.filter(function (e) { return year >= e[2] && year <= e[3]; });
+  }
+  function cname(iso) { return T.countries[iso] ? T.countries[iso].name : WORLD && WORLD.countries[iso] ? (LANG === "en" ? WORLD.countries[iso].en : WORLD.countries[iso].pt) : iso; }
+
+  /* ---------------------------------------------------------- ABERTURA */
+  function renderLanding(app) {
+    var h = '<section class="hero oqf-hero"><div class="wrap"><div class="hero-meta"><span><b>' + (LANG === "en" ? "New section" : "Nova seção") + "</b></span><span>1945 → 2026</span><span>" + (LANG === "en" ? "Prototype" : "Protótipo") + "</span></div>" +
+      '<div class="oqf-hero-grid"><div><h1>' + esc(T.title).replace(/ /, "<br>") + '</h1><p class="hero-sub">' + esc(T.subtitle) + '</p><div class="hero-cta"><a class="btn btn--solid" href="' + link("mapa") + '">' + esc(T.sub.mapa) + ' <span class="arr">→</span></a><a class="btn btn--ghost" href="' + link("governantes") + '">' + esc(SUBLBL("governantes")) + "</a></div></div>" +
+      '<div class="oqf-hero-map" id="oqf-hero-map" aria-hidden="true"></div></div></div></section>';
+    h += '<div class="oqf-subnav-bar"><div class="wrap">' + subnav("") + "</div></div>";
+    h += '<section class="sec sec--paper"><div class="wrap wrap--narrow oqf-open"><div class="eyebrow">' + esc(T.sub[""]) + '</div><h2 class="oqf-q">' + esc(T.question) + "</h2>" +
+      T.intro.map(function (p) { return '<p class="oqf-lede">' + esc(p) + "</p>"; }).join("") +
+      '<p class="oqf-punch">' + esc(T.punch) + "</p>" +
+      '<ul class="oqf-guard">' + T.guard.map(function (g) { return "<li>" + tagHtml("m", TAGTXT.m) + "<span>" + esc(g[1]) + "</span></li>"; }).join("") + "</ul></div></section>";
+    h += '<section class="sec sec--dark2"><div class="wrap"><div class="oqf-axes">' + T.axes.map(function (a) {
+      return '<div class="oqf-axis"><span class="oqf-axis-k">' + a.k + "</span><h3>" + esc(a.q) + "</h3><p>" + esc(a.d) + '</p><div class="oqf-axis-f"><span class="mono small">' + esc(a.a) + "</span>" + chip(a.st) + "</div></div>";
+    }).join("") + "</div></div></section>";
+    h += '<section class="sec sec--dark"><div class="wrap"><div class="eyebrow">' + esc(T.strip_h) + '</div><div class="oqf-strip" tabindex="0" role="list">' + T.strip.map(function (s) {
+      return '<div class="oqf-strip-i" role="listitem"><b>' + s[0] + "</b><span>" + esc(s[1]) + "</span></div>";
+    }).join("") + '</div><p class="oqf-note">' + tagHtml("c", TAGTXT.c) + " " + esc(T.strip_note) + "</p></div></section>";
+    h += '<section class="sec sec--paper"><div class="wrap"><div class="eyebrow">' + esc(T.cards_h) + '</div><div class="method oqf-cards">' + T.cards.map(function (c, i) {
+      return '<a href="' + link(c[0]) + '"><small class="mono">0' + (i + 1) + "</small><b>" + esc(c[1]) + "</b><span>" + esc(c[2]) + "</span></a>";
+    }).join("") + "</div></div></section>";
+    h += '<section class="sec sec--white sec--tight"><div class="wrap"><div class="eyebrow">' + esc(T.status_h) + '</div><div class="oqf-audit-rows">' + T.audits.map(function (a) {
+      return '<a class="oqf-audit-row" href="' + link("metodologia") + '"><b>' + esc(a.k) + "</b><span>" + esc(a.h) + "</span>" + chip(a.st) + "</a>";
+    }).join("") + '</div><div id="oqf-mode" class="oqf-mode"></div></div></section>';
+    app.innerHTML = h;
+    withWorld(function (ok) {
+      var el = document.getElementById("oqf-hero-map"); if (!el || !ok) return;
+      el.innerHTML = worldSvg({ interactive: false, label: T.title });
+    });
+    withManifest(function (ok) { var el = document.getElementById("oqf-mode"); if (el && ok) el.innerHTML = banner(); });
+  }
+
+  /* ---------------------------------------------------------- MAPA (painel) */
+  var mapState = null, playTimer = null, PANEL_IND = ["life_exp", "gdp_proxy", "gini"];
+  function renderMap(app, q) {
+    var y = clampY(q.y, 1990), layer = { pol: 1, pros: 1, eco: 1 }[q.l] ? q.l : "pros";
+    var sel = (q.c || "").split(",").filter(function (x) { return PILOTS.indexOf(x) > -1; });
+    mapState = { y: y, l: layer, s: q.s || "", sel: sel, i: q.i || "life_exp" };
+    var h = hero({ active: "mapa", crumb: T.sub.mapa, kicker: T.title, title: esc(T.map_h), dek: T.map_dek });
+    var ticks = ""; for (var t = 1950; t <= 2020; t += 10) ticks += '<span style="left:' + ((t - Y0) / (Y1 - Y0) * 100).toFixed(2) + '%">' + t + "</span>";
+    h += '<section class="sec sec--dark2 sec--tight oqf-dash"><div class="wrap"><div id="oqf-banner"></div>' +
+      '<div class="oqf-kpis">' + T.kpis.map(function (k) { return '<div class="oqf-kpi"><b>' + esc(k[0]) + "</b><span>" + esc(k[1]) + "</span><small>" + esc(k[2]) + "</small></div>"; }).join("") +
+      '<div class="oqf-kpi oqf-kpi-y"><b id="oqf-yv">' + y + "</b><span>" + esc(T.kpi_year) + '</span><small id="oqf-ys"></small></div></div>' +
+      '<div class="oqf-board"><div class="oqf-mapcard"><div class="oqf-mapbar"><div class="tabs" role="tablist" aria-label="' + esc(T.layer) + '">' + ["pol", "pros", "eco"].map(function (l) { return '<button class="tab" role="tab" data-oqf-layer="' + l + '" aria-selected="' + (l === layer) + '">' + esc(T.layers[l]) + "</button>"; }).join("") + "</div></div>" +
+      '<p class="oqf-layer-note" id="oqf-ln"></p>' +
+      '<div class="oqf-map" id="oqf-map"><div class="oqf-loading"></div></div><div class="oqf-tt" id="oqf-tt" hidden></div>' +
+      '<div class="oqf-legend" id="oqf-legend"></div>' +
+      '<div class="oqf-player"><button class="oqf-play" id="oqf-play" type="button" aria-pressed="false" aria-label="' + esc(T.play) + '">▶</button><div class="oqf-range"><label class="sr-only" for="oqf-y">' + esc(T.year) + '</label><input type="range" id="oqf-y" min="' + Y0 + '" max="' + Y1 + '" step="1" value="' + y + '"><div class="oqf-ticks" aria-hidden="true">' + ticks + "</div></div></div>" +
+      '<p class="oqf-y26" id="oqf-y26" hidden>' + esc(T.y2026) + "</p></div>" +
+      '<aside class="oqf-panel" id="oqf-panel" aria-live="polite"></aside></div>' +
+      '<div class="oqf-tblcard"><h3>' + esc(T.tbl_h) + '</h3><div class="oqf-scroll"><table class="oqf-ctable" id="oqf-ctable"></table></div></div>' +
+      '<p class="oqf-note">' + tagHtml("m", TAGTXT.m) + " " + esc(T.borders_note) + "</p></div></section>";
+    app.innerHTML = h;
+    withManifest(function () {
+      var b = document.getElementById("oqf-banner"); if (b) b.innerHTML = banner();
+      loadAll(["world.js", "leaders.js"], function () {
+        WORLD = window.OQF_WORLD || null;
+        withSeries(allPilotEnts(), function () {
+          var m = document.getElementById("oqf-map"); if (!m) return;
+          if (!WORLD) { m.innerHTML = errBox(); return; }
+          var names = Object.keys(WORLD.countries).map(function (k) { return [k, LANG === "en" ? WORLD.countries[k].en : WORLD.countries[k].pt]; }).sort(function (a, b) { return a[1].localeCompare(b[1], LANG); });
+          m.innerHTML = worldSvg({ interactive: true }) + '<label class="sr-only" for="oqf-sel">' + esc(T.map_aria) + '</label><select id="oqf-sel" class="oqf-sel"><option value="">' + esc(T.pick_hint) + "</option>" +
+            names.map(function (n) { return '<option value="' + n[0] + '"' + (n[0] === mapState.s ? " selected" : "") + ">" + esc(n[1]) + (PILOTS.indexOf(n[0]) > -1 ? " ★" : "") + "</option>"; }).join("") + "</select>";
+          paintMap();
+        });
+      });
+    });
+  }
+  function paintMap() {
+    var S = mapState; if (!S || !WORLD) return;
+    var used = {};
+    [].forEach.call(document.querySelectorAll("#oqf-map .oqf-c"), function (el) {
+      var iso = el.getAttribute("data-iso"), st = stateOf(iso, S.y, S.l);
+      used[st] = 1;
+      el.setAttribute("class", "oqf-c st-" + st + (PILOTS.indexOf(iso) > -1 ? " is-pilot" : "") + (iso === S.s ? " is-sel" : "") + (S.sel.indexOf(iso) > -1 ? " is-cmp" : ""));
+    });
+    /* seleção desenhada por último, para o brilho ficar por cima */
+    var selEl = S.s && document.querySelector('#oqf-map .oqf-c[data-iso="' + S.s + '"]'); if (selEl) selEl.parentNode.appendChild(selEl);
+    var cr = document.querySelector("#oqf-map .oqf-crimea");
+    if (cr) { cr.parentNode.appendChild(cr); cr.setAttribute("class", "oqf-crimea" + (S.y >= 2014 ? " is-occ" : " st-" + stateOf(S.y < 1954 ? "RUS" : "UKR", S.y, S.l)) + (S.s === "UKR" ? " is-sel" : "")); }
+    var yv = document.getElementById("oqf-yv"); if (yv) yv.textContent = S.y;
+    var ys = document.getElementById("oqf-ys"); if (ys) ys.textContent = S.y >= 2024 ? T.states.proj[0] : "";
+    var r = document.getElementById("oqf-y"); if (r && +r.value !== S.y) r.value = S.y;
+    var ln = document.getElementById("oqf-ln"); if (ln) ln.innerHTML = "<b>" + esc(T.layers[S.l]) + ".</b> " + esc(T.layer_note[S.l]);
+    var y26 = document.getElementById("oqf-y26"); if (y26) y26.hidden = S.y < 2024 || S.l !== "pros";
+    var order = ["ok", "res", "exp", "demo", "proj", "prelim", "np", "pend", "prep", "gap"];
+    var lg = document.getElementById("oqf-legend");
+    if (lg) lg.innerHTML = order.filter(function (k) { return used[k] || (k === "prelim" && S.l === "pros" && S.y >= 2024); }).map(function (k) {
+      return '<span class="oqf-lg"><i class="sw st-' + k + '"></i>' + esc(T.states[k][0]) + (used[k] ? "" : " (0)") + "</span>";
+    }).join("") + (S.y >= 2014 ? '<span class="oqf-lg"><i class="sw sw-crimea"></i>' + esc(LANG === "en" ? "Crimea (occupied)" : "Crimeia (ocupada)") + "</span>" : "");
+    paintPanel(); paintTable();
+    setHash(link("mapa", "", qs({ y: S.y, l: S.l, s: S.s, c: S.sel.join(","), i: S.i === "life_exp" ? "" : S.i })));
+  }
+  function layersDl(iso, y) { return '<dl class="oqf-panel-layers">' + ["pol", "pros", "eco"].map(function (l) { return "<dt>" + esc(T.layers[l]) + "</dt><dd>" + chip(stateOf(iso, y, l)) + "</dd>"; }).join("") + "</dl>"; }
+  function paintPanel() {
+    var S = mapState, el = document.getElementById("oqf-panel"); if (!el) return;
+    if (!S.s || !WORLD.countries[S.s]) {
+      el.innerHTML = '<div class="oqf-panel-h"><h3>' + esc(T.panel_none_h) + '</h3></div><p class="oqf-panel-n">' + esc(T.panel_none) + '</p><div class="oqf-quick">' +
+        PILOTS.map(function (k) { return '<button type="button" data-oqf-pick="' + k + '">' + flag(k) + "<span>" + esc(T.countries[k].name) + "</span>" + chip(stateOf(k, S.y, S.l)) + "</button>"; }).join("") + "</div>" + selBox();
+      return;
+    }
+    var pilot = PILOTS.indexOf(S.s) > -1;
+    var h = '<div class="oqf-panel-h">' + flag(S.s) + "<h3>" + esc(cname(S.s)) + '</h3><button type="button" class="oqf-x" data-oqf-close aria-label="' + esc(T.close) + '">×</button></div>';
+    if (!pilot) { el.innerHTML = h + '<p class="mono small">' + tf(T.in_year, { y: S.y }) + "</p>" + layersDl(S.s, S.y) + '<p class="oqf-panel-n">' + esc(T.not_pilot) + "</p>" + selBox(); return; }
+    var ents = entitiesAt(S.s, S.y), lds = leadersIn(S.s, S.y);
+    h += '<div class="oqf-pk"><div><small>' + esc(tf(T.ent_in, { y: S.y })) + "</small>" + ents.map(function (e) { return "<b>" + esc(T.ent_names[e[0]] || e[1]) + "</b>"; }).join("") + "</div>" +
+      "<div><small>" + esc(tf(T.gov_in, { y: S.y })) + "</small>" + (lds.length ? lds.map(function (l) { return leaderChip(l); }).join("") : "<b>—</b>") + "</div></div>";
+    var inds = PANEL_IND.filter(function (i) { return ind(i); }); if (!inds.length && M) inds = M.indicators.slice(0, 3).map(function (x) { return x.id; });
+    if (inds.indexOf(S.i) < 0) S.i = inds[0];
+    var list = seriesFor(S.s, S.i, Y0, Y1), has = list.some(function (s) { return s.pts.length; });
+    h += '<div class="oqf-pchart"><div class="oqf-pchart-h"><b>' + esc(indName(ind(S.i))) + '</b><div class="oqf-seg" role="tablist" aria-label="' + esc(T.ind_lbl) + '">' + inds.map(function (i) { var I = ind(i); return '<button type="button" role="tab" data-oqf-pind="' + i + '" aria-selected="' + (i === S.i) + '" title="' + esc(indName(I)) + '">' + esc(I.pillar === "saude" ? (LANG === "en" ? "Health" : "Saúde") : I.pillar === "renda" ? (LANG === "en" ? "Income" : "Renda") : (LANG === "en" ? "Inequality" : "Desigualdade")) + "</button>"; }).join("") + "</div></div>" +
+      (has ? chart(list, { a: Y0, b: Y1, mini: true, mark: S.y, dark: true }) : '<p class="oqf-panel-n">' + chip("prep") + "</p>") + "</div>";
+    if (L) h += '<div class="oqf-pband"><small>' + esc(T.gov_h) + "</small>" + govBand(S.s, Y0, Y1, { w: 320, ml: 0, mark: S.y }) + "</div>";
+    h += layersDl(S.s, S.y);
+    var on = S.sel.indexOf(S.s) > -1;
+    h += '<div class="oqf-panel-cta"><a class="btn btn--solid btn--sm" href="' + link("perfil", S.s, qs({ y: S.y })) + '">' + esc(T.open_profile) + ' <span class="arr">→</span></a><button type="button" class="btn btn--ghost btn--sm" data-oqf-add="' + S.s + '" aria-pressed="' + on + '">' + esc(on ? T.in_cmp : T.add_cmp) + "</button></div>";
+    el.innerHTML = h + selBox();
+  }
+  function paintTable() {
+    var S = mapState, t = document.getElementById("oqf-ctable"); if (!t) return;
+    t.innerHTML = "<thead><tr>" + T.tbl_cols.map(function (c) { return "<th>" + esc(tf(c, { y: S.y })) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      PILOTS.map(function (k) {
+        var lds = leadersIn(k, S.y);
+        return '<tr class="' + (k === S.s ? "is-sel" : "") + '" data-oqf-pick="' + k + '" tabindex="0"><td>' + flag(k) + " <b>" + esc(T.countries[k].name) + "</b></td><td>" + entitiesAt(k, S.y).map(function (e) { return esc(T.ent_names[e[0]] || e[1]); }).join(" + ") + "</td><td>" + (lds.map(function (l) { return esc(lname(l)); }).join(", ") || "—") + "</td>" +
+          ["pol", "pros", "eco"].map(function (l) { return "<td>" + chip(stateOf(k, S.y, l)) + "</td>"; }).join("") + "</tr>";
+      }).join("") + '<tr class="is-rest"><td>' + esc(T.tbl_rest) + "</td><td>—</td><td>—</td><td>" + chip("prep") + "</td><td>" + chip("prep") + "</td><td>" + chip("pend") + "</td></tr></tbody>";
+  }
+  function selBox() {
+    var S = mapState; if (!S.sel.length) return "";
+    return '<div class="oqf-selbox"><span class="mono small">' + esc(T.sel_h) + "</span><div>" + S.sel.map(function (k) { return flag(k) + esc(T.countries[k].name); }).join(" · ") + '</div><a class="btn btn--ghost btn--sm" href="' + link("comparar", "", qs({ c: S.sel.join(","), a: 1950, b: 2026 })) + '">' + esc(T.sel_go) + "</a></div>";
+  }
+  function tooltip(iso, ev) {
+    var tt = document.getElementById("oqf-tt"), card = tt && tt.parentNode; if (!tt || !mapState) return;
+    if (!iso) { tt.hidden = true; return; }
+    var S = mapState, pilot = PILOTS.indexOf(iso) > -1, r = card.getBoundingClientRect();
+    var h = '<div class="oqf-tt-h">' + flag(iso) + "<b>" + esc(cname(iso)) + "</b></div>" + chip(stateOf(iso, S.y, S.l));
+    if (pilot) {
+      var lds = leadersIn(iso, S.y);
+      h += '<dl><dt>' + esc(tf(T.ent_in, { y: S.y })) + "</dt><dd>" + entitiesAt(iso, S.y).map(function (e) { return esc(T.ent_names[e[0]] || e[1]); }).join(" + ") + "</dd>" +
+        (lds.length ? "<dt>" + esc(tf(T.gov_in, { y: S.y })) + "</dt><dd>" + lds.map(function (l) { return esc(lname(l)); }).join(", ") + "</dd>" : "") + '</dl><small class="oqf-tt-hint">' + esc(T.tt_click) + "</small>";
+    }
+    if (iso === "UKR" && S.y >= 2014) h += '<small class="oqf-tt-hint">' + esc(T.crimea) + "</small>";
+    tt.innerHTML = h; tt.hidden = false;
+    var x = ev.clientX - r.left + 16, y = ev.clientY - r.top + 16, w = tt.offsetWidth, hh = tt.offsetHeight;
+    if (x + w > r.width - 8) x = ev.clientX - r.left - w - 16;
+    if (y + hh > r.height - 8) y = ev.clientY - r.top - hh - 12;
+    tt.style.left = Math.max(8, x) + "px"; tt.style.top = Math.max(8, y) + "px";
+  }
+  function stopPlay() { if (playTimer) { clearInterval(playTimer); playTimer = null; } var b = document.getElementById("oqf-play"); if (b) { b.setAttribute("aria-pressed", "false"); b.textContent = "▶"; b.setAttribute("aria-label", T.play); } }
+
+  /* ---------------------------------------------------------- GOVERNANTES */
+  function renderLeaders(app, q) {
+    var iso = PILOTS.indexOf((q.c || "").toUpperCase()) > -1 ? q.c.toUpperCase() : "BRA";
+    var h = hero({ active: "governantes", crumb: SUBLBL("governantes"), kicker: T.title, title: esc(T.gov_h), dek: T.gov_dek });
+    h += '<section class="sec sec--paper sec--tight"><div class="wrap"><div class="tabs" role="tablist" aria-label="' + esc(T.gov_h) + '">' + PILOTS.map(function (k) { return '<button class="tab" role="tab" data-oqf-gc="' + k + '" aria-selected="' + (k === iso) + '">' + flag(k) + " " + esc(T.countries[k].name) + "</button>"; }).join("") + "</div>" +
+      '<p class="small oqf-gov-conv">' + tagHtml("m", TAGTXT.m) + " " + esc(T.gov_conv) + '</p><div id="oqf-gov-out" class="oqf-gov-card"><div class="oqf-loading"></div></div></div></section>';
+    app.innerHTML = h;
+    withLeaders(function (ok) { drawLeaders(iso, ok); });
+  }
+  function drawLeaders(iso, ok) {
+    var out = document.getElementById("oqf-gov-out"); if (!out) return;
+    if (!ok) { out.innerHTML = errBox(); return; }
+    out.innerHTML = '<div class="oqf-gov-head">' + flag(iso, "lg") + "<h2>" + esc(T.countries[iso].name) + '</h2><a class="small" href="' + link("perfil", iso) + '">' + esc(T.open_profile) + " →</a></div>" + govChart(iso) + govLegend(iso) + govTable(iso);
+    setHash(link("governantes", "", qs({ c: iso === "BRA" ? "" : iso })));
+  }
+
+  /* ---------------------------------------------------------- PERFIS */
+  function renderProfiles(app) {
+    var h = hero({ active: "perfil", crumb: T.sub.perfil, kicker: T.title, title: esc(T.prof_h), dek: T.prof_dek });
+    h += '<section class="sec sec--paper"><div class="wrap"><div class="oqf-pilots">' + PILOTS.map(function (k) {
+      var C = T.countries[k];
+      return '<a class="oqf-pilot" href="' + link("perfil", k) + '">' + flag(k, "lg") + "<h3>" + esc(C.name) + '</h3><ul>' + C.entities.map(function (e) { return "<li><b>" + esc(T.ent_names[e[0]] || e[1]) + '</b> <span class="mono small">' + e[2] + "–" + (e[3] === Y1 ? "" : e[3]) + "</span></li>"; }).join("") + '</ul><span class="oqf-more">' + esc(T.open_profile) + " →</span></a>";
+    }).join("") + "</div></div></section>";
+    app.innerHTML = h;
+  }
+  function entTimeline(iso) {
+    var C = T.countries[iso], span = Y1 - Y0 + 1;
+    var ticks = [1945, 1960, 1975, 1990, 2005, 2026].map(function (y) { return '<span style="left:' + ((y - Y0) / span * 100).toFixed(2) + '%">' + y + "</span>"; }).join("");
+    return '<div class="oqf-tl"><div class="oqf-tl-rows">' + C.entities.map(function (e) {
+      var l = (e[2] - Y0) / span * 100, w = (e[3] - e[2] + 1) / span * 100;
+      return '<div class="oqf-tl-row"><span class="oqf-tl-lbl">' + esc(T.ent_names[e[0]] || e[1]) + '</span><div class="oqf-tl-track"><i class="ent-' + e[0] + '" style="left:' + l.toFixed(2) + "%;width:" + w.toFixed(2) + '%"></i></div></div>';
+    }).join("") + '</div><div class="oqf-tl-ticks">' + ticks + "</div></div>";
+  }
+  function renderProfile(app, iso, q) {
+    if (!T.countries[iso]) return renderProfiles(app);
+    var C = T.countries[iso];
+    var h = hero({ active: "perfil", crumb: T.sub.perfil, crumbLink: link("perfil"), crumb2: C.name, kicker: (LANG === "en" ? "Pilot country · Batch 0" : "País-piloto · Lote 0"), title: flag(iso, "xl") + esc(C.name) });
+    var S = T.prof_sections;
+    h += '<section class="sec sec--paper sec--tight"><div class="wrap"><div id="oqf-banner"></div>' +
+      '<nav class="oqf-jump" aria-label="' + esc(C.name) + '">' + ["hist", "ent", "gov", "pol", "ref", "pros", "eco", "src"].map(function (k) { return '<a href="#oqf-' + k + '" data-oqf-jump="oqf-' + k + '">' + esc(S[k]) + "</a>"; }).join("") + "</nav><div class=\"oqf-prof\">";
+    h += '<section class="oqf-sec" id="oqf-hist"><h2>' + esc(S.hist) + '</h2><div class="oqf-two"><div><p>' + tagHtml("f", TAGTXT.f) + "</p><p>" + esc(C.borders) + '</p></div><ol class="oqf-events">' +
+      C.events.map(function (e) { return '<li><time datetime="' + e[0] + '">' + dateTxt(e[0]) + "</time><span>" + esc(e[1]) + "</span></li>"; }).join("") + '</ol></div><p class="oqf-note small">' + esc(T.strip_note) + "</p></section>";
+    h += '<section class="oqf-sec" id="oqf-ent"><h2>' + esc(S.ent) + "</h2>" + entTimeline(iso) + '<dl class="oqf-ents">' + C.entities.map(function (e) {
+      return "<dt><code>" + esc(e[0]) + "</code> " + esc(e[1]) + ' <span class="mono small">' + e[2] + "–" + (e[3] === Y1 ? "" : e[3]) + "</span></dt><dd>" + esc(e[4]) + "</dd>";
+    }).join("") + "</dl></section>";
+    h += '<section class="oqf-sec" id="oqf-gov"><h2>' + esc(S.gov) + '</h2><p class="small">' + tagHtml("m", TAGTXT.m) + " " + esc(T.gov_conv) + '</p><div id="oqf-govdata" class="oqf-gov-card"><div class="oqf-loading"></div></div><p class="small">' + esc(T.gov_rule) + "</p></section>";
+    h += '<section class="oqf-sec" id="oqf-pol"><h2>' + esc(S.pol) + "</h2>" + chip("np") + "<p>" + esc(T.pol_pending) + '</p><div class="oqf-dims">' + T.dims.map(function (d) { return "<div><b>" + d[0] + "</b><span>" + esc(d[1]) + "</span><small>" + esc(T.dim_cell) + "</small></div>"; }).join("") + "</div></section>";
+    var pr = T.presets.filter(function (p) { return p[0] === iso; })[0];
+    h += '<section class="oqf-sec" id="oqf-ref"><h2>' + esc(S.ref) + "</h2>" + (pr ? '<div class="oqf-ref"><span class="oqf-ref-y">' + pr[1] + "</span><div><b>" + esc(pr[2]) + '</b><p class="small">' + tagHtml("m", TAGTXT.m) + " " + esc(T.ref_note) + '</p><a class="small" href="' + link("comparar", "", qs({ c: iso, m: "reforma", r: pr[1], a: pr[1] - 15, b: Math.min(Y1, pr[1] + 15) })) + '">' + esc(T.open_cmp) + "</a></div></div>" : "") + '<p class="small">' + esc(T.ref_more) + "</p></section>";
+    h += '<section class="oqf-sec" id="oqf-pros"><h2>' + esc(S.pros) + '</h2><p class="small">' + tagHtml("m", TAGTXT.m) + " " + esc(T.pros_note) + '</p><div id="oqf-pros-out" class="oqf-minis"><div class="oqf-loading"></div></div></section>';
+    h += '<section class="oqf-sec" id="oqf-eco"><h2>' + esc(S.eco) + "</h2>" + chip("pend") + "<p>" + esc(T.eco_pending) + "</p></section>";
+    h += '<section class="oqf-sec" id="oqf-src"><h2>' + esc(S.src) + '</h2><div id="oqf-src-out"></div></section>';
+    h += "</div></div></section>";
+    app.innerHTML = h;
+    withLeaders(function (ok) {
+      var gd = document.getElementById("oqf-govdata"); if (!gd) return;
+      gd.innerHTML = ok ? govChart(iso, { mark: q && q.y ? clampY(q.y, null) : null }) + govLegend(iso) + govTable(iso) : errBox();
+    });
+    withSeries(ENTS[iso], function (ok) {
+      var b = document.getElementById("oqf-banner"); if (b) b.innerHTML = banner();
+      var out = document.getElementById("oqf-pros-out"); if (!out) return;
+      if (!ok || !M) { out.innerHTML = errBox(); return; }
+      out.innerHTML = M.indicators.map(function (I) {
+        var list = seriesFor(iso, I.id, Y0, Y1), has = list.some(function (s) { return s.pts.length; }), head = "<h3>" + esc(indName(I)) + "</h3>";
+        if (!has) return '<div class="oqf-mini is-empty">' + head + chip("prep") + "</div>";
+        var last = null; list.forEach(function (s) { s.pts.forEach(function (p) { if (p[2] !== "p" && (!last || p[0] > last.p[0])) last = { p: p, e: s.ent }; }); });
+        return '<div class="oqf-mini">' + head + chart(list, { a: Y0, b: Y1, mini: true }) +
+          (last ? '<p class="mono small">' + esc(T.last_obs) + ": " + last.p[0] + " · " + esc(T.ent_names[last.e]) + " · " + esc(T.types[last.p[2]]) + " · " + esc(T.cats[last.p[5]]) + "</p>" : "") +
+          '<a class="small" href="' + link("comparar", "", qs({ c: iso, i: I.id, a: 1950, b: Y1 })) + '">' + esc(T.open_cmp) + "</a></div>";
+      }).join("");
+      var so = document.getElementById("oqf-src-out"); if (so) so.innerHTML = sourcesBlock();
+    });
+  }
+  function sourcesBlock() {
+    if (isDemo()) return "<p>" + esc(T.srcs_demo) + '</p><ul class="src-list">' + M.indicators.map(function (I) { return "<li>" + esc(indName(I)) + " — " + esc(I.src) + " · " + esc(LANG === "en" ? I.unit_en : I.unit_pt) + "</li>"; }).join("") + "</ul>";
+    return '<ul class="src-list">' + M.indicators.map(function (I) { return "<li>" + esc(indName(I)) + " — " + esc(I.src) + "</li>"; }).join("") + "</ul>" +
+      '<p class="mono small">Auditoria 2 ' + esc(M.a2.version || "") + " · " + esc((M.a2.files || []).join(", ")) + " · " + esc(M.generated) + "</p>";
+  }
+
+  /* ---------------------------------------------------------- séries e gráficos */
+  function seriesFor(iso, indId, a, b) {
+    return ENTS[iso].filter(function (e) { return SER[e] && SER[e].ind[indId]; }).map(function (e) {
+      return { ent: e, iso: iso, pts: SER[e].ind[indId].filter(function (p) { return p[0] >= a && p[0] <= b; }) };
+    });
+  }
+  function valAt(ent, indId, y) { var s = SER[ent] && SER[ent].ind[indId]; if (!s) return null; for (var i = 0; i < s.length; i++) if (s[i][0] === y) return s[i]; return null; }
+  function style(t) { return t === "r" ? "r" : t === "p" ? "p" : "o"; }
+  function segments(pts) {
+    var segs = [], cur = null;
+    pts.forEach(function (p, i) {
+      var st = style(p[2]), prev = pts[i - 1];
+      if (!cur || cur.st !== st || (prev && p[0] - prev[0] > 5)) { cur = { st: st, pts: [] }; segs.push(cur); }
+      cur.pts.push(p);
+    });
+    return segs;
+  }
+  function niceStep(range, n) { var raw = range / n, p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p; return (f < 1.5 ? 1 : f < 3 ? 2 : f < 7 ? 5 : 10) * p; }
+  function chart(list, o) {
+    var W = o.mini ? 320 : 760, H = o.mini ? 120 : 340, ml = o.mini ? 8 : 46, mr = 12, mt = 12, mb = o.mini ? 18 : 30;
+    var vals = []; list.forEach(function (s) { s.pts.forEach(function (p) { vals.push(p[1]); }); });
+    if (!vals.length) return '<p class="oqf-empty">' + esc(T.c_empty) + "</p>";
+    var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals), pad = (hi - lo) * 0.08 || 1; lo -= pad; hi += pad;
+    var X = function (y) { return ml + (y - o.a) / Math.max(1, o.b - o.a) * (W - ml - mr); };
+    var Yp = function (v) { return mt + (1 - (v - lo) / (hi - lo)) * (H - mt - mb); };
+    var g = "", step = niceStep(hi - lo, o.mini ? 2 : 5);
+    for (var v = Math.ceil(lo / step) * step; v <= hi; v += step) {
+      g += '<line class="gr" x1="' + ml + '" x2="' + (W - mr) + '" y1="' + Yp(v).toFixed(1) + '" y2="' + Yp(v).toFixed(1) + '"/>';
+      if (!o.mini) g += '<text class="ax" x="' + (ml - 6) + '" y="' + (Yp(v) + 4).toFixed(1) + '" text-anchor="end">' + fmt(+v.toFixed(2)) + "</text>";
+    }
+    var span = o.b - o.a, xstep = span > 60 ? 15 : span > 30 ? 10 : 5;
+    for (var yy = Math.ceil(o.a / xstep) * xstep; yy <= o.b; yy += xstep) g += '<text class="ax" x="' + X(yy).toFixed(1) + '" y="' + (H - (o.mini ? 4 : 8)) + '" text-anchor="middle">' + yy + "</text>";
+    if (o.mark && o.mark >= o.a && o.mark <= o.b) g += '<line class="mk" x1="' + X(o.mark).toFixed(1) + '" x2="' + X(o.mark).toFixed(1) + '" y1="' + mt + '" y2="' + (H - mb) + '"/>' + (o.mini ? "" : '<text class="mk-t" x="' + (X(o.mark) + 5).toFixed(1) + '" y="' + (mt + 12) + '">' + esc(T.c_marker) + " · " + o.mark + "</text>");
+    list.forEach(function (s) {
+      var col = COLOR[s.iso], dash = DASH[s.ent] || "";
+      segments(s.pts).forEach(function (seg) {
+        var d = seg.pts.map(function (p, i) { return (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Yp(p[1]).toFixed(1); }).join("");
+        var da = seg.st === "r" ? "1.5 3" : seg.st === "p" ? "" : dash;
+        if (seg.st !== "p" && seg.pts.length > 1) g += '<path class="ln ln-' + seg.st + '" d="' + d + '" stroke="' + col + '"' + (da ? ' stroke-dasharray="' + da + '"' : "") + "/>";
+        var showPts = seg.st === "p" || seg.pts.length < 2 || (seg.pts.length > 1 && seg.pts[1][0] - seg.pts[0][0] >= 2);
+        if (showPts) seg.pts.forEach(function (p) {
+          g += '<circle class="pt pt-' + seg.st + '" cx="' + X(p[0]).toFixed(1) + '" cy="' + Yp(p[1]).toFixed(1) + '" r="' + (o.mini ? 1.8 : 2.8) + '" stroke="' + col + '" fill="' + (seg.st === "p" ? "none" : col) + '"><title>' + esc(T.ent_names[s.ent]) + " · " + p[0] + " · " + fmt(p[1]) + " · " + esc(T.types[p[2]]) + "</title></circle>";
+        });
+      });
+      if (o.mark) { s.pts.forEach(function (p) { if (p[0] === o.mark) g += '<circle class="pt-mark" cx="' + X(p[0]).toFixed(1) + '" cy="' + Yp(p[1]).toFixed(1) + '" r="' + (o.mini ? 3.5 : 5) + '" fill="' + col + '"/>'; }); }
+    });
+    var wm = isDemo() ? '<text class="wm" x="' + (W / 2) + '" y="' + (H / 2 + (o.mini ? 6 : 10)) + '" text-anchor="middle">' + esc(T.demo_banner.toUpperCase()) + "</text>" : "";
+    return '<svg class="oqf-chart' + (o.mini ? " mini" : "") + (isDemo() ? " is-demo" : "") + '" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(o.label || "") + '">' + wm + g + "</svg>";
+  }
+  /* dispersão animada: um círculo por entidade no ano t, com rastro dos anos anteriores */
+  function scatter(ents, ix, iy, t, a) {
+    var W = 760, H = 440, ml = 52, mr = 18, mt = 16, mb = 46;
+    var xs = [], ys = [];
+    ents.forEach(function (e) { [ix, iy].forEach(function (id, k) { ((SER[e.ent] && SER[e.ent].ind[id]) || []).forEach(function (p) { if (p[0] >= a) (k ? ys : xs).push(p[1]); }); }); });
+    if (!xs.length || !ys.length) return '<p class="oqf-empty">' + esc(T.c_empty) + "</p>";
+    var x0 = Math.min.apply(null, xs), x1 = Math.max.apply(null, xs), y0 = Math.min.apply(null, ys), y1 = Math.max.apply(null, ys);
+    var px = (x1 - x0) * 0.08 || 1, py = (y1 - y0) * 0.08 || 1; x0 -= px; x1 += px; y0 -= py; y1 += py;
+    var X = function (v) { return ml + (v - x0) / (x1 - x0) * (W - ml - mr); }, Y = function (v) { return mt + (1 - (v - y0) / (y1 - y0)) * (H - mt - mb); };
+    var g = "", sx = niceStep(x1 - x0, 6), sy = niceStep(y1 - y0, 5), v;
+    for (v = Math.ceil(x0 / sx) * sx; v <= x1; v += sx) g += '<line class="gr" x1="' + X(v).toFixed(1) + '" x2="' + X(v).toFixed(1) + '" y1="' + mt + '" y2="' + (H - mb) + '"/><text class="ax" x="' + X(v).toFixed(1) + '" y="' + (H - mb + 16) + '" text-anchor="middle">' + fmt(+v.toFixed(2)) + "</text>";
+    for (v = Math.ceil(y0 / sy) * sy; v <= y1; v += sy) g += '<line class="gr" x1="' + ml + '" x2="' + (W - mr) + '" y1="' + Y(v).toFixed(1) + '" y2="' + Y(v).toFixed(1) + '"/><text class="ax" x="' + (ml - 6) + '" y="' + (Y(v) + 4).toFixed(1) + '" text-anchor="end">' + fmt(+v.toFixed(2)) + "</text>";
+    g += '<text class="ax-t" x="' + ((ml + W - mr) / 2) + '" y="' + (H - 8) + '" text-anchor="middle">' + esc(indName(ind(ix))) + '</text><text class="ax-t" transform="rotate(-90)" x="' + (-(mt + H - mb) / 2) + '" y="14" text-anchor="middle">' + esc(indName(ind(iy))) + "</text>";
+    g += '<text class="sc-year" x="' + (W - mr - 8) + '" y="' + (H - mb - 14) + '" text-anchor="end">' + t + "</text>";
+    var missing = [];
+    ents.forEach(function (e) {
+      var col = COLOR[e.iso], trail = [];
+      for (var y = a; y <= t; y++) { var px2 = valAt(e.ent, ix, y), py2 = valAt(e.ent, iy, y); if (px2 && py2) trail.push([y, px2, py2]); }
+      if (trail.length > 1) g += '<path class="sc-trail" d="' + trail.map(function (p, i) { return (i ? "L" : "M") + X(p[1][1]).toFixed(1) + " " + Y(p[2][1]).toFixed(1); }).join("") + '" stroke="' + col + '"' + (DASH[e.ent] ? ' stroke-dasharray="' + DASH[e.ent] + '"' : "") + "/>";
+      var cur = trail.length && trail[trail.length - 1][0] === t ? trail[trail.length - 1] : null;
+      if (!cur) { missing.push(T.ent_names[e.ent]); return; }
+      var proj = cur[1][2] === "p" || cur[2][2] === "p", rec = cur[1][2] === "r" || cur[2][2] === "r";
+      g += '<g class="sc-pt"><circle cx="' + X(cur[1][1]).toFixed(1) + '" cy="' + Y(cur[2][1]).toFixed(1) + '" r="13" fill="' + (proj ? "none" : col) + '" fill-opacity="' + (rec ? ".35" : ".85") + '" stroke="' + col + '" stroke-width="2"' + (rec ? ' stroke-dasharray="2 2"' : "") + "><title>" + esc(T.ent_names[e.ent] + " · " + t + " · " + fmt(cur[1][1]) + " × " + fmt(cur[2][1]) + " · " + T.types[cur[1][2]] + " / " + T.types[cur[2][2]]) + '</title></circle><text class="sc-lbl" x="' + (X(cur[1][1]) + 17).toFixed(1) + '" y="' + (Y(cur[2][1]) + 4).toFixed(1) + '">' + esc(T.ent_names[e.ent]) + "</text></g>";
+    });
+    var wm = isDemo() ? '<text class="wm" x="' + (W / 2) + '" y="' + (H / 2) + '" text-anchor="middle">' + esc(T.demo_banner.toUpperCase()) + "</text>" : "";
+    return '<svg class="oqf-chart oqf-scatter" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + esc(indName(ind(ix)) + " × " + indName(ind(iy)) + " · " + t) + '">' + wm + g + "</svg>" +
+      (missing.length ? '<p class="small oqf-missing">' + esc(tf(T.c_missing, { y: t })) + " " + esc(missing.join(", ")) + "</p>" : "");
+  }
+
+  /* ---------------------------------------------------------- COMPARADOR */
+  var cmp = null, scTimer = null;
+  var MODES = ["paises", "reforma", "governos", "dispersao"];
+  function modeLbl(m) { return T.modes[m] || T.modes2[m]; }
+  function renderCompare(app, q) {
+    var c = (q.c || "BRA,DEU").split(",").filter(function (x) { return PILOTS.indexOf(x) > -1; });
+    cmp = { c: c, i: q.i || "life_exp", j: q.j || "gdp_proxy", t: clampY(q.t, 1990), a: clampY(q.a, 1950), b: clampY(q.b, Y1), r: q.r ? clampY(q.r, 1991) : null, m: MODES.indexOf(q.m) > -1 ? q.m : "paises" };
+    if (cmp.a > cmp.b) { var t = cmp.a; cmp.a = cmp.b; cmp.b = t; }
+    if (cmp.m === "reforma" && !cmp.r) cmp.r = 1991;
+    var h = hero({ active: "comparar", crumb: T.sub.comparar, kicker: T.title, title: esc(T.cmp_h), dek: T.cmp_dek });
+    h += '<section class="sec sec--paper sec--tight"><div class="wrap"><div id="oqf-banner"></div><div class="tabs" role="tablist" aria-label="' + esc(T.cmp_h) + '">' +
+      MODES.map(function (m) { return '<button class="tab" role="tab" data-oqf-mode="' + m + '" aria-selected="' + (m === cmp.m) + '">' + esc(modeLbl(m)) + "</button>"; }).join("") + "</div>" +
+      '<div class="oqf-form" id="oqf-form"></div></div></section>' +
+      '<section class="sec sec--dark2 sec--tight"><div class="wrap" id="oqf-cmp-out"><div class="oqf-loading"></div></div></section>';
+    app.innerHTML = h;
+    withLeaders(function () {
+      withSeries(allPilotEnts(), function (ok) {
+        var b = document.getElementById("oqf-banner"); if (b) b.innerHTML = banner();
+        if (!ok || !M) { document.getElementById("oqf-cmp-out").innerHTML = errBox(); return; }
+        if (!ind(cmp.i)) cmp.i = M.indicators[0].id;
+        if (!ind(cmp.j)) cmp.j = (M.indicators[1] || M.indicators[0]).id;
+        drawForm(); drawCompare();
+      });
+    });
+  }
+  function yearOpts(sel) { var o = ""; for (var y = Y0; y <= Y1; y++) o += '<option value="' + y + '"' + (y === sel ? " selected" : "") + ">" + y + "</option>"; return o; }
+  function indOpts(sel) { return M.indicators.map(function (I) { return '<option value="' + esc(I.id) + '"' + (I.id === sel ? " selected" : "") + ">" + esc(indName(I)) + "</option>"; }).join(""); }
+  function drawForm() {
+    var f = document.getElementById("oqf-form"); if (!f) return;
+    var h = '<fieldset class="oqf-f"><legend>' + esc(T.c_countries) + '</legend><div class="oqf-picks">' + PILOTS.map(function (k) {
+      return '<button type="button" class="pick oqf-pick" data-oqf-c="' + k + '" aria-pressed="' + (cmp.c.indexOf(k) > -1) + '" style="--c:' + COLOR[k] + '">' + flag(k) + esc(T.countries[k].name) + "</button>";
+    }).join("") + "</div></fieldset>";
+    if (cmp.m === "dispersao") {
+      h += '<div class="oqf-f"><label for="oqf-j">' + esc(T.c_x) + '</label><select id="oqf-j" class="uf-select">' + indOpts(cmp.j) + "</select></div>" +
+        '<div class="oqf-f"><label for="oqf-i">' + esc(T.c_y) + '</label><select id="oqf-i" class="uf-select">' + indOpts(cmp.i) + "</select></div>";
+    } else {
+      h += '<div class="oqf-f"><label for="oqf-i">' + esc(T.c_ind) + '</label><select id="oqf-i" class="uf-select">' + indOpts(cmp.i) + "</select></div>" +
+        '<div class="oqf-f oqf-f-yrs"><label for="oqf-a">' + esc(T.c_from) + '</label><select id="oqf-a" class="uf-select">' + yearOpts(cmp.a) + '</select><label for="oqf-b">' + esc(T.c_to) + '</label><select id="oqf-b" class="uf-select">' + yearOpts(cmp.b) + "</select></div>";
+    }
+    if (cmp.m === "reforma") h += '<div class="oqf-f"><label for="oqf-r">' + esc(T.c_mark) + '</label><select id="oqf-r" class="uf-select">' + yearOpts(cmp.r) + '</select><p class="small">' + esc(T.c_mark_hint) + '</p><div class="oqf-presets"><span class="mono small">' + esc(T.c_presets) + "</span>" +
+      T.presets.map(function (p) { return '<button type="button" class="btn btn--ghost btn--sm" data-oqf-preset="' + p[0] + "|" + p[1] + '">' + flag(p[0]) + p[1] + " · " + esc(p[2]) + "</button>"; }).join("") + "</div></div>";
+    f.innerHTML = h;
+  }
+  function stopSc() { if (scTimer) { clearInterval(scTimer); scTimer = null; } var b = document.getElementById("oqf-scplay"); if (b) { b.textContent = "▶"; b.setAttribute("aria-pressed", "false"); } }
+  function drawCompare() {
+    var out = document.getElementById("oqf-cmp-out"); if (!out) return;
+    setHash(link("comparar", "", qs({ c: cmp.c.join(","), i: cmp.i, j: cmp.m === "dispersao" ? cmp.j : "", t: cmp.m === "dispersao" ? cmp.t : "", a: cmp.m === "dispersao" ? "" : cmp.a, b: cmp.m === "dispersao" ? "" : cmp.b, m: cmp.m === "paises" ? "" : cmp.m, r: cmp.m === "reforma" ? cmp.r : "" })));
+    var I = ind(cmp.i), ents = [];
+    cmp.c.forEach(function (k) { ENTS[k].forEach(function (e) { ents.push({ ent: e, iso: k }); }); });
+    if (cmp.m === "dispersao") {
+      out.innerHTML = '<div class="oqf-chart-h"><h3>' + esc(indName(ind(cmp.j))) + " × " + esc(indName(I)) + "</h3></div>" + legendHtml(ents.map(function (e) { return { ent: e.ent, iso: e.iso, pts: [1] }; })) +
+        '<div class="oqf-chart-box" id="oqf-sc">' + scatter(ents, cmp.j, cmp.i, cmp.t, 1950) + "</div>" +
+        '<div class="oqf-player oqf-player--dark"><button class="oqf-play" id="oqf-scplay" type="button" aria-pressed="false" aria-label="' + esc(T.play) + '">▶</button><div class="oqf-range"><label class="sr-only" for="oqf-t">' + esc(T.year) + '</label><input type="range" id="oqf-t" min="1950" max="' + Y1 + '" value="' + cmp.t + '"></div><output class="oqf-tv" id="oqf-tv">' + cmp.t + "</output></div>" +
+        '<p class="oqf-causal">' + tagHtml("m", TAGTXT.m) + " " + esc(T.c_scatter_note) + "</p>" + metaBlock(I, ind(cmp.j));
+      return;
+    }
+    var list = [];
+    cmp.c.forEach(function (k) { list = list.concat(seriesFor(k, cmp.i, cmp.a, cmp.b)); });
+    var h = '<div class="oqf-chart-h"><h3>' + esc(indName(I)) + '</h3><span class="mono small">' + cmp.a + "–" + cmp.b + "</span></div>" + legendHtml(list) +
+      '<div class="oqf-chart-box">' + chart(list, { a: cmp.a, b: cmp.b, mark: cmp.m === "reforma" ? cmp.r : null, label: indName(I) });
+    if (cmp.m === "governos" && L) {
+      h += cmp.c.map(function (k) { return '<div class="oqf-bandrow"><span>' + flag(k) + esc(T.countries[k].name) + "</span>" + govBand(k, cmp.a, cmp.b, { ml: 46 }) + "</div>"; }).join("");
+    }
+    h += "</div>";
+    if (cmp.m === "reforma") h += '<p class="oqf-causal">' + tagHtml("m", TAGTXT.m) + " " + esc(T.c_causal) + "</p>";
+    if (cmp.m === "governos") h += '<p class="oqf-causal">' + tagHtml("m", TAGTXT.m) + " " + esc(T.c_gov_note) + " " + esc(T.gov_colors) + "</p>";
+    var years = [];
+    if (cmp.m === "reforma") [-10, -5, 0, 5, 10].forEach(function (d) { var y = cmp.r + d; if (y >= cmp.a && y <= cmp.b) years.push(y); });
+    else { var st = cmp.b - cmp.a > 40 ? 10 : 5; for (var y = Math.ceil(cmp.a / st) * st; y <= cmp.b; y += st) years.push(y); if (years[years.length - 1] !== cmp.b) years.push(cmp.b); }
+    var cols = list.filter(function (s) { return s.pts.length; });
+    if (cols.length) {
+      h += '<details class="oqf-tbl" open><summary>' + esc(T.c_table) + '</summary><div class="ptable-wrap oqf-scroll"><table class="ptable oqf-table"><thead><tr><th>' + esc(T.c_year) + "</th>" + (cmp.m === "governos" ? cmp.c.map(function (k) { return "<th>" + esc(tf(T.gov_in, { y: "" }).trim()) + " · " + esc(T.countries[k].name) + "</th>"; }).join("") : "") + cols.map(function (s) { return "<th>" + esc(T.ent_names[s.ent]) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        years.map(function (y) {
+          return "<tr" + (y === cmp.r && cmp.m === "reforma" ? ' class="is-mark"' : "") + "><td>" + y + "</td>" + (cmp.m === "governos" ? cmp.c.map(function (k) { return '<td class="meta">' + (leadersIn(k, y).map(function (l) { return esc(lname(l)); }).join(", ") || "—") + "</td>"; }).join("") : "") + cols.map(function (s) {
+            var p = null; s.pts.forEach(function (x) { if (x[0] === y) p = x; });
+            return '<td class="num">' + (p ? fmt(p[1]) + ' <small class="oqf-tt-t t-' + p[2] + '" title="' + esc(T.types[p[2]] + " · " + T.cats[p[5]] + " · " + p[3] + " · " + p[4]) + '">' + esc(T.types[p[2]].split(" ")[0]) + " · " + p[3] + "/" + p[4] + "</small>" : "—") + "</td>";
+          }).join("") + "</tr>";
+        }).join("") + "</tbody></table></div></details>";
+    }
+    out.innerHTML = h + metaBlock(I);
+  }
+  function legendHtml(list) {
+    return '<div class="oqf-cleg">' + list.map(function (s) {
+      return '<span><i style="border-color:' + COLOR[s.iso] + (DASH[s.ent] ? ";border-top-style:dashed" : "") + '"></i>' + esc(T.ent_names[s.ent]) + (s.pts.length ? "" : " — " + esc(T.no_data)) + "</span>";
+    }).join("") + '<span><i class="lg-r"></i>' + esc(T.types.r) + '</span><span><i class="lg-p"></i>' + esc(T.types.p) + "</span></div>";
+  }
+  function metaBlock(I, I2) {
+    var unit = function (x) { return esc(indUnit(x)) + (isDemo() ? " · " + esc(LANG === "en" ? "planned: " : "prevista: ") + esc(LANG === "en" ? x.unit_en : x.unit_pt) : ""); };
+    var src = function (x) { return isDemo() ? esc(LANG === "en" ? "None — synthetic series (prepare_data.py --demo, seed " : "Nenhuma — série sintética (prepare_data.py --demo, semente ") + M.seed + "). " + esc(LANG === "en" ? "Planned source: " : "Fonte prevista: ") + esc(x.src) : esc(x.src); };
+    return '<dl class="oqf-meta"><dt>' + esc(T.c_unit) + "</dt><dd>" + (I2 ? esc(indName(I2)) + ": " + unit(I2) + "<br>" + esc(indName(I)) + ": " : "") + unit(I) + "</dd><dt>" + esc(T.c_src) + "</dt><dd>" + (I2 ? esc(indName(I2)) + ": " + src(I2) + "<br>" + esc(indName(I)) + ": " : "") + src(I) + "</dd>" +
+      "<dt>" + esc(T.c_lim) + "</dt><dd><ul>" + T.c_lims.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("") + "</ul></dd></dl>";
+  }
+  function redrawScatter() {
+    var box = document.getElementById("oqf-sc"); if (!box) return;
+    var ents = []; cmp.c.forEach(function (k) { ENTS[k].forEach(function (e) { ents.push({ ent: e, iso: k }); }); });
+    box.innerHTML = scatter(ents, cmp.j, cmp.i, cmp.t, 1950);
+    var tv = document.getElementById("oqf-tv"); if (tv) tv.textContent = cmp.t;
+    var r = document.getElementById("oqf-t"); if (r && +r.value !== cmp.t) r.value = cmp.t;
+  }
+
+  /* ---------------------------------------------------------- METODOLOGIA */
+  function renderMethod(app) {
+    var h = hero({ active: "metodologia", crumb: T.sub.metodologia, kicker: T.title, title: esc(T.meth_h), dek: T.meth_dek });
+    h += '<section class="sec sec--paper"><div class="wrap"><div id="oqf-banner"></div><div class="oqf-audits">' + T.audits.map(function (a) {
+      return '<article class="oqf-audit"><div class="oqf-audit-top"><span class="mono small">' + esc(a.k) + "</span>" + chip(a.st) + "</div><h3>" + esc(a.h) + '</h3><p class="mono small">' + esc(a.v) + '</p><p class="small"><b>' + esc(a.stl) + "</b></p><ul>" + a.pts.map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ul></article>";
+    }).join("") + "</div></div></section>";
+    function grid(title, rows, cls) { return '<div class="oqf-mgrid ' + (cls || "") + '"><h3>' + esc(title) + "</h3><dl>" + rows.map(function (r) { return "<dt>" + esc(r[0]) + "</dt><dd>" + esc(r[1]) + "</dd>"; }).join("") + "</dl></div>"; }
+    h += '<section class="sec sec--white"><div class="wrap"><div class="oqf-mgrids">' + grid(T.rel_h, T.rel) + grid(T.cmp2_h, T.cmpb) + grid(T.elig_h, T.elig, "elig") + grid(T.types_h, T.types_d) + "</div>" +
+      '<div class="oqf-mgrid"><h3>' + esc(T.terr_h) + '</h3><ul class="oqf-list">' + T.terr.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul></div>" +
+      '<div class="oqf-mgrid"><h3>' + esc(T.gov_h) + '</h3><ul class="oqf-list"><li>' + esc(T.gov_conv) + "</li><li>" + esc(T.gov_status) + "</li><li>" + esc(T.gov_colors) + "</li><li>" + esc(T.gov_rule) + "</li></ul></div></div></section>";
+    h += '<section class="sec sec--dark2"><div class="wrap"><div class="oqf-mgrids"><div class="oqf-mgrid"><h3>' + esc(T.proto_h) + '</h3><ul class="oqf-list">' + T.proto.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + '</ul><p class="mono small" id="oqf-fstate"></p></div>' + grid(T.files_h, T.files) + "</div></div></section>";
+    app.innerHTML = h;
+    withManifest(function (ok) {
+      var b = document.getElementById("oqf-banner"); if (b && ok) b.innerHTML = banner();
+      var s = document.getElementById("oqf-fstate"); if (s && ok) s.textContent = T.file_state[M.mode] + " · " + M.generated;
+    });
+  }
+
+  /* ---------------------------------------------------------- eventos */
+  function selectCountry(iso) { mapState.s = iso; var sl = document.getElementById("oqf-sel"); if (sl) sl.value = iso; paintMap(); }
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target : null; if (!t) return;
+    var el;
+    if ((el = t.closest("[data-oqf-layer]")) && mapState) { mapState.l = el.getAttribute("data-oqf-layer"); [].forEach.call(document.querySelectorAll("[data-oqf-layer]"), function (b) { b.setAttribute("aria-selected", b === el); }); paintMap(); return; }
+    if ((el = t.closest("#oqf-map .oqf-c, #oqf-map .oqf-crimea")) && mapState) {
+      selectCountry(el.getAttribute("data-iso"));
+      if (window.matchMedia("(max-width: 999px)").matches) { var p = document.getElementById("oqf-panel"); if (p) p.scrollIntoView({ behavior: "smooth", block: "nearest" }); }
+      return;
+    }
+    if ((el = t.closest("[data-oqf-pick]")) && mapState) { selectCountry(el.getAttribute("data-oqf-pick")); return; }
+    if (t.closest("[data-oqf-close]") && mapState) { selectCountry(""); return; }
+    if ((el = t.closest("[data-oqf-pind]")) && mapState) { mapState.i = el.getAttribute("data-oqf-pind"); paintMap(); return; }
+    if ((el = t.closest("[data-oqf-add]")) && mapState) { var k = el.getAttribute("data-oqf-add"), i = mapState.sel.indexOf(k); if (i > -1) mapState.sel.splice(i, 1); else mapState.sel.push(k); paintMap(); return; }
+    if ((el = t.closest("#oqf-play")) && mapState) {
+      if (playTimer) { stopPlay(); return; }
+      if (mapState.y >= Y1) mapState.y = Y0;
+      el.setAttribute("aria-pressed", "true"); el.textContent = "❚❚"; el.setAttribute("aria-label", T.pause);
+      playTimer = setInterval(function () { if (!document.getElementById("oqf-map")) return stopPlay(); mapState.y++; paintMap(); if (mapState.y >= Y1) stopPlay(); }, 260);
+      return;
+    }
+    if ((el = t.closest("#oqf-scplay")) && cmp) {
+      if (scTimer) { stopSc(); return; }
+      if (cmp.t >= Y1) cmp.t = 1950;
+      el.textContent = "❚❚"; el.setAttribute("aria-pressed", "true");
+      scTimer = setInterval(function () { if (!document.getElementById("oqf-sc")) return stopSc(); cmp.t++; redrawScatter(); if (cmp.t >= Y1) { stopSc(); drawCompareHashOnly(); } }, 220);
+      return;
+    }
+    if ((el = t.closest("[data-oqf-gc]"))) { [].forEach.call(document.querySelectorAll("[data-oqf-gc]"), function (b) { b.setAttribute("aria-selected", b === el); }); withLeaders(function (ok) { drawLeaders(el.getAttribute("data-oqf-gc"), ok); }); return; }
+    if ((el = t.closest("[data-oqf-mode]")) && cmp) { stopSc(); cmp.m = el.getAttribute("data-oqf-mode"); if (cmp.m === "reforma" && !cmp.r) cmp.r = 1991; [].forEach.call(document.querySelectorAll("[data-oqf-mode]"), function (b) { b.setAttribute("aria-selected", b === el); }); drawForm(); drawCompare(); return; }
+    if ((el = t.closest("[data-oqf-c]")) && cmp) { var c = el.getAttribute("data-oqf-c"), j = cmp.c.indexOf(c); if (j > -1) cmp.c.splice(j, 1); else cmp.c.push(c); cmp.c.sort(function (a, b) { return PILOTS.indexOf(a) - PILOTS.indexOf(b); }); el.setAttribute("aria-pressed", j < 0); drawCompare(); return; }
+    if ((el = t.closest("[data-oqf-preset]")) && cmp) {
+      var pp = el.getAttribute("data-oqf-preset").split("|"); cmp.r = +pp[1]; cmp.a = Math.max(Y0, cmp.r - 15); cmp.b = Math.min(Y1, cmp.r + 15);
+      if (cmp.c.indexOf(pp[0]) < 0) cmp.c = [pp[0]];
+      drawForm(); drawCompare(); return;
+    }
+    if ((el = t.closest("[data-oqf-jump]"))) { e.preventDefault(); var tg = document.getElementById(el.getAttribute("data-oqf-jump")); if (tg) tg.scrollIntoView({ behavior: "smooth" }); return; }
+  });
+  function drawCompareHashOnly() { if (cmp) setHash(link("comparar", "", qs({ c: cmp.c.join(","), i: cmp.i, j: cmp.j, t: cmp.t, m: "dispersao" }))); }
+  document.addEventListener("mousemove", function (e) {
+    if (!mapState) return;
+    var t = e.target, el = t && t.closest ? t.closest("#oqf-map .oqf-c, #oqf-map .oqf-crimea") : null;
+    tooltip(el ? el.getAttribute("data-iso") : null, e);
+  });
+  document.addEventListener("input", function (e) {
+    if (e.target && e.target.id === "oqf-y" && mapState) { stopPlay(); mapState.y = +e.target.value; paintMap(); }
+    if (e.target && e.target.id === "oqf-t" && cmp) { stopSc(); cmp.t = +e.target.value; redrawScatter(); drawCompareHashOnly(); }
+  });
+  document.addEventListener("change", function (e) {
+    var id = e.target && e.target.id;
+    if (id === "oqf-sel" && mapState) { selectCountry(e.target.value); return; }
+    if (!cmp) return;
+    if (id === "oqf-i") { cmp.i = e.target.value; drawCompare(); }
+    else if (id === "oqf-j") { cmp.j = e.target.value; drawCompare(); }
+    else if (id === "oqf-a" || id === "oqf-b") { cmp[id.slice(-1)] = +e.target.value; if (cmp.a > cmp.b) { var t = cmp.a; cmp.a = cmp.b; cmp.b = t; drawForm(); } drawCompare(); }
+    else if (id === "oqf-r") { cmp.r = +e.target.value; drawCompare(); }
+  });
+  document.addEventListener("keydown", function (e) {
+    var t = e.target;
+    if ((e.key === "Enter" || e.key === " ") && t && t.getAttribute && mapState && (t.classList.contains("oqf-c") || t.hasAttribute("data-oqf-pick"))) { e.preventDefault(); selectCountry(t.getAttribute("data-iso") || t.getAttribute("data-oqf-pick")); }
+  });
+
+  /* ---------------------------------------------------------- ponto de entrada (chamado pelo roteador) */
+  OQF.render = function (app, parts, q) {
+    stopPlay(); stopSc(); mapState = null; cmp = null;
+    var sub = parts[1] || "", arg = parts[2];
+    if (sub === "mapa") renderMap(app, q);
+    else if (sub === "governantes") renderLeaders(app, q);
+    else if (sub === "perfil" && arg) renderProfile(app, arg.toUpperCase(), q);
+    else if (sub === "perfil") renderProfiles(app);
+    else if (sub === "comparar") renderCompare(app, q);
+    else if (sub === "metodologia") renderMethod(app);
+    else renderLanding(app);
+  };
+  OQF.label = T.nav;
 })();
 </script>
 <!-- Interface (hash routing) -->
@@ -4411,25 +5767,29 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   function currentPath() { return parse().parts ? parse().parts.join("/") : ""; }
   var lastKey = null, lastSec = null;
   /* Slugs de rota por idioma. Chaves internas = slugs em português. */
-  var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources", apuracao: "results" };
+  var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources", apuracao: "results", "o-que-funciona": "what-works" };
   var SLUG_IN = {}; Object.keys(SLUGS).forEach(function (k) { SLUG_IN[SLUGS[k]] = k; });
+  /* Subpáginas de "O que funciona?" (segundo segmento da rota). */
+  var SUB2 = { "o-que-funciona": { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", metodologia: "methodology" } };
+  function sub2(key, seg, to) { var m = SUB2[key]; if (!m || !seg) return seg; var k = seg; Object.keys(m).forEach(function (x) { if (m[x] === seg) k = x; }); return to === "en" ? (m[k] || k) : k; }
 
   /* Seletor de idioma: mantém a página equivalente (#/candidatos/lula ↔ #/candidates/lula). */
   /* Endereços relativos só em teste local (arquivo aberto direto ou localhost); publicado, usa os domínios de EB.site.urls. */
-  function isLocal() { return location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname); }
+  function isLocal() { return EB.preview || location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname); }
   function langHref(to) {
     var raw = location.hash.replace(/^#/, "");
     if (raw && raw[0] === "/") {
       var m = raw.match(/^\/([^/?#]*)(.*)$/), seg = m[1], rest = m[2];
       var key = SLUG_IN[seg] || seg;
       seg = to === "en" ? (SLUGS[key] || key) : key;
+      if (SUB2[key]) rest = rest.replace(/^\/([^/?#]*)/, function (m0, s2) { return "/" + sub2(key, s2, to); });
       raw = "/" + seg + rest;
     }
     var hash = raw ? "#" + raw : "";
     if (to === LANG) return hash || "#/";
     var base;
     if (!isLocal()) base = EB.site.urls[to];
-    else if (location.protocol === "file:") base = to === "en" ? "en/index.html" : "../index.html";
+    else if (location.protocol === "file:" || EB.preview) base = to === "en" ? "en/index.html" : "../index.html";
     else base = to === "en" ? "en/" : "../";
     return base + hash;
   }
@@ -4439,6 +5799,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     var r = parse();
     if (r.anchorOnly) { var el = document.getElementById(r.anchorOnly); if (el) el.scrollIntoView(); return; }
     var p = r.parts; if (p[0] && SLUG_IN[p[0]]) p[0] = SLUG_IN[p[0]];
+    if (p[1] && SUB2[p[0]]) p[1] = sub2(p[0], p[1], "pt");
     var sec = p[0] || "", navKey = sec;
     if (sec !== "apuracao" && window.APURACAO) window.APURACAO.stop();
     var key = p.join("/") + "?" + JSON.stringify(r.q);
@@ -4460,6 +5821,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
       else if (sec === "estados") renderStates(p[1]);
       else if (sec === "fontes") renderSources();
       else if (sec === "apuracao" && window.APURACAO) window.APURACAO.render(app, r.q);
+      else if (sec === "o-que-funciona" && window.OQF) window.OQF.render(app, p, r.q);
       else render404();
       if (sec === "mercados" || sec === "iris") navKey = "pesquisas";
       setNav(navKey);
@@ -4473,7 +5835,7 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
   }
 
   function setTitle(sec, p) {
-    var map = { "": "", historia: "História", "em-jogo": "O que está em jogo", candidatos: "Candidatos", comparar: "Comparar", pesquisas: "Pesquisas", mercados: "Mercados de previsão", iris: "Modelo ÍRIS / VOGA", estados: "Estados", fontes: "Fontes e metodologia", apuracao: window.APURACAO ? window.APURACAO.label : "" };
+    var map = { "": "", historia: "História", "em-jogo": "O que está em jogo", candidatos: "Candidatos", comparar: "Comparar", pesquisas: "Pesquisas", mercados: "Mercados de previsão", iris: "Modelo ÍRIS / VOGA", estados: "Estados", fontes: "Fontes e metodologia", apuracao: window.APURACAO ? window.APURACAO.label : "", "o-que-funciona": window.OQF ? window.OQF.label : "" };
     var t = map[sec] || "";
     if (sec === "historia" && p[1]) { var c = byId(EB.chapters, p[1]); if (c) t = c.kicker; }
     if (sec === "candidatos" && p[1]) { var k = cand(p[1]); if (k) t = k.name; }
@@ -4528,7 +5890,8 @@ EB.site.urls = { pt: "https://alemdaurna.com/", en: "https://brazilbeyondtheball
     EB.chapters.filter(function (c) { return !c.isStakes; }).map(function (c) { return '<a class="sub" href="#/historia/' + c.id + '">' + esc(c.kicker) + " <span>" + c.num + "</span></a>"; }).join("") +
     '<a href="#/em-jogo" data-nav="em-jogo">Em jogo <span>07</span></a><a href="#/candidatos" data-nav="candidatos">Candidatos <span>' + EB.candidates.length + '</span></a><a href="#/comparar" data-nav="comparar">Comparar <span>2–4</span></a>' +
     '<a href="#/pesquisas" data-nav="pesquisas">Pesquisas <span>1</span></a><a class="sub" href="#/mercados">Mercados de previsão <span>2</span></a><a class="sub" href="#/iris">Modelo ÍRIS / VOGA <span>3</span></a>' +
-    '<a href="#/estados" data-nav="estados">Estados <span>27</span></a><a href="#/fontes" data-nav="fontes">Fontes <span>↗</span></a>';
+    '<a href="#/estados" data-nav="estados">Estados <span>27</span></a><a href="#/fontes" data-nav="fontes">Fontes <span>↗</span></a>' +
+    (window.OQF ? '<a href="#/o-que-funciona" data-nav="o-que-funciona">' + window.OQF.label + ' <span>80</span></a>' : '');
   var hdrLang = document.querySelector(".site-header .lang");
   if (hdrLang) { var dl = hdrLang.cloneNode(true); dl.removeAttribute("id"); drawer.appendChild(dl); }
   function closeMenu() { document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded", "false"); }

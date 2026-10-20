@@ -792,25 +792,29 @@
   function currentPath() { return parse().parts ? parse().parts.join("/") : ""; }
   var lastKey = null, lastSec = null;
   /* Slugs de rota por idioma. Chaves internas = slugs em português. */
-  var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources", apuracao: "results" };
+  var SLUGS = { historia: "history", "em-jogo": "at-stake", candidatos: "candidates", comparar: "compare", pesquisas: "polls", mercados: "markets", iris: "iris", estados: "states", fontes: "sources", apuracao: "results", "o-que-funciona": "what-works" };
   var SLUG_IN = {}; Object.keys(SLUGS).forEach(function (k) { SLUG_IN[SLUGS[k]] = k; });
+  /* Subpáginas de "O que funciona?" (segundo segmento da rota). */
+  var SUB2 = { "o-que-funciona": { mapa: "map", governantes: "leaders", perfil: "profile", comparar: "compare", metodologia: "methodology" } };
+  function sub2(key, seg, to) { var m = SUB2[key]; if (!m || !seg) return seg; var k = seg; Object.keys(m).forEach(function (x) { if (m[x] === seg) k = x; }); return to === "en" ? (m[k] || k) : k; }
 
   /* Seletor de idioma: mantém a página equivalente (#/candidatos/lula ↔ #/candidates/lula). */
   /* Endereços relativos só em teste local (arquivo aberto direto ou localhost); publicado, usa os domínios de EB.site.urls. */
-  function isLocal() { return location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname); }
+  function isLocal() { return EB.preview || location.protocol === "file:" || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname); }
   function langHref(to) {
     var raw = location.hash.replace(/^#/, "");
     if (raw && raw[0] === "/") {
       var m = raw.match(/^\/([^/?#]*)(.*)$/), seg = m[1], rest = m[2];
       var key = SLUG_IN[seg] || seg;
       seg = to === "en" ? (SLUGS[key] || key) : key;
+      if (SUB2[key]) rest = rest.replace(/^\/([^/?#]*)/, function (m0, s2) { return "/" + sub2(key, s2, to); });
       raw = "/" + seg + rest;
     }
     var hash = raw ? "#" + raw : "";
     if (to === LANG) return hash || "#/";
     var base;
     if (!isLocal()) base = EB.site.urls[to];
-    else if (location.protocol === "file:") base = to === "en" ? "en/index.html" : "../index.html";
+    else if (location.protocol === "file:" || EB.preview) base = to === "en" ? "en/index.html" : "../index.html";
     else base = to === "en" ? "en/" : "../";
     return base + hash;
   }
@@ -820,6 +824,7 @@
     var r = parse();
     if (r.anchorOnly) { var el = document.getElementById(r.anchorOnly); if (el) el.scrollIntoView(); return; }
     var p = r.parts; if (p[0] && SLUG_IN[p[0]]) p[0] = SLUG_IN[p[0]];
+    if (p[1] && SUB2[p[0]]) p[1] = sub2(p[0], p[1], "pt");
     var sec = p[0] || "", navKey = sec;
     if (sec !== "apuracao" && window.APURACAO) window.APURACAO.stop();
     var key = p.join("/") + "?" + JSON.stringify(r.q);
@@ -841,6 +846,7 @@
       else if (sec === "estados") renderStates(p[1]);
       else if (sec === "fontes") renderSources();
       else if (sec === "apuracao" && window.APURACAO) window.APURACAO.render(app, r.q);
+      else if (sec === "o-que-funciona" && window.OQF) window.OQF.render(app, p, r.q);
       else render404();
       if (sec === "mercados" || sec === "iris") navKey = "pesquisas";
       setNav(navKey);
@@ -854,7 +860,7 @@
   }
 
   function setTitle(sec, p) {
-    var map = { "": "", historia: "História", "em-jogo": "O que está em jogo", candidatos: "Candidatos", comparar: "Comparar", pesquisas: "Pesquisas", mercados: "Mercados de previsão", iris: "Modelo ÍRIS / VOGA", estados: "Estados", fontes: "Fontes e metodologia", apuracao: window.APURACAO ? window.APURACAO.label : "" };
+    var map = { "": "", historia: "História", "em-jogo": "O que está em jogo", candidatos: "Candidatos", comparar: "Comparar", pesquisas: "Pesquisas", mercados: "Mercados de previsão", iris: "Modelo ÍRIS / VOGA", estados: "Estados", fontes: "Fontes e metodologia", apuracao: window.APURACAO ? window.APURACAO.label : "", "o-que-funciona": window.OQF ? window.OQF.label : "" };
     var t = map[sec] || "";
     if (sec === "historia" && p[1]) { var c = byId(EB.chapters, p[1]); if (c) t = c.kicker; }
     if (sec === "candidatos" && p[1]) { var k = cand(p[1]); if (k) t = k.name; }
@@ -909,7 +915,8 @@
     EB.chapters.filter(function (c) { return !c.isStakes; }).map(function (c) { return '<a class="sub" href="#/historia/' + c.id + '">' + esc(c.kicker) + " <span>" + c.num + "</span></a>"; }).join("") +
     '<a href="#/em-jogo" data-nav="em-jogo">Em jogo <span>07</span></a><a href="#/candidatos" data-nav="candidatos">Candidatos <span>' + EB.candidates.length + '</span></a><a href="#/comparar" data-nav="comparar">Comparar <span>2–4</span></a>' +
     '<a href="#/pesquisas" data-nav="pesquisas">Pesquisas <span>1</span></a><a class="sub" href="#/mercados">Mercados de previsão <span>2</span></a><a class="sub" href="#/iris">Modelo ÍRIS / VOGA <span>3</span></a>' +
-    '<a href="#/estados" data-nav="estados">Estados <span>27</span></a><a href="#/fontes" data-nav="fontes">Fontes <span>↗</span></a>';
+    '<a href="#/estados" data-nav="estados">Estados <span>27</span></a><a href="#/fontes" data-nav="fontes">Fontes <span>↗</span></a>' +
+    (window.OQF ? '<a href="#/o-que-funciona" data-nav="o-que-funciona">' + window.OQF.label + ' <span>80</span></a>' : '');
   var hdrLang = document.querySelector(".site-header .lang");
   if (hdrLang) { var dl = hdrLang.cloneNode(true); dl.removeAttribute("id"); drawer.appendChild(dl); }
   function closeMenu() { document.body.classList.remove("menu-open"); burger.setAttribute("aria-expanded", "false"); }

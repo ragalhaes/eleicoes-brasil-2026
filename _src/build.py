@@ -25,10 +25,10 @@ L = {
   desc='Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar — com fatos, decisões judiciais, alegações e opinião editorial claramente identificados.',
   brand_small='Política para além das narrativas.', nav_label='Principal',
   foot_tag='Vá às fontes. Pense por conta própria.', foot_name='', home_lbl='Além da Urna — página inicial',
-  nav=[('historia', 'História'), ('em-jogo', 'Em jogo'), ('candidatos', 'Candidatos'), ('comparar', 'Comparar'), ('pesquisas', 'Pesquisas'), ('estados', 'Estados'), ('fontes', 'Fontes')],
+  nav=[('historia', 'História'), ('em-jogo', 'Em jogo'), ('candidatos', 'Candidatos'), ('comparar', 'Comparar'), ('pesquisas', 'Pesquisas'), ('estados', 'Estados'), ('fontes', 'Fontes'), ('o-que-funciona', 'O que funciona?')],
   lang_group='Idioma', menu='MENU', drawer_label='Menu completo',
   footer_big='ELEIÇÕES BRASIL 2026 · MUITO ALÉM DAS ELEIÇÕES', nav_h='Navegar', transp_h='Transparência',
-  foot_nav=[('historia', 'História'), ('em-jogo', 'O que está em jogo'), ('candidatos', 'Candidatos'), ('comparar', 'Comparar'), ('pesquisas', 'Pesquisas'), ('mercados', 'Mercados'), ('iris', 'Modelo ÍRIS'), ('estados', 'Estados')],
+  foot_nav=[('historia', 'História'), ('em-jogo', 'O que está em jogo'), ('candidatos', 'Candidatos'), ('comparar', 'Comparar'), ('pesquisas', 'Pesquisas'), ('mercados', 'Mercados'), ('iris', 'Modelo ÍRIS'), ('estados', 'Estados'), ('o-que-funciona', 'O que funciona?')],
   foot_tr=[('fontes', 'Fontes e metodologia'), ('fontes#rotulos', 'Como ler os rótulos'), ('fontes#atualizacao', 'Atualização dos dados')],
   foot_line='Além da Urna é um projeto editorial independente criado e editado por Ragalhaes, em San Diego, Califórnia, Estados Unidos.',
   to_top='Voltar ao topo', contact_lbl='Contato', asset='', datadir='data'),
@@ -38,17 +38,17 @@ L = {
   desc="Economy, institutions, the Supreme Court, the Senate and the Presidency. How Brazil got to 2026 and what this election could change — with facts, court decisions, allegations and editorial opinion clearly labeled.",
   brand_small='Brazil Beyond the Ballot', nav_label='Main',
   foot_tag='Go to the sources. Think for yourself.', foot_name='Brazil Beyond the Ballot', home_lbl='Brazil Beyond the Ballot (Além da Urna) — home',
-  nav=[('history', 'History'), ('at-stake', 'At stake'), ('candidates', 'Candidates'), ('compare', 'Compare'), ('polls', 'Polls'), ('states', 'States'), ('sources', 'Sources')],
+  nav=[('history', 'History'), ('at-stake', 'At stake'), ('candidates', 'Candidates'), ('compare', 'Compare'), ('polls', 'Polls'), ('states', 'States'), ('sources', 'Sources'), ('what-works', 'What works?')],
   lang_group='Language', menu='MENU', drawer_label='Full menu',
   footer_big='BRAZIL ELECTIONS 2026 · FAR BEYOND THE ELECTION', nav_h='Browse', transp_h='Transparency',
-  foot_nav=[('history', 'History'), ('at-stake', 'What is at stake'), ('candidates', 'Candidates'), ('compare', 'Compare'), ('polls', 'Polls'), ('markets', 'Markets'), ('iris', 'ÍRIS model'), ('states', 'States')],
+  foot_nav=[('history', 'History'), ('at-stake', 'What is at stake'), ('candidates', 'Candidates'), ('compare', 'Compare'), ('polls', 'Polls'), ('markets', 'Markets'), ('iris', 'ÍRIS model'), ('states', 'States'), ('what-works', 'What works?')],
   foot_tr=[('sources', 'Sources and methodology'), ('sources#rotulos', 'How to read the labels'), ('sources#atualizacao', 'Data updates')],
   foot_line='Brazil Beyond the Ballot is an independent editorial project created and edited by Ragalhaes in San Diego, California, United States.',
   to_top='Back to top', contact_lbl='Contact', asset='../', datadir='data_en'),
 }
-NAVKEY = {'history': 'historia', 'at-stake': 'em-jogo', 'candidates': 'candidatos', 'compare': 'comparar', 'polls': 'pesquisas', 'states': 'estados', 'sources': 'fontes', 'results': 'apuracao'}
-EN_SLUGS = {'historia': 'history', 'em-jogo': 'at-stake', 'candidatos': 'candidates', 'comparar': 'compare', 'pesquisas': 'polls', 'mercados': 'markets', 'estados': 'states', 'fontes': 'sources', 'apuracao': 'results'}
-ROUTE_RE = re.compile(r'#/(historia|em-jogo|candidatos|comparar|pesquisas|mercados|estados|fontes|apuracao)(?=[/"\'?#\s\\]|$)')
+NAVKEY = {'history': 'historia', 'at-stake': 'em-jogo', 'candidates': 'candidatos', 'compare': 'comparar', 'polls': 'pesquisas', 'states': 'estados', 'sources': 'fontes', 'results': 'apuracao', 'what-works': 'o-que-funciona'}
+EN_SLUGS = {'historia': 'history', 'em-jogo': 'at-stake', 'candidatos': 'candidates', 'comparar': 'compare', 'pesquisas': 'polls', 'mercados': 'markets', 'estados': 'states', 'fontes': 'sources', 'apuracao': 'results', 'o-que-funciona': 'what-works'}
+ROUTE_RE = re.compile(r'#/(historia|em-jogo|candidatos|comparar|pesquisas|mercados|estados|fontes|apuracao|o-que-funciona)(?=[/"\'?#\s\\]|$)')
 
 
 def en_routes(s):
@@ -117,6 +117,7 @@ def shell(lang):
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 {open(SRC + 'css/styles.css').read()}
+{open(SRC + 'css/oqf.css').read()}
 </style>
 </head>
 <body>
@@ -169,7 +170,7 @@ def shell(lang):
     return head
 
 
-def build(lang):
+def build(lang, preview=False):
     c = L[lang]
     d = SRC + 'js/' + c['datadir'] + '/'
     files = ['meta.js', 'chapters.js', 'candidates.js', 'polls.js', 'markets.js', 'iris.js', 'states.js']
@@ -180,22 +181,50 @@ def build(lang):
             s = en_routes(s)
         parts.append(s)
     parts.append(open(SRC + 'js/data/brmap.js').read())
+    parts.append(open(d + 'oqf_content.js').read())
     cfg = ('/* Configuração de idioma e endereços públicos (PT: alemdaurna.com · EN: brazilbeyondtheballot.com).\n'
            '   Os mesmos endereços aparecem no <head> (canonical, hreflang, og:url) das duas páginas. */\n'
            'EB.lang = "%s";\nEB.assetBase = "%s";\nEB.site.urls = { pt: "%s", en: "%s" };' % (lang, c['asset'], URLS['pt'], URLS['en']))
     apu = open(SRC + 'js/apuracao.js').read()
+    if preview:
+        cfg += '\nEB.preview = true; /* pré-visualização isolada: troca de idioma fica dentro da prévia */'
     app = open(SRC + 'js/app.js').read()
     if lang == 'en':
         app = translate_app(app)
+    oqf = open(SRC + 'js/oqf.js').read()
     h = shell(lang)
     h += '\n<!-- Dados editoriais incorporados (EB.*), separados da interface -->\n'
     for p in parts:
         h += '<script>\n' + p.strip() + '\n</script>\n'
-    h += '<script>\n' + cfg + '\n</script>\n<!-- Apuração ao vivo (#/apuracao · #/results): lê o JSON oficial do TSE -->\n<script>\n' + apu.strip() + '\n</script>\n<!-- Interface (hash routing) -->\n<script>\n' + app.strip() + '\n</script>\n</body>\n</html>\n'
+    h += '<script>\n' + cfg + '\n</script>\n<!-- Apuração ao vivo (#/apuracao · #/results): lê o JSON oficial do TSE -->\n<script>\n' + apu.strip() + '\n</script>\n'
+    h += '<!-- Seção "O que funciona?" (dados carregados sob demanda de /assets/data/oqf) -->\n<script>\n' + oqf.strip() + '\n</script>\n'
+    h += '<!-- Interface (hash routing) -->\n<script>\n' + app.strip() + '\n</script>\n</body>\n</html>\n'
     return h
 
 
+def copy_oqf_static(out):
+    """Arquivos estáticos da seção O que funciona? que moram em _src (lista de governantes de referência)."""
+    dst = out + 'assets/data/oqf/'
+    os.makedirs(dst, exist_ok=True)
+    shutil.copyfile(SRC + 'oqf/leaders.js', dst + 'leaders.js')
+
+
 if __name__ == '__main__':
+    # python3 _src/build.py               → index.html e en/index.html (produção)
+    # python3 _src/build.py --preview DIR → cópia isolada em DIR (não toca nos HTML de produção)
+    if len(sys.argv) > 2 and sys.argv[1] == '--preview':
+        dest = os.path.abspath(sys.argv[2]) + '/'
+        os.makedirs(dest + 'en', exist_ok=True)
+        if os.path.exists(dest + 'assets'):
+            shutil.rmtree(dest + 'assets')
+        shutil.copytree(OUT + 'assets', dest + 'assets')
+        copy_oqf_static(dest)
+        for lang, path in (('pt', dest + 'index.html'), ('en', dest + 'en/index.html')):
+            h = build(lang, preview=True)
+            open(path, 'w').write(h)
+            print(lang, path, len(h))
+        sys.exit(0)
+    copy_oqf_static(OUT)
     os.makedirs(OUT + 'en', exist_ok=True)
     # Menu de drinks do evento (página própria em /drinks/, com offline e ícone para a Tela de Início)
     import hashlib
