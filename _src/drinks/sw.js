@@ -3,7 +3,7 @@
    Página: rede primeiro (pega atualização quando há conexão), cache se cair.
    Fontes do Google: cache em tempo de execução. */
 var CACHE = "drinks-__VERSION__";
-var CORE = ["./", "./index.html", "./manifest.webmanifest", "./icon-180.png", "./icon-192.png", "./icon-512.png"];
+var CORE = ["./", "./index.html", "./manifest.webmanifest", "../assets/brand/alem-da-urna_logo_compacta_horizontal_escuro.svg", "../assets/brand/alem-da-urna_icone_A_escuro.svg", "../assets/brand/favicon.ico", "../assets/brand/alem-da-urna_icone_A_escuro_180px.png", "../assets/brand/alem-da-urna_icone_A_escuro_192px.png", "../assets/brand/alem-da-urna_icone_A_escuro_512px.png"];
 self.addEventListener("install", function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(CORE); }).then(function () { return self.skipWaiting(); }));
 });

@@ -174,7 +174,7 @@
     /* 1. Hero */
     h += '<section class="hero"><div class="wrap">' +
       '<div class="hero-meta"><span><b>●</b> Reportagem especial</span><span>Muito além das eleições</span><span>Atualizado em ' + dmy(EB.site.last_updated) + "</span><span>" + esc(EB.ui2t.hero_date) + "</span></div>" +
-      '<div class="hero-grid"><div><h1>Além da<br><span class="y">Urna</span></h1>' +
+      '<div class="hero-grid"><div><h1 class="hero-logo"><img src="' + ASSET + 'assets/brand/alem-da-urna_logo_principal_escuro.svg" width="450" height="202" alt="Além da Urna"></h1>' +
       '<p class="hero-sub">' + esc(EB.site.subtitle) + "</p>" +
       (d > 0 ? '<div class="hero-date"><b>' + d + "</b> " + (d === 1 ? EB.ui2t.day : EB.ui2t.days) + " " + esc(EB.ui2t.countdown) + "</div>" : "") +
       '<div class="hero-cta"><a href="#h-' + chs[0].id + '" class="btn btn--solid" data-scroll>Como o Brasil chegou aqui <span class="arr">↓</span></a>' +

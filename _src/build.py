@@ -23,7 +23,8 @@ L = {
   html_lang='pt-BR', og_locale='pt_BR', og_alt='en_US',
   title='Além da Urna — Eleições Brasil 2026', brand='Além da Urna', footer_big_name='Além<br>da Urna',
   desc='Economia, instituições, STF, Senado e Presidência. Entenda como o Brasil chegou a 2026 e o que esta eleição pode mudar — com fatos, decisões judiciais, alegações e opinião editorial claramente identificados.',
-  brand_small='ELEIÇÕES 2026 · MUITO ALÉM DAS ELEIÇÕES', nav_label='Principal',
+  brand_small='Política para além das narrativas.', nav_label='Principal',
+  foot_tag='Vá às fontes. Pense por conta própria.', foot_name='', home_lbl='Além da Urna — página inicial',
   nav=[('historia', 'História'), ('em-jogo', 'Em jogo'), ('candidatos', 'Candidatos'), ('comparar', 'Comparar'), ('pesquisas', 'Pesquisas'), ('estados', 'Estados'), ('fontes', 'Fontes')],
   lang_group='Idioma', menu='MENU', drawer_label='Menu completo',
   footer_big='ELEIÇÕES BRASIL 2026 · MUITO ALÉM DAS ELEIÇÕES', nav_h='Navegar', transp_h='Transparência',
@@ -35,7 +36,8 @@ L = {
   html_lang='en-US', og_locale='en_US', og_alt='pt_BR',
   title='Brazil Beyond the Ballot — Brazil Elections 2026', brand='Brazil Beyond the Ballot', footer_big_name='Brazil Beyond<br>the Ballot',
   desc="Economy, institutions, the Supreme Court, the Senate and the Presidency. How Brazil got to 2026 and what this election could change — with facts, court decisions, allegations and editorial opinion clearly labeled.",
-  brand_small='BRAZIL ELECTIONS 2026', nav_label='Main',
+  brand_small='Brazil Beyond the Ballot', nav_label='Main',
+  foot_tag='Go to the sources. Think for yourself.', foot_name='Brazil Beyond the Ballot', home_lbl='Brazil Beyond the Ballot (Além da Urna) — home',
   nav=[('history', 'History'), ('at-stake', 'At stake'), ('candidates', 'Candidates'), ('compare', 'Compare'), ('polls', 'Polls'), ('states', 'States'), ('sources', 'Sources')],
   lang_group='Language', menu='MENU', drawer_label='Full menu',
   footer_big='BRAZIL ELECTIONS 2026 · FAR BEYOND THE ELECTION', nav_h='Browse', transp_h='Transparency',
@@ -94,10 +96,22 @@ def shell(lang):
 <meta property="og:title" content="{c['title']}">
 <meta property="og:description" content="{esc(c['desc'])}">
 <meta property="og:url" content="{URLS[lang]}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{URLS[lang]}assets/brand/alem-da-urna_og_1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="Além da Urna">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{c['title']}">
 <meta name="twitter:description" content="{esc(c['desc'])}">
-<meta name="theme-color" content="#0b0c0f">
+<meta name="twitter:image" content="{URLS[lang]}assets/brand/alem-da-urna_og_1200x630.png">
+<meta name="theme-color" content="#0b0b0b">
+<!-- Identidade visual V6: ícone [A] oficial -->
+<link rel="icon" href="{c['asset']}assets/brand/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/svg+xml" href="{c['asset']}assets/brand/alem-da-urna_icone_A_escuro.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="{c['asset']}assets/brand/alem-da-urna_icone_A_escuro_32px.png">
+<link rel="icon" type="image/png" sizes="192x192" href="{c['asset']}assets/brand/alem-da-urna_icone_A_escuro_192px.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{c['asset']}assets/brand/alem-da-urna_icone_A_escuro_180px.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -111,7 +125,7 @@ def shell(lang):
 
 <header class="site-header" id="top">
   <div class="wrap">
-    <a href="#/" class="brand"><b>{c['brand']}</b><small>{c['brand_small']}</small></a>
+    <a href="#/" class="brand" aria-label="{c['home_lbl']}"><picture><source media="(min-width: 768px)" srcset="{c['asset']}assets/brand/alem-da-urna_logo_horizontal_escuro.svg" width="415" height="82"><img class="brand-logo" src="{c['asset']}assets/brand/alem-da-urna_logo_compacta_horizontal_escuro.svg" width="260" height="63" alt="Além da Urna"></picture><small>{c['brand_small']}</small></a>
     <nav class="nav" id="nav" aria-label="{c['nav_label']}">
 {nav}
     </nav>
@@ -129,7 +143,7 @@ def shell(lang):
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div class="big">{c['footer_big_name']}<span>{c['footer_big']}</span></div>
+      <div class="big"><img class="footer-logo" src="{c['asset']}assets/brand/alem-da-urna_logo_principal_escuro.svg" width="450" height="202" alt="Além da Urna" loading="lazy">{('<b class="footer-name">' + c['foot_name'] + '</b>') if c['foot_name'] else ''}<em class="footer-tag">{c['foot_tag']}</em><span>{c['footer_big']}</span></div>
       <div>
         <h4>{c['nav_h']}</h4>
         <ul>

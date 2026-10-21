@@ -173,7 +173,7 @@
     var testBar = mode === "sim" ? TX.test_sim : mode === "sp2024" ? TX.test_sp : "";
     app.innerHTML = '<div class="apu' + (testBar ? " is-test" : "") + '" id="apu" data-state="load">' +
       (testBar ? '<div class="apu-testbar" role="note">' + esc(testBar) + "</div>" : "") +
-      '<header class="apu-top"><div class="apu-brand"><a href="#/">' + esc(TX.brand) + '</a><span>' + esc(TX.title) + '</span></div>' +
+      '<header class="apu-top"><div class="apu-brand"><a href="#/" aria-label="' + esc(TX.brand) + '"><img src="' + (EB.assetBase || "") + 'assets/brand/alem-da-urna_logo_compacta_horizontal_escuro.svg" width="260" height="63" alt="Além da Urna"></a><span>' + esc(TX.title) + '</span></div>' +
       '<div class="apu-head"><p class="apu-status" id="apu-status"><i></i><span>' + esc(TX.st_load) + '</span></p><h1>' + esc(mode === "sp2024" ? (LANG === "en" ? "Mayor of São Paulo · Runoff · 2024 (test)" : "Prefeito de São Paulo · 2º turno · 2024 (teste)") : TX.sub) + "</h1></div>" +
       '<div class="apu-clock"><small>' + esc(TX.now) + '</small><b id="apu-clock">--:--:--</b><button type="button" class="apu-fs" id="apu-fs">' + esc(TX.fullscreen) + "</button></div></header>" +
       '<p class="apu-wait" id="apu-wait" hidden>' + esc(TX.st_wait_d) + "</p>" +

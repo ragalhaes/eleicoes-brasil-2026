@@ -238,7 +238,7 @@ T = [
  ('document.getElementById("footer-upd").textContent = "Atualizado em " + dmy(EB.site.last_updated);', 'document.getElementById("footer-upd").textContent = "Updated " + dmy(EB.site.last_updated);'),
 ]
 
-T.append(('<h1>Além da<br><span class="y">Urna</span></h1>', '<h1>Brazil Beyond<br><span class="y">the Ballot</span></h1>'))
+T.append(('<h1 class="hero-logo"><img src="\' + ASSET + \'assets/brand/alem-da-urna_logo_principal_escuro.svg" width="450" height="202" alt="Além da Urna"></h1>', '<h1>Brazil Beyond<br><span class="y">the Ballot</span></h1>'))
 
 GLOBAL = [
  ('Em atualização', 'Being updated'),
