@@ -109,6 +109,20 @@ IND = [
 ]
 # indicadores resumidos dos países fora do piloto (todos C1, mesma série para todos)
 WORLD_IND = ["life_exp", "gdp_pc_ppp", "gdp_growth", "inflation"]
+# nomes legíveis das fontes (só apresentação; a versão exata continua em "v")
+SRC_NAME = {
+    "F01": ("PNUD — Relatório de Desenvolvimento Humano", "UNDP — Human Development Report"),
+    "F04": ("Penn World Table", "Penn World Table"),
+    "F05": ("ONU — World Population Prospects", "UN — World Population Prospects"),
+    "F06": ("Banco Mundial — WDI", "World Bank — WDI"),
+    "F07": ("Banco Mundial — Plataforma de Pobreza e Desigualdade", "World Bank — Poverty and Inequality Platform"),
+    "E01": ("FMI — World Economic Outlook", "IMF — World Economic Outlook"),
+    "E05": ("Banco Mundial — WDI", "World Bank — WDI"),
+    "E07": ("Penn World Table", "Penn World Table"),
+    "E09": ("BIS — Banco de Compensações Internacionais", "BIS — Bank for International Settlements"),
+    "E16": ("Banco Central do Brasil", "Central Bank of Brazil"),
+    "E17": ("IPEADATA / IBGE", "IPEADATA / IBGE"),
+}
 
 TYPE = {"medido": "o", "estimado": "e", "reconstrução histórica": "r", "calculado a partir da fonte": "d", "projeção": "p"}
 CAT = {"S": "P", "R": "R"}
@@ -202,8 +216,8 @@ def js(path, call, obj):
 
 
 def num(v, d):
-    x = float(v)
-    return round(x, max(d + 2, 4))
+    """Valor exatamente como publicado na camada da auditoria (sem arredondar; a exibição arredonda)."""
+    return float(v)
 
 
 def serie_for(ind, ent):
@@ -302,7 +316,8 @@ def main():
                 pts.append([int(r.y), num(r.valor, I["dec"]), TYPE.get(r.rotulo_visual_pt, "o"), r.confiabilidade, r.comp,
                             CAT[r.codigo_categoria], notes.index(key), r.id_observacao])
             data[I["id"]] = pts
-            meta[I["id"]] = dict(s=s, f=g.fonte_id.iloc[0], v=g.versao_fonte.iloc[0], u=g.unidade.iloc[0],
+            fn = SRC_NAME.get(g.fonte_id.iloc[0], (g.fonte_id.iloc[0], g.fonte_id.iloc[0]))
+            meta[I["id"]] = dict(s=s, f=g.fonte_id.iloc[0], v=g.versao_fonte.iloc[0], u=g.unidade.iloc[0], fn=fn[0], fn_en=fn[1],
                                  intl=bool(g.apta.all()), notes=[list(k) for k in notes])
         return data, meta
 
@@ -343,6 +358,17 @@ def main():
         wav[e] = dict(f=("world/%s.js" % e) if data else None, pros=av["pros"], eco=av["eco"], n=sum(len(v) for v in data.values()))
     js(os.path.join(OUT, "world_avail.js"), "OQF.worldAvail", {"y0": Y0, "y1": Y1, "c": wav})
 
+    # valores para o modo "Valores" do mapa: só indicadores C1 (mesma série para todos), só S e R,
+    # só observações aptas à comparação internacional. a = 1 marca expansão automática (fora do piloto).
+    for iid in WORLD_IND:
+        I = next(x for x in IND if x["id"] == iid)
+        g = by_serie[I["serie"]]
+        g = g[g.apta & g.entity_id.isin([e for e in universe if e not in ("FRG", "GDR", "SUN", "SUN-RSFSR", "UKR-SSR", "DEU-OCUP")])]
+        vals = {}
+        for e, h in g.groupby("entity_id"):
+            vals[e] = [[int(r.y), num(r.valor, I["dec"]), CAT[r.codigo_categoria]] for r in h.sort_values("y").itertuples()]
+        js(os.path.join(OUT, "values", iid + ".js"), "OQF.values", {"id": iid, "serie": I["serie"], "pilots": PILOTS, "c": vals})
+
     # painel por mandato (A3, só S e R)
     pn = pd.read_csv(f3p, dtype=str, keep_default_na=False)
     pn = pn[pn.codigo_categoria.isin(["S", "R"])]
@@ -365,6 +391,16 @@ def main():
                "US$ de 2015": "2015 US$", "% da força de trabalho": "% of labor force", "% a.a.": "% per year", "% ao ano": "% per year",
                "% a.a. (média do ano)": "% per year (annual average)", "dólares internacionais de 2021": "2021 international dollars", "moeda nacional": "national currency", "moeda nacional (ano-base do país)": "national currency (country base year)"}
     terms = {}
+
+    def window_series(ent, serie, y0, y1):
+        """Série original do cálculo (só S e R), da base − 5 ao final + 3 (até 2025), para o gráfico do mandato."""
+        g = by_serie.get(serie)
+        if g is None:
+            g = by_serie.get(serie + "|sinal_invertido")
+        if g is None:
+            return []
+        g = g[(g.entity_id == ent) & (g.y >= y0 - 5) & (g.y <= min(2025, y1 + 3))].sort_values("y")
+        return [[int(x.y), float(x.valor), CAT[x.codigo_categoria]] for x in g.itertuples()]
     missing_u = set()
     for r in pn.itertuples():
         if r.indicador_id not in PNAME:
@@ -381,6 +417,7 @@ def main():
             ad=r.adequacao_comparacao, adm=r.motivo_adequacao, adm_en=tr_terms(r.motivo_adequacao),
             pre=r.tendencia_previa, pre_en=tr_terms(r.tendencia_previa), ctx=r.contexto_mundial_e_pares, ctx_en=tr_terms(r.contexto_mundial_e_pares),
             alt=[[k, getattr(r, "janela_" + k), getattr(r, "valor_" + k)] for k in ("B", "C", "E", "M") if getattr(r, "janela_" + k)],
+            w=window_series(r.entity_id, r.serie, int(r.observacao_base_ano), int(r.observacao_final_ano)),
             rob=r.robusto_entre_janelas_anuais == "sim", altdiff=r.janelas_alternativas_materialmente_diferentes,
             mdiff=r.mensal_materialmente_diferente, cat=CAT[r.codigo_categoria]))
     if missing_u:
@@ -408,6 +445,18 @@ def main():
 
     # ---------------------------------------------------------------- testes
     fails = []
+    # valores gravados = valores das camadas de publicação (nenhum valor alterado)
+    src_val = dict(zip(pub.id_observacao, pub.valor.astype(float)))
+    for folder in ("series", "world"):
+        for fn in os.listdir(os.path.join(OUT, folder)):
+            txt = open(os.path.join(OUT, folder, fn)).read()
+            obj = json.loads(txt[txt.index("(") + 1: txt.rindex(")")])
+            for k, pts in obj["ind"].items():
+                for p in pts:
+                    v = src_val.get(p[7])
+                    if v is None or v != p[1]:
+                        fails.append("valor diferente da fonte %s %s %s" % (fn, k, p[7]))
+                        break
     for e in PILOT_ENTS:
         txt = open(os.path.join(OUT, "series", e + ".js")).read()
         obj = json.loads(txt[txt.index("(") + 1: txt.rindex(")")])
