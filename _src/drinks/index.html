@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Drinks — Além da Urna</title>
+<meta name="description" content="Menu de drinks do evento de 25 de outubro: receitas com medidas em ml para 1, 2 ou 4 drinks.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0c0f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Drinks">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Menu de drinks — mesma identidade do Além da Urna (tinta, verde-limão, Fraunces / Inter / Plex Mono).
+   Pensado para iPad em pé ou deitado, com alvos de toque grandes. */
+:root {
+  --ink: #0b0c0f; --ink-2: #121419; --ink-3: #1b1e25; --line: rgba(255,255,255,.1);
+  --t: #eceae4; --t2: #9a9ea8; --accent: #c6f24e;
+  --f-display: "Fraunces", Georgia, serif; --f-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --pad: max(16px, env(safe-area-inset-left, 0px)); --padr: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; min-height: 100svh; background: var(--ink); color: var(--t); font-family: var(--f-sans); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased; touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; user-select: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; }
+h1, h2, h3, p, ol, ul { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 var(--padr) 0 var(--pad); }
+
+/* topo */
+.top { position: sticky; top: 0; z-index: 5; background: rgba(11,12,15,.92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top, 0px); }
+.top .wrap { display: flex; align-items: center; gap: 12px; min-height: 64px; }
+.brand { display: grid; line-height: 1.15; flex: 1; min-width: 0; }
+.brand b { font-family: var(--f-display); font-weight: 700; font-size: 20px; }
+.brand small { font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.back { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px 0 14px; border-radius: 99px; background: var(--ink-3); border: 1px solid var(--line); font-weight: 600; font-size: 16px; }
+.back:active { transform: scale(.97); }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 99px; padding: 3px; }
+.lang button { min-width: 44px; min-height: 40px; border-radius: 99px; font-family: var(--f-mono); font-size: 13px; font-weight: 600; color: var(--t2); }
+.lang button[aria-pressed="true"] { background: var(--t); color: var(--ink); }
+.offline { display: none; font-family: var(--f-mono); font-size: 11px; color: var(--t2); border: 1px solid var(--line); border-radius: 99px; padding: 4px 10px; }
+body.is-offline .offline { display: inline-block; }
+
+/* lista */
+.intro { padding: 28px 0 8px; display: grid; gap: 6px; }
+.intro h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(36px, 6vw, 60px); line-height: .95; letter-spacing: -.03em; }
+.intro p { color: var(--t2); font-size: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; padding: 20px 0 28px; }
+.card { position: relative; display: grid; grid-template-columns: 64px 1fr auto; gap: 16px; align-items: center; min-height: 112px; padding: 18px 18px 18px 16px; border-radius: 18px; background: var(--ink-2); border: 1px solid var(--line); text-align: left; overflow: hidden; transition: transform .15s, border-color .2s; }
+.card::after { content: ""; position: absolute; inset: auto -30% -60% auto; width: 70%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--c) 30%, transparent), transparent 65%); pointer-events: none; }
+.card:active { transform: scale(.98); border-color: var(--c); }
+.card h2 { font-family: var(--f-display); font-weight: 700; font-size: 25px; line-height: 1.05; letter-spacing: -.01em; }
+.card p { margin-top: 6px; font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--t2); }
+.card .go { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--ink-3); color: var(--c); font-size: 20px; }
+.glass { width: 64px; height: 64px; display: block; }
+.glass .liq { fill: var(--c); } .glass .rim { fill: none; stroke: rgba(255,255,255,.55); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; }
+.glass .ice { fill: rgba(255,255,255,.35); } .glass .gar { fill: var(--g, #c6f24e); }
+.note-global { color: var(--t2); font-size: 15px; padding: 0 0 12px; }
+.note-global b { color: var(--t); font-weight: 600; }
+
+/* receita */
+.recipe { padding: 18px 0 40px; display: grid; gap: 20px; }
+.r-head { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; }
+.r-head .glass { width: 96px; height: 96px; }
+.r-head h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(38px, 7vw, 66px); line-height: .95; letter-spacing: -.03em; }
+.r-head p { margin-top: 8px; font-family: var(--f-mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--c); }
+.controls { position: sticky; top: calc(65px + env(safe-area-inset-top, 0px)); z-index: 4; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; padding: 12px 0; background: var(--ink); }
+.ctl-l { font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--t2); }
+.seg { display: inline-flex; background: var(--ink-3); border: 1px solid var(--line); border-radius: 16px; padding: 4px; gap: 4px; }
+.seg button { min-width: 78px; min-height: 56px; padding: 0 16px; border-radius: 12px; font-weight: 600; font-size: 20px; color: var(--t2); font-variant-numeric: tabular-nums; }
+.seg button small { display: block; font-size: 11px; font-weight: 500; letter-spacing: .04em; margin-top: -2px; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--ink); }
+.cols { display: grid; gap: 20px; }
+@media (min-width: 820px) { .cols { grid-template-columns: 1.1fr 1fr; align-items: start; } }
+.panel { background: var(--ink-2); border: 1px solid var(--line); border-radius: 20px; padding: 6px 20px 14px; }
+.panel h3 { font-family: var(--f-mono); font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--t2); padding: 16px 0 6px; }
+.ing li { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.ing li:last-child { border-bottom: 0; }
+.ing .nm { font-size: 19px; font-weight: 500; }
+.ing .nm small { display: block; font-size: 13.5px; color: var(--t2); font-weight: 400; margin-top: 2px; }
+.ing .qt { font-family: var(--f-mono); font-weight: 600; font-size: 24px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--t); }
+.ing .qt small { font-size: 14px; color: var(--t2); margin-left: 3px; font-weight: 500; }
+.ing .qt.txt { font-family: var(--f-sans); font-size: 17px; font-weight: 500; white-space: normal; max-width: 16ch; }
+.ing li.opt .nm::after { content: attr(data-opt); display: inline-block; margin-left: 8px; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--t2); border: 1px solid var(--line); border-radius: 99px; padding: 2px 8px; vertical-align: 3px; }
+.ing li.ice .qt { color: #a9d8ff; }
+.ing li.fin .qt { color: var(--c); }
+.flash .qt { animation: pop .35s ease; }
+@keyframes pop { 0% { transform: scale(1.12); color: var(--accent); } 100% { transform: none; } }
+.steps { counter-reset: s; }
+.steps li { position: relative; padding: 13px 0 13px 52px; font-size: 18px; border-bottom: 1px solid var(--line); }
+.steps li:last-child { border-bottom: 0; }
+.steps li::before { counter-increment: s; content: counter(s); position: absolute; left: 0; top: 10px; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--ink-3); border: 1px solid var(--line); font-family: var(--f-mono); font-weight: 600; font-size: 15px; color: var(--c); }
+.tip { margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: rgba(198,242,78,.07); border: 1px solid rgba(198,242,78,.25); font-size: 15px; }
+.tip b { color: var(--accent); }
+.batch { margin-top: 10px; font-size: 14.5px; color: var(--t2); }
+.foot { padding: 18px 0 calc(24px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); color: var(--t2); font-size: 13px; display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .flash .qt { animation: none; } .card, .back { transition: none; } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <button class="back" id="back" type="button" hidden>← <span id="back-t">Drinks</span></button>
+  <div class="brand" id="brand"><b>Além da Urna</b><small id="brand-s">Menu de drinks · 25/10</small></div>
+  <span class="offline" id="off">offline</span>
+  <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="pt" aria-pressed="true">PT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+</div></header>
+<main class="wrap" id="main"></main>
+<footer class="wrap"><div class="foot"><span id="foot-l"></span><span id="foot-r"></span></div></footer>
+
+<script>
+(function () {
+  "use strict";
+  /* ---------------------------------------------------------------- textos */
+  var UI = {
+    pt: { brand_s: "Menu de drinks · 25/10", title: "Escolha seu drink", sub: "Toque num drink para ver ingredientes, medidas e preparo.", back: "Drinks", for: "Receita para", drinks1: "drink", drinksN: "drinks",
+      ing: "Ingredientes", ice: "Gelo", fin: "Finalização", steps: "Preparo", optional: "opcional", spirit: "Destilado", plenty: "bastante gelo", plenty_shake: "bastante gelo para chacoalhar",
+      syrup: "**Simple syrup:** açúcar e água em partes iguais, mexidos até dissolver.", per: "por drink", foot_l: "Além da Urna · Menu de drinks do evento de 25 de outubro", foot_r: "Aprecie com moderação. Se for dirigir, não beba.",
+      batch_shake: "Para 4 drinks, bata em duas levas se a coqueteleira for pequena.", batch_blend: "Para 4 drinks, confira a capacidade do liquidificador; se precisar, bata em duas levas.", offline: "offline · receitas salvas" },
+    en: { brand_s: "Drinks menu · Oct. 25", title: "Pick your drink", sub: "Tap a drink to see ingredients, measures and method.", back: "Drinks", for: "Recipe for", drinks1: "drink", drinksN: "drinks",
+      ing: "Ingredients", ice: "Ice", fin: "Garnish", steps: "Method", optional: "optional", spirit: "Spirit", plenty: "plenty of ice", plenty_shake: "plenty of ice for shaking",
+      syrup: "**Simple syrup:** equal parts sugar and water, stirred until dissolved.", per: "per drink", foot_l: "Além da Urna · Drinks menu for the October 25 event", foot_r: "Please drink responsibly. Don't drink and drive.",
+      batch_shake: "For 4 drinks, shake in two batches if your shaker is small.", batch_blend: "For 4 drinks, check your blender's capacity; blend in two batches if needed.", offline: "offline · recipes saved" }
+  };
+  /* unidades: [singular, plural] */
+  var UNITS = {
+    ml: { pt: ["ml", "ml"], en: ["ml", "ml"] },
+    cup: { pt: ["xícara", "xícaras"], en: ["cup", "cups"] },
+    leaf_mint: { pt: ["folha", "folhas"], en: ["leaf", "leaves"] },
+    spoon: { pt: ["colher", "colheres"], en: ["spoonful", "spoonfuls"] },
+    bean: { pt: ["grão", "grãos"], en: ["bean", "beans"] }
+  };
+  /* ---------------------------------------------------------------- receitas
+     q: número ou [mín, máx] para 1 drink. Tudo que tem q é multiplicado por 1, 2 ou 4.
+     kind: "ing" ingrediente · "ice" gelo · "fin" finalização. opt: opcional. */
+  var V = "Tito’s Vodka", R = "Bacardí Superior";
+  var DRINKS = [
+    { id: "moscow-mule", c: "#d9894a", g: "#c6f24e", glass: "mug", pt: { name: "Moscow Mule", tag: "Vodka · montado" }, en: { name: "Moscow Mule", tag: "Vodka · built" },
+      items: [
+        { q: 60, u: "ml", pt: V, en: V },
+        { q: [15, 20], u: "ml", pt: "Suco de lime", en: "Lime juice" },
+        { q: 120, u: "ml", pt: "Fever-Tree Ginger Beer", en: "Fever-Tree Ginger Beer" },
+        { kind: "ice", plenty: true },
+        { kind: "fin", q: [2, 3], u: "spoon", pt: "Espuma de gengibre", en: "Ginger foam", pt_n: "Preparada antes. Não entra na conta do Ginger Beer.", en_n: "Made ahead. Not counted as Ginger Beer." }
+      ],
+      steps: { pt: ["Encher o copo ou caneca com gelo.", "Adicionar a vodka e o lime.", "Completar com o Ginger Beer.", "Misturar levemente.", "Finalizar com a espuma de gengibre."],
+               en: ["Fill the glass or mug with ice.", "Add the vodka and lime.", "Top with Ginger Beer.", "Stir gently.", "Finish with the ginger foam."] } },
+    { id: "pina-colada", c: "#f2d36b", g: "#ffffff", glass: "hurricane", blend: true, pt: { name: "Piña Colada", tag: "Rum ou vodka · liquidificador" }, en: { name: "Piña Colada", tag: "Rum or vodka · blended" },
+      variants: [{ id: "rum", pt: "Rum", en: "Rum", base: { q: 60, u: "ml", pt: R, en: R } }, { id: "vodka", pt: "Vodka", en: "Vodka", base: { q: 60, u: "ml", pt: V, en: V } }],
+      items: [
+        { base: true },
+        { q: 90, u: "ml", pt: "Pineapple juice", en: "Pineapple juice" },
+        { q: 45, u: "ml", pt: "Cream of Coconut", en: "Cream of Coconut" },
+        { kind: "ice", q: [1, 1.5], u: "cup" },
+        { kind: "fin", opt: true, pt: "Whipped cream", en: "Whipped cream", txt: { pt: "a gosto", en: "to taste" } }
+      ],
+      steps: { pt: ["Colocar todos os ingredientes no liquidificador.", "Bater até ficar homogêneo e cremoso.", "Servir.", "Finalizar com whipped cream, se desejar."],
+               en: ["Put all the ingredients in the blender.", "Blend until smooth and creamy.", "Serve.", "Top with whipped cream, if you like."] } },
+    { id: "espresso-martini", c: "#8a5a3c", g: "#3a2416", glass: "martini", shake: true, syrup: true, pt: { name: "Espresso Martini", tag: "Vodka · batido" }, en: { name: "Espresso Martini", tag: "Vodka · shaken" },
+      items: [
+        { q: 60, u: "ml", pt: V, en: V },
+        { q: 30, u: "ml", pt: "Espresso", en: "Espresso" },
+        { q: 20, u: "ml", pt: "Kahlúa ou outro coffee liqueur", en: "Kahlúa or another coffee liqueur" },
+        { q: [0, 7], u: "ml", pt: "Simple syrup", en: "Simple syrup", opt: true },
+        { kind: "ice", plenty: true, shake: true },
+        { kind: "fin", opt: true, q: 3, u: "bean", pt: "Grãos de café", en: "Coffee beans", per: true }
+      ],
+      steps: { pt: ["Colocar todos os ingredientes numa coqueteleira cheia de gelo.", "Chacoalhar vigorosamente por 15–20 segundos.", "Coar para a taça.", "Se quiser, finalizar com 3 grãos de café."],
+               en: ["Put all the ingredients in a shaker full of ice.", "Shake hard for 15–20 seconds.", "Strain into the glass.", "Optionally garnish with 3 coffee beans."] } },
+    { id: "vodka-cranberry", c: "#c8324a", g: "#c6f24e", glass: "highball", pt: { name: "Vodka Cranberry", tag: "Vodka · montado" }, en: { name: "Vodka Cranberry", tag: "Vodka · built" },
+      items: [
+        { q: 60, u: "ml", pt: V, en: V },
+        { q: 120, u: "ml", pt: "Cranberry juice", en: "Cranberry juice" },
+        { q: 15, u: "ml", pt: "Suco de lime", en: "Lime juice" },
+        { kind: "ice", plenty: true },
+        { kind: "fin", opt: true, pt: "Club Soda", en: "Club Soda", txt: { pt: "um pequeno splash", en: "a small splash" } }
+      ],
+      steps: { pt: ["Encher o copo com gelo.", "Adicionar a vodka.", "Adicionar o cranberry juice e o lime.", "Misturar levemente.", "Se quiser mais leve, completar com um pequeno splash de Club Soda."],
+               en: ["Fill the glass with ice.", "Add the vodka.", "Add the cranberry juice and lime.", "Stir gently.", "For a lighter drink, top with a small splash of Club Soda."] } },
+    { id: "cuba-libre", c: "#5a2e1e", g: "#c6f24e", glass: "highball", pt: { name: "Cuba Libre", tag: "Rum · montado" }, en: { name: "Cuba Libre", tag: "Rum · built" },
+      items: [
+        { q: 60, u: "ml", pt: R, en: R },
+        { q: [120, 150], u: "ml", pt: "Coca-Cola Zero", en: "Coca-Cola Zero" },
+        { q: 15, u: "ml", pt: "Suco de lime", en: "Lime juice" },
+        { kind: "ice", plenty: true }
+      ],
+      steps: { pt: ["Encher o copo com gelo.", "Adicionar o Bacardí e o lime.", "Completar com Coca-Cola Zero.", "Misturar levemente."],
+               en: ["Fill the glass with ice.", "Add the Bacardí and lime.", "Top with Coca-Cola Zero.", "Stir gently."] } },
+    { id: "vodka-soda", c: "#cfe3ee", g: "#c6f24e", glass: "highball", pt: { name: "Vodka Soda", tag: "Vodka · montado" }, en: { name: "Vodka Soda", tag: "Vodka · built" },
+      items: [
+        { q: 60, u: "ml", pt: V, en: V },
+        { q: [120, 150], u: "ml", pt: "Club Soda", en: "Club Soda" },
+        { q: 15, u: "ml", pt: "Suco de lime", en: "Lime juice" },
+        { kind: "ice", plenty: true }
+      ],
+      steps: { pt: ["Encher o copo com gelo.", "Adicionar a vodka e o lime.", "Completar com Club Soda.", "Misturar levemente."],
+               en: ["Fill the glass with ice.", "Add the vodka and lime.", "Top with Club Soda.", "Stir gently."] } },
+    { id: "mojito", c: "#7fcf6a", g: "#3f9b3a", glass: "highball", syrup: true, pt: { name: "Mojito", tag: "Rum · macerado" }, en: { name: "Mojito", tag: "Rum · muddled" },
+      items: [
+        { q: 60, u: "ml", pt: R, en: R },
+        { q: [20, 25], u: "ml", pt: "Suco de lime", en: "Lime juice" },
+        { q: [15, 20], u: "ml", pt: "Simple syrup", en: "Simple syrup" },
+        { q: [6, 8], u: "leaf_mint", pt: "Hortelã", en: "Mint" },
+        { q: 60, u: "ml", pt: "Club Soda", en: "Club Soda", approx: true },
+        { kind: "ice", plenty: true }
+      ],
+      steps: { pt: ["Colocar a hortelã, o lime e o simple syrup no copo.", "Pressionar a hortelã de leve, sem triturar demais.", "Adicionar gelo.", "Adicionar o Bacardí.", "Completar com Club Soda.", "Misturar."],
+               en: ["Put the mint, lime and simple syrup in the glass.", "Press the mint gently, without shredding it.", "Add ice.", "Add the Bacardí.", "Top with Club Soda.", "Stir."] } },
+    { id: "basil-mule", c: "#9fd36b", g: "#2f7d32", glass: "mug", pt: { name: "Basil Mule", tag: "Vodka · macerado" }, en: { name: "Basil Mule", tag: "Vodka · muddled" },
+      items: [
+        { q: 60, u: "ml", pt: V, en: V },
+        { q: [15, 20], u: "ml", pt: "Suco de lime", en: "Lime juice" },
+        { q: 120, u: "ml", pt: "Ginger Beer", en: "Ginger Beer" },
+        { q: [4, 6], u: "leaf_mint", pt: "Manjericão", en: "Basil" },
+        { kind: "ice", plenty: true }
+      ],
+      tip: { pt: "Este drink não leva simple syrup.", en: "No simple syrup in this drink." },
+      steps: { pt: ["Pressionar levemente o manjericão no copo.", "Adicionar gelo.", "Adicionar a vodka e o lime.", "Completar com Ginger Beer.", "Misturar levemente."],
+               en: ["Gently press the basil in the glass.", "Add ice.", "Add the vodka and lime.", "Top with Ginger Beer.", "Stir gently."] } },
+    { id: "daiquiri", c: "#e8f0b8", g: "#c6f24e", glass: "coupe", shake: true, syrup: true, pt: { name: "Daiquiri", tag: "Rum · batido" }, en: { name: "Daiquiri", tag: "Rum · shaken" },
+      items: [
+        { q: 60, u: "ml", pt: R, en: R },
+        { q: 25, u: "ml", pt: "Suco de lime", en: "Lime juice" },
+        { q: [15, 20], u: "ml", pt: "Simple syrup", en: "Simple syrup" },
+        { kind: "ice", plenty: true, shake: true }
+      ],
+      steps: { pt: ["Colocar o Bacardí, o lime e o simple syrup numa coqueteleira com gelo.", "Chacoalhar bem.", "Coar para a taça."],
+               en: ["Put the Bacardí, lime and simple syrup in a shaker with ice.", "Shake well.", "Strain into the glass."] } }
+  ];
+
+  /* ---------------------------------------------------------------- estado */
+  var store = { get: function (k) { try { return localStorage.getItem("drinks." + k); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem("drinks." + k, v); } catch (e) {} } };
+  var LANG = store.get("lang") || "pt";
+  if (/[?&]lang=en/.test(location.search)) LANG = "en"; if (/[?&]lang=pt/.test(location.search)) LANG = "pt";
+  var N = +(store.get("n") || 1); if ([1, 2, 4].indexOf(N) < 0) N = 1;
+  var VAR = store.get("pina") || "rum";
+  var main = document.getElementById("main");
+
+  function esc(s) { return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function md(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
+  function num(x) { var r = Math.round(x * 100) / 100; return LANG === "en" ? String(r) : String(r).replace(".", ","); }
+  function unit(u, v) { var U = UNITS[u][LANG]; return v > 1 ? U[1] : U[0]; }
+  function qty(it, n) {
+    if (it.q == null) return null;
+    var a = Array.isArray(it.q) ? it.q[0] * n : it.q * n, b = Array.isArray(it.q) ? it.q[1] * n : null;
+    var v = (b != null ? num(a) + "–" + num(b) : num(a));
+    return { v: (it.approx ? "≈ " : "") + v, u: unit(it.u, b != null ? b : a) };
+  }
+  function T(k) { return UI[LANG][k]; }
+
+  /* copos desenhados (cor = cor do drink) */
+  function glass(type, c, g) {
+    var s = { mug: '<path class="liq" d="M16 24h30v28a6 6 0 0 1-6 6H22a6 6 0 0 1-6-6z" opacity=".9"/><rect class="ice" x="20" y="27" width="9" height="9" rx="2"/><rect class="ice" x="31" y="31" width="9" height="9" rx="2"/><path class="rim" d="M14 18h34v34a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8zM48 26h4a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-4"/><circle class="gar" cx="44" cy="17" r="5"/>',
+      hurricane: '<path class="liq" d="M22 22h20c0 9-4 12-4 18s3 8 3 12H23c0-4 3-6 3-12s-4-9-4-18z" opacity=".95"/><path class="rim" d="M20 10h24c0 12-5 16-5 24s4 11 4 18H21c0-7 4-10 4-18s-5-12-5-24zM32 52v8M24 60h16"/><circle class="gar" cx="42" cy="12" r="6"/>',
+      martini: '<path class="liq" d="M16 18h32L32 34z" opacity=".95"/><path class="rim" d="M12 12h40L32 36zM32 36v20M22 58h20"/><circle class="gar" cx="28" cy="20" r="2"/><circle class="gar" cx="32" cy="21" r="2"/><circle class="gar" cx="36" cy="20" r="2"/>',
+      highball: '<path class="liq" d="M20 22h24v34a3 3 0 0 1-3 3H23a3 3 0 0 1-3-3z" opacity=".9"/><rect class="ice" x="23" y="26" width="8" height="8" rx="2"/><rect class="ice" x="32" y="33" width="8" height="8" rx="2"/><rect class="ice" x="24" y="41" width="8" height="8" rx="2"/><path class="rim" d="M18 8h28v49a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4z"/><path class="gar" d="M40 4a8 8 0 0 1 8 8h-8z"/>',
+      coupe: '<path class="liq" d="M15 20h34c-1 8-8 13-17 13s-16-5-17-13z" opacity=".95"/><path class="rim" d="M12 16h40c0 11-9 19-20 19S12 27 12 16zM32 35v20M22 58h20"/><path class="gar" d="M46 12a6 6 0 0 1 6 6h-6z"/>' }[type];
+    return '<svg class="glass" viewBox="0 0 64 64" aria-hidden="true" style="--c:' + c + ";--g:" + g + '">' + s + "</svg>";
+  }
+
+  /* ---------------------------------------------------------------- telas */
+  function chrome(inRecipe) {
+    document.documentElement.lang = LANG === "en" ? "en" : "pt-BR";
+    document.getElementById("brand-s").textContent = T("brand_s");
+    document.getElementById("back").hidden = !inRecipe;
+    document.getElementById("back-t").textContent = T("back");
+    document.getElementById("brand").hidden = !!inRecipe && window.innerWidth < 520;
+    document.getElementById("off").textContent = T("offline");
+    document.getElementById("foot-l").textContent = T("foot_l");
+    document.getElementById("foot-r").textContent = T("foot_r");
+    [].forEach.call(document.querySelectorAll("[data-lang]"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang") === LANG); });
+  }
+  function renderList() {
+    chrome(false);
+    document.title = (LANG === "en" ? "Drinks menu" : "Menu de drinks") + " — Além da Urna";
+    main.innerHTML = '<div class="intro"><h1>' + esc(T("title")) + "</h1><p>" + esc(T("sub")) + '</p></div><div class="grid">' +
+      DRINKS.map(function (d) {
+        return '<button class="card" type="button" data-open="' + d.id + '" style="--c:' + d.c + '">' + glass(d.glass, d.c, d.g) + "<span><h2>" + esc(d[LANG].name) + "</h2><p>" + esc(d[LANG].tag) + '</p></span><span class="go" aria-hidden="true">→</span></button>';
+      }).join("") + '</div><p class="note-global">' + md(T("syrup")) + "</p>";
+    window.scrollTo(0, 0);
+  }
+  function renderRecipe(id, flash) {
+    var d = DRINKS.filter(function (x) { return x.id === id; })[0]; if (!d) return renderList();
+    chrome(true);
+    document.title = d[LANG].name + " — " + (LANG === "en" ? "Drinks" : "Drinks");
+    var vr = d.variants ? (d.variants.filter(function (v) { return v.id === VAR; })[0] || d.variants[0]) : null;
+    var rows = { ing: [], ice: [], fin: [] };
+    d.items.forEach(function (it0) {
+      var it = it0.base ? vr.base : it0, kind = it0.kind || "ing";
+      var label = esc(it[LANG] || ""), note = it[LANG + "_n"] ? "<small>" + esc(it[LANG + "_n"]) + "</small>" : "", q;
+      if (kind === "ice") {
+        if (it.plenty) q = '<span class="qt txt">' + esc(it.shake ? T("plenty_shake") : T("plenty")) + "</span>";
+        else { var qq = qty(it, N); q = '<span class="qt">' + qq.v + "<small>" + esc(qq.u) + "</small></span>"; }
+        rows.ice.push('<li class="ice"><span class="nm">' + esc(T("ice")) + '</span>' + q + "</li>");
+        return;
+      }
+      if (it.txt) q = '<span class="qt txt">' + esc(it.txt[LANG]) + "</span>";
+      else { var x = qty(it, N); q = '<span class="qt">' + x.v + "<small>" + esc(x.u) + "</small></span>"; if (it.per && N > 1) note = "<small>" + esc(num(it.q) + " " + unit(it.u, it.q) + " " + T("per")) + "</small>"; }
+      rows[kind].push("<li" + (it.opt || it0.opt ? ' class="opt' + (kind === "fin" ? " fin" : "") + '" data-opt="' + esc(T("optional")) + '"' : kind === "fin" ? ' class="fin"' : "") + '><span class="nm">' + label + note + "</span>" + q + "</li>");
+    });
+    var h = '<div class="recipe" style="--c:' + d.c + '"><div class="r-head">' + glass(d.glass, d.c, d.g) + "<div><h1>" + esc(d[LANG].name) + "</h1><p>" + esc(d[LANG].tag) + "</p></div></div>" +
+      '<div class="controls"><span class="ctl-l">' + esc(T("for")) + '</span><div class="seg" role="group" aria-label="' + esc(T("for")) + '">' +
+      [1, 2, 4].map(function (n) { return '<button type="button" data-n="' + n + '" aria-pressed="' + (n === N) + '">' + n + "<small>" + esc(n === 1 ? T("drinks1") : T("drinksN")) + "</small></button>"; }).join("") + "</div>" +
+      (d.variants ? '<span class="ctl-l">' + esc(T("spirit")) + '</span><div class="seg" role="group" aria-label="' + esc(T("spirit")) + '">' + d.variants.map(function (v) { return '<button type="button" data-var="' + v.id + '" aria-pressed="' + (v.id === vr.id) + '">' + esc(v[LANG]) + "</button>"; }).join("") + "</div>" : "") + "</div>" +
+      '<div class="cols' + (flash ? " flash" : "") + '"><section class="panel"><h3>' + esc(T("ing")) + '</h3><ul class="ing">' + rows.ing.join("") + rows.ice.join("") + "</ul>" +
+      (rows.fin.length ? "<h3>" + esc(T("fin")) + '</h3><ul class="ing">' + rows.fin.join("") + "</ul>" : "") + "</section>" +
+      '<section class="panel"><h3>' + esc(T("steps")) + '</h3><ol class="steps">' + d.steps[LANG].map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ol>" +
+      (d.tip ? '<p class="tip">' + esc(d.tip[LANG]) + "</p>" : "") + (d.syrup ? '<p class="tip">' + md(T("syrup")) + "</p>" : "") +
+      (N === 4 && d.shake ? '<p class="batch">' + esc(T("batch_shake")) + "</p>" : "") + (N === 4 && d.blend ? '<p class="batch">' + esc(T("batch_blend")) + "</p>" : "") + "</section></div></div>";
+    main.innerHTML = h;
+  }
+  function route(flash) {
+    var id = location.hash.replace(/^#/, "");
+    if (id) renderRecipe(id, flash); else renderList();
+  }
+
+  /* ---------------------------------------------------------------- toque */
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest ? e.target : null; if (!t) return; var el;
+    if ((el = t.closest("[data-open]"))) { location.hash = el.getAttribute("data-open"); window.scrollTo(0, 0); return; }
+    if (t.closest("#back")) { history.replaceState(null, "", location.pathname + location.search); route(false); window.scrollTo(0, 0); return; }
+    if ((el = t.closest("[data-n]"))) { N = +el.getAttribute("data-n"); store.set("n", N); var y = window.scrollY; route(true); window.scrollTo(0, y); return; }
+    if ((el = t.closest("[data-var]"))) { VAR = el.getAttribute("data-var"); store.set("pina", VAR); var y2 = window.scrollY; route(true); window.scrollTo(0, y2); return; }
+    if ((el = t.closest("[data-lang]"))) { LANG = el.getAttribute("data-lang"); store.set("lang", LANG); route(false); return; }
+  });
+  window.addEventListener("hashchange", function () { route(false); window.scrollTo(0, 0); });
+  function net() { document.body.classList.toggle("is-offline", !navigator.onLine); }
+  window.addEventListener("online", net); window.addEventListener("offline", net); net();
+  route(false);
+
+  /* ---------------------------------------------------------------- offline (service worker só desta página) */
+  if ("serviceWorker" in navigator && window.isSecureContext) {
+    window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js", { scope: "./" }).catch(function () {}); });
+  }
+})();
+</script>
+</body>
+</html>

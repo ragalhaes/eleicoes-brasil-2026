@@ -183,6 +183,16 @@ def build(lang):
 
 if __name__ == '__main__':
     os.makedirs(OUT + 'en', exist_ok=True)
+    # Menu de drinks do evento (página própria em /drinks/, com offline e ícone para a Tela de Início)
+    import hashlib
+    dsrc, dout = SRC + 'drinks/', OUT + 'drinks/'
+    os.makedirs(dout, exist_ok=True)
+    ver = hashlib.sha1(b''.join(open(dsrc + f, 'rb').read() for f in sorted(os.listdir(dsrc)))).hexdigest()[:10]
+    for f in sorted(os.listdir(dsrc)):
+        if f == 'sw.js':
+            open(dout + f, 'w').write(open(dsrc + f).read().replace('__VERSION__', ver))
+        else:
+            shutil.copyfile(dsrc + f, dout + f)
     for lang, path in (('pt', OUT + 'index.html'), ('en', OUT + 'en/index.html')):
         h = build(lang)
         open(path, 'w').write(h)
