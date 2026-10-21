@@ -7,8 +7,9 @@ A seção lê arquivos pequenos em `assets/data/oqf/`, carregados sob demanda pe
 | `manifest.js` | `prepare_data.py` | versões e SHA-256 das bases, lista de indicadores, disponibilidade por entidade e por ano |
 | `series/<ENT>.js` | `prepare_data.py` | séries das entidades-piloto (BRA, DEU, FRG, GDR, SUN, RUS, UKR) |
 | `world/<ISO>.js` | `prepare_data.py` | 4 indicadores comparáveis (C1) dos demais países — expansão automática, sem revisão manual |
-| `world_avail.js` | `prepare_data.py` | que tipo de dado existe por país × ano × camada (pinta o mapa; o mapa não pinta valores) |
-| `terms.js` | `prepare_data.py` | painel por mandato da Auditoria 3 (só S e R), com textos PT e EN |
+| `world_avail.js` | `prepare_data.py` | que tipo de dado existe por país × ano × camada (modo "Disponibilidade" do mapa) |
+| `values/<indicador>.js` | `prepare_data.py` | valores S/R dos 4 indicadores comparáveis entre países (modo "Valores" do mapa); sem RFA, RDA e URSS |
+| `terms.js` | `prepare_data.py` | painel por mandato da Auditoria 3 (só S e R), com textos PT e EN e a série anual de cada janela (`w`) |
 | `leaders.js` | `_src/oqf/leaders.js` (copiado pelo `build.py`) | lista de referência pública de governantes (a Auditoria 1 ainda está em validação) |
 | `world.js` | gerado antes (Natural Earth 1:110m, Equal Earth) | geometria do mapa; fronteiras atuais, só referência visual |
 
@@ -52,6 +53,25 @@ Os SHA-256 dos arquivos lidos ficam gravados no `manifest.js` e aparecem na pág
 
 Os componentes visuais (`_src/js/oqf.js`) não precisam mudar: eles leem tudo do manifesto.
 
+## Testes
+
+```bash
+node _src/oqf/tests/oqf_test.mjs .                 # filtros de publicação, grupos, perguntas prontas, escalas do mapa, chaves PT/EN
+python3 _src/build.py --preview /tmp/previa
+node _src/oqf/tests/oqf_ui_test.mjs /tmp/previa         # interface (Playwright): comparabilidade, valores exibidos = dados, mandatos, mapa, perguntas, EN
+```
+
+O teste de interface precisa do Playwright com Chromium (`npm i playwright`).
+
+## Onde cada coisa é organizada (Versão 2 de UX)
+
+- Grupos dos perfis (Saúde, Educação…; Crescimento, Inflação…): `GROUPS` em `oqf.js`. Todo indicador do manifesto precisa estar em exatamente um grupo (o teste confere).
+- Perguntas prontas: `QUESTIONS` em `oqf.js`; textos em `v2.questions` dos arquivos de conteúdo. O teste recusa pergunta sem dado suficiente ou que compare países num indicador sem comparabilidade internacional.
+- Classes de cor do mapa de valores: `VBINS` em `oqf.js` (paleta neutra; sem verde × vermelho).
+- Textos novos: bloco `v2` em `_src/js/data/oqf_content.js` e `_src/js/data_en/oqf_content.js`.
+
 ## Ponto de restauração
 
-O protótipo com dados demonstrativos está no commit marcado com a tag `oqf-prototipo-demo`.
+- `oqf-prototipo-demo`: protótipo com dados demonstrativos.
+- `oqf-dados-reais-v1`: integração das Auditorias 2 e 3 (antes do refinamento de UX).
+- `oqf-ux-v1-antes-redesenho`: mesmo ponto, marcado como restauração antes da Versão 2 de UX.
